@@ -7,44 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Utils.Defs;
 
-namespace DeliveryMarket
-{
-    public partial class FormMain : Form
-    {
-        private Controller mController;
+namespace DeliveryMarket {
+
+	public partial class FormMain : Form {
+
+		// Member variables
         private int mAccountID;
+		private Privilege mPrivilege;
 
         /* Constructor */
-        public FormMain()
-        {
-            // Initialzes form's components
+		public FormMain(int accountID = 99, Privilege privilege = Privilege.User) {
             InitializeComponent();
 
-
-            mController = new Controller();
-            mAccountID = 99; // Just for testing
+			mAccountID = accountID;
+			mPrivilege = privilege;
         }
 
         /* Add product button clicked callback function */
-        private void buttonAddProduct_Click(object sender, EventArgs e)
-        {
-            // For test
-            Product.Product p = new Product.Product();
-            p.Name = "iPhone 7";
-            p.Price = "78.65";
-            p.StockCount = "15";
-            p.Description = "Apple greatest phone ever.";
-            p.Category = "Mobile phone";
-            p.SellerID = "99";
-
-            new Product.FormAddProduct(mAccountID).Show(this);
-            this.Hide();
+		private void buttonAddProduct_Click(object sender, EventArgs e) {
+			new Product.FormSaveProduct(mAccountID).Show(this);
+			Hide();
         }
 
         /* View products button clicked callback function */
-        private void buttonViewProducts_Click(object sender, EventArgs e)
-        {
+		private void buttonViewProducts_Click(object sender, EventArgs e) {
             new Product.FormProducts(mAccountID).Show();
         }
 
@@ -55,21 +43,19 @@ namespace DeliveryMarket
         }
 
         /* Admin panel button clicked callback function */
-        private void buttonAdminPanel_Click(object sender, EventArgs e)
-        {
-            this.Focus();
+		private void buttonAdminPanel_Click(object sender, EventArgs e) {
+			new Admin.FormAdminMain().Show(this);
+			this.Hide();
         }
 
         /* About button clicked callback function */
-        private void buttonAbout_Click(object sender, EventArgs e)
-        {
-            this.Focus();
+		private void buttonAbout_Click(object sender, EventArgs e) {
+
         }
 
         /* Sign out button clicked callback function */
-        private void buttonSignOut_Click(object sender, EventArgs e)
-        {
-            this.Close();
+		private void buttonSignOut_Click(object sender, EventArgs e) {
+			Close();
         }
     }
 }

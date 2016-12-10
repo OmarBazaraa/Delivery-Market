@@ -8,7 +8,7 @@ namespace DeliveryMarket.Product
 {
     public class Product
     {
-        public string ProductID;
+        public string ID;
         public string SellerID;
         public string Name;
         public string Price;

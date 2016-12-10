@@ -62,6 +62,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\FormAdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAdminMain.Designer.cs">
+      <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormViewAdmins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormViewAdmins.Designer.cs">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductController.cs" />
     <Compile Include="Account\Account.cs" />
     <Compile Include="Account\AccountController.cs" />
     <Compile Include="Account\BannedUser.cs" />
@@ -81,11 +94,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product\FormAddProduct.cs">
+    <Compile Include="Product\FormSaveProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product\FormAddProduct.Designer.cs">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    <Compile Include="Product\FormSaveProduct.Designer.cs">
+      <DependentUpon>FormSaveProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\FormBuyProduct.cs">
       <SubType>Form</SubType>
@@ -101,16 +114,23 @@
     </Compile>
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
+    <Compile Include="Utils\Defs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\FormAccounts.resx">
       <DependentUpon>FormAccounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAdminMain.resx">
+      <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormViewAdmins.resx">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product\FormAddProduct.resx">
-      <DependentUpon>FormAddProduct.cs</DependentUpon>
+    <EmbeddedResource Include="Product\FormSaveProduct.resx">
+      <DependentUpon>FormSaveProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>
@@ -151,6 +171,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Account\" />
     <Folder Include="Admin\" />
     <Folder Include="Registeration\" />
   </ItemGroup>
