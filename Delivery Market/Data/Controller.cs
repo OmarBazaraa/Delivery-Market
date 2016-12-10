@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Windows.Forms;
 
-namespace DeliveryMarket {
+namespace DeliveryMarket.Data {
 
 	/*
      * A class that controls our application database queries sending and retrival

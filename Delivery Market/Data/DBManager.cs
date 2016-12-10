@@ -2,7 +2,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace DeliveryMarket {
+namespace DeliveryMarket.Data {
 
 	/*
      * A class that manages interactions with database systems

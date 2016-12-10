@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
+    <Compile Include="Utils\Defs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
