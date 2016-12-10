@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAddEmployee = new System.Windows.Forms.Button();
-            this.buttonStatistics = new System.Windows.Forms.Button();
+            this.buttonAddAdmin = new System.Windows.Forms.Button();
+            this.buttonViewAdmins = new System.Windows.Forms.Button();
             this.buttonReports = new System.Windows.Forms.Button();
+            this.buttonStatistics = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonViewEmployees = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonAddEmployee
+            // buttonAddAdmin
             // 
-            this.buttonAddEmployee.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonAddEmployee.Location = new System.Drawing.Point(47, 39);
-            this.buttonAddEmployee.Name = "buttonAddEmployee";
-            this.buttonAddEmployee.Size = new System.Drawing.Size(251, 47);
-            this.buttonAddEmployee.TabIndex = 1;
-            this.buttonAddEmployee.Text = "Add Employee";
-            this.buttonAddEmployee.UseVisualStyleBackColor = true;
+            this.buttonAddAdmin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonAddAdmin.Location = new System.Drawing.Point(47, 39);
+            this.buttonAddAdmin.Name = "buttonAddAdmin";
+            this.buttonAddAdmin.Size = new System.Drawing.Size(251, 47);
+            this.buttonAddAdmin.TabIndex = 1;
+            this.buttonAddAdmin.Text = "Add Admin";
+            this.buttonAddAdmin.UseVisualStyleBackColor = true;
             // 
-            // buttonStatistics
+            // buttonViewAdmins
             // 
-            this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonStatistics.Location = new System.Drawing.Point(47, 198);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(251, 47);
-            this.buttonStatistics.TabIndex = 2;
-            this.buttonStatistics.Text = "Statisitics";
-            this.buttonStatistics.UseVisualStyleBackColor = true;
+            this.buttonViewAdmins.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonViewAdmins.Location = new System.Drawing.Point(47, 92);
+            this.buttonViewAdmins.Name = "buttonViewAdmins";
+            this.buttonViewAdmins.Size = new System.Drawing.Size(251, 47);
+            this.buttonViewAdmins.TabIndex = 0;
+            this.buttonViewAdmins.Text = "View Admins";
+            this.buttonViewAdmins.UseVisualStyleBackColor = true;
+            this.buttonViewAdmins.Click += new System.EventHandler(this.buttonViewAdmins_Click);
             // 
             // buttonReports
             // 
@@ -64,6 +65,16 @@
             this.buttonReports.TabIndex = 3;
             this.buttonReports.Text = "Reports";
             this.buttonReports.UseVisualStyleBackColor = true;
+            // 
+            // buttonStatistics
+            // 
+            this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonStatistics.Location = new System.Drawing.Point(47, 198);
+            this.buttonStatistics.Name = "buttonStatistics";
+            this.buttonStatistics.Size = new System.Drawing.Size(251, 47);
+            this.buttonStatistics.TabIndex = 2;
+            this.buttonStatistics.Text = "Statisitics";
+            this.buttonStatistics.UseVisualStyleBackColor = true;
             // 
             // buttonBack
             // 
@@ -76,27 +87,18 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // buttonViewEmployees
-            // 
-            this.buttonViewEmployees.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonViewEmployees.Location = new System.Drawing.Point(47, 92);
-            this.buttonViewEmployees.Name = "buttonViewEmployees";
-            this.buttonViewEmployees.Size = new System.Drawing.Size(251, 47);
-            this.buttonViewEmployees.TabIndex = 0;
-            this.buttonViewEmployees.Text = "View Employees";
-            this.buttonViewEmployees.UseVisualStyleBackColor = true;
-            // 
             // FormAdminMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 564);
-            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonAddAdmin);
+            this.Controls.Add(this.buttonViewAdmins);
             this.Controls.Add(this.buttonReports);
             this.Controls.Add(this.buttonStatistics);
-            this.Controls.Add(this.buttonAddEmployee);
-            this.Controls.Add(this.buttonViewEmployees);
+            this.Controls.Add(this.buttonBack);
             this.Name = "FormAdminMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Panel";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdminMain_FormClosed);
             this.ResumeLayout(false);
@@ -104,10 +106,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonAddEmployee;
-        private System.Windows.Forms.Button buttonStatistics;
+        private System.Windows.Forms.Button buttonAddAdmin;
+        private System.Windows.Forms.Button buttonViewAdmins;
         private System.Windows.Forms.Button buttonReports;
+        private System.Windows.Forms.Button buttonStatistics;
         private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Button buttonViewEmployees;
+        
     }
 }

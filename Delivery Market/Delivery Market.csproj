@@ -68,6 +68,13 @@
     <Compile Include="Admin\FormAdminMain.Designer.cs">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FormViewAdmins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormViewAdmins.Designer.cs">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductController.cs" />
     <Compile Include="Data\MarketContract.cs" />
     <Compile Include="Data\Controller.cs" />
     <Compile Include="Data\DBManager.cs" />
@@ -101,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormViewAdmins.resx">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
