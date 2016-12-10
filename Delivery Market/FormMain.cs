@@ -7,69 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Utils.Defs;
 
-namespace DeliveryMarket
-{
-    public partial class FormMain : Form
-    {
-        private Controller mController;
-        private int mAccountID;
+namespace DeliveryMarket {
 
-        /* Constructor */
-        public FormMain()
-        {
-            // Initialzes form's components
-            InitializeComponent();
+	public partial class FormMain : Form {
 
+		// Member variables
+		private int mAccountID;
+		private Privilege mPrivilege;
 
-            mController = new Controller();
-            mAccountID = 99; // Just for testing
-        }
+		/* Constructor */
+		public FormMain(int accountID = 99, Privilege privilege = Privilege.User) {
+			InitializeComponent();
 
-        /* Add product button clicked callback function */
-        private void buttonAddProduct_Click(object sender, EventArgs e)
-        {
-            // For test
-            Product.Product p = new Product.Product();
-            p.Name = "iPhone 7";
-            p.Price = "78.65";
-            p.StockCount = "15";
-            p.Description = "Apple greatest phone ever.";
-            p.Category = "Mobile phone";
-            p.SellerID = "99";
+			mAccountID = accountID;
+			mPrivilege = privilege;
+		}
 
-            new Product.FormAddProduct(mAccountID).Show(this);
-            this.Hide();
-        }
+		/* Add product button clicked callback function */
+		private void buttonAddProduct_Click(object sender, EventArgs e) {
+			new Product.FormSaveProduct(mAccountID).Show(this);
+			Hide();
+		}
 
-        /* View products button clicked callback function */
-        private void buttonViewProducts_Click(object sender, EventArgs e)
-        {
-            new Product.FormProducts(mAccountID).Show();
-        }
+		/* View products button clicked callback function */
+		private void buttonViewProducts_Click(object sender, EventArgs e) {
+			new Product.FormProducts(mAccountID).Show();
+		}
 
-        /* View sellers button clicked callback function */
-        private void buttonViewSellers_Click(object sender, EventArgs e)
-        {
-            this.Focus();
-        }
+		/* View sellers button clicked callback function */
+		private void buttonViewSellers_Click(object sender, EventArgs e) {
 
-        /* Admin panel button clicked callback function */
-        private void buttonAdminPanel_Click(object sender, EventArgs e)
-        {
-            this.Focus();
-        }
+		}
 
-        /* About button clicked callback function */
-        private void buttonAbout_Click(object sender, EventArgs e)
-        {
-            this.Focus();
-        }
+		/* Admin panel button clicked callback function */
+		private void buttonAdminPanel_Click(object sender, EventArgs e) {
 
-        /* Sign out button clicked callback function */
-        private void buttonSignOut_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-    }
+		}
+
+		/* About button clicked callback function */
+		private void buttonAbout_Click(object sender, EventArgs e) {
+
+		}
+
+		/* Sign out button clicked callback function */
+		private void buttonSignOut_Click(object sender, EventArgs e) {
+			Close();
+		}
+	}
 }

@@ -12,14 +12,16 @@ namespace DeliveryMarket.Product
 {
     public partial class FormProducts : Form
     {
-        private Controller mController;
+        // Member variables
         private int mAccountID;
+		private ProductController mController;
 
-        public FormProducts(int accountID)
+		public FormProducts(int accountID)
         {
             InitializeComponent();
 
-            this.mAccountID = accountID;
+            mAccountID = accountID;
+			mController = new ProductController();
         }
     }
 }
