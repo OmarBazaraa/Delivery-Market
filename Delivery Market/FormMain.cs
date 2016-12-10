@@ -43,7 +43,8 @@ namespace DeliveryMarket {
 
 		/* Admin panel button clicked callback function */
 		private void buttonAdminPanel_Click(object sender, EventArgs e) {
-
+			new Admin.FormAdminMain().Show(this);
+			this.Hide();
 		}
 
 		/* About button clicked callback function */
