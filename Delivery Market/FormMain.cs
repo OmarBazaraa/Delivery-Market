@@ -13,19 +13,63 @@ namespace DeliveryMarket
     public partial class FormMain : Form
     {
         private Controller mController;
+        private int mAccountID;
 
+        /* Constructor */
         public FormMain()
         {
+            // Initialzes form's components
             InitializeComponent();
 
+
             mController = new Controller();
+            mAccountID = 99; // Just for testing
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /* Add product button clicked callback function */
+        private void buttonAddProduct_Click(object sender, EventArgs e)
         {
-            DataTable dt = mController.TestQuery();
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
+            // For test
+            Product.Product p = new Product.Product();
+            p.Name = "iPhone 7";
+            p.Price = "78.65";
+            p.StockCount = "15";
+            p.Description = "Apple greatest phone ever.";
+            p.Category = "Mobile phone";
+            p.SellerID = "99";
+
+            new Product.FormAddProduct(mAccountID).Show(this);
+            this.Hide();
+        }
+
+        /* View products button clicked callback function */
+        private void buttonViewProducts_Click(object sender, EventArgs e)
+        {
+            new Product.FormProducts(mAccountID).Show();
+        }
+
+        /* View sellers button clicked callback function */
+        private void buttonViewSellers_Click(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
+
+        /* Admin panel button clicked callback function */
+        private void buttonAdminPanel_Click(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
+
+        /* About button clicked callback function */
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            this.Focus();
+        }
+
+        /* Sign out button clicked callback function */
+        private void buttonSignOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
