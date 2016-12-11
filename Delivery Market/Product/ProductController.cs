@@ -27,7 +27,7 @@ namespace DeliveryMarket.Product {
 		/* Selects product details by its ID, to be used in showing product details */
 		public DataRow SelectProductDetails(int productID) {
 			string query =
-				"SELECT " + ProductEntry.TABLE_NAME + ".*, " + AccountEntry.COL_ACCOUNT_ID + ", " +
+				"SELECT " + ProductEntry.TABLE_NAME + ".*, " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ", " +
 				"CONCAT(" + AccountEntry.COL_FIRST_NAME + ", ' ', " + AccountEntry.COL_LAST_NAME + ") AS " + ProductEntry.COL_SELLER_NAME + ", " +
 				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
 				"FROM " + ProductEntry.TABLE_NAME + " INNER JOIN " + AccountEntry.TABLE_NAME + " ON " +
@@ -51,7 +51,7 @@ namespace DeliveryMarket.Product {
 		/* Selects all not deleted products to be displayed as list */
 		public DataTable SelectProductList(string name = "", string category = "") {
 			string query =
-				"SELECT " + ProductEntry.COL_PRODUCT_NAME + ", " +
+				"SELECT " + ProductEntry.COL_PRODUCT_NAME + ", " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", " +
 				"CONCAT(" + AccountEntry.COL_FIRST_NAME + ", ' ', " + AccountEntry.COL_LAST_NAME + ") AS " + ProductEntry.COL_SELLER_NAME + ", " +
 				ProductEntry.COL_PRICE + ", " +
 				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +

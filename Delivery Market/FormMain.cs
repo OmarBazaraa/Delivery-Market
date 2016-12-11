@@ -48,9 +48,9 @@ namespace DeliveryMarket {
 
 		/* View products button clicked callback function */
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
-			//new FormProductList(mAccountID).Show(this);
-			new FormProductDetail(mAccountID, 9, mPrivilege).Show(this);
-			//Hide();
+			new FormProductList(mAccountID, mPrivilege).Show(this);
+			//new FormProductDetail(mAccountID, 9, mPrivilege).Show(this);
+			Hide();
 		}
 
 		/* View sellers button clicked callback function */
