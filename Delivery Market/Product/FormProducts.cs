@@ -23,5 +23,9 @@ namespace DeliveryMarket.Product
             mAccountID = accountID;
 			mController = new ProductController();
         }
-    }
+
+		private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
+
+		}
+	}
 }

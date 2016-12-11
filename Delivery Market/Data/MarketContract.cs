@@ -21,6 +21,10 @@
 			public const string COL_CITY = "city";
 			public const string COL_CREATION_DATE = "creation_date";
 			public const string COL_ACCOUNT_TYPE = "account_type";
+
+			// Enums
+			public static readonly string [] COL_GENDER_ENUM = { "M", "F" };
+			public static readonly string [] COL_ACCOUNT_TYPE_ENUM = { "Active", "Banned", "Admin" };
 		}
 
 		public static class AdminEntry {
@@ -38,6 +42,12 @@
 
 			// Columns names
 			public const string COL_ACCOUNT_ID = "user_id";
+
+			// Derived Attributes
+			public const string DER_RATING = "rating";
+			public const string DER_PRODUCTS_COUNT = "products_count";
+			public const string DER_ORDERS_COUNT = "orders_count";
+			public const string DER_EARNED_MONEY = "earned_money";
 		}
 
 		public static class BannedUserEntry {
