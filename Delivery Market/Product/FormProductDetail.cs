@@ -116,5 +116,13 @@ namespace DeliveryMarket.Product {
 				LoadProductDetails();
 			}
 		}
+
+		private void buttonDelete_Click(object sender, EventArgs e) {
+			new FormRemoveProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		private void buttonReport_Click(object sender, EventArgs e) {
+			new FormReportProduct(mAccountID, mProductID).ShowDialog(this);
+		}
 	}
 }

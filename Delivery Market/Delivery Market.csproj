@@ -90,11 +90,23 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\FormRemoveProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormRemoveProduct.Designer.cs">
+      <DependentUpon>FormRemoveProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\FormProductDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Product\FormProductDetail.Designer.cs">
       <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\FormReportProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormReportProduct.Designer.cs">
+      <DependentUpon>FormReportProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\FormSaveProduct.cs">
       <SubType>Form</SubType>
@@ -134,8 +146,14 @@
     <EmbeddedResource Include="Product\FormBuyProduct.resx">
       <DependentUpon>FormBuyProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormRemoveProduct.resx">
+      <DependentUpon>FormRemoveProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Product\FormProductDetail.resx">
       <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormReportProduct.resx">
+      <DependentUpon>FormReportProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\FormSaveProduct.resx">
       <DependentUpon>FormSaveProduct.cs</DependentUpon>

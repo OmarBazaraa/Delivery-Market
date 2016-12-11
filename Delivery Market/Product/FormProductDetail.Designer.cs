@@ -185,6 +185,7 @@
 			this.buttonReport.TabIndex = 32;
 			this.buttonReport.Text = "Report";
 			this.buttonReport.UseVisualStyleBackColor = true;
+			this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
 			// 
 			// pictureBox1
 			// 
@@ -213,6 +214,7 @@
 			this.buttonDelete.TabIndex = 28;
 			this.buttonDelete.Text = "Delete";
 			this.buttonDelete.UseVisualStyleBackColor = true;
+			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
 			// 
 			// buttonEdit
 			// 

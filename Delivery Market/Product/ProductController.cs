@@ -115,7 +115,7 @@ namespace DeliveryMarket.Product {
 				ProductEntry.COL_CATEGORY + ", " +
 				ProductEntry.COL_DESCRIPTION + ", " +
 				ProductEntry.COL_STOCK_COUNT + ", " +
-				ProductEntry.COL_IMAGE + ") VALUES (" +
+				ProductEntry.COL_IMAGE + ") VALUES(" +
 				product.SellerID + ", " +
 				"'" + product.Name + "', " +
 				product.Price + ", " +
@@ -133,12 +133,11 @@ namespace DeliveryMarket.Product {
 			string query = "INSERT INTO " + CommentEntry.TABLE_NAME + " (" +
 				CommentEntry.COL_USER_ID + ", " +
 				CommentEntry.COL_PRODUCT_ID + ", " +
-				CommentEntry.COL_COMMENT_BODY + ", " +
-				CommentEntry.COL_COMMENT_DATE + ") VALUES (" +
+				CommentEntry.COL_COMMENT_BODY +
+				") VALUES (" +
 				accountID.ToString() + ", " +
 				productID.ToString() + ", " +
-				"'" + commentBody + "', " +
-				"'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+				"'" + commentBody + "'" +
 				");";
 
 			return DBMan.ExecuteNonQuery(query);
@@ -149,14 +148,13 @@ namespace DeliveryMarket.Product {
 			string query = "INSERT INTO " + ReportEntry.TABLE_NAME + " (" +
 				ReportEntry.COL_USER_ID + ", " +
 				ReportEntry.COL_PRODUCT_ID + ", " +
-				ReportEntry.COL_DESCRIPTION + ", " +
-				ReportEntry.COL_REPORT_DATE + ") VALUES (" +
+				ReportEntry.COL_DESCRIPTION +
+				") VALUES (" +
 				accountID.ToString() + ", " +
 				productID.ToString() + ", " +
-				"'" + description + "', " +
-				"'" + DateTime.Now.ToString("yyyy-MM-dd") + "'" +
+				"'" + description + "'" +
 				");";
-
+			
 			return DBMan.ExecuteNonQuery(query);
 		}
 
@@ -187,7 +185,7 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteNonQuery(query);
 		}
 
-		/* Updates a product details */
+		/* Updates the details of a given product */
 		public int UpdateProduct(Product product) {
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_PRODUCT_NAME + "='" + product.Name + "', " +
@@ -197,6 +195,31 @@ namespace DeliveryMarket.Product {
 				ProductEntry.COL_STOCK_COUNT + "=" + product.StockCount + ", " +
 				ProductEntry.COL_IMAGE + "='" + product.ImagePath + "' " +
 				"WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + product.ID + ";";
+
+			return DBMan.ExecuteNonQuery(query);
+		}
+
+		/* Deletes a given product */
+		public int DeleteProduct(int accountID, int productID, string reason, string description) {
+			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
+				ProductEntry.COL_DELETED + "=" + "'1' " +
+				"WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + productID.ToString() + ";";
+
+			if (DBMan.ExecuteNonQuery(query) <= 0) {
+				return 0;
+			}
+
+			query = "INSERT INTO " + RemovedProductsEntry.TABLE_NAME + "(" +
+				RemovedProductsEntry.COL_PRODUCT_ID + ", " +
+				RemovedProductsEntry.COL_ACCOUNT_ID + ", " +
+				RemovedProductsEntry.COL_REMOVAL_REASON + ", " +
+				RemovedProductsEntry.COL_DESCRIPTION +
+				 ") VALUES (" +
+				productID.ToString() + ", " +
+				accountID.ToString() + ", " +
+				"'" + reason + "', " +
+				"'" + description + "'" +
+				");";
 
 			return DBMan.ExecuteNonQuery(query);
 		}

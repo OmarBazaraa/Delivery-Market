@@ -74,6 +74,7 @@
 			public const string COL_DESCRIPTION = "description";
 			public const string COL_STOCK_COUNT = "stock_count";
 			public const string COL_IMAGE = "image";
+			public const string COL_START_DATE = "start_date";
 			public const string COL_DELETED = "deleted";
 		}
 
@@ -135,9 +136,9 @@
 			public const string COL_TRANSPORT_COMPANY_ID = "transport_company_id";
 		}
 
-		public static class RemovedProductEntry {
+		public static class RemovedProductsEntry {
 			// Table name
-			public const string TABLE_NAME = "removed_product";
+			public const string TABLE_NAME = "removed_products";
 
 			// Columns names
 			public const string COL_PRODUCT_ID = "product_id";
