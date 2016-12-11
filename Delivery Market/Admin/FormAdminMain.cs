@@ -35,5 +35,11 @@ namespace DeliveryMarket.Admin {
 			new FormViewAdmins().Show(this);
 			this.Hide();
 		}
-	}
+
+        private void buttonAddAdmin_Click(object sender, EventArgs e)
+        {
+            new FormAddAdmin().Show(this);
+            this.Hide();
+        }
+    }
 }

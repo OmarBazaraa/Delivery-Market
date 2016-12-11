@@ -44,6 +44,7 @@
             this.buttonAddAdmin.TabIndex = 1;
             this.buttonAddAdmin.Text = "Add Admin";
             this.buttonAddAdmin.UseVisualStyleBackColor = true;
+            this.buttonAddAdmin.Click += new System.EventHandler(this.buttonAddAdmin_Click);
             // 
             // buttonViewAdmins
             // 
