@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\FormAddAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddAdmin.Designer.cs">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="Utils\Defs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\FormAddAdmin.resx">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </EmbeddedResource>

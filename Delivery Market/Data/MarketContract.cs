@@ -4,6 +4,13 @@
 	 */
 	namespace MarketContract {
 
+		public static class AccountType {
+			//Account Types
+			public const string Active_Account = "Active";
+			public const string Admin_Account = "Admin";
+			public const string Banned_Account = "Banned";
+		}
+
 		public static class AccountEntry {
 			// Table name
 			public const string TABLE_NAME = "account";
