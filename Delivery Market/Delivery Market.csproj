@@ -84,6 +84,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\FormProductDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormProductDetail.Designer.cs">
+      <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\FormSaveProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +102,11 @@
     <Compile Include="Product\FormBuyProduct.Designer.cs">
       <DependentUpon>FormBuyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product\FormProducts.cs">
+    <Compile Include="Product\FormProductList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product\FormProducts.Designer.cs">
-      <DependentUpon>FormProducts.cs</DependentUpon>
+    <Compile Include="Product\FormProductList.Designer.cs">
+      <DependentUpon>FormProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
@@ -116,11 +122,17 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormBuyProduct.resx">
+      <DependentUpon>FormBuyProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormProductDetail.resx">
+      <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Product\FormSaveProduct.resx">
       <DependentUpon>FormSaveProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product\FormProducts.resx">
-      <DependentUpon>FormProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Product\FormProductList.resx">
+      <DependentUpon>FormProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

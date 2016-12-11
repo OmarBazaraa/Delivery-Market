@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Admin;
+using DeliveryMarket.Product;
 using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket {
@@ -18,22 +20,37 @@ namespace DeliveryMarket {
 		private Privilege mPrivilege;
 
 		/* Constructor */
-		public FormMain(int accountID = 99, Privilege privilege = Privilege.User) {
+		public FormMain(int accountID = 99, Privilege privilege = Privilege.Admin) {
 			InitializeComponent();
 
 			mAccountID = accountID;
 			mPrivilege = privilege;
 		}
 
+		/* Form load callback function */
+		private void FormMain_Load(object sender, EventArgs e) {
+			switch (mPrivilege) {
+				case Privilege.Admin:
+					buttonAddProduct.Enabled = false;
+					break;
+
+				case Privilege.User:
+					buttonAdminPanel.Enabled = false;
+					break;
+			}
+		}
+
 		/* Add product button clicked callback function */
 		private void buttonAddProduct_Click(object sender, EventArgs e) {
-			new Product.FormSaveProduct(mAccountID).Show(this);
+			new FormSaveProduct(mAccountID).Show(this);
 			Hide();
 		}
 
 		/* View products button clicked callback function */
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
-			new Product.FormProducts(mAccountID).Show();
+			//new FormProductList(mAccountID).Show(this);
+			new FormProductDetail(mAccountID, 9, mPrivilege).Show(this);
+			//Hide();
 		}
 
 		/* View sellers button clicked callback function */
@@ -43,7 +60,7 @@ namespace DeliveryMarket {
 
 		/* Admin panel button clicked callback function */
 		private void buttonAdminPanel_Click(object sender, EventArgs e) {
-			new Admin.FormAdminMain().Show(this);
+			new FormAdminMain().Show(this);
 			this.Hide();
 		}
 
