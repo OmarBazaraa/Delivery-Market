@@ -16,7 +16,7 @@ namespace DeliveryMarket.Account
 	class AccountController : Controller
 	{
 		/* Selects all accounts */
-		public DataTable SelectAllAccounts() {
+		public DataTable SelectAllAccounts(string email) {
 			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", "
 				+ AccountEntry.COL_FIRST_NAME + ", "
 				+ AccountEntry.COL_LAST_NAME + ", "
@@ -24,7 +24,8 @@ namespace DeliveryMarket.Account
 				+ AccountEntry.COL_MOBILE_NUMBER
 				+ " FROM " + AccountEntry.TABLE_NAME
 				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
-				+ AccountType.Active_Account + "' ;";
+				+ AccountType.Active_Account
+				+ "' AND " + AccountEntry.COL_EMAIL + " LIKE '" + email + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}
 
