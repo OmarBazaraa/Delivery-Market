@@ -58,7 +58,7 @@ namespace DeliveryMarket.Account
 			AccountID = new string[dt.Rows.Count];
 			Country = new string[dt.Rows.Count];
 			foreach (DataRow row in dt.Rows) {
-				Name[ListItemsCount] = row[AccountEntry.COL_FIRST_NAME].ToString() + row[AccountEntry.COL_LAST_NAME].ToString();
+				Name[ListItemsCount] = row[AccountEntry.COL_FIRST_NAME].ToString() + " " + row[AccountEntry.COL_LAST_NAME].ToString();
 				MobileNumber[ListItemsCount] = row[AccountEntry.COL_MOBILE_NUMBER].ToString();
 				AccountID[ListItemsCount] = row[AccountEntry.COL_ACCOUNT_ID].ToString();
 				Country[ListItemsCount] = row[AccountEntry.COL_COUNTRY].ToString();
