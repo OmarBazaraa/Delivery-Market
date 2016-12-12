@@ -34,7 +34,7 @@ namespace DeliveryMarket.Account
 			}
 
 			DataRow dr = mController.SelectAccount(list.AccountID[0]);
-			User user = new User(dr);
+			//User user = new User(dr);
 		}
 
 		private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e) {
