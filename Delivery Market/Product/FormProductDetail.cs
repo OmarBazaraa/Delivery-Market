@@ -124,5 +124,9 @@ namespace DeliveryMarket.Product {
 		private void buttonReport_Click(object sender, EventArgs e) {
 			new FormReportProduct(mAccountID, mProductID).ShowDialog(this);
 		}
+
+		private void buttonBuy_Click(object sender, EventArgs e) {
+			new FormBuyProduct(mAccountID, mProductID).ShowDialog(this);
+		}
 	}
 }
