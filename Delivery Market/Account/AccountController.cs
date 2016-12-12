@@ -17,32 +17,24 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", "
-				+ AccountEntry.COL_FIRST_NAME + ", "
-				+ AccountEntry.COL_LAST_NAME + ", "
-				+ AccountEntry.COL_COUNTRY + ", "
-				+ AccountEntry.COL_MOBILE_NUMBER
-				+ " FROM " + AccountEntry.TABLE_NAME
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_EMAIL + ", COALESCE(AVG("
+				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
+				+ " , COALESCE(COUNT(" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
+				+ " FROM " + ProductEntry.TABLE_NAME + " LEFT JOIN "
+				+ AccountEntry.TABLE_NAME + " ON "
+				+ ProductEntry.COL_SELLER_ID + " = " + AccountEntry.COL_ACCOUNT_ID
+				+ " LEFT OUTER JOIN "
+				+ RatingEntry.TABLE_NAME + " ON "
+				+ ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
 				+ AccountType.Active_Account
-				+ "' AND ( " + AccountEntry.COL_FIRST_NAME + " LIKE '" + name + "%'" 
-				+ " OR " + AccountEntry.COL_LAST_NAME + " LIKE '" + name + "%'"
-				+ " ) ;";
+				+ "' AND " + AccountEntry.COL_EMAIL + " LIKE '" + name + "%'"
+				+ " AND " + ProductEntry.COL_DELETED + " = '0' ;";
 			return DBMan.ExecuteReader(query);
 		}
 
 		/* Select user account */
 		public DataRow SelectAccount(string account_id) {
-			/*
-			SELECT a.*, COALESCE (AVG(r.rate_value), 0) AS rating,
-			COALESCE(COUNT(p.product_id), 0) AS products_count,
-			COALESCE(COUNT(o.order_id), 0) AS orders_count,
-			COALESCE(SUM(o.product_price), 0) AS earned_money
-			FROM account a, rating r, product p, orders o
-			WHERE a.account_id = 1 AND p.seller_id = 1 AND
-			p.product_id = o.product_id AND
-			p.product_id = r.product_id AND p.deleted = '0' ;
-			*/
 			string query = "SELECT a.*, " + "COALESCE(AVG(r."
 				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
@@ -61,5 +53,28 @@ namespace DeliveryMarket.Account
 			DataTable dt = DBMan.ExecuteReader(query);
 			return dt == null ? null : dt.Rows[0];
 		}
+
+		/* Insert  User to banned table */
+		public int BanUser (BannedUser banned) {
+			string query = "UPDATE " + AccountEntry.TABLE_NAME + 
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = " + AccountType.Banned_Account + 
+				" WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
+			DBMan.ExecuteNonQuery(query);
+
+			query = "INSERT INTO " + BannedUserEntry.TABLE_NAME + " (" +
+				BannedUserEntry.COL_ADMIN_ID + ", " +
+				BannedUserEntry.COL_USER_ID + ", " +
+				BannedUserEntry.COL_BAN_REASON + ", " +
+				BannedUserEntry.COL_DESCRIPTION + ", " +
+				BannedUserEntry.COL_BAN_DATE + ") VALUES(" +
+				banned.AdminID + ", " +
+				"'" + banned.UserID + "', " +
+				banned.Reason + ", " +
+				"'" + banned.Description + "', " +
+				"'" + banned.Date + "'" +
+				");";
+
+			return DBMan.ExecuteNonQuery(query);
+		}		
 	}
 }

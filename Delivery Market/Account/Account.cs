@@ -47,22 +47,22 @@ namespace DeliveryMarket.Account
 
 	class UserList {
 		
-		public string[] Name;
-		public string[] MobileNumber;
+		public string[] UserName;
+		public string[] Rating;
 		public string[] AccountID;
-		public string[] Country;
+		public string[] ProductsCount;
 		public int ListItemsCount;
 		public UserList(DataTable dt) {
 			ListItemsCount = 0;
-			Name = new string[dt.Rows.Count];
-			MobileNumber = new string[dt.Rows.Count];
+			UserName = new string[dt.Rows.Count];
+			Rating = new string[dt.Rows.Count];
 			AccountID = new string[dt.Rows.Count];
-			Country = new string[dt.Rows.Count];
+			ProductsCount = new string[dt.Rows.Count];
 			foreach (DataRow row in dt.Rows) {
-				Name[ListItemsCount] = row[AccountEntry.COL_FIRST_NAME].ToString() + " " + row[AccountEntry.COL_LAST_NAME].ToString();
-				MobileNumber[ListItemsCount] = row[AccountEntry.COL_MOBILE_NUMBER].ToString();
+				UserName[ListItemsCount] = row[AccountEntry.COL_EMAIL].ToString() ;
+				Rating[ListItemsCount] = row[UserEntry.DER_RATING].ToString();
+				ProductsCount[ListItemsCount] = row[UserEntry.DER_PRODUCTS_COUNT].ToString();
 				AccountID[ListItemsCount] = row[AccountEntry.COL_ACCOUNT_ID].ToString();
-				Country[ListItemsCount] = row[AccountEntry.COL_COUNTRY].ToString();
 				ListItemsCount++;
 			}
 		}
