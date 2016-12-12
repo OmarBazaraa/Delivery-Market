@@ -24,7 +24,8 @@ namespace DeliveryMarket.Account
 		public string Rating;
 		public string ProductsCount;
 		public string OrdersCount;
-		public string EarnedMoney;	
+		public string EarnedMoney;
+
 		public User(DataRow dr) {
 			AccountID = dr[AccountEntry.COL_ACCOUNT_ID].ToString();
 			FirstName = dr[AccountEntry.COL_FIRST_NAME].ToString();

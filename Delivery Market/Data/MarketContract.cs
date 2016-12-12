@@ -143,7 +143,7 @@
 			public const string COL_ORDER_DATE = "order_date";
 		}
 
-		public static class RemovalReasons {
+		public static class RemovalReasonsEntry {
 			// Table name
 			public const string TABLE_NAME = "removal_reasons";
 

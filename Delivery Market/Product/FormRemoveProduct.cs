@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Data.MarketContract;
 
 namespace DeliveryMarket.Product {
 
@@ -38,8 +39,8 @@ namespace DeliveryMarket.Product {
 		/* Form load callback function */
 		private void FormRemoveProduct_Load(object sender, EventArgs e) {
 			// TODO: load list of reasons
-			//comboBoxReasons.DataSource = mController.SelectRemovalReasons();
-			//comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
+			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
+			comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
 		}
 
 		/* Delete button clicked callback function */
@@ -58,7 +59,7 @@ namespace DeliveryMarket.Product {
 			}
 
 			// Delete product
-			if (mController.DeleteProduct(mAccountID, mProductID, "inappropriate", description) > 0) {
+			if (mController.DeleteProduct(mAccountID, mProductID, comboBoxReasons.Text, description) > 0) {
 				MessageBox.Show(DELETE_SUCCESS_MSG, DELETE_SUCCESS_TITLE, MessageBoxButtons.OK);
 				Close();
 			}

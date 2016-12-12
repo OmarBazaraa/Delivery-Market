@@ -82,6 +82,12 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects all removal reasons from the database */
+		public DataTable SelectRemovalReasons() {
+			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + " FROM " + RemovalReasonsEntry.TABLE_NAME + ";";
+			return DBMan.ExecuteReader(query);
+		}
+
 		/* Selects all comments on a given product */
 		public DataTable SelectComments(int productID) {
 			string query = "SELECT " +
