@@ -4,6 +4,10 @@
 	 */
 	namespace MarketContract {
 
+		public static class DataBase {
+			public const string MARKET = "market";
+		}
+
 		public static class AccountType {
 			//Account Types
 			public const string Active_Account = "Active";
