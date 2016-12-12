@@ -22,7 +22,7 @@
 
 			// Columns names
 			public const string COL_ACCOUNT_ID = "account_id";
-			public const string COL_EMAIL = "email";
+			public const string COL_USERNAME = "username";
 			public const string COL_PASSWORD = "password";
 			public const string COL_FIRST_NAME = "first_name";
 			public const string COL_LAST_NAME = "last_name";

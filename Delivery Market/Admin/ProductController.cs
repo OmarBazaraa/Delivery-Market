@@ -11,15 +11,28 @@ namespace DeliveryMarket.Admin {
 
 	class AdminController : Controller {
 
-		public DataTable SelectAdmins() {
-			string query = "SELECT * FROM " +
+		public DataTable SelectAdmins(string name = "") {
+			string query = "SELECT " +
+				AccountEntry.COL_FIRST_NAME + ", " +
+				AccountEntry.COL_LAST_NAME + ", " +
+				AccountEntry.COL_GENDER + ", " +
+				AccountEntry.COL_USERNAME + ", " +
+				AccountEntry.COL_MOBILE_NUMBER + ", " +
+				AccountEntry.COL_CITY + ", " +
+				AdminEntry.COL_START_DATE +
+				" FROM " +
 				 AccountEntry.TABLE_NAME +
 				 ", " + AdminEntry.TABLE_NAME +
 				 " WHERE " +
 				 AccountEntry.COL_ACCOUNT_ID +
 				 " = " +
-				 AdminEntry.COL_ACCOUNT_ID +
-				 ";";
+				 AdminEntry.COL_ACCOUNT_ID;
+
+			if (name != "") {
+				query += " And (" + AccountEntry.COL_FIRST_NAME + " LIKE '%" + name + "%' OR " + 
+					AccountEntry.COL_LAST_NAME + " LIKE '%" + name + "%')";
+			}
+			query += ";";
 			DataTable Rows = DBMan.ExecuteReader(query);
 			return Rows;
 		}
