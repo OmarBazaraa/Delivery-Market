@@ -205,6 +205,45 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteNonQuery(query);
 		}
 
+		/* Buys a certain product and save the order in the database */
+		public int BuyProduct(Order order, ref TextBox qry) {
+			// First decrease the product's stock quantity by the given quantity
+			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
+				ProductEntry.COL_QUANTITY + "=" + ProductEntry.COL_QUANTITY + "-" + order.Quantity.ToString() +
+				" WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + order.ProductID.ToString() + ";";
+
+			MessageBox.Show(query);
+
+			if (DBMan.ExecuteNonQuery(query) <= 0) {
+				return 0;	// An error occured will updating the product's quantity, no need to proceed
+			}
+
+			// Then insert the order into the database
+			query = "INSERT INTO " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + " (" +
+				OrderEntry.COL_CUSTOMER_ID + ", " +
+				OrderEntry.COL_PRODUCT_ID + ", " +
+				OrderEntry.COL_PRODUCT_NAME + ", " +
+				OrderEntry.COL_PRODUCT_PRICE + ", " +
+				OrderEntry.COL_QUANTITY + ", " +
+				OrderEntry.COL_ADDRESS + ", " +
+				OrderEntry.COL_TRANSACTION_COMPANY_ID + ", " +
+				OrderEntry.COL_TRANSPORT_COMPANY_ID +
+				") VALUES(" +
+				order.CustomerID.ToString() + ", " +
+				order.ProductID.ToString() + ", " +
+				"'" + order.ProductName + "', " +
+				order.ProductPrice.ToString() + ", " +
+				order.Quantity.ToString() + ", " +
+				"'" + order.Address + "', " +
+				order.TransactionCompanyID.ToString() + ", " +
+				order.TransportCompanyID.ToString() +
+				");";
+
+			//qry.Text = query;
+
+			return DBMan.ExecuteNonQuery(query);
+		}
+
 		/* Deletes a given product */
 		public int DeleteProduct(int accountID, int productID, string reason, string description) {
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +

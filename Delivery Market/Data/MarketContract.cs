@@ -4,6 +4,11 @@
 	 */
 	namespace MarketContract {
 
+		public static class MarketEntry {
+			// Database name
+			public const string DATABASE_NAME = "market";
+		}
+		
 		public static class AccountType {
 			//Account Types
 			public const string Active_Account = "Active";
@@ -133,10 +138,11 @@
 
 			// Columns names
 			public const string COL_ORDER_ID = "order_id";
-			public const string COL_USER_ID = "user_id";
+			public const string COL_CUSTOMER_ID = "customer_id";
 			public const string COL_PRODUCT_ID = "product_id";
 			public const string COL_PRODUCT_NAME = "product_name";
 			public const string COL_PRODUCT_PRICE = "product_price";
+			public const string COL_QUANTITY = "quantity";
 			public const string COL_ADDRESS = "address";
 			public const string COL_TRANSACTION_COMPANY_ID = "transaction_company_id";
 			public const string COL_TRANSPORT_COMPANY_ID = "transport_company_id";
