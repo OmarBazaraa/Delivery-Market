@@ -20,7 +20,7 @@ namespace DeliveryMarket {
 		private Privilege mPrivilege;
 
 		/* Constructor */
-		public FormMain(int accountID = 99, Privilege privilege = Privilege.Admin) {
+		public FormMain(int accountID = 99, Privilege privilege = Privilege.User) {
 			InitializeComponent();
 
 			mAccountID = accountID;
