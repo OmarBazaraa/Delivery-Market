@@ -16,5 +16,14 @@ namespace DeliveryMarket.Utils {
 			User,
 			Other
 		}
+
+		public static class Strings {
+
+			// Application global strings
+			public const string APP_TITLE = "Delivery Market";
+
+			// Applications messages
+
+		}
 	}
 }

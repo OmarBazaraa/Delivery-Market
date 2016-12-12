@@ -14,7 +14,6 @@ using DeliveryMarket.Utils.Defs;
 namespace DeliveryMarket {
 
 	public partial class FormMain : Form {
-
 		// Member variables
 		private int mAccountID;
 		private Privilege mPrivilege;
@@ -30,7 +29,7 @@ namespace DeliveryMarket {
 		/* Form load callback function */
 		private void FormMain_Load(object sender, EventArgs e) {
 			switch (mPrivilege) {
-				case Privilege.Admin:
+				case Privilege.Other:
 					buttonAddProduct.Enabled = false;
 					break;
 
@@ -49,14 +48,13 @@ namespace DeliveryMarket {
 		/* View products button clicked callback function */
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
 			new FormProductList(mAccountID, mPrivilege).Show(this);
-			//new FormProductDetail(mAccountID, 9, mPrivilege).Show(this);
 			Hide();
 		}
 
 		/* View sellers button clicked callback function */
-        private void buttonViewSellers_Click(object sender, EventArgs e)
-        {
-			new Account.FormAccounts(mAccountID).Show();
+        private void buttonViewSellers_Click(object sender, EventArgs e) {
+			new Account.FormAccounts(mAccountID).Show(this);
+
 		}
 
 		/* Admin panel button clicked callback function */
@@ -67,12 +65,17 @@ namespace DeliveryMarket {
 
 		/* About button clicked callback function */
 		private void buttonAbout_Click(object sender, EventArgs e) {
-
+			new FormAbout().ShowDialog();
 		}
 
 		/* Sign out button clicked callback function */
 		private void buttonSignOut_Click(object sender, EventArgs e) {
 			Close();
+		}
+
+		/* Loses buttons focus */
+		private void LoseFocus(object sender, EventArgs e) {
+			labelWelcome.Focus();
 		}
 	}
 }

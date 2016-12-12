@@ -32,7 +32,7 @@ namespace DeliveryMarket.Account
 			LastName = dr[AccountEntry.COL_LAST_NAME].ToString();
 			Country = dr[AccountEntry.COL_COUNTRY].ToString();
 			City = dr[AccountEntry.COL_CITY].ToString();
-			Email = dr[AccountEntry.COL_EMAIL].ToString();
+			Email = dr[AccountEntry.COL_USERNAME].ToString();
 			Birthdate = dr[AccountEntry.COL_BIRTHDATE].ToString();
 			Gender = dr[AccountEntry.COL_GENDER].ToString();
 			MobileNumber = dr[AccountEntry.COL_MOBILE_NUMBER].ToString();
