@@ -51,7 +51,7 @@ namespace DeliveryMarket.Account
 				+ " FROM " + AccountEntry.TABLE_NAME + " a, "
 				+ RatingEntry.TABLE_NAME + " r, "
 				+ ProductEntry.TABLE_NAME + " p, "
-				+ DataBase.MARKET + "." 
+				+ MarketEntry.DATABASE_NAME + "." 
 				+ OrderEntry.TABLE_NAME + " o" +
 				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + account_id + " AND "
 				+ "p." + ProductEntry.COL_SELLER_ID + " = " + account_id + " AND "
