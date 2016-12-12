@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace DeliveryMarket.Utils {
 
 	/*
-     * Contains some defenitions to be used all over the application
-     */
+	 * Contains some defenitions to be used all over the application
+	 */
 	namespace Defs {
 
 		public enum Privilege {
 			Admin,
-			User
+			User,
+			Other
 		}
 	}
 }

@@ -19,10 +19,19 @@ namespace DeliveryMarket.Admin
             InitializeComponent();
             mController = new AdminController();
 
-            DataTable mRows = mController.SelectAdmins();
-            gridViewAdmins.DataSource = mRows;
-            gridViewAdmins.Refresh();
+			ViewAdmins();
         }
+
+		public void ViewAdmins() {
+			DataTable mRows = mController.SelectAdmins();
+			gridViewAdmins.DataSource = mRows;
+			gridViewAdmins.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			gridViewAdmins.ReadOnly = true;
+			gridViewAdmins.ClearSelection();
+
+			gridViewAdmins.Show();
+			gridViewAdmins.Refresh();
+		}
 
 
         public void FormViewAdmins_FormClosed (object sender, FormClosedEventArgs e)

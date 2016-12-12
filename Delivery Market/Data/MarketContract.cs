@@ -1,8 +1,15 @@
 ﻿namespace DeliveryMarket.Data {
 	/* 
-     * A contract namespace containing information about our Delivery Market database 
-     */
+	 * A contract namespace containing information about our Delivery Market database 
+	 */
 	namespace MarketContract {
+
+		public static class AccountType {
+			//Account Types
+			public const string Active_Account = "Active";
+			public const string Admin_Account = "Admin";
+			public const string Banned_Account = "Banned";
+		}
 
 		public static class AccountEntry {
 			// Table name
@@ -69,12 +76,15 @@
 			// Columns names
 			public const string COL_PRODUCT_ID = "product_id";
 			public const string COL_SELLER_ID = "seller_id";
+			public const string COL_SELLER_NAME = "seller_name";
 			public const string COL_PRODUCT_NAME = "product_name";
 			public const string COL_PRICE = "price";
+			public const string COL_RATING = "rating";
 			public const string COL_CATEGORY = "category";
 			public const string COL_DESCRIPTION = "description";
 			public const string COL_STOCK_COUNT = "stock_count";
 			public const string COL_IMAGE = "image";
+			public const string COL_START_DATE = "start_date";
 			public const string COL_DELETED = "deleted";
 		}
 
@@ -93,6 +103,7 @@
 			// Columns names
 			public const string COL_COMMENT_ID = "comment_id";
 			public const string COL_USER_ID = "user_id";
+			public const string COL_USER_NAME = "user_name";
 			public const string COL_PRODUCT_ID = "product_id";
 			public const string COL_COMMENT_BODY = "body";
 			public const string COL_COMMENT_DATE = "comment_date";
@@ -117,11 +128,12 @@
 			public const string COL_USER_ID = "user_id";
 			public const string COL_PRODUCT_ID = "product_id";
 			public const string COL_DESCRIPTION = "description";
+			public const string COL_REPORT_DATE = "report_date";
 		}
 
-		public static class OrderEntry {
+		public static class OrdersEntry {
 			// Table name
-			public const string TABLE_NAME = "order";
+			public const string TABLE_NAME = "orders";
 
 			// Columns names
 			public const string COL_ORDER_ID = "order_id";
@@ -134,9 +146,9 @@
 			public const string COL_TRANSPORT_COMPANY_ID = "transport_company_id";
 		}
 
-		public static class RemovedProductEntry {
+		public static class RemovedProductsEntry {
 			// Table name
-			public const string TABLE_NAME = "removed_product";
+			public const string TABLE_NAME = "removed_products";
 
 			// Columns names
 			public const string COL_PRODUCT_ID = "product_id";

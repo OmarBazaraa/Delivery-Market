@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Admin.cs" />
+    <Compile Include="Admin\FormAddAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddAdmin.Designer.cs">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,24 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\FormRemoveProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormRemoveProduct.Designer.cs">
+      <DependentUpon>FormRemoveProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\FormProductDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormProductDetail.Designer.cs">
+      <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\FormReportProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Product\FormReportProduct.Designer.cs">
+      <DependentUpon>FormReportProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Product\FormSaveProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +130,11 @@
     <Compile Include="Product\FormBuyProduct.Designer.cs">
       <DependentUpon>FormBuyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product\FormProducts.cs">
+    <Compile Include="Product\FormProductList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product\FormProducts.Designer.cs">
-      <DependentUpon>FormProducts.cs</DependentUpon>
+    <Compile Include="Product\FormProductList.Designer.cs">
+      <DependentUpon>FormProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
@@ -119,6 +143,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\FormAccounts.resx">
       <DependentUpon>FormAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddAdmin.resx">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
@@ -129,11 +156,23 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormBuyProduct.resx">
+      <DependentUpon>FormBuyProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormRemoveProduct.resx">
+      <DependentUpon>FormRemoveProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormProductDetail.resx">
+      <DependentUpon>FormProductDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\FormReportProduct.resx">
+      <DependentUpon>FormReportProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Product\FormSaveProduct.resx">
       <DependentUpon>FormSaveProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product\FormProducts.resx">
-      <DependentUpon>FormProducts.cs</DependentUpon>
+    <EmbeddedResource Include="Product\FormProductList.resx">
+      <DependentUpon>FormProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

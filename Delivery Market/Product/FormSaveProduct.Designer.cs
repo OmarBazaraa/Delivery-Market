@@ -86,6 +86,7 @@
 			// 
 			// comboBoxCategory
 			// 
+			this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxCategory.FormattingEnabled = true;
 			this.comboBoxCategory.Location = new System.Drawing.Point(12, 133);
 			this.comboBoxCategory.Name = "comboBoxCategory";
@@ -269,8 +270,8 @@
 			this.Name = "FormSaveProduct";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Delivery Market";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAddProduct_FormClosed);
-			this.Load += new System.EventHandler(this.FormAddProduct_Load);
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSaveProduct_FormClosed);
+			this.Load += new System.EventHandler(this.FormSaveProduct_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericPrice)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericStockCount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();

@@ -23,5 +23,38 @@ namespace DeliveryMarket.Admin {
 			DataTable Rows = DBMan.ExecuteReader(query);
 			return Rows;
 		}
+
+
+        public DataTable SelectNormalUsers()
+        {
+            string query = "SELECT * FROM " +
+                            AccountEntry.TABLE_NAME +
+							" WHERE " +
+							AccountEntry.COL_ACCOUNT_TYPE + " = " + "'" +
+							AccountType.Active_Account + "' " +
+							";";
+			DataTable Rows = DBMan.ExecuteReader(query);
+			return Rows;                            
+        }
+
+		public int MakeAdmin(string AccountId) {
+			string query1 = "UPDATE " + 
+				AccountEntry.TABLE_NAME +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE +
+				" = '" + AccountType.Admin_Account + "' " +
+				"WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " +
+				AccountId + " ;";
+
+			DateTime now = DateTime.Now;
+			string startDate = now.Year.ToString() + '-' + now.Month.ToString() + '-' + now.Day.ToString();
+
+			string query2 = "INSERT INTO " +
+							AdminEntry.TABLE_NAME + " VALUES (" +
+							AccountId + ", '" + startDate + "');";							
+
+			int ret = DBMan.ExecuteNonQuery(query1);
+			ret &= DBMan.ExecuteNonQuery(query2);
+			return ret;
+		}
 	}
 }

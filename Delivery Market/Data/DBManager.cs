@@ -56,6 +56,7 @@ namespace DeliveryMarket.Data {
 					return dt;
 				}
 				else {
+					reader.Close();
 					return null;
 				}
 			}

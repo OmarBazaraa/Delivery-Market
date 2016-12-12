@@ -42,16 +42,15 @@ namespace DeliveryMarket.Product {
 			mController = new ProductController();
 		}
 
-		/* Add product form load callback function */
-		private void FormAddProduct_Load(object sender, EventArgs e) {
+		/* Form load callback function */
+		private void FormSaveProduct_Load(object sender, EventArgs e) {
 			// Fill product categories
-			DataTable dt = mController.SelectCategories();
-			comboBoxCategory.DataSource = dt;
+			comboBoxCategory.DataSource = mController.SelectCategories();
 			comboBoxCategory.DisplayMember = CategoryEntry.COL_CATEGORY_NAME;
 
 			// Load product details if given
 			if (mProductID > -1) {
-				DataRow product = mController.SelectProductByID(mProductID);
+				DataRow product = mController.SelectProductInfo(mProductID);
 
 				if (product == null) {
 					MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, LOADING_PRODUCT_FAILED_TITLE, MessageBoxButtons.OK);
@@ -70,8 +69,8 @@ namespace DeliveryMarket.Product {
 			}
 		}
 
-		/* Add product form closed callback function */
-		private void FormAddProduct_FormClosed(object sender, FormClosedEventArgs e) {
+		/* Form closed callback function */
+		private void FormSaveProduct_FormClosed(object sender, FormClosedEventArgs e) {
 			if (e.CloseReason == CloseReason.UserClosing) {
 				Owner.Show();
 				Owner.Refresh();
@@ -80,7 +79,7 @@ namespace DeliveryMarket.Product {
 
 		/* Save product button clicked callback function */
 		private void buttonSave_Click(object sender, EventArgs e) {
-			// Check for validity
+			// Check for input validity
 			if (!ValidateInput()) {
 				return;
 			}
@@ -88,12 +87,12 @@ namespace DeliveryMarket.Product {
 			Product product = new Product();
 			product.ID = mProductID.ToString();
 			product.SellerID = mAccountID.ToString();
-			product.Name = textBoxName.Text;
+			product.Name = textBoxName.Text.Replace("'", "''");
 			product.Price = numericPrice.Value.ToString();
 			product.Category = comboBoxCategory.Text;
-			product.Description = textBoxDescription.Text;
+			product.Description = textBoxDescription.Text.Replace("'", "''");
 			product.StockCount = numericStockCount.Value.ToString();
-			product.ImagePath = textBoxImagePath.Text;
+			product.ImagePath = System.Text.RegularExpressions.Regex.Escape(textBoxImagePath.Text);
 
 			// Ask for confirmation
 			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo) == DialogResult.No) {

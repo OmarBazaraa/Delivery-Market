@@ -16,7 +16,6 @@ namespace DeliveryMarket.Account
         public string Country;
         public string City;
         public string Email;
-        //public string Password;
         public string Birthdate;
         public string Gender;
         public string MobileNumber;
