@@ -44,15 +44,15 @@ namespace DeliveryMarket.Account
 			string query = "SELECT a.*, " + "COALESCE(AVG(r."
 				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
-				+ " , COALESCE(COUNT(o." + OrdersEntry.COL_ORDER_ID + "), 0) AS " + UserEntry.DER_ORDERS_COUNT
-				+ " , COALESCE(SUM(o." + OrdersEntry.COL_PRODUCT_PRICE + "), 0) AS " + UserEntry.DER_EARNED_MONEY
+				+ " , COALESCE(COUNT(o." + OrderEntry.COL_ORDER_ID + "), 0) AS " + UserEntry.DER_ORDERS_COUNT
+				+ " , COALESCE(SUM(o." + OrderEntry.COL_PRODUCT_PRICE + "), 0) AS " + UserEntry.DER_EARNED_MONEY
 				+ " FROM " + AccountEntry.TABLE_NAME + " a, "
 				+ RatingEntry.TABLE_NAME + " r, "
 				+ ProductEntry.TABLE_NAME + " p, "
-				+ OrdersEntry.TABLE_NAME + " o" +
+				+ OrderEntry.TABLE_NAME + " o" +
 				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + account_id + " AND "
 				+ "p." + ProductEntry.COL_SELLER_ID + " = " + account_id + " AND "
-				+ "p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrdersEntry.COL_PRODUCT_ID + " AND "
+				+ "p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrderEntry.COL_PRODUCT_ID + " AND "
 				+ "p." + ProductEntry.COL_PRODUCT_ID + " = r." + RatingEntry.COL_PRODUCT_ID + " AND "
 				+ "p." + ProductEntry.COL_DELETED + " = '0' ;";
 			DataTable dt = DBMan.ExecuteReader(query);

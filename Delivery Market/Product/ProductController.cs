@@ -82,6 +82,12 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects all removal reasons from the database */
+		public DataTable SelectRemovalReasons() {
+			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + " FROM " + RemovalReasonsEntry.TABLE_NAME + ";";
+			return DBMan.ExecuteReader(query);
+		}
+
 		/* Selects all comments on a given product */
 		public DataTable SelectComments(int productID) {
 			string query = "SELECT " +
@@ -114,7 +120,7 @@ namespace DeliveryMarket.Product {
 				ProductEntry.COL_PRICE + ", " +
 				ProductEntry.COL_CATEGORY + ", " +
 				ProductEntry.COL_DESCRIPTION + ", " +
-				ProductEntry.COL_STOCK_COUNT + ", " +
+				ProductEntry.COL_QUANTITY + ", " +
 				ProductEntry.COL_IMAGE + ") VALUES(" +
 				product.SellerID + ", " +
 				"'" + product.Name + "', " +
@@ -192,7 +198,7 @@ namespace DeliveryMarket.Product {
 				ProductEntry.COL_PRICE + "=" + product.Price + ", " +
 				ProductEntry.COL_CATEGORY + "='" + product.Category + "', " +
 				ProductEntry.COL_DESCRIPTION + "='" + product.Description + "', " +
-				ProductEntry.COL_STOCK_COUNT + "=" + product.StockCount + ", " +
+				ProductEntry.COL_QUANTITY + "=" + product.StockCount + ", " +
 				ProductEntry.COL_IMAGE + "='" + product.ImagePath + "' " +
 				"WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + product.ID + ";";
 
