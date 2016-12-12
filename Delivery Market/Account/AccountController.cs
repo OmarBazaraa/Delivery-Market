@@ -17,7 +17,7 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_EMAIL + ", COALESCE(AVG("
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", COALESCE(AVG("
 				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
 				+ " FROM " + ProductEntry.TABLE_NAME + " LEFT JOIN "
@@ -28,7 +28,7 @@ namespace DeliveryMarket.Account
 				+ ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
 				+ AccountType.Active_Account
-				+ "' AND " + AccountEntry.COL_EMAIL + " LIKE '" + name + "%'"
+				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%'"
 				+ " AND " + ProductEntry.COL_DELETED + " = '0' ;";
 			return DBMan.ExecuteReader(query);
 		}

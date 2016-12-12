@@ -59,7 +59,7 @@ namespace DeliveryMarket.Account
 			AccountID = new string[dt.Rows.Count];
 			ProductsCount = new string[dt.Rows.Count];
 			foreach (DataRow row in dt.Rows) {
-				UserName[ListItemsCount] = row[AccountEntry.COL_EMAIL].ToString() ;
+				UserName[ListItemsCount] = row[AccountEntry.COL_USERNAME].ToString() ;
 				Rating[ListItemsCount] = row[UserEntry.DER_RATING].ToString();
 				ProductsCount[ListItemsCount] = row[UserEntry.DER_PRODUCTS_COUNT].ToString();
 				AccountID[ListItemsCount] = row[AccountEntry.COL_ACCOUNT_ID].ToString();
