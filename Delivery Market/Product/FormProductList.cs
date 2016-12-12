@@ -56,6 +56,7 @@ namespace DeliveryMarket.Product {
 			listProducts.Items.Clear();
 
 			mProductsData = mController.SelectProductList(textBoxSearch.Text, comboBoxCategory.Text);
+			if (mProductsData == null) return;
 
 			foreach (DataRow row in mProductsData.Rows) {
 				ListViewItem item = new ListViewItem(row[ProductEntry.COL_PRODUCT_NAME].ToString());

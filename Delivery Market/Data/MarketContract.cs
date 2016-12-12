@@ -45,6 +45,12 @@
 
 			// Columns names
 			public const string COL_ACCOUNT_ID = "user_id";
+
+			// Derived attributes names
+			public const string DER_RATING = "rating";
+			public const string DER_PRODUCTS_COUNT = "products_count";
+			public const string DER_ORDERS_COUNT = "orders_count";
+			public const string DER_EARNED_MONEY = "earned_money";
 		}
 
 		public static class BannedUserEntry {
@@ -121,9 +127,9 @@
 			public const string COL_REPORT_DATE = "report_date";
 		}
 
-		public static class OrderEntry {
+		public static class OrdersEntry {
 			// Table name
-			public const string TABLE_NAME = "order";
+			public const string TABLE_NAME = "orders";
 
 			// Columns names
 			public const string COL_ORDER_ID = "order_id";
