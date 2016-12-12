@@ -34,7 +34,7 @@ namespace DeliveryMarket.Admin {
 
 
 		public void PopulateListView() {
-			mUserList = mController.SelectUsers(textBoxSearch.Text);
+			mUserList = mController.SelectUsers(textBoxSearch.Text.Replace("'", "''").Trim());
 			listViewAccounts.Items.Clear();
 
 			if (mUserList == null) return;
