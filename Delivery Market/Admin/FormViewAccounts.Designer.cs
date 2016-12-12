@@ -314,7 +314,7 @@
 			this.richTextBoxDescription.Enabled = false;
 			this.richTextBoxDescription.Location = new System.Drawing.Point(712, 468);
 			this.richTextBoxDescription.Name = "richTextBoxDescription";
-			this.richTextBoxDescription.Size = new System.Drawing.Size(619, 262);
+			this.richTextBoxDescription.Size = new System.Drawing.Size(601, 259);
 			this.richTextBoxDescription.TabIndex = 14;
 			this.richTextBoxDescription.Text = "";
 			// 

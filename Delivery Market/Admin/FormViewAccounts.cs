@@ -42,7 +42,7 @@ namespace DeliveryMarket.Admin {
 			foreach (DataRow row in mUserList.Rows) {
 				ListViewItem item = new ListViewItem(row[AccountEntry.COL_ACCOUNT_ID].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_FIRST_NAME].ToString());
-				item.SubItems.Add(row[AccountEntry.COL_EMAIL].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_USERNAME].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_ACCOUNT_TYPE].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_CREATION_DATE].ToString());
 
@@ -93,7 +93,7 @@ namespace DeliveryMarket.Admin {
 			}
 			textBoxID.Text = accountDetails[AccountEntry.COL_ACCOUNT_ID].ToString();
 			textBoxName.Text = accountDetails[AccountEntry.COL_FIRST_NAME].ToString() + ", " + accountDetails[AccountEntry.COL_LAST_NAME];
-			textBoxEmail.Text = accountDetails[AccountEntry.COL_EMAIL].ToString();
+			textBoxEmail.Text = accountDetails[AccountEntry.COL_USERNAME].ToString();
 			textBoxMobileNumber.Text = accountDetails[AccountEntry.COL_MOBILE_NUMBER].ToString();
 			comboBoxGender.Text = accountDetails[AccountEntry.COL_GENDER].ToString();
 			dateTimeBirthDate.Text = accountDetails[AccountEntry.COL_BIRTHDATE].ToString();
