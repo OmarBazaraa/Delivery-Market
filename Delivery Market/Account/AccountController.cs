@@ -17,11 +17,14 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts() {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " +
-				AccountEntry.COL_FIRST_NAME + ", " +
-				AccountEntry.COL_LAST_NAME + ", " +
-				AccountEntry.COL_COUNTRY + " " +
-				"FROM " + AccountEntry.TABLE_NAME + " ;";
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", "
+				+ AccountEntry.COL_FIRST_NAME + ", "
+				+ AccountEntry.COL_LAST_NAME + ", "
+				+ AccountEntry.COL_COUNTRY + ", "
+				+ AccountEntry.COL_MOBILE_NUMBER
+				+ " FROM " + AccountEntry.TABLE_NAME
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
+				+ AccountType.Active_Account + "' ;";
 			return DBMan.ExecuteReader(query);
 		}
 
