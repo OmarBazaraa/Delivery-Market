@@ -14,12 +14,31 @@ namespace DeliveryMarket.Account
     {
 		private AccountController mController;
 		int mAccountID;
-
+		UserList list;
 		public FormAccounts(int accountID)
         {
             InitializeComponent();
 
 			this.mAccountID = accountID;
+			mController = new AccountController();
+			DataTable dt = mController.SelectAllAccounts();
+			if (dt == null) return;
+			list = new UserList(dt);
+
+			ListViewItem[] l = new ListViewItem[list.ListItemsCount];
+			for (int i = 0; i < list.ListItemsCount; ++i) {
+				l[i] = new ListViewItem(list.Name[i]);
+				l[i].SubItems.Add(list.MobileNumber[i]);
+				l[i].SubItems.Add(list.Country[i]);
+				listViewAccounts.Items.Add(l[i]);
+			}
+
+			DataRow dr = mController.SelectAccount(list.AccountID[0]);
+			User user = new User(dr);
+		}
+
+		private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e) {
+
 		}
 	}
 }

@@ -90,7 +90,6 @@
     <Compile Include="Account\FormAccounts.Designer.cs">
       <DependentUpon>FormAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Account\User.cs" />
     <Compile Include="Data\MarketContract.cs" />
     <Compile Include="Data\Controller.cs" />
     <Compile Include="Data\DBManager.cs" />
