@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DeliveryMarket.Data.MarketContract;
 using System.Windows.Forms;
 using System.Data;
-using DeliveryMarket.Data;
+
 
 namespace DeliveryMarket.Account
 {
@@ -17,14 +17,11 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts() {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " 
-				+ AccountEntry.COL_FIRST_NAME + ", " 
-				+ AccountEntry.COL_LAST_NAME + ", " 
-				+ AccountEntry.COL_COUNTRY + ", " 
-				+ AccountEntry.COL_MOBILE_NUMBER
-				+ " FROM " + AccountEntry.TABLE_NAME 
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
-				+ AccountEntry.COL_ACCOUNT_TYPE_ENUM[0] + "' ;";
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " +
+				AccountEntry.COL_FIRST_NAME + ", " +
+				AccountEntry.COL_LAST_NAME + ", " +
+				AccountEntry.COL_COUNTRY + ", " +
+				"FROM " + AccountEntry.TABLE_NAME + " ;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -57,7 +54,5 @@ namespace DeliveryMarket.Account
 			DataTable dt = DBMan.ExecuteReader(query);
 			return dt == null ? null : dt.Rows[0];
 		}
-
-		
 	}
 }
