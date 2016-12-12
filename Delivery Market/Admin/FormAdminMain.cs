@@ -14,9 +14,12 @@ namespace DeliveryMarket.Admin {
 	public partial class FormAdminMain : Form {
 
 		Controller mController;
-		public FormAdminMain() {
+		int mAccountID;
+
+		public FormAdminMain(int AccountId) {
 			InitializeComponent();
 			mController = new Controller();
+			mAccountID = AccountId;
 		}
 
 
@@ -32,14 +35,8 @@ namespace DeliveryMarket.Admin {
 		}
 
 		private void buttonViewAdmins_Click(object sender, EventArgs e) {
-			new FormViewAdmins().Show(this);
+			new FormViewAccounts(mAccountID).Show(this);
 			this.Hide();
 		}
-
-        private void buttonAddAdmin_Click(object sender, EventArgs e)
-        {
-            new FormAddAdmin().Show(this);
-            this.Hide();
-        }
-    }
+	}
 }

@@ -39,7 +39,7 @@ namespace DeliveryMarket.Data {
 			}
 			catch (Exception ex) {
 				Console.WriteLine(ex.Message);
-				return 0;
+				return -1;
 			}
 		}
 

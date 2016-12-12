@@ -62,23 +62,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\FormAddAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormAddAdmin.Designer.cs">
-      <DependentUpon>FormAddAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\FormAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\FormAdminMain.Designer.cs">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\FormViewAdmins.cs">
+    <Compile Include="Admin\FormViewAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\FormViewAdmins.Designer.cs">
-      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    <Compile Include="Admin\FormViewAccounts.Designer.cs">
+      <DependentUpon>FormViewAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProductController.cs" />
     <Compile Include="Account\Account.cs" />
@@ -144,14 +138,11 @@
     <EmbeddedResource Include="Account\FormAccounts.resx">
       <DependentUpon>FormAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormAddAdmin.resx">
-      <DependentUpon>FormAddAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormViewAdmins.resx">
-      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\FormViewAccounts.resx">
+      <DependentUpon>FormViewAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>

@@ -20,7 +20,7 @@ namespace DeliveryMarket {
 		private Privilege mPrivilege;
 
 		/* Constructor */
-		public FormMain(int accountID = 99, Privilege privilege = Privilege.User) {
+		public FormMain(int accountID = 99, Privilege privilege = Privilege.Admin) {
 			InitializeComponent();
 
 			mAccountID = accountID;
@@ -61,7 +61,7 @@ namespace DeliveryMarket {
 
 		/* Admin panel button clicked callback function */
 		private void buttonAdminPanel_Click(object sender, EventArgs e) {
-			new FormAdminMain().Show(this);
+			new FormAdminMain(mAccountID).Show(this);
 			this.Hide();
 		}
 
