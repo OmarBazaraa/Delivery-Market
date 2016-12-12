@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DeliveryMarket.Order {
+namespace DeliveryMarket.Orders {
 	public partial class Orders : Form {
 		private OrderController mController;
 		int mAccountID;

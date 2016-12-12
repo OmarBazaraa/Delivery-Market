@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Data;
 using DeliveryMarket.Data;
 
-namespace DeliveryMarket.Order {
+namespace DeliveryMarket.Orders {
 	/*
      * A class that controls account interaction with database
      */

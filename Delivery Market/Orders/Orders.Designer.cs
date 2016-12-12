@@ -1,4 +1,4 @@
-﻿namespace DeliveryMarket.Order {
+﻿namespace DeliveryMarket.Orders {
 	partial class Orders {
 		/// <summary>
 		/// Required designer variable.

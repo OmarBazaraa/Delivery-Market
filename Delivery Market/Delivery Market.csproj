@@ -154,6 +154,7 @@
     <Compile Include="Product\FormProductList.Designer.cs">
       <DependentUpon>FormProductList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product\Order.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
     <Compile Include="Utils\Defs.cs" />
