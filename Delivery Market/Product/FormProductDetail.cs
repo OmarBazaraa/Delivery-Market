@@ -70,7 +70,7 @@ namespace DeliveryMarket.Product {
 			linkSeller.Text = product[ProductEntry.COL_SELLER_NAME].ToString();
 			labelRating.Text = product[ProductEntry.COL_RATING].ToString() + "/5.0";
 			textPrice.Text = "Price: " + product[ProductEntry.COL_PRICE].ToString() + "$";
-			textStock.Text = "In Stock: " + product[ProductEntry.COL_STOCK_COUNT].ToString();
+			textStock.Text = "In Stock: " + product[ProductEntry.COL_QUANTITY].ToString();
 			textDescription.Text = product[ProductEntry.COL_DESCRIPTION].ToString();
 			pictureBox1.ImageLocation = product[ProductEntry.COL_IMAGE].ToString();
 

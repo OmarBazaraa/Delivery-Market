@@ -72,9 +72,9 @@
 			public const string COL_RATING = "rating";
 			public const string COL_CATEGORY = "category";
 			public const string COL_DESCRIPTION = "description";
-			public const string COL_STOCK_COUNT = "stock_count";
+			public const string COL_QUANTITY = "quantity";
 			public const string COL_IMAGE = "image";
-			public const string COL_START_DATE = "start_date";
+			public const string COL_SELLING_DATE = "selling_date";
 			public const string COL_DELETED = "deleted";
 		}
 
@@ -106,7 +106,7 @@
 			// Columns names
 			public const string COL_USER_ID = "user_id";
 			public const string COL_PRODUCT_ID = "product_id";
-			public const string COL_RATE_VALUE = "rate_value";
+			public const string COL_RATE_VALUE = "rating_value";
 		}
 
 		public static class ReportEntry {
@@ -131,9 +131,18 @@
 			public const string COL_PRODUCT_ID = "product_id";
 			public const string COL_PRODUCT_NAME = "product_name";
 			public const string COL_PRODUCT_PRICE = "product_price";
-			public const string COL_ORDER_DATE = "order_date";
+			public const string COL_ADDRESS = "address";
 			public const string COL_TRANSACTION_COMPANY_ID = "transaction_company_id";
 			public const string COL_TRANSPORT_COMPANY_ID = "transport_company_id";
+			public const string COL_ORDER_DATE = "order_date";
+		}
+
+		public static class RemovalReasons {
+			// Table name
+			public const string TABLE_NAME = "removal_reasons";
+
+			// Columns names
+			public const string COL_REASON = "reason";
 		}
 
 		public static class RemovedProductsEntry {

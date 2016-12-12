@@ -63,7 +63,7 @@ namespace DeliveryMarket.Product {
 				textBoxName.Text = product[ProductEntry.COL_PRODUCT_NAME].ToString();
 				comboBoxCategory.Text = product[ProductEntry.COL_CATEGORY].ToString();
 				numericPrice.Value = Convert.ToDecimal(product[ProductEntry.COL_PRICE].ToString());
-				numericStockCount.Value = Convert.ToDecimal(product[ProductEntry.COL_STOCK_COUNT].ToString());
+				numericStockCount.Value = Convert.ToDecimal(product[ProductEntry.COL_QUANTITY].ToString());
 				textBoxDescription.Text = product[ProductEntry.COL_DESCRIPTION].ToString();
 				pictureBoxImage.ImageLocation = product[ProductEntry.COL_IMAGE].ToString();
 			}
