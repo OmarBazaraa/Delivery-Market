@@ -7,34 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Data.MarketContract;
 
 namespace DeliveryMarket.Admin
 {
     public partial class FormViewAdmins : Form
     {
         AdminController mController;
+		DataTable mAdminList;
 
         public FormViewAdmins()
         {
             InitializeComponent();
             mController = new AdminController();
 
-			ViewAdmins();
+			PopulateListView();
         }
 
-		public void ViewAdmins() {
-			DataTable mRows = mController.SelectAdmins();
-			gridViewAdmins.DataSource = mRows;
-			gridViewAdmins.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			gridViewAdmins.ReadOnly = true;
-			gridViewAdmins.ClearSelection();
+		public void PopulateListView() {
+			mAdminList = mController.SelectAdmins(textBoxSearchByName.Text);
+			listViewAdmins.Items.Clear();
 
-			gridViewAdmins.Show();
-			gridViewAdmins.Refresh();
+			if (mAdminList == null) return;
+			
+			foreach(DataRow row in mAdminList.Rows) {
+				ListViewItem item = new ListViewItem(row[AccountEntry.COL_FIRST_NAME].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_LAST_NAME].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_GENDER].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_EMAIL].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_MOBILE_NUMBER].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_CITY].ToString());
+				item.SubItems.Add(row[AdminEntry.COL_START_DATE].ToString());
+
+
+				listViewAdmins.Items.Add(item);
+			}
+			
+		}
+
+		private void buttonSearch_Click(object sender, EventArgs e) {
+			PopulateListView();
 		}
 
 
-        public void FormViewAdmins_FormClosed (object sender, FormClosedEventArgs e)
+		public void FormViewAdmins_FormClosed (object sender, FormClosedEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -42,5 +58,7 @@ namespace DeliveryMarket.Admin
                 Owner.Refresh();
             }
         }
-    }
+
+		
+	}
 }
