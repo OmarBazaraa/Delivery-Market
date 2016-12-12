@@ -16,7 +16,7 @@ namespace DeliveryMarket.Account
 	class AccountController : Controller
 	{
 		/* Selects all accounts */
-		public DataTable SelectAllAccounts(string email) {
+		public DataTable SelectAllAccounts(string name) {
 			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", "
 				+ AccountEntry.COL_FIRST_NAME + ", "
 				+ AccountEntry.COL_LAST_NAME + ", "
@@ -25,7 +25,9 @@ namespace DeliveryMarket.Account
 				+ " FROM " + AccountEntry.TABLE_NAME
 				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
 				+ AccountType.Active_Account
-				+ "' AND " + AccountEntry.COL_EMAIL + " LIKE '" + email + "%' ;";
+				+ "' AND ( " + AccountEntry.COL_FIRST_NAME + " LIKE '" + name + "%'" 
+				+ " OR " + AccountEntry.COL_LAST_NAME + " LIKE '" + name + "%'"
+				+ " ) ;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -49,6 +51,7 @@ namespace DeliveryMarket.Account
 				+ " FROM " + AccountEntry.TABLE_NAME + " a, "
 				+ RatingEntry.TABLE_NAME + " r, "
 				+ ProductEntry.TABLE_NAME + " p, "
+				+ MarketEntry.DATABASE_NAME + "." 
 				+ OrderEntry.TABLE_NAME + " o" +
 				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + account_id + " AND "
 				+ "p." + ProductEntry.COL_SELLER_ID + " = " + account_id + " AND "

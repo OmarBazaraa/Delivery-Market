@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace DeliveryMarket.Account
 {
-    public partial class Sellers : Form
+    public partial class FormAccounts : Form
     {
 		private AccountController mController;
 		int mAccountID;
 		UserList list;
-		public Sellers(int accountID)
+		public FormAccounts(int accountID)
         {
             InitializeComponent();
 
@@ -30,17 +30,17 @@ namespace DeliveryMarket.Account
 				l[i] = new ListViewItem(list.Name[i]);
 				l[i].SubItems.Add(list.MobileNumber[i]);
 				l[i].SubItems.Add(list.Country[i]);
-				listViewAccounts.Items.Add(l[i]);
+				listSellers.Items.Add(l[i]);
 			}
-			/*
+			
 			DataRow dr = mController.SelectAccount(list.AccountID[0]);
-			User user = new User(dr);*/
+			User user = new User(dr);
 		}
 
 		
 
 		private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e) {
-			DataRow dr = mController.SelectAccount(list.AccountID[listViewAccounts.SelectedIndices[0]]);
+			DataRow dr = mController.SelectAccount(list.AccountID[listSellers.SelectedIndices[0]]);
 			User user = new User(dr);
 		}
 
@@ -48,13 +48,13 @@ namespace DeliveryMarket.Account
 			DataTable dt = mController.SelectAllAccounts(textBoxEmail.Text);
 			if (dt == null) return;
 			list = new UserList(dt);
-			listViewAccounts.Items.Clear();
+			listSellers.Items.Clear();
 			ListViewItem[] l = new ListViewItem[list.ListItemsCount];
 			for (int i = 0; i < list.ListItemsCount; ++i) {
 				l[i] = new ListViewItem(list.Name[i]);
 				l[i].SubItems.Add(list.MobileNumber[i]);
 				l[i].SubItems.Add(list.Country[i]);
-				listViewAccounts.Items.Add(l[i]);
+				listSellers.Items.Add(l[i]);
 			}
 		}
 	}
