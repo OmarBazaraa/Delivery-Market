@@ -127,9 +127,9 @@
 			public const string COL_REPORT_DATE = "report_date";
 		}
 
-		public static class OrdersEntry {
+		public static class OrderEntry {
 			// Table name
-			public const string TABLE_NAME = "orders";
+			public const string TABLE_NAME = "order";
 
 			// Columns names
 			public const string COL_ORDER_ID = "order_id";
