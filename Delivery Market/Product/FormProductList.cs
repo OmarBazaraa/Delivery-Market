@@ -51,14 +51,15 @@ namespace DeliveryMarket.Product {
 			}
 		}
 
-		/* Search bar text changed callback function */
-		private void textBoxSearch_TextChanged(object sender, EventArgs e) {
-			PopulateProductList();
-		}
+		/* Product list item double clicked callback function */
+		private void listViewProducts_MouseDoubleClick(object sender, MouseEventArgs e) {
+			if (listViewProducts.Items.Count == 0) {
+				return;
+			}
 
-		/* Category box item changed callback function */
-		private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e) {
-			PopulateProductList();
+			int idx = listViewProducts.SelectedItems[0].Index;
+			int productID = Convert.ToInt32(mProductsData.Rows[idx][ProductEntry.COL_PRODUCT_ID]);
+			new FormProductDetail(mAccountID, productID, mPrivilege).Show(this);
 		}
 
 		/* Product list column header clicked callback function */
@@ -111,23 +112,15 @@ namespace DeliveryMarket.Product {
 				listViewProducts.Items.Add(item);
 			}
 		}
-		
-		/* View product button clicked callback function */
-		private void buttonView_Click(object sender, EventArgs e) {
-			if (listViewProducts.Items.Count == 0) {
-				return;
-			}
 
-			int idx = listViewProducts.SelectedItems[0].Index;
-			int productID = Convert.ToInt32(mProductsData.Rows[idx][ProductEntry.COL_PRODUCT_ID]);
-			new FormProductDetail(mAccountID, productID, mPrivilege).Show(this);
+		/* Search bar text changed callback function */
+		private void textBoxSearch_TextChanged(object sender, EventArgs e) {
+			PopulateProductList();
 		}
 
-		/* Back button clicked callback function */
-		private void buttonBack_Click(object sender, EventArgs e) {
-			//Owner.Show();
-			//Owner.Refresh();
-			//Close();
+		/* Category box item changed callback function */
+		private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e) {
+			PopulateProductList();
 		}
 	}
 }

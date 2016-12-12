@@ -31,10 +31,7 @@
 			this.columnSellerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.buttonView = new System.Windows.Forms.Button();
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-			this.buttonBack = new System.Windows.Forms.Button();
-			this.buttonAdd = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -67,12 +64,13 @@
 			this.listViewProducts.Location = new System.Drawing.Point(12, 169);
 			this.listViewProducts.MultiSelect = false;
 			this.listViewProducts.Name = "listViewProducts";
-			this.listViewProducts.Size = new System.Drawing.Size(460, 556);
+			this.listViewProducts.Size = new System.Drawing.Size(460, 580);
 			this.listViewProducts.TabIndex = 0;
 			this.listViewProducts.TabStop = false;
 			this.listViewProducts.UseCompatibleStateImageBehavior = false;
 			this.listViewProducts.View = System.Windows.Forms.View.Details;
 			this.listViewProducts.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewProducts_ColumnClick);
+			this.listViewProducts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewProducts_MouseDoubleClick);
 			// 
 			// columnProductName
 			// 
@@ -94,17 +92,6 @@
 			this.columnPrice.Text = "Price";
 			this.columnPrice.Width = 80;
 			// 
-			// buttonView
-			// 
-			this.buttonView.Location = new System.Drawing.Point(397, 731);
-			this.buttonView.Name = "buttonView";
-			this.buttonView.Size = new System.Drawing.Size(75, 35);
-			this.buttonView.TabIndex = 0;
-			this.buttonView.TabStop = false;
-			this.buttonView.Text = "View";
-			this.buttonView.UseVisualStyleBackColor = true;
-			this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
-			// 
 			// pictureBoxLogo
 			// 
 			this.pictureBoxLogo.Image = global::DeliveryMarket.Properties.Resources.logo;
@@ -115,36 +102,12 @@
 			this.pictureBoxLogo.TabIndex = 9;
 			this.pictureBoxLogo.TabStop = false;
 			// 
-			// buttonBack
-			// 
-			this.buttonBack.Location = new System.Drawing.Point(235, 731);
-			this.buttonBack.Name = "buttonBack";
-			this.buttonBack.Size = new System.Drawing.Size(75, 35);
-			this.buttonBack.TabIndex = 0;
-			this.buttonBack.TabStop = false;
-			this.buttonBack.Text = "Back";
-			this.buttonBack.UseVisualStyleBackColor = true;
-			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-			// 
-			// buttonAdd
-			// 
-			this.buttonAdd.Location = new System.Drawing.Point(316, 731);
-			this.buttonAdd.Name = "buttonAdd";
-			this.buttonAdd.Size = new System.Drawing.Size(75, 35);
-			this.buttonAdd.TabIndex = 0;
-			this.buttonAdd.TabStop = false;
-			this.buttonAdd.Text = "Add";
-			this.buttonAdd.UseVisualStyleBackColor = true;
-			// 
 			// FormProductList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(484, 778);
-			this.Controls.Add(this.buttonAdd);
-			this.Controls.Add(this.buttonBack);
+			this.ClientSize = new System.Drawing.Size(484, 761);
 			this.Controls.Add(this.pictureBoxLogo);
-			this.Controls.Add(this.buttonView);
 			this.Controls.Add(this.listViewProducts);
 			this.Controls.Add(this.textBoxSearch);
 			this.Controls.Add(this.comboBoxCategory);
@@ -172,9 +135,6 @@
 		private System.Windows.Forms.ColumnHeader columnSellerName;
 		private System.Windows.Forms.ColumnHeader columnRating;
 		private System.Windows.Forms.ColumnHeader columnPrice;
-		private System.Windows.Forms.Button buttonView;
 		private System.Windows.Forms.PictureBox pictureBoxLogo;
-		private System.Windows.Forms.Button buttonBack;
-		private System.Windows.Forms.Button buttonAdd;
 	}
 }

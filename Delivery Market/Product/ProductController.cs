@@ -210,7 +210,7 @@ namespace DeliveryMarket.Product {
 		}
 
 		/* Buys a certain product and save the order in the database */
-		public int BuyProduct(Order order, ref TextBox qry) {
+		public int BuyProduct(Order order) {
 			// First decrease the product's stock quantity by the given quantity
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_QUANTITY + "=" + ProductEntry.COL_QUANTITY + "-" + order.Quantity.ToString() +
@@ -242,8 +242,6 @@ namespace DeliveryMarket.Product {
 				order.TransactionCompanyID.ToString() + ", " +
 				order.TransportCompanyID.ToString() +
 				");";
-
-			//qry.Text = query;
 
 			return DBMan.ExecuteNonQuery(query);
 		}
