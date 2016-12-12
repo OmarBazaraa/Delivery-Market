@@ -16,7 +16,7 @@ namespace DeliveryMarket.Admin {
 				AccountEntry.COL_FIRST_NAME + ", " +
 				AccountEntry.COL_LAST_NAME + ", " +
 				AccountEntry.COL_GENDER + ", " +
-				AccountEntry.COL_EMAIL + ", " +
+				AccountEntry.COL_USERNAME + ", " +
 				AccountEntry.COL_MOBILE_NUMBER + ", " +
 				AccountEntry.COL_CITY + ", " +
 				AdminEntry.COL_START_DATE +

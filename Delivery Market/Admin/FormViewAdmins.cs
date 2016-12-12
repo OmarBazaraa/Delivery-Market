@@ -34,7 +34,7 @@ namespace DeliveryMarket.Admin
 				ListViewItem item = new ListViewItem(row[AccountEntry.COL_FIRST_NAME].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_LAST_NAME].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_GENDER].ToString());
-				item.SubItems.Add(row[AccountEntry.COL_EMAIL].ToString());
+				item.SubItems.Add(row[AccountEntry.COL_USERNAME].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_MOBILE_NUMBER].ToString());
 				item.SubItems.Add(row[AccountEntry.COL_CITY].ToString());
 				item.SubItems.Add(row[AdminEntry.COL_START_DATE].ToString());
