@@ -62,7 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Admin.cs" />
     <Compile Include="Admin\FormAddAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,8 +210,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
-    <Folder Include="Admin\" />
     <Folder Include="Registeration\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
