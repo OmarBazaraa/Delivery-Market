@@ -16,7 +16,7 @@ namespace DeliveryMarket.Admin {
 				AccountEntry.COL_FIRST_NAME + ", " +
 				AccountEntry.COL_LAST_NAME + ", " +
 				AccountEntry.COL_GENDER + ", " +
-				AccountEntry.COL_EMAIL + ", " +
+				AccountEntry.COL_USERNAME + ", " +
 				AccountEntry.COL_MOBILE_NUMBER + ", " +
 				AccountEntry.COL_CITY + ", " +
 				AdminEntry.COL_START_DATE +
@@ -43,7 +43,7 @@ namespace DeliveryMarket.Admin {
 			string query = "SELECT " +
 							AccountEntry.COL_ACCOUNT_ID + ", " +
 							AccountEntry.COL_FIRST_NAME + ", " +
-							AccountEntry.COL_EMAIL + ", " +
+							AccountEntry.COL_USERNAME + ", " +
 							AccountEntry.COL_ACCOUNT_TYPE + ", " +
 							AccountEntry.COL_CREATION_DATE +
 							" FROM " +
@@ -52,7 +52,7 @@ namespace DeliveryMarket.Admin {
 			if (Like != "") {
 				query += " WHERE (" + AccountEntry.COL_FIRST_NAME +
 					" LIKE '%" + Like + "%' OR " +
-					AccountEntry.COL_EMAIL + " LIKE '%" + Like + "%' OR " +
+					AccountEntry.COL_USERNAME + " LIKE '%" + Like + "%' OR " +
 					AccountEntry.COL_ACCOUNT_ID + " LIKE '%" + Like + "%')";
 			}
 			query += ";";
@@ -67,7 +67,7 @@ namespace DeliveryMarket.Admin {
 						AccountEntry.COL_ACCOUNT_ID + ", " +
 						AccountEntry.COL_FIRST_NAME + ", " +
 						AccountEntry.COL_LAST_NAME + ", " +
-						AccountEntry.COL_EMAIL + ", " +
+						AccountEntry.COL_USERNAME + ", " +
 						AccountEntry.COL_MOBILE_NUMBER + ", " +
 						AccountEntry.COL_GENDER + ", " +
 						AccountEntry.COL_BIRTHDATE + ", " +

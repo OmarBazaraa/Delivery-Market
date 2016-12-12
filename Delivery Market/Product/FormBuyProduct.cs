@@ -82,7 +82,7 @@ namespace DeliveryMarket.Product {
 			order.TransportCompanyID = Convert.ToInt32(comboBoxTransport.SelectedValue);
 
 			// Delete product
-			if (mController.BuyProduct(order, ref textBoxAddress) > 0) {
+			if (mController.BuyProduct(order) > 0) {
 				MessageBox.Show(BUY_SUCCESS_MSG, BUY_SUCCESS_TITLE, MessageBoxButtons.OK);
 				Close();
 			}

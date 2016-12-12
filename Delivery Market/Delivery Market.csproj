@@ -62,17 +62,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormAddAdmin.cs" />
+    <Compile Include="Admin\FormAddAdmin.Designer.cs">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\FormAdminMain.Designer.cs">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\FormViewAccounts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\FormViewAccounts.Designer.cs">
-      <DependentUpon>FormViewAccounts.cs</DependentUpon>
+    <Compile Include="Admin\FormViewAdmins.cs" />
+    <Compile Include="Admin\FormViewAdmins.Designer.cs">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProductController.cs" />
     <Compile Include="Account\Account.cs" />
@@ -87,11 +95,24 @@
     <Compile Include="Data\MarketContract.cs" />
     <Compile Include="Data\Controller.cs" />
     <Compile Include="Data\DBManager.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\OrderController.cs" />
+    <Compile Include="Orders\Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\FormRemoveProduct.cs">
       <SubType>Form</SubType>
@@ -138,14 +159,26 @@
     <EmbeddedResource Include="Account\FormAccounts.resx">
       <DependentUpon>FormAccounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Account\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddAdmin.resx">
+      <DependentUpon>FormAddAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\FormViewAccounts.resx">
-      <DependentUpon>FormViewAccounts.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\FormViewAdmins.resx">
+      <DependentUpon>FormViewAdmins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\FormBuyProduct.resx">
       <DependentUpon>FormBuyProduct.cs</DependentUpon>
@@ -202,6 +235,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Registeration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

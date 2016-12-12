@@ -27,21 +27,17 @@ namespace DeliveryMarket.Account
 
 			ListViewItem[] l = new ListViewItem[list.ListItemsCount];
 			for (int i = 0; i < list.ListItemsCount; ++i) {
-				l[i] = new ListViewItem(list.Name[i]);
-				l[i].SubItems.Add(list.MobileNumber[i]);
-				l[i].SubItems.Add(list.Country[i]);
+				l[i] = new ListViewItem(list.UserName[i]);
+				l[i].SubItems.Add(list.Rating[i]);
+				l[i].SubItems.Add(list.ProductsCount[i]);
 				listSellers.Items.Add(l[i]);
-			}
-			
-			DataRow dr = mController.SelectAccount(list.AccountID[0]);
-			User user = new User(dr);
+			}			
 		}
 
 		
 
 		private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e) {
-			DataRow dr = mController.SelectAccount(list.AccountID[listSellers.SelectedIndices[0]]);
-			User user = new User(dr);
+			
 		}
 
 		private void textBoxEmail_TextChanged(object sender, EventArgs e) {
@@ -51,11 +47,12 @@ namespace DeliveryMarket.Account
 			listSellers.Items.Clear();
 			ListViewItem[] l = new ListViewItem[list.ListItemsCount];
 			for (int i = 0; i < list.ListItemsCount; ++i) {
-				l[i] = new ListViewItem(list.Name[i]);
-				l[i].SubItems.Add(list.MobileNumber[i]);
-				l[i].SubItems.Add(list.Country[i]);
+				l[i] = new ListViewItem(list.UserName[i]);
+				l[i].SubItems.Add(list.Rating[i]);
+				l[i].SubItems.Add(list.ProductsCount[i]);
 				listSellers.Items.Add(l[i]);
 			}
 		}
+		
 	}
 }

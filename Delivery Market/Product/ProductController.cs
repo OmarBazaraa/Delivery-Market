@@ -28,7 +28,7 @@ namespace DeliveryMarket.Product {
 		public DataRow SelectProductDetails(int productID) {
 			string query =
 				"SELECT " + ProductEntry.TABLE_NAME + ".*, " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ", " +
-				"CONCAT(" + AccountEntry.COL_FIRST_NAME + ", ' ', " + AccountEntry.COL_LAST_NAME + ") AS " + ProductEntry.COL_SELLER_NAME + ", " +
+				AccountEntry.COL_USERNAME + " AS " + ProductEntry.COL_SELLER_NAME + ", " +
 				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
 				"FROM " + ProductEntry.TABLE_NAME + " INNER JOIN " + AccountEntry.TABLE_NAME + " ON " +
 				ProductEntry.COL_SELLER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + " " +
@@ -49,10 +49,10 @@ namespace DeliveryMarket.Product {
 		}
 
 		/* Selects all not deleted products to be displayed as list */
-		public DataTable SelectProductList(string name = "", string category = "") {
+		public DataTable SelectProductList(string name = "", string category = "", string orderby = ProductEntry.COL_PRODUCT_NAME, bool asc = true) {
 			string query =
 				"SELECT " + ProductEntry.COL_PRODUCT_NAME + ", " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", " +
-				"CONCAT(" + AccountEntry.COL_FIRST_NAME + ", ' ', " + AccountEntry.COL_LAST_NAME + ") AS " + ProductEntry.COL_SELLER_NAME + ", " +
+				AccountEntry.COL_USERNAME + " AS " + ProductEntry.COL_SELLER_NAME + ", " +
 				ProductEntry.COL_PRICE + ", " +
 				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
 				"FROM " + ProductEntry.TABLE_NAME + " INNER JOIN " + AccountEntry.TABLE_NAME + " ON " +
@@ -69,7 +69,9 @@ namespace DeliveryMarket.Product {
 				query += " AND " + ProductEntry.COL_CATEGORY + "='" + category + "'";
 			}
 
-			query += " GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ";";
+			query += " GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID;
+
+			query += " ORDER BY " + orderby + (asc ? " ASC" : " DESC") + ";";
 
 			//MessageBox.Show(query);
 
@@ -78,7 +80,9 @@ namespace DeliveryMarket.Product {
 
 		/* Selects all product categories */
 		public DataTable SelectCategories() {
-			string query = "SELECT " + CategoryEntry.COL_CATEGORY_NAME + " FROM " + CategoryEntry.TABLE_NAME + ";";
+			string query = "SELECT " + CategoryEntry.COL_CATEGORY_NAME +
+				" FROM " + CategoryEntry.TABLE_NAME +
+				" ORDER BY " + CategoryEntry.COL_CATEGORY_NAME + " ASC;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -206,7 +210,7 @@ namespace DeliveryMarket.Product {
 		}
 
 		/* Buys a certain product and save the order in the database */
-		public int BuyProduct(Order order, ref TextBox qry) {
+		public int BuyProduct(Order order) {
 			// First decrease the product's stock quantity by the given quantity
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_QUANTITY + "=" + ProductEntry.COL_QUANTITY + "-" + order.Quantity.ToString() +
@@ -238,8 +242,6 @@ namespace DeliveryMarket.Product {
 				order.TransactionCompanyID.ToString() + ", " +
 				order.TransportCompanyID.ToString() +
 				");";
-
-			//qry.Text = query;
 
 			return DBMan.ExecuteNonQuery(query);
 		}

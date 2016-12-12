@@ -11,7 +11,10 @@ namespace DeliveryMarket.Account
 		public string UserID;
 		public string Reason;
 		public string Description;
-		public string OrdersCount;
-		public string EarnedMoney;
+		public string AdminID;
+		public string Date;
+		public BannedUser() {
+			Date = DateTime.Now.ToString("yyyy/MM/dd");
+		}
 	}
 }
