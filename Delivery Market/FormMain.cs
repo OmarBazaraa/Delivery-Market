@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DeliveryMarket.Admin;
 using DeliveryMarket.Product;
 using DeliveryMarket.Utils.Defs;
+using DeliveryMarket.Orders;
 
 namespace DeliveryMarket {
 
@@ -76,6 +77,10 @@ namespace DeliveryMarket {
 		/* Loses buttons focus */
 		private void LoseFocus(object sender, EventArgs e) {
 			labelWelcome.Focus();
+		}
+
+		private void buttonViewOrders_Click(object sender, EventArgs e) {
+			new FormOrders(mAccountID).Show(this);
 		}
 	}
 }

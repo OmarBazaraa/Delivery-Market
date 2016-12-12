@@ -15,7 +15,7 @@ namespace DeliveryMarket.Orders {
 	class OrderController : Controller {
 		/* Selects all accounts */
 		public DataTable SelectAllOrders(string account_id) {
-			string query = "SELECT * FROM " + OrderEntry.TABLE_NAME + " WHERE " + OrderEntry.COL_CUSTOMER_ID + " = " + account_id + " ;";
+			string query = "SELECT * FROM " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + " WHERE " + OrderEntry.COL_CUSTOMER_ID + " = " + account_id + " ;";
 			return DBMan.ExecuteReader(query);
 		}
 	}

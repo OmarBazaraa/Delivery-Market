@@ -32,6 +32,7 @@
 			this.buttonAdminPanel = new System.Windows.Forms.Button();
 			this.buttonAbout = new System.Windows.Forms.Button();
 			this.buttonSignOut = new System.Windows.Forms.Button();
+			this.buttonViewOrders = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -92,7 +93,7 @@
 			// 
 			// buttonAdminPanel
 			// 
-			this.buttonAdminPanel.Location = new System.Drawing.Point(12, 277);
+			this.buttonAdminPanel.Location = new System.Drawing.Point(12, 323);
 			this.buttonAdminPanel.Name = "buttonAdminPanel";
 			this.buttonAdminPanel.Size = new System.Drawing.Size(260, 40);
 			this.buttonAdminPanel.TabIndex = 0;
@@ -104,7 +105,7 @@
 			// 
 			// buttonAbout
 			// 
-			this.buttonAbout.Location = new System.Drawing.Point(12, 323);
+			this.buttonAbout.Location = new System.Drawing.Point(12, 369);
 			this.buttonAbout.Name = "buttonAbout";
 			this.buttonAbout.Size = new System.Drawing.Size(260, 40);
 			this.buttonAbout.TabIndex = 0;
@@ -116,7 +117,7 @@
 			// 
 			// buttonSignOut
 			// 
-			this.buttonSignOut.Location = new System.Drawing.Point(12, 369);
+			this.buttonSignOut.Location = new System.Drawing.Point(12, 415);
 			this.buttonSignOut.Name = "buttonSignOut";
 			this.buttonSignOut.Size = new System.Drawing.Size(260, 40);
 			this.buttonSignOut.TabIndex = 0;
@@ -126,11 +127,23 @@
 			this.buttonSignOut.Click += new System.EventHandler(this.buttonSignOut_Click);
 			this.buttonSignOut.GotFocus += new System.EventHandler(this.LoseFocus);
 			// 
+			// buttonViewOrders
+			// 
+			this.buttonViewOrders.Location = new System.Drawing.Point(12, 277);
+			this.buttonViewOrders.Name = "buttonViewOrders";
+			this.buttonViewOrders.Size = new System.Drawing.Size(260, 40);
+			this.buttonViewOrders.TabIndex = 1;
+			this.buttonViewOrders.TabStop = false;
+			this.buttonViewOrders.Text = "View Orders";
+			this.buttonViewOrders.UseVisualStyleBackColor = true;
+			this.buttonViewOrders.Click += new System.EventHandler(this.buttonViewOrders_Click);
+			// 
 			// FormMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 421);
+			this.ClientSize = new System.Drawing.Size(284, 467);
+			this.Controls.Add(this.buttonViewOrders);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.labelWelcome);
 			this.Controls.Add(this.buttonAddProduct);
@@ -161,5 +174,6 @@
 		private System.Windows.Forms.Button buttonAdminPanel;
 		private System.Windows.Forms.Button buttonAbout;
 		private System.Windows.Forms.Button buttonSignOut;
+		private System.Windows.Forms.Button buttonViewOrders;
 	}
 }

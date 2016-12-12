@@ -1,5 +1,5 @@
 ﻿namespace DeliveryMarket.Orders {
-	partial class Orders {
+	partial class FormOrders {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -34,16 +34,16 @@
 			this.dataGridOrders.Name = "dataGridOrders";
 			this.dataGridOrders.RowTemplate.Height = 26;
 			this.dataGridOrders.ShowRowErrors = false;
-			this.dataGridOrders.Size = new System.Drawing.Size(740, 622);
+			this.dataGridOrders.Size = new System.Drawing.Size(1212, 622);
 			this.dataGridOrders.TabIndex = 0;
 			// 
-			// Orders
+			// FormOrders
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(764, 646);
+			this.ClientSize = new System.Drawing.Size(1236, 646);
 			this.Controls.Add(this.dataGridOrders);
-			this.Name = "Orders";
+			this.Name = "FormOrders";
 			this.Text = "Orders";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).EndInit();
 			this.ResumeLayout(false);

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DeliveryMarket.Orders {
-	public partial class Orders : Form {
+	public partial class FormOrders : Form {
 		private OrderController mController;
 		int mAccountID;
 
-		public Orders(int accountID) {
+		public FormOrders(int accountID) {
 			InitializeComponent();
 			mController = new OrderController();
 			mAccountID = accountID;
