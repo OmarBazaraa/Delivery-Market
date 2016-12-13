@@ -28,7 +28,7 @@
 			this.listViewAccounts = new System.Windows.Forms.ListView();
 			this.columnAccountID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnAccountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnCreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.labelDetails = new System.Windows.Forms.Label();
@@ -36,8 +36,8 @@
 			this.labelName = new System.Windows.Forms.Label();
 			this.labelGender = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.textBoxEmail = new System.Windows.Forms.TextBox();
-			this.labelEMail = new System.Windows.Forms.Label();
+			this.textBoxUserName = new System.Windows.Forms.TextBox();
+			this.labelUserName = new System.Windows.Forms.Label();
 			this.labelCreationDate = new System.Windows.Forms.Label();
 			this.labelBirthDate = new System.Windows.Forms.Label();
 			this.dateTimeBirthDate = new System.Windows.Forms.DateTimePicker();
@@ -85,7 +85,7 @@
 			this.listViewAccounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnAccountID,
             this.columnFirstName,
-            this.columnEmail,
+            this.columnUserName,
             this.columnAccountType,
             this.columnCreationDate});
 			this.listViewAccounts.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,10 +110,10 @@
 			this.columnFirstName.Text = "First Name";
 			this.columnFirstName.Width = 140;
 			// 
-			// columnEmail
+			// columnUserName
 			// 
-			this.columnEmail.Text = "E-mail";
-			this.columnEmail.Width = 128;
+			this.columnUserName.Text = "User Name";
+			this.columnUserName.Width = 128;
 			// 
 			// columnAccountType
 			// 
@@ -170,22 +170,22 @@
 			this.pictureBox1.TabIndex = 8;
 			this.pictureBox1.TabStop = false;
 			// 
-			// textBoxEmail
+			// textBoxUserName
 			// 
-			this.textBoxEmail.Location = new System.Drawing.Point(818, 136);
-			this.textBoxEmail.Name = "textBoxEmail";
-			this.textBoxEmail.ReadOnly = true;
-			this.textBoxEmail.Size = new System.Drawing.Size(255, 22);
-			this.textBoxEmail.TabIndex = 6;
+			this.textBoxUserName.Location = new System.Drawing.Point(818, 136);
+			this.textBoxUserName.Name = "textBoxUserName";
+			this.textBoxUserName.ReadOnly = true;
+			this.textBoxUserName.Size = new System.Drawing.Size(255, 22);
+			this.textBoxUserName.TabIndex = 6;
 			// 
-			// labelEMail
+			// labelUserName
 			// 
-			this.labelEMail.AutoSize = true;
-			this.labelEMail.Location = new System.Drawing.Point(709, 136);
-			this.labelEMail.Name = "labelEMail";
-			this.labelEMail.Size = new System.Drawing.Size(51, 17);
-			this.labelEMail.TabIndex = 19;
-			this.labelEMail.Text = "E-Mail:";
+			this.labelUserName.AutoSize = true;
+			this.labelUserName.Location = new System.Drawing.Point(709, 136);
+			this.labelUserName.Name = "labelUserName";
+			this.labelUserName.Size = new System.Drawing.Size(83, 17);
+			this.labelUserName.TabIndex = 19;
+			this.labelUserName.Text = "User Name:";
 			// 
 			// labelCreationDate
 			// 
@@ -412,8 +412,8 @@
 			this.Controls.Add(this.dateTimeBirthDate);
 			this.Controls.Add(this.labelCreationDate);
 			this.Controls.Add(this.labelBirthDate);
-			this.Controls.Add(this.labelEMail);
-			this.Controls.Add(this.textBoxEmail);
+			this.Controls.Add(this.labelUserName);
+			this.Controls.Add(this.textBoxUserName);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.labelGender);
 			this.Controls.Add(this.labelName);
@@ -438,7 +438,7 @@
 		private System.Windows.Forms.ListView listViewAccounts;
 		private System.Windows.Forms.ColumnHeader columnAccountID;
 		private System.Windows.Forms.ColumnHeader columnFirstName;
-		private System.Windows.Forms.ColumnHeader columnEmail;
+		private System.Windows.Forms.ColumnHeader columnUserName;
 		private System.Windows.Forms.ColumnHeader columnAccountType;
 		private System.Windows.Forms.ColumnHeader columnCreationDate;
 		private System.Windows.Forms.Label labelDetails;
@@ -446,8 +446,8 @@
 		private System.Windows.Forms.Label labelName;
 		private System.Windows.Forms.Label labelGender;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.TextBox textBoxEmail;
-		private System.Windows.Forms.Label labelEMail;
+		private System.Windows.Forms.TextBox textBoxUserName;
+		private System.Windows.Forms.Label labelUserName;
 		private System.Windows.Forms.Label labelCreationDate;
 		private System.Windows.Forms.Label labelBirthDate;
 		private System.Windows.Forms.DateTimePicker dateTimeBirthDate;

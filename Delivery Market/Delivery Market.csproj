@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\FormBanUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\FormBanUser.Designer.cs">
+      <DependentUpon>FormBanUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account\Profile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Account\FormAccounts.resx">
       <DependentUpon>FormAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\FormBanUser.resx">
+      <DependentUpon>FormBanUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>

@@ -50,13 +50,21 @@
 			this.textBoxOrdersCount = new System.Windows.Forms.TextBox();
 			this.textBoxProductsCount = new System.Windows.Forms.TextBox();
 			this.textBoxMoneyEarned = new System.Windows.Forms.TextBox();
-			this.textBoxRating = new System.Windows.Forms.TextBox();
+			this.textBoxMoneyPaid = new System.Windows.Forms.TextBox();
+			this.buttonBan = new System.Windows.Forms.Button();
+			this.buttonMakeAdmin = new System.Windows.Forms.Button();
+			this.buttonViewOrders = new System.Windows.Forms.Button();
+			this.buttonViewProducts = new System.Windows.Forms.Button();
+			this.buttonEditAccount = new System.Windows.Forms.Button();
+			this.labelMoneyPaid = new System.Windows.Forms.Label();
+			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelOrdersCount
 			// 
 			this.labelOrdersCount.AutoSize = true;
-			this.labelOrdersCount.Location = new System.Drawing.Point(341, 343);
+			this.labelOrdersCount.Location = new System.Drawing.Point(341, 320);
 			this.labelOrdersCount.Name = "labelOrdersCount";
 			this.labelOrdersCount.Size = new System.Drawing.Size(91, 17);
 			this.labelOrdersCount.TabIndex = 28;
@@ -65,7 +73,7 @@
 			// labelMoneyEarned
 			// 
 			this.labelMoneyEarned.AutoSize = true;
-			this.labelMoneyEarned.Location = new System.Drawing.Point(25, 344);
+			this.labelMoneyEarned.Location = new System.Drawing.Point(25, 354);
 			this.labelMoneyEarned.Name = "labelMoneyEarned";
 			this.labelMoneyEarned.Size = new System.Drawing.Size(96, 17);
 			this.labelMoneyEarned.TabIndex = 27;
@@ -74,7 +82,7 @@
 			// labelProductsCount
 			// 
 			this.labelProductsCount.AutoSize = true;
-			this.labelProductsCount.Location = new System.Drawing.Point(341, 309);
+			this.labelProductsCount.Location = new System.Drawing.Point(25, 320);
 			this.labelProductsCount.Name = "labelProductsCount";
 			this.labelProductsCount.Size = new System.Drawing.Size(105, 17);
 			this.labelProductsCount.TabIndex = 26;
@@ -84,7 +92,7 @@
 			// 
 			this.labelUser.AutoSize = true;
 			this.labelUser.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelUser.Location = new System.Drawing.Point(24, 255);
+			this.labelUser.Location = new System.Drawing.Point(24, 250);
 			this.labelUser.Name = "labelUser";
 			this.labelUser.Size = new System.Drawing.Size(138, 24);
 			this.labelUser.TabIndex = 25;
@@ -185,7 +193,7 @@
 			// labelRating
 			// 
 			this.labelRating.AutoSize = true;
-			this.labelRating.Location = new System.Drawing.Point(25, 314);
+			this.labelRating.Location = new System.Drawing.Point(25, 290);
 			this.labelRating.Name = "labelRating";
 			this.labelRating.Size = new System.Drawing.Size(47, 17);
 			this.labelRating.TabIndex = 29;
@@ -256,39 +264,126 @@
 			// 
 			// textBoxOrdersCount
 			// 
-			this.textBoxOrdersCount.Location = new System.Drawing.Point(481, 336);
+			this.textBoxOrdersCount.Location = new System.Drawing.Point(481, 313);
 			this.textBoxOrdersCount.Name = "textBoxOrdersCount";
 			this.textBoxOrdersCount.Size = new System.Drawing.Size(125, 24);
 			this.textBoxOrdersCount.TabIndex = 40;
 			// 
 			// textBoxProductsCount
 			// 
-			this.textBoxProductsCount.Location = new System.Drawing.Point(481, 306);
+			this.textBoxProductsCount.Location = new System.Drawing.Point(165, 313);
 			this.textBoxProductsCount.Name = "textBoxProductsCount";
 			this.textBoxProductsCount.Size = new System.Drawing.Size(125, 24);
 			this.textBoxProductsCount.TabIndex = 39;
 			// 
 			// textBoxMoneyEarned
 			// 
-			this.textBoxMoneyEarned.Location = new System.Drawing.Point(165, 337);
+			this.textBoxMoneyEarned.Location = new System.Drawing.Point(165, 343);
 			this.textBoxMoneyEarned.Name = "textBoxMoneyEarned";
 			this.textBoxMoneyEarned.Size = new System.Drawing.Size(125, 24);
 			this.textBoxMoneyEarned.TabIndex = 42;
 			// 
-			// textBoxRating
+			// textBoxMoneyPaid
 			// 
-			this.textBoxRating.Location = new System.Drawing.Point(165, 307);
-			this.textBoxRating.Name = "textBoxRating";
-			this.textBoxRating.Size = new System.Drawing.Size(125, 24);
-			this.textBoxRating.TabIndex = 41;
+			this.textBoxMoneyPaid.Location = new System.Drawing.Point(481, 343);
+			this.textBoxMoneyPaid.Name = "textBoxMoneyPaid";
+			this.textBoxMoneyPaid.Size = new System.Drawing.Size(125, 24);
+			this.textBoxMoneyPaid.TabIndex = 41;
+			// 
+			// buttonBan
+			// 
+			this.buttonBan.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.buttonBan.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.buttonBan.Location = new System.Drawing.Point(12, 428);
+			this.buttonBan.Name = "buttonBan";
+			this.buttonBan.Size = new System.Drawing.Size(184, 40);
+			this.buttonBan.TabIndex = 43;
+			this.buttonBan.TabStop = false;
+			this.buttonBan.Text = "Ban";
+			this.buttonBan.UseVisualStyleBackColor = false;
+			this.buttonBan.Click += new System.EventHandler(this.buttonBan_Click);
+			// 
+			// buttonMakeAdmin
+			// 
+			this.buttonMakeAdmin.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.buttonMakeAdmin.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.buttonMakeAdmin.Location = new System.Drawing.Point(232, 428);
+			this.buttonMakeAdmin.Name = "buttonMakeAdmin";
+			this.buttonMakeAdmin.Size = new System.Drawing.Size(184, 40);
+			this.buttonMakeAdmin.TabIndex = 44;
+			this.buttonMakeAdmin.TabStop = false;
+			this.buttonMakeAdmin.Text = "Make Admin";
+			this.buttonMakeAdmin.UseVisualStyleBackColor = false;
+			// 
+			// buttonViewOrders
+			// 
+			this.buttonViewOrders.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.buttonViewOrders.Font = new System.Drawing.Font("Tahoma", 10F);
+			this.buttonViewOrders.Location = new System.Drawing.Point(128, 498);
+			this.buttonViewOrders.Name = "buttonViewOrders";
+			this.buttonViewOrders.Size = new System.Drawing.Size(184, 40);
+			this.buttonViewOrders.TabIndex = 45;
+			this.buttonViewOrders.TabStop = false;
+			this.buttonViewOrders.Text = "View Orders";
+			this.buttonViewOrders.UseVisualStyleBackColor = false;
+			// 
+			// buttonViewProducts
+			// 
+			this.buttonViewProducts.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.buttonViewProducts.Font = new System.Drawing.Font("Tahoma", 10F);
+			this.buttonViewProducts.Location = new System.Drawing.Point(350, 498);
+			this.buttonViewProducts.Name = "buttonViewProducts";
+			this.buttonViewProducts.Size = new System.Drawing.Size(184, 40);
+			this.buttonViewProducts.TabIndex = 46;
+			this.buttonViewProducts.TabStop = false;
+			this.buttonViewProducts.Text = "View Products";
+			this.buttonViewProducts.UseVisualStyleBackColor = false;
+			// 
+			// buttonEditAccount
+			// 
+			this.buttonEditAccount.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.buttonEditAccount.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.buttonEditAccount.Location = new System.Drawing.Point(453, 428);
+			this.buttonEditAccount.Name = "buttonEditAccount";
+			this.buttonEditAccount.Size = new System.Drawing.Size(184, 40);
+			this.buttonEditAccount.TabIndex = 47;
+			this.buttonEditAccount.TabStop = false;
+			this.buttonEditAccount.Text = "Edit Account";
+			this.buttonEditAccount.UseVisualStyleBackColor = false;
+			// 
+			// labelMoneyPaid
+			// 
+			this.labelMoneyPaid.AutoSize = true;
+			this.labelMoneyPaid.Location = new System.Drawing.Point(347, 350);
+			this.labelMoneyPaid.Name = "labelMoneyPaid";
+			this.labelMoneyPaid.Size = new System.Drawing.Size(78, 17);
+			this.labelMoneyPaid.TabIndex = 48;
+			this.labelMoneyPaid.Text = "Money Paid";
+			// 
+			// pictureBoxLogo
+			// 
+			this.pictureBoxLogo.Image = global::DeliveryMarket.Properties.Resources.logo;
+			this.pictureBoxLogo.Location = new System.Drawing.Point(408, 8);
+			this.pictureBoxLogo.Name = "pictureBoxLogo";
+			this.pictureBoxLogo.Size = new System.Drawing.Size(229, 80);
+			this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBoxLogo.TabIndex = 49;
+			this.pictureBoxLogo.TabStop = false;
 			// 
 			// Profile
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(649, 412);
+			this.ClientSize = new System.Drawing.Size(649, 575);
+			this.Controls.Add(this.pictureBoxLogo);
+			this.Controls.Add(this.labelMoneyPaid);
+			this.Controls.Add(this.buttonEditAccount);
+			this.Controls.Add(this.buttonViewProducts);
+			this.Controls.Add(this.buttonViewOrders);
+			this.Controls.Add(this.buttonMakeAdmin);
+			this.Controls.Add(this.buttonBan);
 			this.Controls.Add(this.textBoxMoneyEarned);
-			this.Controls.Add(this.textBoxRating);
+			this.Controls.Add(this.textBoxMoneyPaid);
 			this.Controls.Add(this.textBoxOrdersCount);
 			this.Controls.Add(this.textBoxProductsCount);
 			this.Controls.Add(this.textBoxBirthDate);
@@ -318,6 +413,7 @@
 			this.Name = "Profile";
 			this.Text = "Profile";
 			this.Load += new System.EventHandler(this.Profile_Load);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -352,6 +448,13 @@
 		private System.Windows.Forms.TextBox textBoxOrdersCount;
 		private System.Windows.Forms.TextBox textBoxProductsCount;
 		private System.Windows.Forms.TextBox textBoxMoneyEarned;
-		private System.Windows.Forms.TextBox textBoxRating;
+		private System.Windows.Forms.TextBox textBoxMoneyPaid;
+		private System.Windows.Forms.Button buttonBan;
+		private System.Windows.Forms.Button buttonMakeAdmin;
+		private System.Windows.Forms.Button buttonViewOrders;
+		private System.Windows.Forms.Button buttonViewProducts;
+		private System.Windows.Forms.Button buttonEditAccount;
+		private System.Windows.Forms.Label labelMoneyPaid;
+		private System.Windows.Forms.PictureBox pictureBoxLogo;
 	}
 }

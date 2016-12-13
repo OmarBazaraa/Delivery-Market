@@ -93,7 +93,7 @@ namespace DeliveryMarket.Admin {
 			}
 			textBoxID.Text = accountDetails[AccountEntry.COL_ACCOUNT_ID].ToString();
 			textBoxName.Text = accountDetails[AccountEntry.COL_FIRST_NAME].ToString() + ", " + accountDetails[AccountEntry.COL_LAST_NAME];
-			textBoxEmail.Text = accountDetails[AccountEntry.COL_USERNAME].ToString();
+			textBoxUserName.Text = accountDetails[AccountEntry.COL_USERNAME].ToString();
 			textBoxMobileNumber.Text = accountDetails[AccountEntry.COL_MOBILE_NUMBER].ToString();
 			comboBoxGender.Text = accountDetails[AccountEntry.COL_GENDER].ToString();
 			dateTimeBirthDate.Text = accountDetails[AccountEntry.COL_BIRTHDATE].ToString();
