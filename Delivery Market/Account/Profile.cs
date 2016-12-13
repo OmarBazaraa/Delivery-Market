@@ -17,5 +17,9 @@ namespace DeliveryMarket.Account {
 		private void Profile_Load(object sender, EventArgs e) {
 
 		}
+
+		private void buttonBan_Click(object sender, EventArgs e) {
+			
+		}
 	}
 }
