@@ -25,14 +25,7 @@ namespace DeliveryMarket.Orders {
 			mSelectedOrder = null;
 		}
 
-		private void listOrders_MouseDoubleClick(object sender, MouseEventArgs e) {
-			if (listOrders.Items.Count == 0) {
-				return;
-			}
-			int idx = listOrders.SelectedItems[0].Index;
-			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[idx][OrderEntry.COL_ORDER_ID].ToString());
-			populateDetails();
-		}
+	
 
 		private void populateList() {
 			if (mOrdersData == null) return;

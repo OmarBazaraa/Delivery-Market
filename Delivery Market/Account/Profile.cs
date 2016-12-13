@@ -26,12 +26,19 @@ namespace DeliveryMarket.Account {
 			mUserID = userID;
 			mAccountID = accountID;
 			mController = new AccountController();
-			mData = null;
+			mData = mData = mController.SelectAccount(mUserID.ToString());
 			mPrivilege = privilege;
 		}
 
 		private void Profile_Load(object sender, EventArgs e) {
-			mData = mController.SelectAccount(mUserID.ToString());
+			if(mPrivilege != Privilege.Admin) {
+				buttonBan.Hide();
+				buttonMakeAdmin.Hide();
+				if(mAccountID != mUserID) {
+					buttonViewOrders.Hide();
+					buttonEditAccount.Hide();
+				}
+			}			
 			populate();
 		}
 
@@ -40,7 +47,7 @@ namespace DeliveryMarket.Account {
 		}
 
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
-			new FormProductList(mUserID, mPrivilege);
+			new FormProductList(mPrivilege, mAccountID, mUserID).Show(this);
 		}
 
 		private void buttonViewOrders_Click(object sender, EventArgs e) {
@@ -63,7 +70,7 @@ namespace DeliveryMarket.Account {
 			textProductsCount.Text = mData[UserEntry.DER_PRODUCTS_COUNT].ToString();
 			textOrdersCount.Text = mData[UserEntry.DER_ORDERS_COUNT].ToString();
 			textMoneyEarned.Text = mData[UserEntry.DER_EARNED_MONEY].ToString() + "$";
-			textMoneyPaid.Text = mData[UserEntry.DER_PAID_MONEY].ToString() + "$";
+			textMoneyPaid.Text = "0";//mData[UserEntry.DER_PAID_MONEY].ToString() + "$";
 		}
 
 		private void buttonMakeAdmin_Click(object sender, EventArgs e) {
