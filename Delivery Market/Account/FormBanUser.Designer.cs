@@ -23,20 +23,20 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.comboBoxReasons = new System.Windows.Forms.ComboBox();
 			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.labelDescription = new System.Windows.Forms.Label();
 			this.labelReason = new System.Windows.Forms.Label();
 			this.buttonBan = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// comboBox1
+			// comboBoxReasons
 			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(115, 40);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(155, 24);
-			this.comboBox1.TabIndex = 0;
+			this.comboBoxReasons.FormattingEnabled = true;
+			this.comboBoxReasons.Location = new System.Drawing.Point(115, 40);
+			this.comboBoxReasons.Name = "comboBoxReasons";
+			this.comboBoxReasons.Size = new System.Drawing.Size(155, 24);
+			this.comboBoxReasons.TabIndex = 0;
 			// 
 			// textBoxDescription
 			// 
@@ -76,6 +76,7 @@
 			this.buttonBan.TabStop = false;
 			this.buttonBan.Text = "Ban";
 			this.buttonBan.UseVisualStyleBackColor = false;
+			this.buttonBan.Click += new System.EventHandler(this.buttonBan_Click);
 			// 
 			// FormBanUser
 			// 
@@ -86,7 +87,7 @@
 			this.Controls.Add(this.labelReason);
 			this.Controls.Add(this.labelDescription);
 			this.Controls.Add(this.textBoxDescription);
-			this.Controls.Add(this.comboBox1);
+			this.Controls.Add(this.comboBoxReasons);
 			this.Name = "FormBanUser";
 			this.Text = "FormBanUser";
 			this.Load += new System.EventHandler(this.FormBanUser_Load);
@@ -97,7 +98,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.ComboBox comboBoxReasons;
 		private System.Windows.Forms.TextBox textBoxDescription;
 		private System.Windows.Forms.Label labelDescription;
 		private System.Windows.Forms.Label labelReason;

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Admin.cs" />
     <Compile Include="Account\FormBanUser.cs">
       <SubType>Form</SubType>
     </Compile>

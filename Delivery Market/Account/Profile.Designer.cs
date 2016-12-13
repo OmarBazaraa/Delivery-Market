@@ -38,19 +38,6 @@
 			this.labelCity = new System.Windows.Forms.Label();
 			this.labelAccount = new System.Windows.Forms.Label();
 			this.labelRating = new System.Windows.Forms.Label();
-			this.textBoxLastName = new System.Windows.Forms.TextBox();
-			this.textBoxUserName = new System.Windows.Forms.TextBox();
-			this.textBoxFirstName = new System.Windows.Forms.TextBox();
-			this.textBoxCountry = new System.Windows.Forms.TextBox();
-			this.textBoxMobileNumber = new System.Windows.Forms.TextBox();
-			this.textBoxGender = new System.Windows.Forms.TextBox();
-			this.textBoxCity = new System.Windows.Forms.TextBox();
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.textBoxBirthDate = new System.Windows.Forms.TextBox();
-			this.textBoxOrdersCount = new System.Windows.Forms.TextBox();
-			this.textBoxProductsCount = new System.Windows.Forms.TextBox();
-			this.textBoxMoneyEarned = new System.Windows.Forms.TextBox();
-			this.textBoxMoneyPaid = new System.Windows.Forms.TextBox();
 			this.buttonBan = new System.Windows.Forms.Button();
 			this.buttonMakeAdmin = new System.Windows.Forms.Button();
 			this.buttonViewOrders = new System.Windows.Forms.Button();
@@ -58,35 +45,52 @@
 			this.buttonEditAccount = new System.Windows.Forms.Button();
 			this.labelMoneyPaid = new System.Windows.Forms.Label();
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+			this.textUserName = new System.Windows.Forms.Label();
+			this.textFirstName = new System.Windows.Forms.Label();
+			this.textCountry = new System.Windows.Forms.Label();
+			this.textMobileNumber = new System.Windows.Forms.Label();
+			this.textGender = new System.Windows.Forms.Label();
+			this.textLastName = new System.Windows.Forms.Label();
+			this.textCity = new System.Windows.Forms.Label();
+			this.textCreationDate = new System.Windows.Forms.Label();
+			this.textBirthDate = new System.Windows.Forms.Label();
+			this.textRating = new System.Windows.Forms.Label();
+			this.textProductsCount = new System.Windows.Forms.Label();
+			this.textMoneyEarned = new System.Windows.Forms.Label();
+			this.textOrdersCount = new System.Windows.Forms.Label();
+			this.textMoneyPaid = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// labelOrdersCount
 			// 
 			this.labelOrdersCount.AutoSize = true;
+			this.labelOrdersCount.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelOrdersCount.Location = new System.Drawing.Point(341, 320);
 			this.labelOrdersCount.Name = "labelOrdersCount";
-			this.labelOrdersCount.Size = new System.Drawing.Size(91, 17);
+			this.labelOrdersCount.Size = new System.Drawing.Size(133, 17);
 			this.labelOrdersCount.TabIndex = 28;
-			this.labelOrdersCount.Text = "Orders Count";
+			this.labelOrdersCount.Text = "Number of Orders";
 			// 
 			// labelMoneyEarned
 			// 
 			this.labelMoneyEarned.AutoSize = true;
+			this.labelMoneyEarned.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelMoneyEarned.Location = new System.Drawing.Point(25, 354);
 			this.labelMoneyEarned.Name = "labelMoneyEarned";
-			this.labelMoneyEarned.Size = new System.Drawing.Size(96, 17);
+			this.labelMoneyEarned.Size = new System.Drawing.Size(107, 17);
 			this.labelMoneyEarned.TabIndex = 27;
 			this.labelMoneyEarned.Text = "Money Earned";
 			// 
 			// labelProductsCount
 			// 
 			this.labelProductsCount.AutoSize = true;
+			this.labelProductsCount.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelProductsCount.Location = new System.Drawing.Point(25, 320);
 			this.labelProductsCount.Name = "labelProductsCount";
-			this.labelProductsCount.Size = new System.Drawing.Size(105, 17);
+			this.labelProductsCount.Size = new System.Drawing.Size(148, 17);
 			this.labelProductsCount.TabIndex = 26;
-			this.labelProductsCount.Text = "Products Count";
+			this.labelProductsCount.Text = "Number of Products";
 			// 
 			// labelUser
 			// 
@@ -102,81 +106,90 @@
 			// labelBirthDate
 			// 
 			this.labelBirthDate.AutoSize = true;
+			this.labelBirthDate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelBirthDate.Location = new System.Drawing.Point(347, 193);
 			this.labelBirthDate.Name = "labelBirthDate";
-			this.labelBirthDate.Size = new System.Drawing.Size(69, 17);
+			this.labelBirthDate.Size = new System.Drawing.Size(78, 17);
 			this.labelBirthDate.TabIndex = 24;
 			this.labelBirthDate.Text = "Birth Date";
 			// 
 			// labelCreationDate
 			// 
 			this.labelCreationDate.AutoSize = true;
+			this.labelCreationDate.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelCreationDate.Location = new System.Drawing.Point(347, 163);
 			this.labelCreationDate.Name = "labelCreationDate";
-			this.labelCreationDate.Size = new System.Drawing.Size(92, 17);
+			this.labelCreationDate.Size = new System.Drawing.Size(103, 17);
 			this.labelCreationDate.TabIndex = 23;
 			this.labelCreationDate.Text = "Creation Date";
 			// 
 			// labelUserName
 			// 
 			this.labelUserName.AutoSize = true;
+			this.labelUserName.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelUserName.Location = new System.Drawing.Point(25, 71);
 			this.labelUserName.Name = "labelUserName";
-			this.labelUserName.Size = new System.Drawing.Size(74, 17);
+			this.labelUserName.Size = new System.Drawing.Size(83, 17);
 			this.labelUserName.TabIndex = 22;
 			this.labelUserName.Text = "User Name";
 			// 
 			// labelFirstName
 			// 
 			this.labelFirstName.AutoSize = true;
+			this.labelFirstName.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelFirstName.Location = new System.Drawing.Point(25, 106);
 			this.labelFirstName.Name = "labelFirstName";
-			this.labelFirstName.Size = new System.Drawing.Size(72, 17);
+			this.labelFirstName.Size = new System.Drawing.Size(82, 17);
 			this.labelFirstName.TabIndex = 21;
 			this.labelFirstName.Text = "First Name";
 			// 
 			// labelMobileNumber
 			// 
 			this.labelMobileNumber.AutoSize = true;
+			this.labelMobileNumber.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelMobileNumber.Location = new System.Drawing.Point(25, 170);
 			this.labelMobileNumber.Name = "labelMobileNumber";
-			this.labelMobileNumber.Size = new System.Drawing.Size(98, 17);
+			this.labelMobileNumber.Size = new System.Drawing.Size(112, 17);
 			this.labelMobileNumber.TabIndex = 20;
 			this.labelMobileNumber.Text = "Mobile Number";
 			// 
 			// labelGender
 			// 
 			this.labelGender.AutoSize = true;
+			this.labelGender.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelGender.Location = new System.Drawing.Point(25, 200);
 			this.labelGender.Name = "labelGender";
-			this.labelGender.Size = new System.Drawing.Size(52, 17);
+			this.labelGender.Size = new System.Drawing.Size(58, 17);
 			this.labelGender.TabIndex = 19;
 			this.labelGender.Text = "Gender";
 			// 
 			// labelCountry
 			// 
 			this.labelCountry.AutoSize = true;
+			this.labelCountry.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelCountry.Location = new System.Drawing.Point(25, 138);
 			this.labelCountry.Name = "labelCountry";
-			this.labelCountry.Size = new System.Drawing.Size(59, 17);
+			this.labelCountry.Size = new System.Drawing.Size(65, 17);
 			this.labelCountry.TabIndex = 18;
 			this.labelCountry.Text = "Country";
 			// 
 			// labelLastName
 			// 
 			this.labelLastName.AutoSize = true;
+			this.labelLastName.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelLastName.Location = new System.Drawing.Point(344, 99);
 			this.labelLastName.Name = "labelLastName";
-			this.labelLastName.Size = new System.Drawing.Size(72, 17);
+			this.labelLastName.Size = new System.Drawing.Size(81, 17);
 			this.labelLastName.TabIndex = 17;
 			this.labelLastName.Text = "Last Name";
 			// 
 			// labelCity
 			// 
 			this.labelCity.AutoSize = true;
+			this.labelCity.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelCity.Location = new System.Drawing.Point(347, 131);
 			this.labelCity.Name = "labelCity";
-			this.labelCity.Size = new System.Drawing.Size(32, 17);
+			this.labelCity.Size = new System.Drawing.Size(35, 17);
 			this.labelCity.TabIndex = 16;
 			this.labelCity.Text = "City";
 			// 
@@ -193,108 +206,18 @@
 			// labelRating
 			// 
 			this.labelRating.AutoSize = true;
+			this.labelRating.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelRating.Location = new System.Drawing.Point(25, 290);
 			this.labelRating.Name = "labelRating";
-			this.labelRating.Size = new System.Drawing.Size(47, 17);
+			this.labelRating.Size = new System.Drawing.Size(53, 17);
 			this.labelRating.TabIndex = 29;
 			this.labelRating.Text = "Rating";
-			// 
-			// textBoxLastName
-			// 
-			this.textBoxLastName.Location = new System.Drawing.Point(490, 99);
-			this.textBoxLastName.Name = "textBoxLastName";
-			this.textBoxLastName.Size = new System.Drawing.Size(125, 24);
-			this.textBoxLastName.TabIndex = 30;
-			// 
-			// textBoxUserName
-			// 
-			this.textBoxUserName.Location = new System.Drawing.Point(165, 64);
-			this.textBoxUserName.Name = "textBoxUserName";
-			this.textBoxUserName.Size = new System.Drawing.Size(125, 24);
-			this.textBoxUserName.TabIndex = 31;
-			// 
-			// textBoxFirstName
-			// 
-			this.textBoxFirstName.Location = new System.Drawing.Point(165, 99);
-			this.textBoxFirstName.Name = "textBoxFirstName";
-			this.textBoxFirstName.Size = new System.Drawing.Size(125, 24);
-			this.textBoxFirstName.TabIndex = 32;
-			// 
-			// textBoxCountry
-			// 
-			this.textBoxCountry.Location = new System.Drawing.Point(165, 131);
-			this.textBoxCountry.Name = "textBoxCountry";
-			this.textBoxCountry.Size = new System.Drawing.Size(125, 24);
-			this.textBoxCountry.TabIndex = 33;
-			// 
-			// textBoxMobileNumber
-			// 
-			this.textBoxMobileNumber.Location = new System.Drawing.Point(165, 163);
-			this.textBoxMobileNumber.Name = "textBoxMobileNumber";
-			this.textBoxMobileNumber.Size = new System.Drawing.Size(125, 24);
-			this.textBoxMobileNumber.TabIndex = 34;
-			// 
-			// textBoxGender
-			// 
-			this.textBoxGender.Location = new System.Drawing.Point(165, 193);
-			this.textBoxGender.Name = "textBoxGender";
-			this.textBoxGender.Size = new System.Drawing.Size(125, 24);
-			this.textBoxGender.TabIndex = 35;
-			// 
-			// textBoxCity
-			// 
-			this.textBoxCity.Location = new System.Drawing.Point(490, 131);
-			this.textBoxCity.Name = "textBoxCity";
-			this.textBoxCity.Size = new System.Drawing.Size(125, 24);
-			this.textBoxCity.TabIndex = 36;
-			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(490, 163);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(125, 24);
-			this.textBox8.TabIndex = 37;
-			// 
-			// textBoxBirthDate
-			// 
-			this.textBoxBirthDate.Location = new System.Drawing.Point(490, 193);
-			this.textBoxBirthDate.Name = "textBoxBirthDate";
-			this.textBoxBirthDate.Size = new System.Drawing.Size(125, 24);
-			this.textBoxBirthDate.TabIndex = 38;
-			// 
-			// textBoxOrdersCount
-			// 
-			this.textBoxOrdersCount.Location = new System.Drawing.Point(481, 313);
-			this.textBoxOrdersCount.Name = "textBoxOrdersCount";
-			this.textBoxOrdersCount.Size = new System.Drawing.Size(125, 24);
-			this.textBoxOrdersCount.TabIndex = 40;
-			// 
-			// textBoxProductsCount
-			// 
-			this.textBoxProductsCount.Location = new System.Drawing.Point(165, 313);
-			this.textBoxProductsCount.Name = "textBoxProductsCount";
-			this.textBoxProductsCount.Size = new System.Drawing.Size(125, 24);
-			this.textBoxProductsCount.TabIndex = 39;
-			// 
-			// textBoxMoneyEarned
-			// 
-			this.textBoxMoneyEarned.Location = new System.Drawing.Point(165, 343);
-			this.textBoxMoneyEarned.Name = "textBoxMoneyEarned";
-			this.textBoxMoneyEarned.Size = new System.Drawing.Size(125, 24);
-			this.textBoxMoneyEarned.TabIndex = 42;
-			// 
-			// textBoxMoneyPaid
-			// 
-			this.textBoxMoneyPaid.Location = new System.Drawing.Point(481, 343);
-			this.textBoxMoneyPaid.Name = "textBoxMoneyPaid";
-			this.textBoxMoneyPaid.Size = new System.Drawing.Size(125, 24);
-			this.textBoxMoneyPaid.TabIndex = 41;
 			// 
 			// buttonBan
 			// 
 			this.buttonBan.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.buttonBan.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.buttonBan.Location = new System.Drawing.Point(12, 428);
+			this.buttonBan.Location = new System.Drawing.Point(12, 496);
 			this.buttonBan.Name = "buttonBan";
 			this.buttonBan.Size = new System.Drawing.Size(184, 40);
 			this.buttonBan.TabIndex = 43;
@@ -307,56 +230,61 @@
 			// 
 			this.buttonMakeAdmin.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.buttonMakeAdmin.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.buttonMakeAdmin.Location = new System.Drawing.Point(232, 428);
+			this.buttonMakeAdmin.Location = new System.Drawing.Point(232, 496);
 			this.buttonMakeAdmin.Name = "buttonMakeAdmin";
 			this.buttonMakeAdmin.Size = new System.Drawing.Size(184, 40);
 			this.buttonMakeAdmin.TabIndex = 44;
 			this.buttonMakeAdmin.TabStop = false;
 			this.buttonMakeAdmin.Text = "Make Admin";
 			this.buttonMakeAdmin.UseVisualStyleBackColor = false;
+			this.buttonMakeAdmin.Click += new System.EventHandler(this.buttonMakeAdmin_Click);
 			// 
 			// buttonViewOrders
 			// 
 			this.buttonViewOrders.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.buttonViewOrders.Font = new System.Drawing.Font("Tahoma", 10F);
-			this.buttonViewOrders.Location = new System.Drawing.Point(128, 498);
+			this.buttonViewOrders.Location = new System.Drawing.Point(128, 421);
 			this.buttonViewOrders.Name = "buttonViewOrders";
 			this.buttonViewOrders.Size = new System.Drawing.Size(184, 40);
 			this.buttonViewOrders.TabIndex = 45;
 			this.buttonViewOrders.TabStop = false;
 			this.buttonViewOrders.Text = "View Orders";
 			this.buttonViewOrders.UseVisualStyleBackColor = false;
+			this.buttonViewOrders.Click += new System.EventHandler(this.buttonViewOrders_Click);
 			// 
 			// buttonViewProducts
 			// 
 			this.buttonViewProducts.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.buttonViewProducts.Font = new System.Drawing.Font("Tahoma", 10F);
-			this.buttonViewProducts.Location = new System.Drawing.Point(350, 498);
+			this.buttonViewProducts.Location = new System.Drawing.Point(350, 421);
 			this.buttonViewProducts.Name = "buttonViewProducts";
 			this.buttonViewProducts.Size = new System.Drawing.Size(184, 40);
 			this.buttonViewProducts.TabIndex = 46;
 			this.buttonViewProducts.TabStop = false;
 			this.buttonViewProducts.Text = "View Products";
 			this.buttonViewProducts.UseVisualStyleBackColor = false;
+			this.buttonViewProducts.Click += new System.EventHandler(this.buttonViewProducts_Click);
 			// 
 			// buttonEditAccount
 			// 
 			this.buttonEditAccount.BackColor = System.Drawing.SystemColors.ButtonFace;
 			this.buttonEditAccount.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.buttonEditAccount.Location = new System.Drawing.Point(453, 428);
+			this.buttonEditAccount.Location = new System.Drawing.Point(453, 496);
 			this.buttonEditAccount.Name = "buttonEditAccount";
 			this.buttonEditAccount.Size = new System.Drawing.Size(184, 40);
 			this.buttonEditAccount.TabIndex = 47;
 			this.buttonEditAccount.TabStop = false;
 			this.buttonEditAccount.Text = "Edit Account";
 			this.buttonEditAccount.UseVisualStyleBackColor = false;
+			this.buttonEditAccount.Click += new System.EventHandler(this.buttonEditAccount_Click);
 			// 
 			// labelMoneyPaid
 			// 
 			this.labelMoneyPaid.AutoSize = true;
+			this.labelMoneyPaid.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
 			this.labelMoneyPaid.Location = new System.Drawing.Point(347, 350);
 			this.labelMoneyPaid.Name = "labelMoneyPaid";
-			this.labelMoneyPaid.Size = new System.Drawing.Size(78, 17);
+			this.labelMoneyPaid.Size = new System.Drawing.Size(87, 17);
 			this.labelMoneyPaid.TabIndex = 48;
 			this.labelMoneyPaid.Text = "Money Paid";
 			// 
@@ -370,11 +298,151 @@
 			this.pictureBoxLogo.TabIndex = 49;
 			this.pictureBoxLogo.TabStop = false;
 			// 
+			// textUserName
+			// 
+			this.textUserName.AutoSize = true;
+			this.textUserName.Location = new System.Drawing.Point(181, 71);
+			this.textUserName.Name = "textUserName";
+			this.textUserName.Size = new System.Drawing.Size(135, 17);
+			this.textUserName.TabIndex = 50;
+			this.textUserName.Text = "omarosamasobeih96";
+			// 
+			// textFirstName
+			// 
+			this.textFirstName.AutoSize = true;
+			this.textFirstName.Location = new System.Drawing.Point(181, 106);
+			this.textFirstName.Name = "textFirstName";
+			this.textFirstName.Size = new System.Drawing.Size(42, 17);
+			this.textFirstName.TabIndex = 51;
+			this.textFirstName.Text = "Omar";
+			// 
+			// textCountry
+			// 
+			this.textCountry.AutoSize = true;
+			this.textCountry.Location = new System.Drawing.Point(181, 138);
+			this.textCountry.Name = "textCountry";
+			this.textCountry.Size = new System.Drawing.Size(45, 17);
+			this.textCountry.TabIndex = 52;
+			this.textCountry.Text = "Egypt";
+			// 
+			// textMobileNumber
+			// 
+			this.textMobileNumber.AutoSize = true;
+			this.textMobileNumber.Location = new System.Drawing.Point(181, 170);
+			this.textMobileNumber.Name = "textMobileNumber";
+			this.textMobileNumber.Size = new System.Drawing.Size(96, 17);
+			this.textMobileNumber.TabIndex = 53;
+			this.textMobileNumber.Text = "01148084758";
+			// 
+			// textGender
+			// 
+			this.textGender.AutoSize = true;
+			this.textGender.Location = new System.Drawing.Point(181, 200);
+			this.textGender.Name = "textGender";
+			this.textGender.Size = new System.Drawing.Size(34, 17);
+			this.textGender.TabIndex = 54;
+			this.textGender.Text = "Male";
+			// 
+			// textLastName
+			// 
+			this.textLastName.AutoSize = true;
+			this.textLastName.Location = new System.Drawing.Point(489, 99);
+			this.textLastName.Name = "textLastName";
+			this.textLastName.Size = new System.Drawing.Size(49, 17);
+			this.textLastName.TabIndex = 55;
+			this.textLastName.Text = "Sobeih";
+			// 
+			// textCity
+			// 
+			this.textCity.AutoSize = true;
+			this.textCity.Location = new System.Drawing.Point(489, 131);
+			this.textCity.Name = "textCity";
+			this.textCity.Size = new System.Drawing.Size(39, 17);
+			this.textCity.TabIndex = 56;
+			this.textCity.Text = "Cairo";
+			// 
+			// textCreationDate
+			// 
+			this.textCreationDate.AutoSize = true;
+			this.textCreationDate.Location = new System.Drawing.Point(489, 163);
+			this.textCreationDate.Name = "textCreationDate";
+			this.textCreationDate.Size = new System.Drawing.Size(82, 17);
+			this.textCreationDate.TabIndex = 57;
+			this.textCreationDate.Text = "2011/05/05";
+			// 
+			// textBirthDate
+			// 
+			this.textBirthDate.AutoSize = true;
+			this.textBirthDate.Location = new System.Drawing.Point(489, 193);
+			this.textBirthDate.Name = "textBirthDate";
+			this.textBirthDate.Size = new System.Drawing.Size(82, 17);
+			this.textBirthDate.TabIndex = 58;
+			this.textBirthDate.Text = "1996/11/15";
+			// 
+			// textRating
+			// 
+			this.textRating.AutoSize = true;
+			this.textRating.Location = new System.Drawing.Point(181, 290);
+			this.textRating.Name = "textRating";
+			this.textRating.Size = new System.Drawing.Size(28, 17);
+			this.textRating.TabIndex = 59;
+			this.textRating.Text = "5.0";
+			// 
+			// textProductsCount
+			// 
+			this.textProductsCount.AutoSize = true;
+			this.textProductsCount.Location = new System.Drawing.Point(181, 320);
+			this.textProductsCount.Name = "textProductsCount";
+			this.textProductsCount.Size = new System.Drawing.Size(24, 17);
+			this.textProductsCount.TabIndex = 60;
+			this.textProductsCount.Text = "15";
+			// 
+			// textMoneyEarned
+			// 
+			this.textMoneyEarned.AutoSize = true;
+			this.textMoneyEarned.Location = new System.Drawing.Point(181, 354);
+			this.textMoneyEarned.Name = "textMoneyEarned";
+			this.textMoneyEarned.Size = new System.Drawing.Size(40, 17);
+			this.textMoneyEarned.TabIndex = 61;
+			this.textMoneyEarned.Text = "128$";
+			// 
+			// textOrdersCount
+			// 
+			this.textOrdersCount.AutoSize = true;
+			this.textOrdersCount.Location = new System.Drawing.Point(489, 320);
+			this.textOrdersCount.Name = "textOrdersCount";
+			this.textOrdersCount.Size = new System.Drawing.Size(24, 17);
+			this.textOrdersCount.TabIndex = 62;
+			this.textOrdersCount.Text = "23";
+			// 
+			// textMoneyPaid
+			// 
+			this.textMoneyPaid.AutoSize = true;
+			this.textMoneyPaid.Location = new System.Drawing.Point(489, 350);
+			this.textMoneyPaid.Name = "textMoneyPaid";
+			this.textMoneyPaid.Size = new System.Drawing.Size(40, 17);
+			this.textMoneyPaid.TabIndex = 63;
+			this.textMoneyPaid.Text = "115$";
+			// 
 			// Profile
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(649, 575);
+			this.Controls.Add(this.textMoneyPaid);
+			this.Controls.Add(this.textOrdersCount);
+			this.Controls.Add(this.textMoneyEarned);
+			this.Controls.Add(this.textProductsCount);
+			this.Controls.Add(this.textRating);
+			this.Controls.Add(this.textBirthDate);
+			this.Controls.Add(this.textCreationDate);
+			this.Controls.Add(this.textCity);
+			this.Controls.Add(this.textLastName);
+			this.Controls.Add(this.textGender);
+			this.Controls.Add(this.textMobileNumber);
+			this.Controls.Add(this.textCountry);
+			this.Controls.Add(this.textFirstName);
+			this.Controls.Add(this.textUserName);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.labelMoneyPaid);
 			this.Controls.Add(this.buttonEditAccount);
@@ -382,19 +450,6 @@
 			this.Controls.Add(this.buttonViewOrders);
 			this.Controls.Add(this.buttonMakeAdmin);
 			this.Controls.Add(this.buttonBan);
-			this.Controls.Add(this.textBoxMoneyEarned);
-			this.Controls.Add(this.textBoxMoneyPaid);
-			this.Controls.Add(this.textBoxOrdersCount);
-			this.Controls.Add(this.textBoxProductsCount);
-			this.Controls.Add(this.textBoxBirthDate);
-			this.Controls.Add(this.textBox8);
-			this.Controls.Add(this.textBoxCity);
-			this.Controls.Add(this.textBoxGender);
-			this.Controls.Add(this.textBoxMobileNumber);
-			this.Controls.Add(this.textBoxCountry);
-			this.Controls.Add(this.textBoxFirstName);
-			this.Controls.Add(this.textBoxUserName);
-			this.Controls.Add(this.textBoxLastName);
 			this.Controls.Add(this.labelRating);
 			this.Controls.Add(this.labelOrdersCount);
 			this.Controls.Add(this.labelMoneyEarned);
@@ -436,19 +491,6 @@
 		private System.Windows.Forms.Label labelCity;
 		private System.Windows.Forms.Label labelAccount;
 		private System.Windows.Forms.Label labelRating;
-		private System.Windows.Forms.TextBox textBoxLastName;
-		private System.Windows.Forms.TextBox textBoxUserName;
-		private System.Windows.Forms.TextBox textBoxFirstName;
-		private System.Windows.Forms.TextBox textBoxCountry;
-		private System.Windows.Forms.TextBox textBoxMobileNumber;
-		private System.Windows.Forms.TextBox textBoxGender;
-		private System.Windows.Forms.TextBox textBoxCity;
-		private System.Windows.Forms.TextBox textBox8;
-		private System.Windows.Forms.TextBox textBoxBirthDate;
-		private System.Windows.Forms.TextBox textBoxOrdersCount;
-		private System.Windows.Forms.TextBox textBoxProductsCount;
-		private System.Windows.Forms.TextBox textBoxMoneyEarned;
-		private System.Windows.Forms.TextBox textBoxMoneyPaid;
 		private System.Windows.Forms.Button buttonBan;
 		private System.Windows.Forms.Button buttonMakeAdmin;
 		private System.Windows.Forms.Button buttonViewOrders;
@@ -456,5 +498,19 @@
 		private System.Windows.Forms.Button buttonEditAccount;
 		private System.Windows.Forms.Label labelMoneyPaid;
 		private System.Windows.Forms.PictureBox pictureBoxLogo;
+		private System.Windows.Forms.Label textUserName;
+		private System.Windows.Forms.Label textFirstName;
+		private System.Windows.Forms.Label textCountry;
+		private System.Windows.Forms.Label textMobileNumber;
+		private System.Windows.Forms.Label textGender;
+		private System.Windows.Forms.Label textLastName;
+		private System.Windows.Forms.Label textCity;
+		private System.Windows.Forms.Label textCreationDate;
+		private System.Windows.Forms.Label textBirthDate;
+		private System.Windows.Forms.Label textRating;
+		private System.Windows.Forms.Label textProductsCount;
+		private System.Windows.Forms.Label textMoneyEarned;
+		private System.Windows.Forms.Label textOrdersCount;
+		private System.Windows.Forms.Label textMoneyPaid;
 	}
 }
