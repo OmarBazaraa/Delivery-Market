@@ -14,30 +14,25 @@ namespace DeliveryMarket.Product {
 
 	public partial class FormProductDetail : Form {
 		// Messages
-		private const string LOADING_PRODUCT_FAILED_TITLE = "Error";
-		private const string LOADING_PRODUCT_FAILED_MSG = "An error occured will loading the product";
-		private const string INVALID_INPUT_TITLE = "Invalid Inputs";
-		private const string INVALID_INPUT_NAME_MSG = "Please make sure that product name is not null";
-		private const string INSERTION_SUCCESS_TITLE = "Done";
-		private const string INSERTION_SUCCESS_MSG = "Your product was inserted successfully";
-		private const string INSERTION_FAILED_TITLE = "Error";
-		private const string INSERTION_FAILED_MSG = "An error occured will inserting your product";
-		private const string UPDATE_SUCCESS_TITLE = "Done";
-		private const string UPDATE_SUCCESS_MSG = "Your product was updated successfully";
-		private const string UPDATE_FAILED_TITLE = "Error";
-		private const string UPDATE_FAILED_MSG = "An error occured will updating your product";
-		private const string CONFIRMATION_TITLE = "Save";
-		private const string CONFIRMATION_MSG = "Are you sure want to save your product?";
+		private const string LOADING_PRODUCT_FAILED_MSG = "An error occured while loading the product";
+		private const string RATING_FAILED_MSG = "An error occured while posting your rating";
+		private const string COMMENT_FAILED_MSG = "An error occured while posting your comment";
+		private const string EMPTY_STOCK_MSG = "The stock is empty now\n Please check back later";
+		private const string LOGIN_MSG = "Please log in first";
+		private const string LABEL_PRICE = "Price: ";
+		private const string LABEL_QUANTITY = "Quantity: ";
+		private const string LABEL_BY = "By ";
 
 		// Member variables
 		private int mAccountID;
-		private int mSellerID;
 		private int mProductID;
 		private Privilege mPrivilege;
+		private DataRow mProductDetails;
+		private DataTable mProductComments;
 		private ProductController mController;
 
 		/* Constructor */
-		public FormProductDetail(int accountID, int productID, Privilege privilege) {
+		public FormProductDetail(Privilege privilege, int accountID, int productID) {
 			InitializeComponent();
 
 			mAccountID = accountID;
@@ -49,84 +44,159 @@ namespace DeliveryMarket.Product {
 		/* Form load callback function */
 		private void FormProductDetail_Load(object sender, EventArgs e) {
 			LoadProductDetails();
+			LoadComments();
+			LoadCustomerRating();
+			AdaptForm();
 		}
 
-		/* Load the details of the given product */
-		private void LoadProductDetails() {
-			DataRow product = mController.SelectProductDetails(mProductID);
+		/* Seller button clicked callback function */
+		private void linkSeller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+			//TODO: Show seller's profile page
+			MessageBox.Show("TODO");
+		}
 
-			if (product == null) {
-				MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, LOADING_PRODUCT_FAILED_TITLE, MessageBoxButtons.OK);
-				//Owner.Show();
-				//Owner.Refresh();
-				//Close();
+		/* Buy product button clicked callback function */
+		private void buttonBuy_Click(object sender, EventArgs e) {
+			if (mPrivilege == Privilege.Other) {
+				MessageBox.Show(LOGIN_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				return;
 			}
 
-			mSellerID = Convert.ToInt32(product[ProductEntry.COL_SELLER_ID]);
+			int quantity = Convert.ToInt32(mProductDetails[ProductEntry.COL_QUANTITY]);
 
-			textProductName.Text = product[ProductEntry.COL_PRODUCT_NAME].ToString();
-			textCategory.Text = product[ProductEntry.COL_CATEGORY].ToString();
-			linkSeller.Text = product[ProductEntry.COL_SELLER_NAME].ToString();
-			labelRating.Text = product[ProductEntry.COL_RATING].ToString() + "/5.0";
-			textPrice.Text = "Price: " + product[ProductEntry.COL_PRICE].ToString() + "$";
-			textStock.Text = "In Stock: " + product[ProductEntry.COL_QUANTITY].ToString();
-			textDescription.Text = product[ProductEntry.COL_DESCRIPTION].ToString();
-			pictureBox1.ImageLocation = product[ProductEntry.COL_IMAGE].ToString();
-
-			LoadComments();
-		}
-
-		/* Loads the comments of the given product */
-		private void LoadComments() {
-			DataTable dt = mController.SelectComments(mProductID);
-			dataGridView1.DataSource = dt;
-			dataGridView1.Refresh();
-		}
-
-		private void button1_Click(object sender, EventArgs e) {
-			string comment = textBoxComment.Text.Replace("'", "''").Trim();
-
-			if (comment != "") {
-				mController.InsertComment(mAccountID, mProductID, comment);
-				LoadComments();
+			if (quantity <= 0) {
+				MessageBox.Show(EMPTY_STOCK_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
 			}
+
+			new FormBuyProduct(mAccountID, mProductID).ShowDialog(this);
 		}
 
-		private void buttonEdit_Click(object sender, EventArgs e) {
-			new FormSaveProduct(mAccountID, mProductID).Show(this);
-		}
-
-		private void button2_Click(object sender, EventArgs e) {
-			int ratingValue = 0;
-
-			if (radioButton1.Checked)
-				ratingValue = 1;
-			if (radioButton2.Checked)
-				ratingValue = 2;
-			if (radioButton3.Checked)
-				ratingValue = 3;
-			if (radioButton4.Checked)
-				ratingValue = 4;
-			if (radioButton5.Checked)
-				ratingValue = 5;
-
-			if (ratingValue != 0) {
-				mController.InsertRating(mAccountID, mProductID, ratingValue);
-				LoadProductDetails();
+		/* Report product button clicked callback function */
+		private void buttonReport_Click(object sender, EventArgs e) {
+			if (mPrivilege == Privilege.Other) {
+				MessageBox.Show(LOGIN_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
 			}
+
+			new FormReportProduct(mAccountID, mProductID).ShowDialog(this);
 		}
 
+		/* Delete product button clicked callback function */
 		private void buttonDelete_Click(object sender, EventArgs e) {
 			new FormRemoveProduct(mAccountID, mProductID).ShowDialog(this);
 		}
 
-		private void buttonReport_Click(object sender, EventArgs e) {
-			new FormReportProduct(mAccountID, mProductID).ShowDialog(this);
+		/* Edit product button clicked callback function */
+		private void buttonEdit_Click(object sender, EventArgs e) {
+			new FormSaveProduct(mAccountID, mProductID).Show(this);
 		}
 
-		private void buttonBuy_Click(object sender, EventArgs e) {
-			new FormBuyProduct(mAccountID, mProductID).ShowDialog(this);
+		/* Rating bar value changed callback function */
+		private void trackBarRating_ValueChanged(object sender, EventArgs e) {
+			if (mController.InsertRating(mAccountID, mProductID, trackBarRating.Value) > 0) {
+				LoadProductDetails();
+			}
+			else {
+				MessageBox.Show(RATING_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/* Comment text box key pressed callback function */
+		private void textBoxComment_KeyPress(object sender, KeyPressEventArgs e) {
+			// The pressed key is not Enter key
+			if (e.KeyChar != (char)Keys.Enter) {
+				return;
+			}
+
+			string comment = textBoxComment.Text.Replace("'", "''").Trim();
+
+			// No comment is written
+			if (comment == "") {
+				return;
+			}
+
+			if (mController.InsertComment(mAccountID, mProductID, comment) > 0) {
+				LoadComments();
+			}
+			else {
+				MessageBox.Show(COMMENT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/* Loads the details of the given product */
+		private void LoadProductDetails() {
+			mProductDetails = mController.SelectProductDetails(mProductID);
+
+			if (mProductDetails == null) {
+				MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Owner.Show();
+				Owner.Refresh();
+				Close();
+				return;
+			}
+			
+			labelProductName.Text = mProductDetails[ProductEntry.COL_PRODUCT_NAME].ToString();
+			labelCategory.Text = mProductDetails[ProductEntry.COL_CATEGORY].ToString();
+			linkSeller.Text = LABEL_BY + mProductDetails[ProductEntry.COL_SELLER_NAME].ToString();
+			labelRating.Text = mProductDetails[ProductEntry.COL_RATING].ToString();
+			labelPrice.Text = LABEL_PRICE + mProductDetails[ProductEntry.COL_PRICE].ToString();
+			labelQuantity.Text = LABEL_QUANTITY + mProductDetails[ProductEntry.COL_QUANTITY].ToString();
+			textBoxDescription.Text = mProductDetails[ProductEntry.COL_DESCRIPTION].ToString();
+			pictureBoxImage.ImageLocation = mProductDetails[ProductEntry.COL_IMAGE].ToString();
+		}
+
+		/* Loads the comments of the given product */
+		private void LoadComments() {
+			listViewComments.Items.Clear();
+			
+			mProductComments = mController.SelectComments(mProductID);
+
+			// No data
+			if (mProductComments == null) {
+				return;
+			}
+
+			foreach (DataRow row in mProductComments.Rows) {
+				ListViewItem item = new ListViewItem(row[CommentEntry.COL_COMMENT_BODY].ToString());
+				item.SubItems.Add(row[CommentEntry.COL_USER_NAME].ToString());
+				item.SubItems.Add(row[CommentEntry.COL_COMMENT_DATE].ToString());
+
+				listViewComments.Items.Add(item);
+			}
+		}
+
+		/* Loads the previous rating of the customer to this product */
+		private void LoadCustomerRating() {
+			int rating = mController.SelectCustomerRating(mAccountID, mProductID);
+
+			if (rating > 0) {
+				trackBarRating.Value = rating;
+			}
+		}
+
+		/* Adapts the form to the currently active user */
+		private void AdaptForm() {
+			int sellerID = Convert.ToInt32(mProductDetails[ProductEntry.COL_SELLER_ID]);
+
+			if (mAccountID != sellerID) {
+				buttonEdit.Visible = false;
+				buttonDelete.Visible = false;
+			}
+
+			if (mPrivilege == Privilege.Admin) {
+				buttonDelete.Visible = true;
+			}
+
+			if (mPrivilege == Privilege.Other) {
+				trackBarRating.Enabled = false;
+				textBoxComment.Enabled = false;
+			}
+		}
+
+		/* Loses buttons focus */
+		private void LoseFocus(object sender, EventArgs e) {
+			labelProductName.Focus();
 		}
 	}
 }

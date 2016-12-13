@@ -18,7 +18,7 @@ namespace DeliveryMarket.Account
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
 			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", COALESCE(AVG("
-				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
+				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
 				+ " FROM " + ProductEntry.TABLE_NAME + " LEFT JOIN "
 				+ AccountEntry.TABLE_NAME + " ON "
@@ -36,7 +36,7 @@ namespace DeliveryMarket.Account
 		/* Select user account */
 		public DataRow SelectAccount(string account_id) {
 			string query = "SELECT a.*, " + "COALESCE(AVG(r."
-				+ RatingEntry.COL_RATE_VALUE + "), 0) AS " + UserEntry.DER_RATING
+				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
 				+ " , COALESCE(COUNT(o." + OrderEntry.COL_ORDER_ID + "), 0) AS " + UserEntry.DER_ORDERS_COUNT
 				+ " , COALESCE(SUM(o." + OrderEntry.COL_PRODUCT_PRICE + "), 0) AS " + UserEntry.DER_EARNED_MONEY

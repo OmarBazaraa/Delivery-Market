@@ -29,7 +29,7 @@ namespace DeliveryMarket.Product {
 			string query =
 				"SELECT " + ProductEntry.TABLE_NAME + ".*, " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ", " +
 				AccountEntry.COL_USERNAME + " AS " + ProductEntry.COL_SELLER_NAME + ", " +
-				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
+				"COALESCE(AVG(" + RatingEntry.COL_RATING_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
 				"FROM " + ProductEntry.TABLE_NAME + " INNER JOIN " + AccountEntry.TABLE_NAME + " ON " +
 				ProductEntry.COL_SELLER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + " " +
 				"LEFT OUTER JOIN " + RatingEntry.TABLE_NAME + " ON " +
@@ -49,31 +49,34 @@ namespace DeliveryMarket.Product {
 		}
 
 		/* Selects all not deleted products to be displayed as list */
-		public DataTable SelectProductList(string name = "", string category = "", string orderby = ProductEntry.COL_PRODUCT_NAME, bool asc = true) {
+		public DataTable SelectProductList(int sellerID = -1, string name = "", string category = "", string orderby = ProductEntry.COL_PRODUCT_NAME, bool asc = true) {
 			string query =
 				"SELECT " + ProductEntry.COL_PRODUCT_NAME + ", " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", " +
 				AccountEntry.COL_USERNAME + " AS " + ProductEntry.COL_SELLER_NAME + ", " +
 				ProductEntry.COL_PRICE + ", " +
-				"COALESCE(AVG(" + RatingEntry.COL_RATE_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
+				"COALESCE(AVG(" + RatingEntry.COL_RATING_VALUE + "), 0) AS " + ProductEntry.COL_RATING + " " +
 				"FROM " + ProductEntry.TABLE_NAME + " INNER JOIN " + AccountEntry.TABLE_NAME + " ON " +
 				ProductEntry.COL_SELLER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + " " +
 				"LEFT OUTER JOIN " + RatingEntry.TABLE_NAME + " ON " +
 				ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "=" + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID + " " +
-				"WHERE " + ProductEntry.COL_DELETED + "='0'";
+				"WHERE " + ProductEntry.COL_DELETED + "=0 " + 
+				"AND " + AccountEntry.COL_ACCOUNT_TYPE + "!='Banned'";
 
 			if (name != "") {
-				query += " AND " + ProductEntry.COL_PRODUCT_NAME + " LIKE '%" + name + "%'";
+				query += " AND (" + ProductEntry.COL_PRODUCT_NAME + " LIKE '%" + name + "%'" + 
+					" OR " + AccountEntry.COL_USERNAME + " LIKE '%" + name + "%')";
 			}
 
 			if (category != "") {
 				query += " AND " + ProductEntry.COL_CATEGORY + "='" + category + "'";
 			}
 
-			query += " GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID;
+			if (sellerID != -1) {
+				query += " AND " + AccountEntry.COL_ACCOUNT_ID + "=" + sellerID.ToString();
+			}
 
-			query += " ORDER BY " + orderby + (asc ? " ASC" : " DESC") + ";";
-
-			//MessageBox.Show(query);
+			query += " GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID +
+				" ORDER BY " + orderby + (asc ? " ASC" : " DESC") + ";";
 
 			return DBMan.ExecuteReader(query);
 		}
@@ -88,7 +91,9 @@ namespace DeliveryMarket.Product {
 
 		/* Selects all removal reasons from the database */
 		public DataTable SelectRemovalReasons() {
-			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + " FROM " + RemovalReasonsEntry.TABLE_NAME + ";";
+			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + 
+				" FROM " + RemovalReasonsEntry.TABLE_NAME +
+				" ORDER BY " + RemovalReasonsEntry.COL_REASON + " ASC;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -96,7 +101,7 @@ namespace DeliveryMarket.Product {
 		public DataTable SelectComments(int productID) {
 			string query = "SELECT " +
 				CommentEntry.COL_COMMENT_BODY + ", " + CommentEntry.COL_COMMENT_DATE + "," +
-				" CONCAT(" + AccountEntry.COL_FIRST_NAME + ", ' ', " + AccountEntry.COL_LAST_NAME + ") AS " + CommentEntry.COL_USER_NAME +
+				AccountEntry.COL_USERNAME + " AS " + CommentEntry.COL_USER_NAME +
 				" FROM " + CommentEntry.TABLE_NAME + ", " + AccountEntry.TABLE_NAME + 
 				" WHERE " + CommentEntry.COL_USER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + 
 				" AND " + CommentEntry.COL_PRODUCT_ID + "=" + productID.ToString() + ";";
@@ -104,15 +109,29 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects the rating of a certain customer to a given product */
+		public int SelectCustomerRating(int accountID, int productID) {
+			string query = "SELECT " + RatingEntry.COL_RATING_VALUE + 
+				" FROM " + RatingEntry.TABLE_NAME + 
+				" WHERE " + RatingEntry.COL_USER_ID + "=" + accountID.ToString() +
+				" AND " + RatingEntry.COL_PRODUCT_ID + "=" + productID.ToString() + ";";
+
+			object result = DBMan.ExecuteScalar(query);
+
+			return (result == null) ? 0 : Convert.ToInt32(result);
+		}
+
 		/* Selects all transaction companies */
 		public DataTable SelectTransactionCompanies() {
-			string query = "SELECT * FROM " + TransactionCompanyEntry.TABLE_NAME + ";";
+			string query = "SELECT * FROM " + TransactionCompanyEntry.TABLE_NAME +
+				" ORDER BY " + TransactionCompanyEntry.COL_COMPANY_NAME + " ASC;";
 			return DBMan.ExecuteReader(query);
 		}
 
 		/* Selects all transport companies */
 		public DataTable SelectTransportCompanies() {
-			string query = "SELECT * FROM " + TransportCompanyEntry.TABLE_NAME + ";";
+			string query = "SELECT * FROM " + TransportCompanyEntry.TABLE_NAME +
+				" ORDER BY " + TransportCompanyEntry.COL_COMPANY_NAME + " ASC;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -125,13 +144,13 @@ namespace DeliveryMarket.Product {
 				ProductEntry.COL_CATEGORY + ", " +
 				ProductEntry.COL_DESCRIPTION + ", " +
 				ProductEntry.COL_QUANTITY + ", " +
-				ProductEntry.COL_IMAGE + ") VALUES(" +
+				ProductEntry.COL_IMAGE + ") VALUES (" +
 				product.SellerID + ", " +
 				"'" + product.Name + "', " +
-				product.Price + ", " +
+				product.Price.ToString() + ", " +
 				"'" + product.Category + "', " +
 				"'" + product.Description + "', " +
-				product.StockCount + ", " +
+				product.Quantity.ToString() + ", " +
 				"'" + product.ImagePath + "'" +
 				");";
 
@@ -172,7 +191,7 @@ namespace DeliveryMarket.Product {
 		public int InsertRating(int accountID, int productID, int ratingValue) {
 			// Try updating old user rating
 			string query = "UPDATE " + RatingEntry.TABLE_NAME + " SET " +
-				RatingEntry.COL_RATE_VALUE + "=" + ratingValue.ToString() +
+				RatingEntry.COL_RATING_VALUE + "=" + ratingValue.ToString() +
 				" WHERE " + RatingEntry.COL_USER_ID + "=" + accountID.ToString() +
 				" AND " + RatingEntry.COL_PRODUCT_ID + "=" + productID.ToString() + ";";
 
@@ -186,7 +205,7 @@ namespace DeliveryMarket.Product {
 			query = "INSERT INTO " + RatingEntry.TABLE_NAME + " (" +
 				RatingEntry.COL_USER_ID + ", " +
 				RatingEntry.COL_PRODUCT_ID + ", " +
-				RatingEntry.COL_RATE_VALUE + ") VALUES (" +
+				RatingEntry.COL_RATING_VALUE + ") VALUES (" +
 				accountID.ToString() + ", " +
 				productID.ToString() + ", " +
 				ratingValue.ToString() +
@@ -199,10 +218,10 @@ namespace DeliveryMarket.Product {
 		public int UpdateProduct(Product product) {
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_PRODUCT_NAME + "='" + product.Name + "', " +
-				ProductEntry.COL_PRICE + "=" + product.Price + ", " +
+				ProductEntry.COL_PRICE + "=" + product.Price.ToString() + ", " +
 				ProductEntry.COL_CATEGORY + "='" + product.Category + "', " +
 				ProductEntry.COL_DESCRIPTION + "='" + product.Description + "', " +
-				ProductEntry.COL_QUANTITY + "=" + product.StockCount + ", " +
+				ProductEntry.COL_QUANTITY + "=" + product.Quantity.ToString() + ", " +
 				ProductEntry.COL_IMAGE + "='" + product.ImagePath + "' " +
 				"WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + product.ID + ";";
 

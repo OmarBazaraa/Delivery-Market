@@ -23,12 +23,13 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormViewAccounts));
 			this.textBoxSearch = new System.Windows.Forms.TextBox();
 			this.buttonSearch = new System.Windows.Forms.Button();
 			this.listViewAccounts = new System.Windows.Forms.ListView();
 			this.columnAccountID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnFirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnAccountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnCreationDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.labelDetails = new System.Windows.Forms.Label();
@@ -36,8 +37,8 @@
 			this.labelName = new System.Windows.Forms.Label();
 			this.labelGender = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.textBoxEmail = new System.Windows.Forms.TextBox();
-			this.labelEMail = new System.Windows.Forms.Label();
+			this.textBoxUserName = new System.Windows.Forms.TextBox();
+			this.labelUserName = new System.Windows.Forms.Label();
 			this.labelCreationDate = new System.Windows.Forms.Label();
 			this.labelBirthDate = new System.Windows.Forms.Label();
 			this.dateTimeBirthDate = new System.Windows.Forms.DateTimePicker();
@@ -85,7 +86,7 @@
 			this.listViewAccounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnAccountID,
             this.columnFirstName,
-            this.columnEmail,
+            this.columnUserName,
             this.columnAccountType,
             this.columnCreationDate});
 			this.listViewAccounts.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,7 +94,7 @@
 			this.listViewAccounts.Location = new System.Drawing.Point(12, 62);
 			this.listViewAccounts.MultiSelect = false;
 			this.listViewAccounts.Name = "listViewAccounts";
-			this.listViewAccounts.Size = new System.Drawing.Size(673, 665);
+			this.listViewAccounts.Size = new System.Drawing.Size(812, 665);
 			this.listViewAccounts.TabIndex = 2;
 			this.listViewAccounts.TabStop = false;
 			this.listViewAccounts.UseCompatibleStateImageBehavior = false;
@@ -110,10 +111,10 @@
 			this.columnFirstName.Text = "First Name";
 			this.columnFirstName.Width = 140;
 			// 
-			// columnEmail
+			// columnUserName
 			// 
-			this.columnEmail.Text = "E-mail";
-			this.columnEmail.Width = 128;
+			this.columnUserName.Text = "User Name";
+			this.columnUserName.Width = 128;
 			// 
 			// columnAccountType
 			// 
@@ -129,7 +130,7 @@
 			// 
 			this.labelDetails.AutoSize = true;
 			this.labelDetails.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelDetails.Location = new System.Drawing.Point(705, 13);
+			this.labelDetails.Location = new System.Drawing.Point(892, 16);
 			this.labelDetails.Name = "labelDetails";
 			this.labelDetails.Size = new System.Drawing.Size(61, 23);
 			this.labelDetails.TabIndex = 3;
@@ -137,7 +138,7 @@
 			// 
 			// textBoxName
 			// 
-			this.textBoxName.Location = new System.Drawing.Point(818, 96);
+			this.textBoxName.Location = new System.Drawing.Point(1005, 99);
 			this.textBoxName.Name = "textBoxName";
 			this.textBoxName.ReadOnly = true;
 			this.textBoxName.Size = new System.Drawing.Size(255, 22);
@@ -146,7 +147,7 @@
 			// labelName
 			// 
 			this.labelName.AutoSize = true;
-			this.labelName.Location = new System.Drawing.Point(709, 96);
+			this.labelName.Location = new System.Drawing.Point(896, 99);
 			this.labelName.Name = "labelName";
 			this.labelName.Size = new System.Drawing.Size(49, 17);
 			this.labelName.TabIndex = 18;
@@ -155,7 +156,7 @@
 			// labelGender
 			// 
 			this.labelGender.AutoSize = true;
-			this.labelGender.Location = new System.Drawing.Point(709, 218);
+			this.labelGender.Location = new System.Drawing.Point(896, 221);
 			this.labelGender.Name = "labelGender";
 			this.labelGender.Size = new System.Drawing.Size(60, 17);
 			this.labelGender.TabIndex = 21;
@@ -164,33 +165,33 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox1.Location = new System.Drawing.Point(1090, 57);
+			this.pictureBox1.Location = new System.Drawing.Point(1277, 60);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(223, 223);
 			this.pictureBox1.TabIndex = 8;
 			this.pictureBox1.TabStop = false;
 			// 
-			// textBoxEmail
+			// textBoxUserName
 			// 
-			this.textBoxEmail.Location = new System.Drawing.Point(818, 136);
-			this.textBoxEmail.Name = "textBoxEmail";
-			this.textBoxEmail.ReadOnly = true;
-			this.textBoxEmail.Size = new System.Drawing.Size(255, 22);
-			this.textBoxEmail.TabIndex = 6;
+			this.textBoxUserName.Location = new System.Drawing.Point(1005, 139);
+			this.textBoxUserName.Name = "textBoxUserName";
+			this.textBoxUserName.ReadOnly = true;
+			this.textBoxUserName.Size = new System.Drawing.Size(255, 22);
+			this.textBoxUserName.TabIndex = 6;
 			// 
-			// labelEMail
+			// labelUserName
 			// 
-			this.labelEMail.AutoSize = true;
-			this.labelEMail.Location = new System.Drawing.Point(709, 136);
-			this.labelEMail.Name = "labelEMail";
-			this.labelEMail.Size = new System.Drawing.Size(51, 17);
-			this.labelEMail.TabIndex = 19;
-			this.labelEMail.Text = "E-Mail:";
+			this.labelUserName.AutoSize = true;
+			this.labelUserName.Location = new System.Drawing.Point(896, 139);
+			this.labelUserName.Name = "labelUserName";
+			this.labelUserName.Size = new System.Drawing.Size(83, 17);
+			this.labelUserName.TabIndex = 19;
+			this.labelUserName.Text = "User Name:";
 			// 
 			// labelCreationDate
 			// 
 			this.labelCreationDate.AutoSize = true;
-			this.labelCreationDate.Location = new System.Drawing.Point(709, 306);
+			this.labelCreationDate.Location = new System.Drawing.Point(896, 309);
 			this.labelCreationDate.Name = "labelCreationDate";
 			this.labelCreationDate.Size = new System.Drawing.Size(100, 17);
 			this.labelCreationDate.TabIndex = 23;
@@ -199,7 +200,7 @@
 			// labelBirthDate
 			// 
 			this.labelBirthDate.AutoSize = true;
-			this.labelBirthDate.Location = new System.Drawing.Point(709, 259);
+			this.labelBirthDate.Location = new System.Drawing.Point(896, 262);
 			this.labelBirthDate.Name = "labelBirthDate";
 			this.labelBirthDate.Size = new System.Drawing.Size(76, 17);
 			this.labelBirthDate.TabIndex = 22;
@@ -208,7 +209,7 @@
 			// dateTimeBirthDate
 			// 
 			this.dateTimeBirthDate.Enabled = false;
-			this.dateTimeBirthDate.Location = new System.Drawing.Point(818, 262);
+			this.dateTimeBirthDate.Location = new System.Drawing.Point(1005, 265);
 			this.dateTimeBirthDate.Name = "dateTimeBirthDate";
 			this.dateTimeBirthDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeBirthDate.TabIndex = 9;
@@ -216,7 +217,7 @@
 			// dateTimeCreationDate
 			// 
 			this.dateTimeCreationDate.Enabled = false;
-			this.dateTimeCreationDate.Location = new System.Drawing.Point(818, 309);
+			this.dateTimeCreationDate.Location = new System.Drawing.Point(1005, 312);
 			this.dateTimeCreationDate.Name = "dateTimeCreationDate";
 			this.dateTimeCreationDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeCreationDate.TabIndex = 10;
@@ -224,7 +225,7 @@
 			// labelType
 			// 
 			this.labelType.AutoSize = true;
-			this.labelType.Location = new System.Drawing.Point(709, 387);
+			this.labelType.Location = new System.Drawing.Point(896, 390);
 			this.labelType.Name = "labelType";
 			this.labelType.Size = new System.Drawing.Size(44, 17);
 			this.labelType.TabIndex = 25;
@@ -234,7 +235,7 @@
 			// 
 			this.comboBoxType.Enabled = false;
 			this.comboBoxType.FormattingEnabled = true;
-			this.comboBoxType.Location = new System.Drawing.Point(818, 390);
+			this.comboBoxType.Location = new System.Drawing.Point(1005, 393);
 			this.comboBoxType.Name = "comboBoxType";
 			this.comboBoxType.Size = new System.Drawing.Size(255, 24);
 			this.comboBoxType.TabIndex = 12;
@@ -243,7 +244,7 @@
 			// labelMobileNumber
 			// 
 			this.labelMobileNumber.AutoSize = true;
-			this.labelMobileNumber.Location = new System.Drawing.Point(709, 180);
+			this.labelMobileNumber.Location = new System.Drawing.Point(896, 183);
 			this.labelMobileNumber.Name = "labelMobileNumber";
 			this.labelMobileNumber.Size = new System.Drawing.Size(107, 17);
 			this.labelMobileNumber.TabIndex = 20;
@@ -251,7 +252,7 @@
 			// 
 			// textBoxMobileNumber
 			// 
-			this.textBoxMobileNumber.Location = new System.Drawing.Point(818, 177);
+			this.textBoxMobileNumber.Location = new System.Drawing.Point(1005, 180);
 			this.textBoxMobileNumber.Name = "textBoxMobileNumber";
 			this.textBoxMobileNumber.ReadOnly = true;
 			this.textBoxMobileNumber.Size = new System.Drawing.Size(255, 22);
@@ -260,7 +261,7 @@
 			// labelAddress
 			// 
 			this.labelAddress.AutoSize = true;
-			this.labelAddress.Location = new System.Drawing.Point(709, 348);
+			this.labelAddress.Location = new System.Drawing.Point(896, 351);
 			this.labelAddress.Name = "labelAddress";
 			this.labelAddress.Size = new System.Drawing.Size(64, 17);
 			this.labelAddress.TabIndex = 24;
@@ -268,7 +269,7 @@
 			// 
 			// textBoxAddress
 			// 
-			this.textBoxAddress.Location = new System.Drawing.Point(818, 351);
+			this.textBoxAddress.Location = new System.Drawing.Point(1005, 354);
 			this.textBoxAddress.Name = "textBoxAddress";
 			this.textBoxAddress.ReadOnly = true;
 			this.textBoxAddress.Size = new System.Drawing.Size(255, 22);
@@ -277,7 +278,7 @@
 			// labelID
 			// 
 			this.labelID.AutoSize = true;
-			this.labelID.Location = new System.Drawing.Point(712, 57);
+			this.labelID.Location = new System.Drawing.Point(899, 60);
 			this.labelID.Name = "labelID";
 			this.labelID.Size = new System.Drawing.Size(25, 17);
 			this.labelID.TabIndex = 17;
@@ -285,7 +286,7 @@
 			// 
 			// textBoxID
 			// 
-			this.textBoxID.Location = new System.Drawing.Point(818, 57);
+			this.textBoxID.Location = new System.Drawing.Point(1005, 60);
 			this.textBoxID.Name = "textBoxID";
 			this.textBoxID.ReadOnly = true;
 			this.textBoxID.Size = new System.Drawing.Size(255, 22);
@@ -295,7 +296,7 @@
 			// 
 			this.comboBoxGender.Enabled = false;
 			this.comboBoxGender.FormattingEnabled = true;
-			this.comboBoxGender.Location = new System.Drawing.Point(818, 218);
+			this.comboBoxGender.Location = new System.Drawing.Point(1005, 221);
 			this.comboBoxGender.Name = "comboBoxGender";
 			this.comboBoxGender.Size = new System.Drawing.Size(43, 24);
 			this.comboBoxGender.TabIndex = 8;
@@ -303,7 +304,7 @@
 			// labelDescription
 			// 
 			this.labelDescription.AutoSize = true;
-			this.labelDescription.Location = new System.Drawing.Point(712, 445);
+			this.labelDescription.Location = new System.Drawing.Point(899, 448);
 			this.labelDescription.Name = "labelDescription";
 			this.labelDescription.Size = new System.Drawing.Size(83, 17);
 			this.labelDescription.TabIndex = 27;
@@ -312,7 +313,7 @@
 			// richTextBoxDescription
 			// 
 			this.richTextBoxDescription.Enabled = false;
-			this.richTextBoxDescription.Location = new System.Drawing.Point(712, 468);
+			this.richTextBoxDescription.Location = new System.Drawing.Point(899, 471);
 			this.richTextBoxDescription.Name = "richTextBoxDescription";
 			this.richTextBoxDescription.Size = new System.Drawing.Size(601, 259);
 			this.richTextBoxDescription.TabIndex = 14;
@@ -321,7 +322,7 @@
 			// labelReason
 			// 
 			this.labelReason.AutoSize = true;
-			this.labelReason.Location = new System.Drawing.Point(1087, 387);
+			this.labelReason.Location = new System.Drawing.Point(1274, 390);
 			this.labelReason.Name = "labelReason";
 			this.labelReason.Size = new System.Drawing.Size(57, 17);
 			this.labelReason.TabIndex = 26;
@@ -331,14 +332,14 @@
 			// 
 			this.comboBoxReason.Enabled = false;
 			this.comboBoxReason.FormattingEnabled = true;
-			this.comboBoxReason.Location = new System.Drawing.Point(1150, 390);
+			this.comboBoxReason.Location = new System.Drawing.Point(1337, 393);
 			this.comboBoxReason.Name = "comboBoxReason";
 			this.comboBoxReason.Size = new System.Drawing.Size(163, 24);
 			this.comboBoxReason.TabIndex = 13;
 			// 
 			// buttonEdit
 			// 
-			this.buttonEdit.Location = new System.Drawing.Point(986, 15);
+			this.buttonEdit.Location = new System.Drawing.Point(1173, 18);
 			this.buttonEdit.Name = "buttonEdit";
 			this.buttonEdit.Size = new System.Drawing.Size(111, 26);
 			this.buttonEdit.TabIndex = 15;
@@ -349,7 +350,7 @@
 			// buttonApply
 			// 
 			this.buttonApply.Enabled = false;
-			this.buttonApply.Location = new System.Drawing.Point(1103, 15);
+			this.buttonApply.Location = new System.Drawing.Point(1290, 18);
 			this.buttonApply.Name = "buttonApply";
 			this.buttonApply.Size = new System.Drawing.Size(111, 26);
 			this.buttonApply.TabIndex = 16;
@@ -360,7 +361,7 @@
 			// labelStartDate
 			// 
 			this.labelStartDate.AutoSize = true;
-			this.labelStartDate.Location = new System.Drawing.Point(712, 429);
+			this.labelStartDate.Location = new System.Drawing.Point(899, 432);
 			this.labelStartDate.Name = "labelStartDate";
 			this.labelStartDate.Size = new System.Drawing.Size(72, 17);
 			this.labelStartDate.TabIndex = 27;
@@ -369,7 +370,7 @@
 			// dateTimeStartDate
 			// 
 			this.dateTimeStartDate.Enabled = false;
-			this.dateTimeStartDate.Location = new System.Drawing.Point(818, 429);
+			this.dateTimeStartDate.Location = new System.Drawing.Point(1005, 432);
 			this.dateTimeStartDate.Name = "dateTimeStartDate";
 			this.dateTimeStartDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeStartDate.TabIndex = 14;
@@ -377,7 +378,7 @@
 			// buttonCancel
 			// 
 			this.buttonCancel.Enabled = false;
-			this.buttonCancel.Location = new System.Drawing.Point(1220, 15);
+			this.buttonCancel.Location = new System.Drawing.Point(1407, 18);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(111, 26);
 			this.buttonCancel.TabIndex = 28;
@@ -389,7 +390,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1343, 742);
+			this.ClientSize = new System.Drawing.Size(1543, 742);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.dateTimeStartDate);
 			this.Controls.Add(this.labelStartDate);
@@ -412,8 +413,8 @@
 			this.Controls.Add(this.dateTimeBirthDate);
 			this.Controls.Add(this.labelCreationDate);
 			this.Controls.Add(this.labelBirthDate);
-			this.Controls.Add(this.labelEMail);
-			this.Controls.Add(this.textBoxEmail);
+			this.Controls.Add(this.labelUserName);
+			this.Controls.Add(this.textBoxUserName);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.labelGender);
 			this.Controls.Add(this.labelName);
@@ -422,7 +423,11 @@
 			this.Controls.Add(this.listViewAccounts);
 			this.Controls.Add(this.buttonSearch);
 			this.Controls.Add(this.textBoxSearch);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "FormViewAccounts";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "View Accounts";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewAccounts_FormClosed);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -438,7 +443,7 @@
 		private System.Windows.Forms.ListView listViewAccounts;
 		private System.Windows.Forms.ColumnHeader columnAccountID;
 		private System.Windows.Forms.ColumnHeader columnFirstName;
-		private System.Windows.Forms.ColumnHeader columnEmail;
+		private System.Windows.Forms.ColumnHeader columnUserName;
 		private System.Windows.Forms.ColumnHeader columnAccountType;
 		private System.Windows.Forms.ColumnHeader columnCreationDate;
 		private System.Windows.Forms.Label labelDetails;
@@ -446,8 +451,8 @@
 		private System.Windows.Forms.Label labelName;
 		private System.Windows.Forms.Label labelGender;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.TextBox textBoxEmail;
-		private System.Windows.Forms.Label labelEMail;
+		private System.Windows.Forms.TextBox textBoxUserName;
+		private System.Windows.Forms.Label labelUserName;
 		private System.Windows.Forms.Label labelCreationDate;
 		private System.Windows.Forms.Label labelBirthDate;
 		private System.Windows.Forms.DateTimePicker dateTimeBirthDate;

@@ -74,13 +74,13 @@ namespace DeliveryMarket.Product {
 			}
 
 			Product product = new Product();
-			product.ID = mProductID.ToString();
-			product.SellerID = mAccountID.ToString();
+			product.ID = mProductID;
+			product.SellerID = mAccountID;
 			product.Name = textBoxName.Text.Replace("'", "''").Trim();
-			product.Price = numericPrice.Value.ToString();
+			product.Price = Convert.ToDouble(numericPrice.Value);
 			product.Category = comboBoxCategory.Text;
 			product.Description = textBoxDescription.Text.Replace("'", "''").Trim();
-			product.StockCount = numericQuantity.Value.ToString();
+			product.Quantity = Convert.ToInt32(numericQuantity.Value);
 			product.ImagePath = textBoxImagePath.Text;
 
 			// Ask for confirmation

@@ -8,15 +8,15 @@ namespace DeliveryMarket.Product {
 
 	public class Product {
 
-		public string ID;
-		public string SellerID;
+		public int ID;
+		public int SellerID;
 		public string Name;
-		public string Price;
+		public double Price;
 		public string Category;
 		public string Description;
-		public string StockCount;
+		public int Quantity;
 		public string ImagePath;
-		public string Deleted;
-		public string Date;
+		public bool Deleted;
+		public DateTime Date;
 	}
 }

@@ -12,6 +12,7 @@ namespace DeliveryMarket.Product {
 
 		// Member variables
 		private int mAccountID;
+		private int mSellerID;					// To be set when we want to display only the products of a certain seller
 		private Privilege mPrivilege;
 		private DataTable mProductsData;
 		private ProductController mController;
@@ -22,10 +23,11 @@ namespace DeliveryMarket.Product {
 		private string mSortedColumn = ProductEntry.COL_PRODUCT_NAME;
 
 		/* Constructor */
-		public FormProductList(int accountID, Privilege privilege) {
+		public FormProductList(Privilege privilege, int accountID, int sellerID = -1) {
 			InitializeComponent();
 
 			mAccountID = accountID;
+			mSellerID = sellerID;
 			mPrivilege = privilege;
 			mController = new ProductController();
 		}
@@ -34,6 +36,12 @@ namespace DeliveryMarket.Product {
 		private void FormProductList_Load(object sender, EventArgs e) {
 			// Fill product categories
 			DataTable dt = mController.SelectCategories();
+
+			// No data
+			if (dt == null) {
+				return;
+			}
+
 			DataRow row = dt.NewRow();
 			row[CategoryEntry.COL_CATEGORY_NAME] = CATEGORY_ALL;
 			dt.Rows.InsertAt(row, 0);
@@ -59,7 +67,7 @@ namespace DeliveryMarket.Product {
 
 			int idx = listViewProducts.SelectedItems[0].Index;
 			int productID = Convert.ToInt32(mProductsData.Rows[idx][ProductEntry.COL_PRODUCT_ID]);
-			new FormProductDetail(mAccountID, productID, mPrivilege).Show(this);
+			new FormProductDetail(mPrivilege, mAccountID, productID).Show(this);
 		}
 
 		/* Product list column header clicked callback function */
@@ -97,8 +105,9 @@ namespace DeliveryMarket.Product {
 			string name = textBoxSearch.Text.Replace("'", "''").Trim();
 			string category = comboBoxCategory.SelectedIndex == 0 ? "" : comboBoxCategory.Text;
 
-			mProductsData = mController.SelectProductList(name, category, mSortedColumn, mSortAsc);
+			mProductsData = mController.SelectProductList(mSellerID, name, category, mSortedColumn, mSortAsc);
 
+			// No data
 			if (mProductsData == null) {
 				return;
 			}

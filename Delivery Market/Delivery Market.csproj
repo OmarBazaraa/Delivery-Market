@@ -113,11 +113,11 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Orders\OrderController.cs" />
-    <Compile Include="Orders\Orders.cs">
+    <Compile Include="Orders\FormOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Orders\Orders.Designer.cs">
-      <DependentUpon>Orders.cs</DependentUpon>
+    <Compile Include="Orders\FormOrders.Designer.cs">
+      <DependentUpon>FormOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="Product\FormRemoveProduct.cs">
       <SubType>Form</SubType>
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Orders\Orders.resx">
-      <DependentUpon>Orders.cs</DependentUpon>
+    <EmbeddedResource Include="Orders\FormOrders.resx">
+      <DependentUpon>FormOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Product\FormBuyProduct.resx">
       <DependentUpon>FormBuyProduct.cs</DependentUpon>

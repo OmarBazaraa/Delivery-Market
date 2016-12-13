@@ -20,7 +20,7 @@ namespace DeliveryMarket {
 		private Privilege mPrivilege;
 
 		/* Constructor */
-		public FormMain(int accountID = 99, Privilege privilege = Privilege.Other) {
+		public FormMain(Privilege privilege = Privilege.Admin, int accountID = 99) {
 			InitializeComponent();
 
 			mAccountID = accountID;
@@ -48,7 +48,7 @@ namespace DeliveryMarket {
 
 		/* View products button clicked callback function */
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
-			new FormProductList(mAccountID, mPrivilege).Show(this);
+			new FormProductList(mPrivilege, mAccountID).Show(this);
 			Hide();
 		}
 
@@ -56,6 +56,11 @@ namespace DeliveryMarket {
         private void buttonViewSellers_Click(object sender, EventArgs e) {
 			new Account.FormAccounts(mAccountID).Show(this);
 
+		}
+
+		/* View orders button clicked callback function */
+		private void buttonViewOrders_Click(object sender, EventArgs e) {
+			new FormOrders(mAccountID).Show(this);
 		}
 
 		/* Admin panel button clicked callback function */
@@ -77,10 +82,6 @@ namespace DeliveryMarket {
 		/* Loses buttons focus */
 		private void LoseFocus(object sender, EventArgs e) {
 			labelWelcome.Focus();
-		}
-
-		private void buttonViewOrders_Click(object sender, EventArgs e) {
-			new FormOrders(mAccountID).Show(this);
 		}
 	}
 }

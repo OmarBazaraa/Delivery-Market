@@ -135,11 +135,6 @@
             0,
             0,
             0});
-			this.numericQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
 			this.numericQuantity.Name = "numericQuantity";
 			this.numericQuantity.Size = new System.Drawing.Size(229, 25);
 			this.numericQuantity.TabIndex = 4;
