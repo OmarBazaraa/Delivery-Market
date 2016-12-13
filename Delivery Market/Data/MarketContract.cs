@@ -117,7 +117,7 @@
 			// Columns names
 			public const string COL_USER_ID = "user_id";
 			public const string COL_PRODUCT_ID = "product_id";
-			public const string COL_RATE_VALUE = "rating_value";
+			public const string COL_RATING_VALUE = "rating_value";
 		}
 
 		public static class ReportEntry {
