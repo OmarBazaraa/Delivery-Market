@@ -55,6 +55,7 @@
 			this.buttonReports.TabIndex = 1;
 			this.buttonReports.Text = "Reports";
 			this.buttonReports.UseVisualStyleBackColor = true;
+			this.buttonReports.Click += new System.EventHandler(this.buttonReports_Click);
 			// 
 			// buttonBack
 			// 

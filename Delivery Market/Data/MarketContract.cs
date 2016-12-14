@@ -128,6 +128,7 @@
 			public const string COL_REPORT_ID = "report_id";
 			public const string COL_USER_ID = "user_id";
 			public const string COL_PRODUCT_ID = "product_id";
+			public const string COL_REPORT_REASON = "report_reason";
 			public const string COL_DESCRIPTION = "description";
 			public const string COL_REPORT_DATE = "report_date";
 		}

@@ -100,6 +100,75 @@ namespace DeliveryMarket.Admin {
 			return rows;
 		}
 
+		public DataTable SelectReportDetails(string reportId) {
+			string query = "SELECT " +
+							ReportEntry.COL_REPORT_REASON + ", " +
+							ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION + ", " +
+							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", " +
+							ProductEntry.COL_PRODUCT_NAME + ", " +
+							ProductEntry.COL_PRICE + ", " +
+							ProductEntry.COL_QUANTITY + ", " +
+							ProductEntry.COL_CATEGORY + ", " +
+							ProductEntry.COL_SELLING_DATE + ", " +
+							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + ", " +
+							ProductEntry.COL_IMAGE + ", " +
+							AccountEntry.COL_ACCOUNT_ID + ", " +
+							AccountEntry.COL_FIRST_NAME + ", " +
+							AccountEntry.COL_LAST_NAME + ", " +
+							AccountEntry.COL_USERNAME + ", " +
+							AccountEntry.COL_MOBILE_NUMBER + ", " +
+							AccountEntry.COL_GENDER + ", " +
+							AccountEntry.COL_BIRTHDATE + ", " +
+							AccountEntry.COL_CREATION_DATE + ", " +
+							AccountEntry.COL_CITY +  ", " +
+							AccountEntry.COL_COUNTRY + " FROM " +
+
+							ReportEntry.TABLE_NAME + " LEFT JOIN " +
+							ProductEntry.TABLE_NAME + " ON " +
+							ReportEntry.TABLE_NAME + "." + ReportEntry.COL_PRODUCT_ID + " = " +
+							ProductEntry.TABLE_NAME + "." +  ProductEntry.COL_PRODUCT_ID + " LEFT JOIN " +
+							AccountEntry.TABLE_NAME + " ON " +
+							ProductEntry.TABLE_NAME + "." +  ProductEntry.COL_SELLER_ID + " = " +
+							AccountEntry.TABLE_NAME + "." +  AccountEntry.COL_ACCOUNT_ID + " WHERE " +
+
+							ReportEntry.COL_REPORT_ID + " = " + reportId + ";";
+
+			DataTable rows = DBMan.ExecuteReader(query);
+			return rows;
+		}
+
+		public DataTable SelectReports(string Like = "") {
+			string query = "SELECT " +
+							ReportEntry.COL_REPORT_ID + ", " +
+							ProductEntry.COL_PRODUCT_NAME + ", " +
+							AccountEntry.COL_USERNAME + ", " +
+							ReportEntry.COL_REPORT_REASON + ", " +
+							ReportEntry.COL_REPORT_DATE +
+							" FROM " +
+
+							ReportEntry.TABLE_NAME + " LEFT JOIN " +
+							ProductEntry.TABLE_NAME + " ON " +
+							ReportEntry.TABLE_NAME + "." + ReportEntry.COL_PRODUCT_ID + " = " +
+							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " LEFT JOIN " +
+							AccountEntry.TABLE_NAME + " ON " +
+							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + " = " +
+							AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " WHERE NOT " +
+							AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account + "' AND NOT " +
+							ProductEntry.COL_DELETED;
+
+			if (Like != "") {
+				query += " AND (" + ReportEntry.COL_REPORT_ID +
+					" LIKE '%" + Like + "%' OR " +
+					ProductEntry.COL_PRODUCT_NAME + " LIKE '%" + Like + "%' OR " +
+					AccountEntry.COL_USERNAME + " LIKE '%" + Like + "%' OR " +
+					ReportEntry.COL_REPORT_REASON + " LIKE '%" + Like + "%')";
+			}
+			query += ";";
+
+			DataTable rows = DBMan.ExecuteReader(query);
+			return rows;
+		}
+
 		public int MakeAdmin(string AccountId) {
 			string query1 = "UPDATE " + 
 				AccountEntry.TABLE_NAME +

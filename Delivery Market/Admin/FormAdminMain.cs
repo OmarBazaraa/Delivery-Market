@@ -38,5 +38,10 @@ namespace DeliveryMarket.Admin {
 			new FormViewAccounts(mAccountID).Show(this);
 			this.Hide();
 		}
+
+		private void buttonReports_Click(object sender, EventArgs e) {
+			new FormReports(mAccountID).Show(this);
+			this.Hide();
+		}
 	}
 }
