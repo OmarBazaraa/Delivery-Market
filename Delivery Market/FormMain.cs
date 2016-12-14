@@ -55,7 +55,7 @@ namespace DeliveryMarket {
 
 		/* View sellers button clicked callback function */
         private void buttonViewSellers_Click(object sender, EventArgs e) {
-			new Account.Profile(mAccountID,mAccountID,mPrivilege).Show(this);
+			new Account.FormProfile(mAccountID,mAccountID,mPrivilege).Show(this);
 		}
 
 		/* View orders button clicked callback function */

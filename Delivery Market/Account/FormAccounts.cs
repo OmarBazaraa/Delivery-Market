@@ -37,7 +37,7 @@ namespace DeliveryMarket.Account
 		private void listSellers_MouseDoubleClick(object sender, EventArgs e) {
 			if (listSellers.Items.Count == 0) return;
 			int idx = listSellers.SelectedItems[0].Index;
-			new Profile(mAccountID, Convert.ToInt32(list.AccountID[idx])).Show(this);
+			new FormProfile(mAccountID, Convert.ToInt32(list.AccountID[idx])).Show(this);
 		}
 		
 

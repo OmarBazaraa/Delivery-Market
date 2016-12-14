@@ -13,7 +13,7 @@ using DeliveryMarket.Product;
 using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Account {
-	public partial class Profile : Form {
+	public partial class FormProfile : Form {
 		private const string CONFIRMATION_TITLE = "Make Admin";
 		private const string CONFIRMATION_MSG = "Are you sure want to make this account admin?";
 		int mUserID;
@@ -21,7 +21,7 @@ namespace DeliveryMarket.Account {
 		AccountController mController;
 		DataRow mData;
 		Privilege mPrivilege;
-		public Profile(int accountID, int userID, Privilege privilege = Privilege.Other) {
+		public FormProfile(int accountID, int userID, Privilege privilege = Privilege.Other) {
 			InitializeComponent();
 			mUserID = userID;
 			mAccountID = accountID;

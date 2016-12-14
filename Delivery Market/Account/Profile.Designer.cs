@@ -1,5 +1,5 @@
 ﻿namespace DeliveryMarket.Account {
-	partial class Profile {
+	partial class FormProfile {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -424,7 +424,7 @@
 			this.textMoneyPaid.TabIndex = 63;
 			this.textMoneyPaid.Text = "115$";
 			// 
-			// Profile
+			// FormProfile
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -465,7 +465,7 @@
 			this.Controls.Add(this.labelLastName);
 			this.Controls.Add(this.labelCity);
 			this.Controls.Add(this.labelAccount);
-			this.Name = "Profile";
+			this.Name = "FormProfile";
 			this.Text = "Profile";
 			this.Load += new System.EventHandler(this.Profile_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
