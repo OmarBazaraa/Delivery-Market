@@ -86,7 +86,7 @@
 			this.buttonViewSellers.Size = new System.Drawing.Size(260, 40);
 			this.buttonViewSellers.TabIndex = 0;
 			this.buttonViewSellers.TabStop = false;
-			this.buttonViewSellers.Text = "View Sellers";
+			this.buttonViewSellers.Text = "View Profile";
 			this.buttonViewSellers.UseVisualStyleBackColor = true;
 			this.buttonViewSellers.Click += new System.EventHandler(this.buttonViewSellers_Click);
 			this.buttonViewSellers.GotFocus += new System.EventHandler(this.LoseFocus);
@@ -140,7 +140,7 @@
 			// 
 			// FormMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 467);
 			this.Controls.Add(this.buttonViewOrders);

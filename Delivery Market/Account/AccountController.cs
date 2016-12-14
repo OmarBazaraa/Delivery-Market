@@ -17,19 +17,17 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", COALESCE(AVG("
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", " + "COALESCE(AVG(r."
 				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
-				+ " , COALESCE(COUNT(" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
-				+ " FROM " + ProductEntry.TABLE_NAME + " LEFT JOIN "
-				+ AccountEntry.TABLE_NAME + " ON "
-				+ ProductEntry.COL_SELLER_ID + " = " + AccountEntry.COL_ACCOUNT_ID
-				+ " LEFT OUTER JOIN "
-				+ RatingEntry.TABLE_NAME + " ON "
-				+ ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '"
-				+ AccountType.Active_Account
+				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
+				+ " FROM " + AccountEntry.TABLE_NAME + ", "
+				+ RatingEntry.TABLE_NAME + " r, "
+				+ ProductEntry.TABLE_NAME + " p "
+				+ " WHERE " + "p." + ProductEntry.COL_SELLER_ID + " = " + AccountEntry.COL_ACCOUNT_ID + " AND "
+				+ "p." + ProductEntry.COL_PRODUCT_ID + " = r." + RatingEntry.COL_PRODUCT_ID + " AND "
+				+ AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Active_Account
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%'"
-				+ " AND " + ProductEntry.COL_DELETED + " = '0' ;";
+				+ " AND " + ProductEntry.COL_DELETED + " = '0'" + " ;";
 			return DBMan.ExecuteReader(query);
 		}
 
@@ -39,13 +37,17 @@ namespace DeliveryMarket.Account
 				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
 				+ " , COALESCE(COUNT(o." + OrderEntry.COL_ORDER_ID + "), 0) AS " + UserEntry.DER_ORDERS_COUNT
-				+ " , COALESCE(SUM(o." + OrderEntry.COL_PRODUCT_PRICE + "), 0) AS " + UserEntry.DER_EARNED_MONEY
+				+ " , COALESCE(SUM(o." + OrderEntry.COL_PRODUCT_PRICE + " * o." + OrderEntry.COL_QUANTITY + "), 0) AS " + UserEntry.DER_EARNED_MONEY
+				+ " , COALESCE(SUM(d." + OrderEntry.COL_PRODUCT_PRICE + " * d." + OrderEntry.COL_QUANTITY + "), 0) AS " + UserEntry.DER_PAID_MONEY
 				+ " FROM " + AccountEntry.TABLE_NAME + " a, "
 				+ RatingEntry.TABLE_NAME + " r, "
 				+ ProductEntry.TABLE_NAME + " p, "
 				+ MarketEntry.DATABASE_NAME + "." 
-				+ OrderEntry.TABLE_NAME + " o" +
+				+ OrderEntry.TABLE_NAME + " o, "
+				+ MarketEntry.DATABASE_NAME + "."
+				+ OrderEntry.TABLE_NAME + " d" +
 				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + account_id + " AND "
+				+ "d." + OrderEntry.COL_CUSTOMER_ID + " = " + account_id + " AND "
 				+ "p." + ProductEntry.COL_SELLER_ID + " = " + account_id + " AND "
 				+ "p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrderEntry.COL_PRODUCT_ID + " AND "
 				+ "p." + ProductEntry.COL_PRODUCT_ID + " = r." + RatingEntry.COL_PRODUCT_ID + " AND "

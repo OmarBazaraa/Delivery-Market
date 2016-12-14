@@ -44,6 +44,7 @@
             this.columnRating,
             this.columnProductsCount});
 			this.listSellers.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.listSellers.FullRowSelect = true;
 			this.listSellers.GridLines = true;
 			this.listSellers.HoverSelection = true;
 			this.listSellers.Location = new System.Drawing.Point(12, 56);
@@ -54,6 +55,8 @@
 			this.listSellers.TabStop = false;
 			this.listSellers.UseCompatibleStateImageBehavior = false;
 			this.listSellers.View = System.Windows.Forms.View.Details;
+			this.listSellers.SelectedIndexChanged += new System.EventHandler(this.listSellers_SelectedIndexChanged);
+			this.listSellers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listSellers_MouseDoubleClick);
 			// 
 			// columnUserName
 			// 

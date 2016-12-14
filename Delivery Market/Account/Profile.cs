@@ -70,7 +70,7 @@ namespace DeliveryMarket.Account {
 			textProductsCount.Text = mData[UserEntry.DER_PRODUCTS_COUNT].ToString();
 			textOrdersCount.Text = mData[UserEntry.DER_ORDERS_COUNT].ToString();
 			textMoneyEarned.Text = mData[UserEntry.DER_EARNED_MONEY].ToString() + "$";
-			textMoneyPaid.Text = "0";//mData[UserEntry.DER_PAID_MONEY].ToString() + "$";
+			textMoneyPaid.Text = mData[UserEntry.DER_PAID_MONEY].ToString() + "$";
 		}
 
 		private void buttonMakeAdmin_Click(object sender, EventArgs e) {
