@@ -25,23 +25,7 @@ namespace DeliveryMarket.Orders {
 			mSelectedOrder = null;
 		}
 
-		private void listOrders_SelectedIndexChanged(object sender, EventArgs e) {
-			if (listOrders.Items.Count == 0) {
-				return;
-			}
-			int idx = listOrders.SelectedItems[0].Index;
-			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[idx][OrderEntry.COL_ORDER_ID].ToString());
-			populateDetails();
-		}
-
-		private void listOrders_MouseDoubleClick(object sender, MouseEventArgs e) {
-			if (listOrders.Items.Count == 0) {
-				return;
-			}
-			int idx = listOrders.SelectedItems[0].Index;
-			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[idx][OrderEntry.COL_ORDER_ID].ToString());
-			populateDetails();
-		}
+	
 
 		private void populateList() {
 			if (mOrdersData == null) return;
@@ -58,8 +42,8 @@ namespace DeliveryMarket.Orders {
 			if (mSelectedOrder == null) return;
 			textUserName.Text = mSelectedOrder[AccountEntry.COL_USERNAME].ToString();
 			textProductName.Text = mSelectedOrder[OrderEntry.COL_PRODUCT_NAME].ToString();
-			textPrice.Text = mSelectedOrder[OrderEntry.COL_PRODUCT_PRICE].ToString();
-			textQuantity.Text = mSelectedOrder[OrderEntry.COL_QUANTITY].ToString();
+			textPrice.Text = mSelectedOrder[OrderEntry.COL_PRODUCT_PRICE].ToString() + "$";
+			textQuantity.Text = mSelectedOrder[OrderEntry.COL_QUANTITY].ToString() + " pieces";
 			textTransactionCompany.Text = mSelectedOrder[TransactionCompanyEntry.COL_COMPANY_NAME].ToString();
 			textTransportCompany.Text = mSelectedOrder[TransportCompanyEntry.COL_COMPANY_NAME].ToString();
 			textOrderDate.Text = mSelectedOrder[OrderEntry.COL_ORDER_DATE].ToString();
@@ -72,6 +56,17 @@ namespace DeliveryMarket.Orders {
 			textOrdersCount.Text = listOrders.Items.Count.ToString();
 			if (listOrders.Items.Count == 0) return;			
 			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[0][OrderEntry.COL_ORDER_ID].ToString());
+			populateDetails();
+		}
+
+		private void listOrders_SelectedIndexChanged(object sender, EventArgs e) {
+			if (listOrders.Items.Count == 0) {
+				return;
+			}
+			if (listOrders.SelectedItems.Count == 0)
+				return;
+			int idx = listOrders.SelectedItems[0].Index;
+			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[idx][OrderEntry.COL_ORDER_ID].ToString());
 			populateDetails();
 		}
 	}

@@ -54,12 +54,18 @@ namespace DeliveryMarket.Account
 			return dt == null ? null : dt.Rows[0];
 		}
 
-		/* Insert  User to banned table */
+		/* Insert  account to banned table */
 		public int BanUser (BannedUser banned) {
+
 			string query = "UPDATE " + AccountEntry.TABLE_NAME + 
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = " + AccountType.Banned_Account + 
-				" WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account + 
+				"' WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
 			DBMan.ExecuteNonQuery(query);
+
+
+			query = "DELETE FROM " + AdminEntry.TABLE_NAME + " WHERE " + AdminEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
+			DBMan.ExecuteNonQuery(query);
+
 
 			query = "INSERT INTO " + BannedUserEntry.TABLE_NAME + " (" +
 				BannedUserEntry.COL_ADMIN_ID + ", " +
@@ -68,13 +74,37 @@ namespace DeliveryMarket.Account
 				BannedUserEntry.COL_DESCRIPTION + ", " +
 				BannedUserEntry.COL_BAN_DATE + ") VALUES(" +
 				banned.AdminID + ", " +
-				"'" + banned.UserID + "', " +
-				banned.Reason + ", " +
+				"'" + banned.UserID + "', '" +
+				banned.Reason + "', " +
 				"'" + banned.Description + "', " +
 				"'" + banned.Date + "'" +
 				");";
-
 			return DBMan.ExecuteNonQuery(query);
-		}		
+		}
+
+		/* Insert account to admin table */
+		public int MakeAdmin(Admin admin) {
+
+			string query = "UPDATE " + AccountEntry.TABLE_NAME +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Admin_Account +
+				"' WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + admin.AdminID + " ;";
+			DBMan.ExecuteNonQuery(query);
+
+			query = "DELETE FROM " + BannedUserEntry.TABLE_NAME + " WHERE " + BannedUserEntry.COL_USER_ID + " = " + admin.AdminID + " ;";
+			DBMan.ExecuteNonQuery(query);
+
+
+			query = "INSERT INTO " + AdminEntry.TABLE_NAME + " (" +
+				AdminEntry.COL_ACCOUNT_ID + ", " +
+				AdminEntry.COL_START_DATE + ") VALUES(" +
+				admin.AdminID + ", '" + admin.StartDate + "');";
+			return DBMan.ExecuteNonQuery(query);
+		}
+
+		/* Selects all removal reasons from the database */
+		public DataTable SelectRemovalReasons() {
+			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + " FROM " + RemovalReasonsEntry.TABLE_NAME + ";";
+			return DBMan.ExecuteReader(query);
+		}
 	}
 }

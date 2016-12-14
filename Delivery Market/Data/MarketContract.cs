@@ -56,6 +56,7 @@
 			public const string DER_PRODUCTS_COUNT = "products_count";
 			public const string DER_ORDERS_COUNT = "orders_count";
 			public const string DER_EARNED_MONEY = "earned_money";
+			public const string DER_PAID_MONEY = "paid_money";
 		}
 
 		public static class BannedUserEntry {

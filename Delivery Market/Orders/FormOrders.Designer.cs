@@ -57,6 +57,7 @@
             this.columnPrice,
             this.columnQuantity});
 			this.listOrders.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.listOrders.FullRowSelect = true;
 			this.listOrders.GridLines = true;
 			this.listOrders.HoverSelection = true;
 			this.listOrders.Location = new System.Drawing.Point(12, 49);
@@ -67,7 +68,7 @@
 			this.listOrders.TabStop = false;
 			this.listOrders.UseCompatibleStateImageBehavior = false;
 			this.listOrders.View = System.Windows.Forms.View.Details;
-			this.listOrders.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listOrders_MouseDoubleClick);
+			this.listOrders.SelectedIndexChanged += new System.EventHandler(this.listOrders_SelectedIndexChanged);
 			// 
 			// columnProductName
 			// 
