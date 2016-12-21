@@ -103,14 +103,14 @@ namespace DeliveryMarket.Admin {
 		public DataTable SelectReportDetails(string reportId) {
 			string query = "SELECT " +
 							ReportEntry.COL_REPORT_REASON + ", " +
-							ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION + ", " +
+							ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION + " as '" + ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION + "', " +
 							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", " +
 							ProductEntry.COL_PRODUCT_NAME + ", " +
 							ProductEntry.COL_PRICE + ", " +
 							ProductEntry.COL_QUANTITY + ", " +
 							ProductEntry.COL_CATEGORY + ", " +
 							ProductEntry.COL_SELLING_DATE + ", " +
-							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + ", " +
+							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + " as '" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + "', " +
 							ProductEntry.COL_IMAGE + ", " +
 							AccountEntry.COL_ACCOUNT_ID + ", " +
 							AccountEntry.COL_FIRST_NAME + ", " +

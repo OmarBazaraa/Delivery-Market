@@ -45,14 +45,14 @@ namespace DeliveryMarket.Admin {
 		private void ClearDetailView() {
 			//clear product-report tab
 			textBoxReportReason.Clear();
-			richTextBoxReportDescription.Clear();
+			textBoxReportDescription.Clear();
 			textBoxProductId.Clear();
 			textBoxProductName.Clear();
 			textBoxProductPrice.Clear();
 			textBoxProductQuantity.Clear();
 			comboBoxProductCategory.Text = "";
 			dateTimeProductSellingDate.Text = "";
-			richTextBoxProductDescription.Clear();
+			textBoxProductDescription.Clear();
 
 			//clear account tab
 			textBoxSellerId.Clear();
@@ -82,14 +82,14 @@ namespace DeliveryMarket.Admin {
 
 			//populate product-report tab
 			textBoxReportReason.Text = reportDetails[ReportEntry.COL_REPORT_REASON].ToString();
-			richTextBoxReportDescription.Text = reportDetails[ReportEntry.COL_DESCRIPTION].ToString();
+			textBoxReportDescription.Text = reportDetails[ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION].ToString();
 			textBoxProductId.Text = reportDetails[ProductEntry.COL_PRODUCT_ID].ToString();
 			textBoxProductName.Text = reportDetails[ProductEntry.COL_PRODUCT_NAME].ToString();
 			textBoxProductPrice.Text = reportDetails[ProductEntry.COL_PRICE].ToString();
 			textBoxProductQuantity.Text = reportDetails[ProductEntry.COL_QUANTITY].ToString();
 			comboBoxProductCategory.Text = reportDetails[ProductEntry.COL_CATEGORY].ToString();
 			dateTimeProductSellingDate.Text = reportDetails[ProductEntry.COL_SELLING_DATE].ToString();
-			richTextBoxProductDescription.Text = reportDetails[ProductEntry.COL_DESCRIPTION].ToString();
+			textBoxProductDescription.Text = reportDetails[ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION].ToString();
 
 			//populate account tab
 			textBoxSellerId.Text = reportDetails[AccountEntry.COL_ACCOUNT_ID].ToString();
@@ -125,8 +125,7 @@ namespace DeliveryMarket.Admin {
 		}
 
 		private void buttonRemoveProduct_Click(object sender, EventArgs e) {
-			//TODO
-			return;
+			new Product.FormRemoveProduct(mAdminID, Convert.ToInt32(textBoxProductId.Text)).Show();
 		}
 
 

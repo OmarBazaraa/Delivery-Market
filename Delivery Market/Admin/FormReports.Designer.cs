@@ -30,11 +30,9 @@
 			this.tabPageReportDetails = new System.Windows.Forms.TabPage();
 			this.textBoxReportReason = new System.Windows.Forms.TextBox();
 			this.labelReportDescription = new System.Windows.Forms.Label();
-			this.richTextBoxReportDescription = new System.Windows.Forms.RichTextBox();
 			this.labelReportReason = new System.Windows.Forms.Label();
 			this.dateTimeProductSellingDate = new System.Windows.Forms.DateTimePicker();
 			this.labelDescription = new System.Windows.Forms.Label();
-			this.richTextBoxProductDescription = new System.Windows.Forms.RichTextBox();
 			this.comboBoxProductCategory = new System.Windows.Forms.ComboBox();
 			this.buttonRemoveProduct = new System.Windows.Forms.Button();
 			this.labelProductId = new System.Windows.Forms.Label();
@@ -78,6 +76,8 @@
 			this.columnSellerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnReportReason = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnReportDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.textBoxReportDescription = new System.Windows.Forms.TextBox();
+			this.textBoxProductDescription = new System.Windows.Forms.TextBox();
 			this.tabControlDetails.SuspendLayout();
 			this.tabPageReportDetails.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxProductImage)).BeginInit();
@@ -115,13 +115,13 @@
 			// tabPageReportDetails
 			// 
 			this.tabPageReportDetails.BackColor = System.Drawing.Color.Transparent;
+			this.tabPageReportDetails.Controls.Add(this.textBoxProductDescription);
+			this.tabPageReportDetails.Controls.Add(this.textBoxReportDescription);
 			this.tabPageReportDetails.Controls.Add(this.textBoxReportReason);
 			this.tabPageReportDetails.Controls.Add(this.labelReportDescription);
-			this.tabPageReportDetails.Controls.Add(this.richTextBoxReportDescription);
 			this.tabPageReportDetails.Controls.Add(this.labelReportReason);
 			this.tabPageReportDetails.Controls.Add(this.dateTimeProductSellingDate);
 			this.tabPageReportDetails.Controls.Add(this.labelDescription);
-			this.tabPageReportDetails.Controls.Add(this.richTextBoxProductDescription);
 			this.tabPageReportDetails.Controls.Add(this.comboBoxProductCategory);
 			this.tabPageReportDetails.Controls.Add(this.buttonRemoveProduct);
 			this.tabPageReportDetails.Controls.Add(this.labelProductId);
@@ -160,14 +160,6 @@
 			this.labelReportDescription.TabIndex = 6;
 			this.labelReportDescription.Text = "Description:";
 			// 
-			// richTextBoxReportDescription
-			// 
-			this.richTextBoxReportDescription.Location = new System.Drawing.Point(43, 74);
-			this.richTextBoxReportDescription.Name = "richTextBoxReportDescription";
-			this.richTextBoxReportDescription.Size = new System.Drawing.Size(588, 201);
-			this.richTextBoxReportDescription.TabIndex = 7;
-			this.richTextBoxReportDescription.Text = "";
-			// 
 			// labelReportReason
 			// 
 			this.labelReportReason.AutoSize = true;
@@ -193,15 +185,6 @@
 			this.labelDescription.Size = new System.Drawing.Size(83, 17);
 			this.labelDescription.TabIndex = 20;
 			this.labelDescription.Text = "Description:";
-			// 
-			// richTextBoxProductDescription
-			// 
-			this.richTextBoxProductDescription.Enabled = false;
-			this.richTextBoxProductDescription.Location = new System.Drawing.Point(43, 581);
-			this.richTextBoxProductDescription.Name = "richTextBoxProductDescription";
-			this.richTextBoxProductDescription.Size = new System.Drawing.Size(588, 162);
-			this.richTextBoxProductDescription.TabIndex = 21;
-			this.richTextBoxProductDescription.Text = "";
 			// 
 			// comboBoxProductCategory
 			// 
@@ -601,6 +584,22 @@
 			this.columnReportDate.Text = "Report Date";
 			this.columnReportDate.Width = 120;
 			// 
+			// textBoxReportDescription
+			// 
+			this.textBoxReportDescription.Location = new System.Drawing.Point(46, 83);
+			this.textBoxReportDescription.Multiline = true;
+			this.textBoxReportDescription.Name = "textBoxReportDescription";
+			this.textBoxReportDescription.Size = new System.Drawing.Size(585, 210);
+			this.textBoxReportDescription.TabIndex = 100;
+			// 
+			// textBoxProductDescription
+			// 
+			this.textBoxProductDescription.Location = new System.Drawing.Point(46, 578);
+			this.textBoxProductDescription.Multiline = true;
+			this.textBoxProductDescription.Name = "textBoxProductDescription";
+			this.textBoxProductDescription.Size = new System.Drawing.Size(585, 165);
+			this.textBoxProductDescription.TabIndex = 101;
+			// 
 			// FormReports
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -636,7 +635,6 @@
 		private System.Windows.Forms.TabPage tabPageReportDetails;
 		private System.Windows.Forms.TabPage tabPageSellerDetails;
 		private System.Windows.Forms.Label labelDescription;
-		private System.Windows.Forms.RichTextBox richTextBoxProductDescription;
 		private System.Windows.Forms.ComboBox comboBoxProductCategory;
 		private System.Windows.Forms.Button buttonRemoveProduct;
 		private System.Windows.Forms.Label labelProductId;
@@ -676,7 +674,6 @@
 		private System.Windows.Forms.DateTimePicker dateTimeProductSellingDate;
 		private System.Windows.Forms.TextBox textBoxReportReason;
 		private System.Windows.Forms.Label labelReportDescription;
-		private System.Windows.Forms.RichTextBox richTextBoxReportDescription;
 		private System.Windows.Forms.Label labelReportReason;
 		private System.Windows.Forms.ColumnHeader columnReportDate;
 		private System.Windows.Forms.ComboBox comboBoxBanSellerReason;
@@ -684,5 +681,7 @@
 		private System.Windows.Forms.Label labelBanSellerDescription;
 		private System.Windows.Forms.RichTextBox richTextBoxBanSellerDescription;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TextBox textBoxProductDescription;
+		private System.Windows.Forms.TextBox textBoxReportDescription;
 	}
 }

@@ -93,7 +93,7 @@
     <Compile Include="Admin\FormViewAccounts.Designer.cs">
       <DependentUpon>FormViewAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ProductController.cs" />
+    <Compile Include="Admin\AdminController.cs" />
     <Compile Include="Account\Account.cs" />
     <Compile Include="Account\AccountController.cs" />
     <Compile Include="Account\BannedUser.cs" />
