@@ -38,8 +38,6 @@
 			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.labelImage = new System.Windows.Forms.Label();
 			this.pictureBoxImage = new System.Windows.Forms.PictureBox();
-			this.labelImagePath = new System.Windows.Forms.Label();
-			this.textBoxImagePath = new System.Windows.Forms.TextBox();
 			this.buttonSave = new System.Windows.Forms.Button();
 			this.buttonBrowse = new System.Windows.Forms.Button();
 			this.buttonCancel = new System.Windows.Forms.Button();
@@ -181,27 +179,9 @@
 			this.pictureBoxImage.TabIndex = 10;
 			this.pictureBoxImage.TabStop = false;
 			// 
-			// labelImagePath
-			// 
-			this.labelImagePath.AutoSize = true;
-			this.labelImagePath.Location = new System.Drawing.Point(8, 461);
-			this.labelImagePath.Name = "labelImagePath";
-			this.labelImagePath.Size = new System.Drawing.Size(82, 19);
-			this.labelImagePath.TabIndex = 0;
-			this.labelImagePath.Text = "Image Path:";
-			// 
-			// textBoxImagePath
-			// 
-			this.textBoxImagePath.Location = new System.Drawing.Point(12, 483);
-			this.textBoxImagePath.Name = "textBoxImagePath";
-			this.textBoxImagePath.ReadOnly = true;
-			this.textBoxImagePath.Size = new System.Drawing.Size(410, 25);
-			this.textBoxImagePath.TabIndex = 0;
-			this.textBoxImagePath.TabStop = false;
-			// 
 			// buttonSave
 			// 
-			this.buttonSave.Location = new System.Drawing.Point(347, 514);
+			this.buttonSave.Location = new System.Drawing.Point(347, 464);
 			this.buttonSave.Name = "buttonSave";
 			this.buttonSave.Size = new System.Drawing.Size(75, 35);
 			this.buttonSave.TabIndex = 0;
@@ -213,7 +193,7 @@
 			// 
 			// buttonBrowse
 			// 
-			this.buttonBrowse.Location = new System.Drawing.Point(266, 514);
+			this.buttonBrowse.Location = new System.Drawing.Point(266, 464);
 			this.buttonBrowse.Name = "buttonBrowse";
 			this.buttonBrowse.Size = new System.Drawing.Size(75, 35);
 			this.buttonBrowse.TabIndex = 0;
@@ -225,7 +205,7 @@
 			// 
 			// buttonCancel
 			// 
-			this.buttonCancel.Location = new System.Drawing.Point(185, 514);
+			this.buttonCancel.Location = new System.Drawing.Point(185, 464);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 35);
 			this.buttonCancel.TabIndex = 0;
@@ -243,7 +223,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(434, 561);
+			this.ClientSize = new System.Drawing.Size(434, 511);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.labelName);
 			this.Controls.Add(this.textBoxName);
@@ -257,8 +237,6 @@
 			this.Controls.Add(this.textBoxDescription);
 			this.Controls.Add(this.labelImage);
 			this.Controls.Add(this.pictureBoxImage);
-			this.Controls.Add(this.labelImagePath);
-			this.Controls.Add(this.textBoxImagePath);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonBrowse);
 			this.Controls.Add(this.buttonSave);
@@ -295,8 +273,6 @@
 		private System.Windows.Forms.TextBox textBoxDescription;
 		private System.Windows.Forms.Label labelImage;
 		private System.Windows.Forms.PictureBox pictureBoxImage;
-		private System.Windows.Forms.Label labelImagePath;
-		private System.Windows.Forms.TextBox textBoxImagePath;
 		private System.Windows.Forms.Button buttonSave;
 		private System.Windows.Forms.Button buttonBrowse;
 		private System.Windows.Forms.Button buttonCancel;

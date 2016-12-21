@@ -22,6 +22,10 @@ namespace DeliveryMarket.Utils {
 			// Application global strings
 			public const string APP_TITLE = "Delivery Market";
 
+			public const string MAIN_DIRECTORY = "C:\\DeliveryMarket";
+			public const string IMAGES_DIRECTORY = MAIN_DIRECTORY + "\\Images";
+			public const string PRODUCT_IMAGES_DIRECTORY = IMAGES_DIRECTORY + "\\Products";
+
 			// Applications messages
 
 		}

@@ -7,17 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DeliveryMarket.Data.MarketContract;
+using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Product {
 	public partial class FormReportProduct : Form {
 		// Messages
-		private const string INVALID_INPUT_TITLE = "Invalid Description";
-		private const string INVALID_INPUT_MSG = "Please make sure to write the description";
-		private const string REPORT_SUCCESS_TITLE = "Done";
-		private const string REPORT_SUCCESS_MSG = "the report was delivered successfully";
-		private const string REPORT_FAILED_TITLE = "Error";
+		private const string INVALID_INPUT_MSG = "Please make sure to fill in the description";
+		private const string REPORT_SUCCESS_MSG = "The report was delivered successfully";
 		private const string REPORT_FAILED_MSG = "An error occured will reporting this product";
-		private const string CONFIRMATION_TITLE = "Report";
 		private const string CONFIRMATION_MSG = "Are you sure want to report this product?";
 
 		// Member variables
@@ -36,7 +34,8 @@ namespace DeliveryMarket.Product {
 
 		/* Form load callback function */
 		private void FormReportProduct_Load(object sender, EventArgs e) {
-
+			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
+			comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
 		}
 
 		/* Delete button clicked callback function */
@@ -45,22 +44,22 @@ namespace DeliveryMarket.Product {
 
 			// Check for validation
 			if (description == "") {
-				MessageBox.Show(INVALID_INPUT_MSG, INVALID_INPUT_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(INVALID_INPUT_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo) == DialogResult.No) {
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
 
 			// Send report
-			if (mController.InsertReport(mAccountID, mProductID, description) > 0) {
-				MessageBox.Show(REPORT_SUCCESS_MSG, REPORT_SUCCESS_TITLE, MessageBoxButtons.OK);
+			if (mController.InsertReport(mAccountID, mProductID, comboBoxReasons.Text, description) > 0) {
+				MessageBox.Show(REPORT_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Close();
 			}
 			else {
-				MessageBox.Show(REPORT_FAILED_MSG, REPORT_FAILED_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(REPORT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

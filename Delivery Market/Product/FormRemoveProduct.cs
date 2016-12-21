@@ -8,18 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DeliveryMarket.Data.MarketContract;
+using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Product {
 
 	public partial class FormRemoveProduct : Form {
 		// Messages
-		private const string INVALID_INPUT_TITLE = "Invalid Description";
-		private const string INVALID_INPUT_MSG = "Please make sure to write the description";
-		private const string DELETE_SUCCESS_TITLE = "Done";
-		private const string DELETE_SUCCESS_MSG = "the product was deleted successfully";
-		private const string DELETE_FAILED_TITLE = "Error";
+		private const string INVALID_INPUT_MSG = "Please make sure to fill in the description";
+		private const string DELETE_SUCCESS_MSG = "The product was deleted successfully";
 		private const string DELETE_FAILED_MSG = "An error occured will deleting this product";
-		private const string CONFIRMATION_TITLE = "Delete";
 		private const string CONFIRMATION_MSG = "Are you sure want to delete this product?";
 
 		// Member variables
@@ -38,7 +35,6 @@ namespace DeliveryMarket.Product {
 
 		/* Form load callback function */
 		private void FormRemoveProduct_Load(object sender, EventArgs e) {
-			// TODO: load list of reasons
 			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
 			comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
 		}
@@ -49,22 +45,22 @@ namespace DeliveryMarket.Product {
 
 			// Check for validation
 			if (description == "") {
-				MessageBox.Show(INVALID_INPUT_MSG, INVALID_INPUT_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(INVALID_INPUT_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo) == DialogResult.No) {
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
 
 			// Delete product
 			if (mController.DeleteProduct(mAccountID, mProductID, comboBoxReasons.Text, description) > 0) {
-				MessageBox.Show(DELETE_SUCCESS_MSG, DELETE_SUCCESS_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(DELETE_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Close();
 			}
 			else {
-				MessageBox.Show(DELETE_FAILED_MSG, DELETE_FAILED_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(DELETE_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

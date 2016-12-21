@@ -173,14 +173,16 @@ namespace DeliveryMarket.Product {
 		}
 
 		/* Inserts a new report into the database */
-		public int InsertReport(int accountID, int productID, string description) {
+		public int InsertReport(int accountID, int productID, string reason, string description) {
 			string query = "INSERT INTO " + ReportEntry.TABLE_NAME + " (" +
 				ReportEntry.COL_USER_ID + ", " +
 				ReportEntry.COL_PRODUCT_ID + ", " +
+				ReportEntry.COL_REPORT_REASON + ", " +
 				ReportEntry.COL_DESCRIPTION +
 				") VALUES (" +
 				accountID.ToString() + ", " +
 				productID.ToString() + ", " +
+				"'" + reason + "', " +
 				"'" + description + "'" +
 				");";
 			
