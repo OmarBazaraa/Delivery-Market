@@ -27,6 +27,8 @@
 			this.buttonDelete = new System.Windows.Forms.Button();
 			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.labelDescription = new System.Windows.Forms.Label();
+			this.comboBoxReasons = new System.Windows.Forms.ComboBox();
+			this.labelReason = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// buttonCancel
@@ -53,27 +55,47 @@
 			// 
 			// textBoxDescription
 			// 
-			this.textBoxDescription.Location = new System.Drawing.Point(16, 31);
+			this.textBoxDescription.Location = new System.Drawing.Point(16, 81);
 			this.textBoxDescription.MaxLength = 500;
 			this.textBoxDescription.Multiline = true;
 			this.textBoxDescription.Name = "textBoxDescription";
-			this.textBoxDescription.Size = new System.Drawing.Size(256, 177);
+			this.textBoxDescription.Size = new System.Drawing.Size(256, 127);
 			this.textBoxDescription.TabIndex = 1;
 			// 
 			// labelDescription
 			// 
 			this.labelDescription.AutoSize = true;
-			this.labelDescription.Location = new System.Drawing.Point(12, 9);
+			this.labelDescription.Location = new System.Drawing.Point(12, 59);
 			this.labelDescription.Name = "labelDescription";
 			this.labelDescription.Size = new System.Drawing.Size(81, 19);
 			this.labelDescription.TabIndex = 0;
 			this.labelDescription.Text = "Description:";
+			// 
+			// comboBoxReasons
+			// 
+			this.comboBoxReasons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxReasons.FormattingEnabled = true;
+			this.comboBoxReasons.Location = new System.Drawing.Point(16, 31);
+			this.comboBoxReasons.Name = "comboBoxReasons";
+			this.comboBoxReasons.Size = new System.Drawing.Size(256, 25);
+			this.comboBoxReasons.TabIndex = 3;
+			// 
+			// labelReason
+			// 
+			this.labelReason.AutoSize = true;
+			this.labelReason.Location = new System.Drawing.Point(12, 9);
+			this.labelReason.Name = "labelReason";
+			this.labelReason.Size = new System.Drawing.Size(56, 19);
+			this.labelReason.TabIndex = 2;
+			this.labelReason.Text = "Reason:";
 			// 
 			// FormReportProduct
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 261);
+			this.Controls.Add(this.comboBoxReasons);
+			this.Controls.Add(this.labelReason);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.textBoxDescription);
@@ -98,5 +120,7 @@
 		private System.Windows.Forms.Button buttonDelete;
 		private System.Windows.Forms.TextBox textBoxDescription;
 		private System.Windows.Forms.Label labelDescription;
+		private System.Windows.Forms.ComboBox comboBoxReasons;
+		private System.Windows.Forms.Label labelReason;
 	}
 }

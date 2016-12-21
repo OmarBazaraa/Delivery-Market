@@ -34,11 +34,12 @@ namespace DeliveryMarket.Account
 			}			
 		}
 
-		
-
-		private void listViewAccounts_SelectedIndexChanged(object sender, EventArgs e) {
-			
+		private void listSellers_MouseDoubleClick(object sender, EventArgs e) {
+			if (listSellers.Items.Count == 0) return;
+			int idx = listSellers.SelectedItems[0].Index;
+			new FormProfile(mAccountID, Convert.ToInt32(list.AccountID[idx])).Show(this);
 		}
+		
 
 		private void textBoxEmail_TextChanged(object sender, EventArgs e) {
 			DataTable dt = mController.SelectAllAccounts(textBoxEmail.Text);
@@ -53,6 +54,9 @@ namespace DeliveryMarket.Account
 				listSellers.Items.Add(l[i]);
 			}
 		}
-		
+
+		private void listSellers_SelectedIndexChanged(object sender, EventArgs e) {
+
+		}
 	}
 }

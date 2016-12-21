@@ -22,6 +22,8 @@ namespace DeliveryMarket.Product {
 		private int mProductID;
 		private ProductController mController;
 
+		private string mImagePath = "";
+
 		/* Constructor */
 		public FormSaveProduct(int accountID, int productID = -1) {
 			InitializeComponent();
@@ -54,7 +56,8 @@ namespace DeliveryMarket.Product {
 				numericPrice.Value = Convert.ToDecimal(product[ProductEntry.COL_PRICE].ToString());
 				numericQuantity.Value = Convert.ToDecimal(product[ProductEntry.COL_QUANTITY].ToString());
 				textBoxDescription.Text = product[ProductEntry.COL_DESCRIPTION].ToString();
-				pictureBoxImage.ImageLocation = product[ProductEntry.COL_IMAGE].ToString();
+				mImagePath = product[ProductEntry.COL_IMAGE].ToString();
+				pictureBoxImage.ImageLocation = mImagePath;
 			}
 		}
 
@@ -81,7 +84,7 @@ namespace DeliveryMarket.Product {
 			product.Category = comboBoxCategory.Text;
 			product.Description = textBoxDescription.Text.Replace("'", "''").Trim();
 			product.Quantity = Convert.ToInt32(numericQuantity.Value);
-			product.ImagePath = textBoxImagePath.Text;
+			product.ImagePath = mImagePath;
 
 			// Ask for confirmation
 			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
@@ -118,8 +121,8 @@ namespace DeliveryMarket.Product {
 		/* Browse image button clicked callback function */
 		private void buttonBrowse_Click(object sender, EventArgs e) {
 			if (openFileDialog.ShowDialog() == DialogResult.OK) {
-				textBoxImagePath.Text = openFileDialog.FileName;
-				pictureBoxImage.ImageLocation = openFileDialog.FileName;
+				mImagePath = openFileDialog.FileName;
+				pictureBoxImage.ImageLocation = mImagePath;
 			}
 		}
 
