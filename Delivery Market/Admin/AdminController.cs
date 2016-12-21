@@ -169,6 +169,35 @@ namespace DeliveryMarket.Admin {
 			return rows;
 		}
 
+
+		public DataTable SelectTransportCompanies(string Like = "") {
+			string query = "SELECT * FROM " +
+				TransportCompanyEntry.TABLE_NAME;
+
+			if (Like != "") {
+				query += " WHERE " + TransportCompanyEntry.COL_COMPANY_ID + " LIKE '%" + Like + "%' OR " +
+					TransportCompanyEntry.COL_COMPANY_NAME + " LIKE '%" + Like + "%'";
+			}
+			query += ";";
+			DataTable rows = DBMan.ExecuteReader(query);
+
+			return rows;
+		}
+
+		public DataTable SelectTransactionCompanies(string Like = "") {
+			string query = "SELECT * FROM " +
+				TransactionCompanyEntry.TABLE_NAME;
+
+			if (Like != "") {
+				query += " WHERE " + TransactionCompanyEntry.COL_COMPANY_ID + " LIKE '%" + Like + "%' OR " +
+					TransactionCompanyEntry.COL_COMPANY_NAME + " LIKE '%" + Like + "%'";
+			}
+			query += ";";
+			DataTable rows = DBMan.ExecuteReader(query);
+
+			return rows;
+		}
+
 		public int MakeAdmin(string AccountId) {
 			string query1 = "UPDATE " + 
 				AccountEntry.TABLE_NAME +
@@ -271,5 +300,41 @@ namespace DeliveryMarket.Admin {
 			ret = DBMan.ExecuteNonQuery(query3);
 			return ret;
 		}
+
+		public int AddTransportCompany(string name) {
+			string query = "INSERT INTO " +
+				TransportCompanyEntry.TABLE_NAME + "(`" +
+				TransportCompanyEntry.COL_COMPANY_NAME + "`)" +
+				" VALUES ('" +
+				name + "');";
+			int ret = DBMan.ExecuteNonQuery(query);
+			return ret;
+		}
+		public int AddTransactionCompany(string name) {
+			string query = "INSERT INTO " +
+				TransactionCompanyEntry.TABLE_NAME + "(`" +
+				TransactionCompanyEntry.COL_COMPANY_NAME + "`)" +
+				" VALUES ('" +
+				name + "');";
+			int ret = DBMan.ExecuteNonQuery(query);
+			return ret;
+		}
+
+
+		public int RemoveTransportCompany(string id) {
+			string query = "DELETE FROM " +
+				TransportCompanyEntry.TABLE_NAME + " WHERE " +
+				TransportCompanyEntry.COL_COMPANY_ID + " = " + id + ";";
+			int ret = DBMan.ExecuteNonQuery(query);
+			return ret;
+		}
+		public int RemoveTransactionCompany(string id) {
+			string query = "DELETE FROM " +
+				TransactionCompanyEntry.TABLE_NAME + " WHERE " +
+				TransactionCompanyEntry.COL_COMPANY_ID + " = " + id + ";";
+			int ret = DBMan.ExecuteNonQuery(query);
+			return ret;
+		}
+
 	}
 }

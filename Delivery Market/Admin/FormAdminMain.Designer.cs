@@ -33,6 +33,7 @@
 			this.buttonReports = new System.Windows.Forms.Button();
 			this.buttonBack = new System.Windows.Forms.Button();
 			this.buttonStatistics = new System.Windows.Forms.Button();
+			this.buttonCompanies = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// buttonViewAccounts
@@ -63,7 +64,7 @@
 			this.buttonBack.Location = new System.Drawing.Point(47, 505);
 			this.buttonBack.Name = "buttonBack";
 			this.buttonBack.Size = new System.Drawing.Size(251, 47);
-			this.buttonBack.TabIndex = 3;
+			this.buttonBack.TabIndex = 4;
 			this.buttonBack.Text = "Back";
 			this.buttonBack.UseVisualStyleBackColor = true;
 			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
@@ -71,18 +72,30 @@
 			// buttonStatistics
 			// 
 			this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonStatistics.Location = new System.Drawing.Point(47, 118);
+			this.buttonStatistics.Location = new System.Drawing.Point(47, 171);
 			this.buttonStatistics.Name = "buttonStatistics";
 			this.buttonStatistics.Size = new System.Drawing.Size(251, 47);
-			this.buttonStatistics.TabIndex = 2;
+			this.buttonStatistics.TabIndex = 3;
 			this.buttonStatistics.Text = "Statisitics";
 			this.buttonStatistics.UseVisualStyleBackColor = true;
+			// 
+			// buttonCompanies
+			// 
+			this.buttonCompanies.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.buttonCompanies.Location = new System.Drawing.Point(47, 118);
+			this.buttonCompanies.Name = "buttonCompanies";
+			this.buttonCompanies.Size = new System.Drawing.Size(251, 47);
+			this.buttonCompanies.TabIndex = 2;
+			this.buttonCompanies.Text = "View Companies";
+			this.buttonCompanies.UseVisualStyleBackColor = true;
+			this.buttonCompanies.Click += new System.EventHandler(this.buttonCompanies_Click);
 			// 
 			// FormAdminMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(351, 564);
+			this.Controls.Add(this.buttonCompanies);
 			this.Controls.Add(this.buttonStatistics);
 			this.Controls.Add(this.buttonViewAccounts);
 			this.Controls.Add(this.buttonReports);
@@ -103,5 +116,6 @@
         private System.Windows.Forms.Button buttonReports;
         private System.Windows.Forms.Button buttonBack;
 		private System.Windows.Forms.Button buttonStatistics;
+		private System.Windows.Forms.Button buttonCompanies;
 	}
 }
