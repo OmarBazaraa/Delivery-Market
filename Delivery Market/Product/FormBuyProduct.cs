@@ -85,8 +85,11 @@ namespace DeliveryMarket.Product {
 			if (mController.BuyProduct(order) > 0) {
 				MessageBox.Show(BUY_SUCCESS_MSG, BUY_SUCCESS_TITLE, MessageBoxButtons.OK);
 
-				if (Owner.GetType() == typeof(FormProductList) || Owner.GetType() == typeof(FormProductDetail)) {
+				if (Owner.GetType() == typeof(FormProductList)) {
 					((FormProductList)Owner).LoadProduct();
+				}
+				else if (Owner.GetType() == typeof(FormProductDetail)) {
+					((FormProductDetail)Owner).LoadProduct();
 				}
 
 				Close();

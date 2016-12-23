@@ -189,6 +189,7 @@
 			this.listViewComments.TabStop = false;
 			this.listViewComments.UseCompatibleStateImageBehavior = false;
 			this.listViewComments.View = System.Windows.Forms.View.Details;
+			this.listViewComments.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewComments_KeyPress);
 			// 
 			// columnComment
 			// 

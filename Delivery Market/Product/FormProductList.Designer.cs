@@ -145,6 +145,7 @@
 			this.listViewComments.TabStop = false;
 			this.listViewComments.UseCompatibleStateImageBehavior = false;
 			this.listViewComments.View = System.Windows.Forms.View.Details;
+			this.listViewComments.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listViewComments_KeyPress);
 			// 
 			// columnComment
 			// 
@@ -353,6 +354,7 @@
 			this.buttonBack.Text = "Back";
 			this.buttonBack.UseVisualStyleBackColor = true;
 			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+			this.buttonBack.GotFocus += new System.EventHandler(this.LoseFocus);
 			// 
 			// buttonAddProduct
 			// 
@@ -364,6 +366,7 @@
 			this.buttonAddProduct.Text = "Add";
 			this.buttonAddProduct.UseVisualStyleBackColor = true;
 			this.buttonAddProduct.Click += new System.EventHandler(this.buttonAddProduct_Click);
+			this.buttonAddProduct.GotFocus += new System.EventHandler(this.LoseFocus);
 			// 
 			// FormProductList
 			// 
