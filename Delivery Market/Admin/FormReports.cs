@@ -101,7 +101,7 @@ namespace DeliveryMarket.Admin {
 			dateTimeSellerCreationDate.Text = reportDetails[AccountEntry.COL_CREATION_DATE].ToString();
 			textBoxSellerAddress.Text = reportDetails[AccountEntry.COL_CITY].ToString() + ", " + reportDetails[AccountEntry.COL_COUNTRY].ToString();
 			comboBoxBanSellerReason.DataSource = BanReasons;
-			comboBoxBanSellerReason.DisplayMember = RemovalReasonsEntry.COL_REASON;
+			comboBoxBanSellerReason.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
 		}
 
 		private void listViewReports_SelectedIndexChanged(object sender, EventArgs e) {

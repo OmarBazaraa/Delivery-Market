@@ -34,6 +34,7 @@
 			this.buttonBack = new System.Windows.Forms.Button();
 			this.buttonStatistics = new System.Windows.Forms.Button();
 			this.buttonCompanies = new System.Windows.Forms.Button();
+			this.buttonExtras = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// buttonViewAccounts
@@ -90,11 +91,23 @@
 			this.buttonCompanies.UseVisualStyleBackColor = true;
 			this.buttonCompanies.Click += new System.EventHandler(this.buttonCompanies_Click);
 			// 
+			// buttonExtras
+			// 
+			this.buttonExtras.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.buttonExtras.Location = new System.Drawing.Point(47, 224);
+			this.buttonExtras.Name = "buttonExtras";
+			this.buttonExtras.Size = new System.Drawing.Size(251, 47);
+			this.buttonExtras.TabIndex = 5;
+			this.buttonExtras.Text = "Extras";
+			this.buttonExtras.UseVisualStyleBackColor = true;
+			this.buttonExtras.Click += new System.EventHandler(this.buttonExtras_Click);
+			// 
 			// FormAdminMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(351, 564);
+			this.Controls.Add(this.buttonExtras);
 			this.Controls.Add(this.buttonCompanies);
 			this.Controls.Add(this.buttonStatistics);
 			this.Controls.Add(this.buttonViewAccounts);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Button buttonBack;
 		private System.Windows.Forms.Button buttonStatistics;
 		private System.Windows.Forms.Button buttonCompanies;
+		private System.Windows.Forms.Button buttonExtras;
 	}
 }

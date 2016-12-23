@@ -34,7 +34,7 @@ namespace DeliveryMarket.Account {
 		private void FormBanUser_Load(object sender, EventArgs e) {
 			// TODO: load list of reasons
 			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
-			comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
+			comboBoxReasons.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
 		}
 
 		private void buttonBan_Click(object sender, EventArgs e) {

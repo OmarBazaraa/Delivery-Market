@@ -36,7 +36,7 @@ namespace DeliveryMarket.Product {
 		/* Form load callback function */
 		private void FormRemoveProduct_Load(object sender, EventArgs e) {
 			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
-			comboBoxReasons.DisplayMember = RemovalReasonsEntry.COL_REASON;
+			comboBoxReasons.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
 		}
 
 		/* Delete button clicked callback function */

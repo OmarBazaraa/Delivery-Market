@@ -91,9 +91,9 @@ namespace DeliveryMarket.Product {
 
 		/* Selects all removal reasons from the database */
 		public DataTable SelectRemovalReasons() {
-			string query = "SELECT " + RemovalReasonsEntry.COL_REASON + 
-				" FROM " + RemovalReasonsEntry.TABLE_NAME +
-				" ORDER BY " + RemovalReasonsEntry.COL_REASON + " ASC;";
+			string query = "SELECT " + ProductRemovalReasonsEntry.COL_REASON + 
+				" FROM " + ProductRemovalReasonsEntry.TABLE_NAME +
+				" ORDER BY " + ProductRemovalReasonsEntry.COL_REASON + " ASC;";
 			return DBMan.ExecuteReader(query);
 		}
 

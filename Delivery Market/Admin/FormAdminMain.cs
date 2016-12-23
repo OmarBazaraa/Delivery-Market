@@ -48,5 +48,10 @@ namespace DeliveryMarket.Admin {
 			new FormViewCompanies().Show(this);
 			this.Hide();
 		}
+
+		private void buttonExtras_Click(object sender, EventArgs e) {
+			new FormExtras().Show(this);
+			this.Hide();
+		}
 	}
 }

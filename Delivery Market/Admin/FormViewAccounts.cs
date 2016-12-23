@@ -131,7 +131,7 @@ namespace DeliveryMarket.Admin {
 
 			DataTable BanReasons = mController.SelectBanReasons();
 			comboBoxReason.DataSource = BanReasons;
-			comboBoxReason.DisplayMember = RemovalReasonsEntry.COL_REASON;
+			comboBoxReason.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
 
 			comboBoxType.Items.Clear();
 			comboBoxType.Items.Add(AccountType.Active_Account);

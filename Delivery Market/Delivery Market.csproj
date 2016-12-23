@@ -82,11 +82,29 @@
     <Compile Include="Admin\FormAddCompany.Designer.cs">
       <DependentUpon>FormAddCompany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FormAddExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormAddExtra.Designer.cs">
+      <DependentUpon>FormAddExtra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FormAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Admin\FormAdminMain.Designer.cs">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormEditExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormEditExtra.Designer.cs">
+      <DependentUpon>FormEditExtra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FormExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FormExtras.Designer.cs">
+      <DependentUpon>FormExtras.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\FormViewCompanies.cs">
       <SubType>Form</SubType>
@@ -192,8 +210,17 @@
     <EmbeddedResource Include="Admin\FormAddCompany.resx">
       <DependentUpon>FormAddCompany.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormAddExtra.resx">
+      <DependentUpon>FormAddExtra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormAdminMain.resx">
       <DependentUpon>FormAdminMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormEditExtra.resx">
+      <DependentUpon>FormEditExtra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FormExtras.resx">
+      <DependentUpon>FormExtras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FormViewCompanies.resx">
       <DependentUpon>FormViewCompanies.cs</DependentUpon>

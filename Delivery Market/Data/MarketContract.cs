@@ -151,9 +151,17 @@
 			public const string COL_ORDER_DATE = "order_date";
 		}
 
-		public static class RemovalReasonsEntry {
+		public static class ProductRemovalReasonsEntry {
 			// Table name
-			public const string TABLE_NAME = "removal_reasons";
+			public const string TABLE_NAME = "product_removal_reasons";
+
+			// Columns names
+			public const string COL_REASON = "reason";
+		}
+
+		public static class BanReasonsEntry {
+			// Table name
+			public const string TABLE_NAME = "user_ban_reasons";
 
 			// Columns names
 			public const string COL_REASON = "reason";
