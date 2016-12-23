@@ -81,6 +81,18 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects the ID of the last inserted product */
+		public int SelectLastProductID() {
+			string query = "SELECT " + ProductEntry.COL_PRODUCT_ID +
+				" FROM " + ProductEntry.TABLE_NAME +
+				" ORDER BY " + ProductEntry.COL_PRODUCT_ID + " DESC" +
+				" LIMIT 1;";
+
+			object result = DBMan.ExecuteScalar(query);
+
+			return (result == null) ? 0 : Convert.ToInt32(result);
+		}
+
 		/* Selects all product categories */
 		public DataTable SelectCategories() {
 			string query = "SELECT " + CategoryEntry.COL_CATEGORY_NAME +
@@ -236,9 +248,7 @@ namespace DeliveryMarket.Product {
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_QUANTITY + "=" + ProductEntry.COL_QUANTITY + "-" + order.Quantity.ToString() +
 				" WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + order.ProductID.ToString() + ";";
-
-			MessageBox.Show(query);
-
+			
 			if (DBMan.ExecuteNonQuery(query) <= 0) {
 				return 0;	// An error occured will updating the product's quantity, no need to proceed
 			}

@@ -106,7 +106,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FormReportProduct";
 			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Report";
 			this.Load += new System.EventHandler(this.FormReportProduct_Load);
 			this.ResumeLayout(false);

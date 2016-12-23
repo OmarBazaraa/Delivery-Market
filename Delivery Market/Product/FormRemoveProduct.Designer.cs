@@ -106,7 +106,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FormRemoveProduct";
 			this.ShowInTaskbar = false;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Remove Product";
 			this.Load += new System.EventHandler(this.FormRemoveProduct_Load);
 			this.ResumeLayout(false);

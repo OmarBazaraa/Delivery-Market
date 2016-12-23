@@ -23,7 +23,6 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductDetail));
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
 			this.pictureBoxImage = new System.Windows.Forms.PictureBox();
 			this.labelProductName = new System.Windows.Forms.Label();
@@ -285,7 +284,6 @@
 			this.Controls.Add(this.labelDescription);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximizeBox = false;
 			this.Name = "FormProductDetail";

@@ -43,8 +43,7 @@ namespace DeliveryMarket {
 
 		/* Add product button clicked callback function */
 		private void buttonAddProduct_Click(object sender, EventArgs e) {
-			new FormSaveProduct(mAccountID).Show(this);
-			Hide();
+			new FormSaveProduct(mAccountID).ShowDialog(this);
 		}
 
 		/* View products button clicked callback function */
@@ -55,7 +54,7 @@ namespace DeliveryMarket {
 
 		/* View sellers button clicked callback function */
         private void buttonViewSellers_Click(object sender, EventArgs e) {
-			new Account.FormAccounts(mAccountID, mPrivilege).Show(this);
+			new FormProfile(mAccountID,mAccountID,mPrivilege).Show(this);
 		}
 
 		/* View orders button clicked callback function */

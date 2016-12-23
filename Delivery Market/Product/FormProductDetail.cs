@@ -14,15 +14,15 @@ namespace DeliveryMarket.Product {
 
 	public partial class FormProductDetail : Form {
 		// Messages
+		private const string LABEL_PRICE = "Price: ";
+		private const string LABEL_QUANTITY = "Quantity: ";
+		private const string LABEL_BY = "By ";
 		private const string LOADING_PRODUCT_FAILED_MSG = "An error occured while loading the product";
 		private const string RATING_FAILED_MSG = "An error occured while posting your rating";
 		private const string COMMENT_FAILED_MSG = "An error occured while posting your comment";
 		private const string EMPTY_STOCK_MSG = "The stock is empty now\n Please check back later";
 		private const string LOGIN_MSG = "Please log in first";
-		private const string LABEL_PRICE = "Price: ";
-		private const string LABEL_QUANTITY = "Quantity: ";
-		private const string LABEL_BY = "By ";
-
+		
 		// Member variables
 		private int mAccountID;
 		private int mProductID;
@@ -43,10 +43,7 @@ namespace DeliveryMarket.Product {
 
 		/* Form load callback function */
 		private void FormProductDetail_Load(object sender, EventArgs e) {
-			LoadProductDetails();
-			LoadComments();
-			LoadCustomerRating();
-			AdaptForm();
+			LoadProduct();
 		}
 
 		/* Seller button clicked callback function */
@@ -89,7 +86,7 @@ namespace DeliveryMarket.Product {
 
 		/* Edit product button clicked callback function */
 		private void buttonEdit_Click(object sender, EventArgs e) {
-			new FormSaveProduct(mAccountID, mProductID).Show(this);
+			new FormSaveProduct(mAccountID, mProductID).ShowDialog(this);
 		}
 
 		/* Rating bar value changed callback function */
@@ -124,23 +121,34 @@ namespace DeliveryMarket.Product {
 			}
 		}
 
+		/* Loads all the contents of a product */
+		public void LoadProduct() {
+			LoadProductDetails();
+			LoadComments();
+			LoadCustomerRating();
+			AdaptForm();
+		}
+
 		/* Loads the details of the given product */
 		private void LoadProductDetails() {
 			mProductDetails = mController.SelectProductDetails(mProductID);
 
 			if (mProductDetails == null) {
 				MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				Owner.Show();
-				Owner.Refresh();
 				Close();
 				return;
 			}
-			
+
 			labelProductName.Text = mProductDetails[ProductEntry.COL_PRODUCT_NAME].ToString();
 			labelCategory.Text = mProductDetails[ProductEntry.COL_CATEGORY].ToString();
 			linkSeller.Text = LABEL_BY + mProductDetails[ProductEntry.COL_SELLER_NAME].ToString();
-			labelRating.Text = mProductDetails[ProductEntry.COL_RATING].ToString();
-			labelPrice.Text = LABEL_PRICE + mProductDetails[ProductEntry.COL_PRICE].ToString();
+
+			decimal rating = Convert.ToDecimal(mProductDetails[ProductEntry.COL_RATING]);
+			labelRating.Text = Math.Round(rating, 2).ToString();
+
+			decimal price = Convert.ToDecimal(mProductDetails[ProductEntry.COL_PRICE]);
+			labelPrice.Text = LABEL_PRICE + Math.Round(price, 2).ToString();
+
 			labelQuantity.Text = LABEL_QUANTITY + mProductDetails[ProductEntry.COL_QUANTITY].ToString();
 			textBoxDescription.Text = mProductDetails[ProductEntry.COL_DESCRIPTION].ToString();
 			pictureBoxImage.ImageLocation = mProductDetails[ProductEntry.COL_IMAGE].ToString();
@@ -149,7 +157,7 @@ namespace DeliveryMarket.Product {
 		/* Loads the comments of the given product */
 		private void LoadComments() {
 			listViewComments.Items.Clear();
-			
+
 			mProductComments = mController.SelectComments(mProductID);
 
 			// No data
@@ -172,6 +180,9 @@ namespace DeliveryMarket.Product {
 
 			if (rating > 0) {
 				trackBarRating.Value = rating;
+			}
+			else {
+				trackBarRating.Value = 1;
 			}
 		}
 

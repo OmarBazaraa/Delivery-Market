@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using DeliveryMarket.Data.MarketContract;
+using DeliveryMarket.Utils;
 using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Product {
@@ -23,6 +24,7 @@ namespace DeliveryMarket.Product {
 		private ProductController mController;
 
 		private string mImagePath = "";
+		private string mNewImagePath = "";
 
 		/* Constructor */
 		public FormSaveProduct(int accountID, int productID = -1) {
@@ -45,8 +47,6 @@ namespace DeliveryMarket.Product {
 
 				if (product == null) {
 					MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
-					Owner.Show();
-					Owner.Refresh();
 					Close();
 					return;
 				}
@@ -56,16 +56,7 @@ namespace DeliveryMarket.Product {
 				numericPrice.Value = Convert.ToDecimal(product[ProductEntry.COL_PRICE].ToString());
 				numericQuantity.Value = Convert.ToDecimal(product[ProductEntry.COL_QUANTITY].ToString());
 				textBoxDescription.Text = product[ProductEntry.COL_DESCRIPTION].ToString();
-				mImagePath = product[ProductEntry.COL_IMAGE].ToString();
-				pictureBoxImage.ImageLocation = mImagePath;
-			}
-		}
-
-		/* Form closed callback function */
-		private void FormSaveProduct_FormClosed(object sender, FormClosedEventArgs e) {
-			if (e.CloseReason == CloseReason.UserClosing) {
-				Owner.Show();
-				Owner.Refresh();
+				pictureBoxImage.ImageLocation = mNewImagePath = mImagePath = product[ProductEntry.COL_IMAGE].ToString();
 			}
 		}
 
@@ -73,6 +64,11 @@ namespace DeliveryMarket.Product {
 		private void buttonSave_Click(object sender, EventArgs e) {
 			// Check for input validity
 			if (!ValidateInput()) {
+				return;
+			}
+
+			// Ask for confirmation
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
 
@@ -84,20 +80,24 @@ namespace DeliveryMarket.Product {
 			product.Category = comboBoxCategory.Text;
 			product.Description = textBoxDescription.Text.Replace("'", "''").Trim();
 			product.Quantity = Convert.ToInt32(numericQuantity.Value);
-			product.ImagePath = mImagePath;
 
-			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
-				return;
+			// Upload new image to our local system
+			if (mImagePath != mNewImagePath) {
+				int productID = (mProductID != -1) ? mProductID : mController.SelectLastProductID() + 1;
+				product.ImagePath = mNewImagePath = mImagePath = Utility.UploadImage(mNewImagePath, productID).Replace("\\", "\\\\");
+
 			}
-
+			
 			// Save product
 			if (mProductID == -1) {
 				// Insert
 				if (mController.InsertProduct(product) > 0) {
 					MessageBox.Show(INSERTION_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					Owner.Show();
-					Owner.Refresh();
+
+					if (Owner.GetType() == typeof(FormProductList) || Owner.GetType() == typeof(FormProductDetail)) {
+						((FormProductList)Owner).LoadProduct();
+					}
+
 					Close();
 				}
 				else {
@@ -108,8 +108,11 @@ namespace DeliveryMarket.Product {
 				// Update
 				if (mController.UpdateProduct(product) > 0) {
 					MessageBox.Show(UPDATE_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					Owner.Show();
-					Owner.Refresh();
+
+					if (Owner.GetType() == typeof(FormProductList)) {
+						((FormProductList)Owner).LoadProduct();
+					}
+
 					Close();
 				}
 				else {
@@ -121,15 +124,12 @@ namespace DeliveryMarket.Product {
 		/* Browse image button clicked callback function */
 		private void buttonBrowse_Click(object sender, EventArgs e) {
 			if (openFileDialog.ShowDialog() == DialogResult.OK) {
-				mImagePath = openFileDialog.FileName;
-				pictureBoxImage.ImageLocation = mImagePath;
+				pictureBoxImage.ImageLocation = mNewImagePath = openFileDialog.FileName;
 			}
 		}
 
 		/* Cancel button clicked callback function */
 		private void buttonCancel_Click(object sender, EventArgs e) {
-			Owner.Show();
-			Owner.Refresh();
 			Close();
 		}
 
