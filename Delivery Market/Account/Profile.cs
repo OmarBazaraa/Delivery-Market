@@ -26,7 +26,7 @@ namespace DeliveryMarket.Account {
 			mUserID = userID;
 			mAccountID = accountID;
 			mController = new AccountController();
-			mData = mData = mController.SelectAccount(mUserID.ToString());
+			mData = mController.SelectAccount(mUserID.ToString());
 			mPrivilege = privilege;
 		}
 

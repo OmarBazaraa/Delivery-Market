@@ -28,7 +28,7 @@
 			this.labelWelcome = new System.Windows.Forms.Label();
 			this.buttonAddProduct = new System.Windows.Forms.Button();
 			this.buttonViewProducts = new System.Windows.Forms.Button();
-			this.buttonViewProfile = new System.Windows.Forms.Button();
+			this.buttonViewSellers = new System.Windows.Forms.Button();
 			this.buttonAdminPanel = new System.Windows.Forms.Button();
 			this.buttonAbout = new System.Windows.Forms.Button();
 			this.buttonSignOut = new System.Windows.Forms.Button();
@@ -79,17 +79,17 @@
 			this.buttonViewProducts.Click += new System.EventHandler(this.buttonViewProducts_Click);
 			this.buttonViewProducts.GotFocus += new System.EventHandler(this.LoseFocus);
 			// 
-			// buttonViewProfile
+			// buttonViewSellers
 			// 
-			this.buttonViewProfile.Location = new System.Drawing.Point(12, 231);
-			this.buttonViewProfile.Name = "buttonViewProfile";
-			this.buttonViewProfile.Size = new System.Drawing.Size(260, 40);
-			this.buttonViewProfile.TabIndex = 0;
-			this.buttonViewProfile.TabStop = false;
-			this.buttonViewProfile.Text = "View Profile";
-			this.buttonViewProfile.UseVisualStyleBackColor = true;
-			this.buttonViewProfile.Click += new System.EventHandler(this.buttonViewSellers_Click);
-			this.buttonViewProfile.GotFocus += new System.EventHandler(this.LoseFocus);
+			this.buttonViewSellers.Location = new System.Drawing.Point(12, 231);
+			this.buttonViewSellers.Name = "buttonViewSellers";
+			this.buttonViewSellers.Size = new System.Drawing.Size(260, 40);
+			this.buttonViewSellers.TabIndex = 0;
+			this.buttonViewSellers.TabStop = false;
+			this.buttonViewSellers.Text = "View Sellers";
+			this.buttonViewSellers.UseVisualStyleBackColor = true;
+			this.buttonViewSellers.Click += new System.EventHandler(this.buttonViewSellers_Click);
+			this.buttonViewSellers.GotFocus += new System.EventHandler(this.LoseFocus);
 			// 
 			// buttonAdminPanel
 			// 
@@ -148,7 +148,7 @@
 			this.Controls.Add(this.labelWelcome);
 			this.Controls.Add(this.buttonAddProduct);
 			this.Controls.Add(this.buttonViewProducts);
-			this.Controls.Add(this.buttonViewProfile);
+			this.Controls.Add(this.buttonViewSellers);
 			this.Controls.Add(this.buttonAdminPanel);
 			this.Controls.Add(this.buttonAbout);
 			this.Controls.Add(this.buttonSignOut);
@@ -170,7 +170,7 @@
 		private System.Windows.Forms.Label labelWelcome;
 		private System.Windows.Forms.Button buttonAddProduct;
 		private System.Windows.Forms.Button buttonViewProducts;
-		private System.Windows.Forms.Button buttonViewProfile;
+		private System.Windows.Forms.Button buttonViewSellers;
 		private System.Windows.Forms.Button buttonAdminPanel;
 		private System.Windows.Forms.Button buttonAbout;
 		private System.Windows.Forms.Button buttonSignOut;

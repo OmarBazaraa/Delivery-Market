@@ -17,17 +17,16 @@ namespace DeliveryMarket.Account
 	{
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
-			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", " + "COALESCE(AVG(r."
+			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", " + "COALESCE(AVG(" + RatingEntry.TABLE_NAME + "."
 				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
-				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
-				+ " FROM " + AccountEntry.TABLE_NAME + ", "
-				+ RatingEntry.TABLE_NAME + " r, "
-				+ ProductEntry.TABLE_NAME + " p "
-				+ " WHERE " + "p." + ProductEntry.COL_SELLER_ID + " = " + AccountEntry.COL_ACCOUNT_ID + " AND "
-				+ "p." + ProductEntry.COL_PRODUCT_ID + " = r." + RatingEntry.COL_PRODUCT_ID + " AND "
-				+ AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Active_Account
-				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%'"
-				+ " AND " + ProductEntry.COL_DELETED + " = '0'" + " ;";
+				+ " , COALESCE(COUNT(" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
+				+ " FROM " + AccountEntry.TABLE_NAME + " LEFT OUTER JOIN "
+				+ RatingEntry.TABLE_NAME + " " + RatingEntry.TABLE_NAME + " INNER JOIN " + ProductEntry.TABLE_NAME + " " + ProductEntry.TABLE_NAME
+				+ " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
+				+ " AND " + ProductEntry.COL_DELETED + " = '0'"
+				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Active_Account
+				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}
 
