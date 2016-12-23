@@ -104,7 +104,7 @@ namespace DeliveryMarket.Account
 
 		/* Selects all removal reasons from the database */
 		public DataTable SelectRemovalReasons() {
-			string query = "SELECT " + ProductRemovalReasonsEntry.COL_REASON + " FROM " + ProductRemovalReasonsEntry.TABLE_NAME + ";";
+			string query = "SELECT " + BanReasonsEntry.COL_REASON + " FROM " + BanReasonsEntry.TABLE_NAME + ";";
 			return DBMan.ExecuteReader(query);
 		}
 	}
