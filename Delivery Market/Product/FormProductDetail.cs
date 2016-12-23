@@ -21,6 +21,8 @@ namespace DeliveryMarket.Product {
 		private const string RATING_FAILED_MSG = "An error occured while posting your rating";
 		private const string COMMENT_FAILED_MSG = "An error occured while posting your comment";
 		private const string EMPTY_STOCK_MSG = "The stock is empty now\n Please check back later";
+		private const string DELETE_COMMENT_FAILED_MSG = "An error occured while deleting this comment";
+		private const string CONFIRMATION_MSG = "Are you sure want to delete this comment?";
 		private const string LOGIN_MSG = "Please log in first";
 		
 		// Member variables
@@ -96,6 +98,36 @@ namespace DeliveryMarket.Product {
 			}
 			else {
 				MessageBox.Show(RATING_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/* Comments list view key pressed callback function */
+		private void listViewComments_KeyPress(object sender, KeyPressEventArgs e) {
+			if (e.KeyChar != (char)Keys.Back) {
+				return;
+			}
+
+			if (listViewComments.SelectedItems.Count == 0) {
+				return;
+			}
+
+			int idx = listViewComments.SelectedItems[0].Index;
+			int commentID = Convert.ToInt32(mProductComments.Rows[idx][CommentEntry.COL_COMMENT_ID]);
+
+			if (mPrivilege != Privilege.Admin && commentID != mAccountID) {
+				return;
+			}
+
+			// Ask for confirmation
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+				return;
+			}
+
+			if (mController.DeleteComment(commentID) > 0) {
+				LoadComments();
+			}
+			else {
+				MessageBox.Show(DELETE_COMMENT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

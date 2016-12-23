@@ -85,7 +85,6 @@ namespace DeliveryMarket.Product {
 			if (mImagePath != mNewImagePath) {
 				int productID = (mProductID != -1) ? mProductID : mController.SelectLastProductID() + 1;
 				product.ImagePath = mNewImagePath = mImagePath = Utility.UploadImage(mNewImagePath, productID).Replace("\\", "\\\\");
-
 			}
 			
 			// Save product
@@ -94,8 +93,8 @@ namespace DeliveryMarket.Product {
 				if (mController.InsertProduct(product) > 0) {
 					MessageBox.Show(INSERTION_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-					if (Owner.GetType() == typeof(FormProductList) || Owner.GetType() == typeof(FormProductDetail)) {
-						((FormProductList)Owner).LoadProduct();
+					if (Owner.GetType() == typeof(FormProductList)) {
+						((FormProductList)Owner).PopulateProductList();
 					}
 
 					Close();
@@ -111,6 +110,9 @@ namespace DeliveryMarket.Product {
 
 					if (Owner.GetType() == typeof(FormProductList)) {
 						((FormProductList)Owner).LoadProduct();
+					}
+					else if (Owner.GetType() == typeof(FormProductDetail)) {
+						((FormProductDetail)Owner).LoadProduct();
 					}
 
 					Close();
