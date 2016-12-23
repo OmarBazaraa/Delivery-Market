@@ -241,14 +241,15 @@
 			this.Controls.Add(this.buttonBrowse);
 			this.Controls.Add(this.buttonSave);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormSaveProduct";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Delivery Market";
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSaveProduct_FormClosed);
 			this.Load += new System.EventHandler(this.FormSaveProduct_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericPrice)).EndInit();

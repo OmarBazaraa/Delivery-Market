@@ -84,6 +84,11 @@ namespace DeliveryMarket.Product {
 			// Delete product
 			if (mController.BuyProduct(order) > 0) {
 				MessageBox.Show(BUY_SUCCESS_MSG, BUY_SUCCESS_TITLE, MessageBoxButtons.OK);
+
+				if (Owner.GetType() == typeof(FormProductList)) {
+					((FormProductList)Owner).LoadProductDetails();
+				}
+
 				Close();
 			}
 			else {

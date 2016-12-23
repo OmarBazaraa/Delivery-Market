@@ -149,7 +149,7 @@
 			this.buttonCancel.Location = new System.Drawing.Point(116, 339);
 			this.buttonCancel.Name = "buttonCancel";
 			this.buttonCancel.Size = new System.Drawing.Size(75, 35);
-			this.buttonCancel.TabIndex = 10;
+			this.buttonCancel.TabIndex = 0;
 			this.buttonCancel.TabStop = false;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
 			this.buttonBuy.Location = new System.Drawing.Point(197, 339);
 			this.buttonBuy.Name = "buttonBuy";
 			this.buttonBuy.Size = new System.Drawing.Size(75, 35);
-			this.buttonBuy.TabIndex = 11;
+			this.buttonBuy.TabIndex = 0;
 			this.buttonBuy.TabStop = false;
 			this.buttonBuy.Text = "Buy";
 			this.buttonBuy.UseVisualStyleBackColor = true;
@@ -188,7 +188,7 @@
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximizeBox = false;
 			this.Name = "FormBuyProduct";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Buy Product";
 			this.Load += new System.EventHandler(this.FormBuyProduct_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).EndInit();

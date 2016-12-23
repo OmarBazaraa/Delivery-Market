@@ -236,9 +236,7 @@ namespace DeliveryMarket.Product {
 			string query = "UPDATE " + ProductEntry.TABLE_NAME + " SET " +
 				ProductEntry.COL_QUANTITY + "=" + ProductEntry.COL_QUANTITY + "-" + order.Quantity.ToString() +
 				" WHERE " + ProductEntry.COL_PRODUCT_ID + "=" + order.ProductID.ToString() + ";";
-
-			MessageBox.Show(query);
-
+			
 			if (DBMan.ExecuteNonQuery(query) <= 0) {
 				return 0;	// An error occured will updating the product's quantity, no need to proceed
 			}

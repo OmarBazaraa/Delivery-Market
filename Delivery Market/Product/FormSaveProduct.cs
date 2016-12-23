@@ -61,14 +61,6 @@ namespace DeliveryMarket.Product {
 			}
 		}
 
-		/* Form closed callback function */
-		private void FormSaveProduct_FormClosed(object sender, FormClosedEventArgs e) {
-			if (e.CloseReason == CloseReason.UserClosing) {
-				Owner.Show();
-				Owner.Refresh();
-			}
-		}
-
 		/* Save product button clicked callback function */
 		private void buttonSave_Click(object sender, EventArgs e) {
 			// Check for input validity
@@ -96,8 +88,11 @@ namespace DeliveryMarket.Product {
 				// Insert
 				if (mController.InsertProduct(product) > 0) {
 					MessageBox.Show(INSERTION_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					Owner.Show();
-					Owner.Refresh();
+
+					if (Owner.GetType() == typeof(FormProductList)) {
+						((FormProductList)Owner).LoadProductDetails();
+					}
+
 					Close();
 				}
 				else {
@@ -108,8 +103,11 @@ namespace DeliveryMarket.Product {
 				// Update
 				if (mController.UpdateProduct(product) > 0) {
 					MessageBox.Show(UPDATE_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					Owner.Show();
-					Owner.Refresh();
+
+					if (Owner.GetType() == typeof(FormProductList)) {
+						((FormProductList)Owner).LoadProductDetails();
+					}
+
 					Close();
 				}
 				else {
@@ -128,8 +126,6 @@ namespace DeliveryMarket.Product {
 
 		/* Cancel button clicked callback function */
 		private void buttonCancel_Click(object sender, EventArgs e) {
-			Owner.Show();
-			Owner.Refresh();
 			Close();
 		}
 

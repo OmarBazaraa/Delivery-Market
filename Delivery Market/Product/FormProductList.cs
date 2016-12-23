@@ -8,12 +8,23 @@ namespace DeliveryMarket.Product {
 
 	public partial class FormProductList : Form {
 		// Messages
-		private const string CATEGORY_ALL = "All";
+		private const string LABEL_CATEGORY_ALL = "All";
+		private const string LABEL_PRICE = "Price: ";
+		private const string LABEL_BY = "By ";
+		private const string LABEL_QUANTITY = "Quantity: ";
+		private const string LOADING_PRODUCT_FAILED_MSG = "An error occured while loading the product";
+		private const string RATING_FAILED_MSG = "An error occured while posting your rating";
+		private const string COMMENT_FAILED_MSG = "An error occured while posting your comment";
+		private const string EMPTY_STOCK_MSG = "The stock is empty now\n Please check back later";
+		private const string LOGIN_MSG = "Please log in first";
 
 		// Member variables
 		private int mAccountID;
-		private int mSellerID;					// To be set when we want to display only the products of a certain seller
+		private int mSellerID;                  // To be set when we want to display only the products of a certain seller
+		private int mProductID;
 		private Privilege mPrivilege;
+		private DataRow mProductDetails;
+		private DataTable mProductComments;
 		private DataTable mProductsData;
 		private ProductController mController;
 
@@ -21,6 +32,9 @@ namespace DeliveryMarket.Product {
 		private bool mSortAsc = true;
 		private int mSortedColumnIdx = 1;
 		private string mSortedColumn = ProductEntry.COL_PRODUCT_NAME;
+
+		// Other variables
+		private bool mIsBackPressed = false;
 
 		/* Constructor */
 		public FormProductList(Privilege privilege, int accountID, int sellerID = -1) {
@@ -43,7 +57,7 @@ namespace DeliveryMarket.Product {
 			}
 
 			DataRow row = dt.NewRow();
-			row[CategoryEntry.COL_CATEGORY_NAME] = CATEGORY_ALL;
+			row[CategoryEntry.COL_CATEGORY_NAME] = LABEL_CATEGORY_ALL;
 			dt.Rows.InsertAt(row, 0);
 			comboBoxCategory.DataSource = dt;
 			comboBoxCategory.DisplayMember = CategoryEntry.COL_CATEGORY_NAME;
@@ -53,21 +67,21 @@ namespace DeliveryMarket.Product {
 
 		/* Form closed callback function */
 		private void FormProductList_FormClosed(object sender, FormClosedEventArgs e) {
-			if (e.CloseReason == CloseReason.UserClosing) {
-				Owner.Show();
-				Owner.Refresh();
+			if (e.CloseReason == CloseReason.UserClosing && !mIsBackPressed) {
+				Owner.Close();
 			}
 		}
 
 		/* Product list item double clicked callback function */
-		private void listViewProducts_MouseDoubleClick(object sender, MouseEventArgs e) {
-			if (listViewProducts.Items.Count == 0) {
+		private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
+			if (listViewProducts.SelectedItems.Count == 0) {
 				return;
 			}
 
 			int idx = listViewProducts.SelectedItems[0].Index;
-			int productID = Convert.ToInt32(mProductsData.Rows[idx][ProductEntry.COL_PRODUCT_ID]);
-			new FormProductDetail(mPrivilege, mAccountID, productID).Show(this);
+			mProductID = Convert.ToInt32(mProductsData.Rows[idx][ProductEntry.COL_PRODUCT_ID]);
+
+			LoadProductDetails();
 		}
 
 		/* Product list column header clicked callback function */
@@ -98,8 +112,111 @@ namespace DeliveryMarket.Product {
 			PopulateProductList();
 		}
 
+		/* Search bar text changed callback function */
+		private void textBoxSearch_TextChanged(object sender, EventArgs e) {
+			PopulateProductList();
+		}
+
+		/* Category box item changed callback function */
+		private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e) {
+			PopulateProductList();
+		}
+
+		/* Seller button clicked callback function */
+		private void linkSeller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+			//TODO: Show seller's profile page
+			MessageBox.Show("TODO");
+		}
+
+		/* Buy product button clicked callback function */
+		private void buttonBuy_Click(object sender, EventArgs e) {
+			if (mPrivilege == Privilege.Other) {
+				MessageBox.Show(LOGIN_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			int quantity = Convert.ToInt32(mProductDetails[ProductEntry.COL_QUANTITY]);
+
+			if (quantity <= 0) {
+				MessageBox.Show(EMPTY_STOCK_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			new FormBuyProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		/* Report product button clicked callback function */
+		private void buttonReport_Click(object sender, EventArgs e) {
+			if (mPrivilege == Privilege.Other) {
+				MessageBox.Show(LOGIN_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			new FormReportProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		/* Delete product button clicked callback function */
+		private void buttonDelete_Click(object sender, EventArgs e) {
+			new FormRemoveProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		/* Edit product button clicked callback function */
+		private void buttonEdit_Click(object sender, EventArgs e) {
+			new FormSaveProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		/* Add new product button clicked callback function */
+		private void buttonAddProduct_Click(object sender, EventArgs e) {
+			if (mPrivilege == Privilege.Other) {
+				MessageBox.Show(LOGIN_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
+			}
+
+			new FormSaveProduct(mAccountID, mProductID).ShowDialog(this);
+		}
+
+		/* Back button clicked callback function */
+		private void buttonBack_Click(object sender, EventArgs e) {
+			mIsBackPressed = true;
+
+			Owner.Show();
+			Close();
+		}
+
+		/* Rating bar value changed callback function */
+		private void trackBarRating_ValueChanged(object sender, EventArgs e) {
+			if (mController.InsertRating(mAccountID, mProductID, trackBarRating.Value) > 0) {
+				LoadProductDetails();
+			}
+			else {
+				MessageBox.Show(RATING_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/* Comment text box key pressed callback function */
+		private void textBoxComment_KeyPress(object sender, KeyPressEventArgs e) {
+			// The pressed key is not Enter key
+			if (e.KeyChar != (char)Keys.Enter) {
+				return;
+			}
+
+			string comment = textBoxComment.Text.Replace("'", "''").Trim();
+
+			// No comment is written
+			if (comment == "") {
+				return;
+			}
+
+			if (mController.InsertComment(mAccountID, mProductID, comment) > 0) {
+				LoadComments();
+			}
+			else {
+				MessageBox.Show(COMMENT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
 		/* Selects products from the database and insert them in the list view */
-		private void PopulateProductList() {
+		public void PopulateProductList() {
 			listViewProducts.Items.Clear();
 
 			string name = textBoxSearch.Text.Replace("'", "''").Trim();
@@ -109,27 +226,112 @@ namespace DeliveryMarket.Product {
 
 			// No data
 			if (mProductsData == null) {
+				labelEmptyProducts.BringToFront();
+				labelEmptyProducts.Visible = true;
 				return;
 			}
 
 			foreach (DataRow row in mProductsData.Rows) {
 				ListViewItem item = new ListViewItem(row[ProductEntry.COL_PRODUCT_NAME].ToString());
 				item.SubItems.Add(row[ProductEntry.COL_SELLER_NAME].ToString());
-				item.SubItems.Add(row[ProductEntry.COL_RATING].ToString());
-				item.SubItems.Add(row[ProductEntry.COL_PRICE].ToString());
+
+				decimal rating = Convert.ToDecimal(row[ProductEntry.COL_RATING]);
+				item.SubItems.Add(Math.Round(rating, 2).ToString());
+				
+				decimal price = Convert.ToDecimal(row[ProductEntry.COL_PRICE]);
+				item.SubItems.Add(Math.Round(price, 2).ToString());
 
 				listViewProducts.Items.Add(item);
 			}
+
+			if (listViewProducts.Items.Count > 0) {
+				labelEmptyProducts.Visible = false;
+				listViewProducts.Items[0].Selected = true;
+			}
 		}
 
-		/* Search bar text changed callback function */
-		private void textBoxSearch_TextChanged(object sender, EventArgs e) {
-			PopulateProductList();
+		/* Loads the details of the given product */
+		public void LoadProductDetails() {
+			mProductDetails = mController.SelectProductDetails(mProductID);
+
+			if (mProductDetails == null) {
+				MessageBox.Show(LOADING_PRODUCT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			labelProductName.Text = mProductDetails[ProductEntry.COL_PRODUCT_NAME].ToString();
+			labelCategory.Text = mProductDetails[ProductEntry.COL_CATEGORY].ToString();
+			linkSeller.Text = LABEL_BY + mProductDetails[ProductEntry.COL_SELLER_NAME].ToString();
+
+			decimal rating = Convert.ToDecimal(mProductDetails[ProductEntry.COL_RATING]);
+			labelRating.Text = Math.Round(rating, 2).ToString();
+
+			decimal price = Convert.ToDecimal(mProductDetails[ProductEntry.COL_PRICE]);
+			labelPrice.Text = LABEL_PRICE + Math.Round(price, 2).ToString();
+
+			labelQuantity.Text = LABEL_QUANTITY + mProductDetails[ProductEntry.COL_QUANTITY].ToString();
+			textBoxDescription.Text = mProductDetails[ProductEntry.COL_DESCRIPTION].ToString();
+			pictureBoxImage.ImageLocation = mProductDetails[ProductEntry.COL_IMAGE].ToString();
+
+			LoadComments();
+			LoadCustomerRating();
+			AdaptForm();
 		}
 
-		/* Category box item changed callback function */
-		private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e) {
-			PopulateProductList();
+		/* Loads the comments of the given product */
+		private void LoadComments() {
+			listViewComments.Items.Clear();
+
+			mProductComments = mController.SelectComments(mProductID);
+
+			// No data
+			if (mProductComments == null) {
+				return;
+			}
+
+			foreach (DataRow row in mProductComments.Rows) {
+				ListViewItem item = new ListViewItem(row[CommentEntry.COL_COMMENT_BODY].ToString());
+				item.SubItems.Add(row[CommentEntry.COL_USER_NAME].ToString());
+				item.SubItems.Add(row[CommentEntry.COL_COMMENT_DATE].ToString());
+
+				listViewComments.Items.Add(item);
+			}
+		}
+
+		/* Loads the previous rating of the customer to this product */
+		private void LoadCustomerRating() {
+			int rating = mController.SelectCustomerRating(mAccountID, mProductID);
+
+			if (rating > 0) {
+				trackBarRating.Value = rating;
+			}
+			else {
+				trackBarRating.Value = 1;
+			}
+		}
+
+		/* Adapts the form to the currently active user */
+		private void AdaptForm() {
+			int sellerID = Convert.ToInt32(mProductDetails[ProductEntry.COL_SELLER_ID]);
+
+			if (mAccountID != sellerID) {
+				buttonEdit.Visible = false;
+				buttonDelete.Visible = false;
+			}
+
+			if (mPrivilege == Privilege.Admin) {
+				buttonDelete.Visible = true;
+			}
+
+			if (mPrivilege == Privilege.Other) {
+				trackBarRating.Enabled = false;
+				textBoxComment.Enabled = false;
+			}
+		}
+
+		/* Loses buttons focus */
+		private void LoseFocus(object sender, EventArgs e) {
+			labelProductName.Focus();
 		}
 	}
 }
