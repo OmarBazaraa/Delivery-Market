@@ -44,7 +44,7 @@
 			this.labelAbout.Name = "labelAbout";
 			this.labelAbout.Size = new System.Drawing.Size(168, 152);
 			this.labelAbout.TabIndex = 0;
-			this.labelAbout.Text = "Made by Quantum Team:\r\nOmar Bazaraa\r\nOmar Sobeih\r\nAbdelrahman Eid\r\nMostafa Darwis" +
+			this.labelAbout.Text = "Made by Quantum Team:\r\nAbdelrahman Eid\r\nOmar Sobeih\r\nOmar Bazaraa\r\nMostafa Darwis" +
     "h\r\n\r\nVersion: 1.0\r\nRelease Date: 24/12/2016";
 			// 
 			// FormAbout

@@ -58,7 +58,7 @@ namespace DeliveryMarket.Product {
 			if (mController.DeleteProduct(mAccountID, mProductID, comboBoxReasons.Text, description) > 0) {
 				MessageBox.Show(DELETE_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-				if (Owner.GetType() == typeof(FormProductList)) {
+				if (Owner.GetType() == typeof(FormProductList) || Owner.GetType() == typeof(FormProductDetail)) {
 					((FormProductList)Owner).PopulateProductList();
 				}
 

@@ -81,6 +81,18 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects the ID of the last inserted product */
+		public int SelectLastProductID() {
+			string query = "SELECT " + ProductEntry.COL_PRODUCT_ID +
+				" FROM " + ProductEntry.TABLE_NAME +
+				" ORDER BY " + ProductEntry.COL_PRODUCT_ID + " DESC" +
+				" LIMIT 1;";
+
+			object result = DBMan.ExecuteScalar(query);
+
+			return (result == null) ? 0 : Convert.ToInt32(result);
+		}
+
 		/* Selects all product categories */
 		public DataTable SelectCategories() {
 			string query = "SELECT " + CategoryEntry.COL_CATEGORY_NAME +
@@ -100,7 +112,7 @@ namespace DeliveryMarket.Product {
 		/* Selects all comments on a given product */
 		public DataTable SelectComments(int productID) {
 			string query = "SELECT " +
-				CommentEntry.COL_COMMENT_BODY + ", " + CommentEntry.COL_COMMENT_DATE + "," +
+				CommentEntry.COL_COMMENT_ID + ", " + CommentEntry.COL_COMMENT_BODY + ", " + CommentEntry.COL_COMMENT_DATE + "," +
 				AccountEntry.COL_USERNAME + " AS " + CommentEntry.COL_USER_NAME +
 				" FROM " + CommentEntry.TABLE_NAME + ", " + AccountEntry.TABLE_NAME + 
 				" WHERE " + CommentEntry.COL_USER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + 
@@ -286,6 +298,14 @@ namespace DeliveryMarket.Product {
 				"'" + reason + "', " +
 				"'" + description + "'" +
 				");";
+
+			return DBMan.ExecuteNonQuery(query);
+		}
+
+		/* Deletes a given comment */
+		public int DeleteComment(int commentID) {
+			string query = "DELETE FROM " + CommentEntry.TABLE_NAME + 
+				" WHERE " + CommentEntry.COL_COMMENT_ID + "=" + commentID.ToString() + ";";
 
 			return DBMan.ExecuteNonQuery(query);
 		}
