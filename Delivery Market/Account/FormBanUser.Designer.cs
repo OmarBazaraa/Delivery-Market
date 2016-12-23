@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBanUser));
 			this.comboBoxReasons = new System.Windows.Forms.ComboBox();
 			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.labelDescription = new System.Windows.Forms.Label();
@@ -88,6 +89,7 @@
 			this.Controls.Add(this.labelDescription);
 			this.Controls.Add(this.textBoxDescription);
 			this.Controls.Add(this.comboBoxReasons);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormBanUser";
 			this.Text = "FormBanUser";
 			this.Load += new System.EventHandler(this.FormBanUser_Load);

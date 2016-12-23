@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProfile));
 			this.labelOrdersCount = new System.Windows.Forms.Label();
 			this.labelMoneyEarned = new System.Windows.Forms.Label();
 			this.labelProductsCount = new System.Windows.Forms.Label();
@@ -465,6 +466,7 @@
 			this.Controls.Add(this.labelLastName);
 			this.Controls.Add(this.labelCity);
 			this.Controls.Add(this.labelAccount);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormProfile";
 			this.Text = "Profile";
 			this.Load += new System.EventHandler(this.Profile_Load);

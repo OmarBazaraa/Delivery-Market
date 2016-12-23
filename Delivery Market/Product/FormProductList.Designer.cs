@@ -67,7 +67,7 @@
 			this.comboBoxCategory.FormattingEnabled = true;
 			this.comboBoxCategory.Location = new System.Drawing.Point(477, 138);
 			this.comboBoxCategory.Name = "comboBoxCategory";
-			this.comboBoxCategory.Size = new System.Drawing.Size(135, 25);
+			this.comboBoxCategory.Size = new System.Drawing.Size(135, 31);
 			this.comboBoxCategory.TabIndex = 2;
 			this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
 			// 
@@ -75,7 +75,7 @@
 			// 
 			this.textBoxSearch.Location = new System.Drawing.Point(12, 138);
 			this.textBoxSearch.Name = "textBoxSearch";
-			this.textBoxSearch.Size = new System.Drawing.Size(459, 25);
+			this.textBoxSearch.Size = new System.Drawing.Size(459, 30);
 			this.textBoxSearch.TabIndex = 1;
 			this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
 			// 
@@ -227,7 +227,7 @@
 			// 
 			this.textBoxComment.Location = new System.Drawing.Point(618, 685);
 			this.textBoxComment.Name = "textBoxComment";
-			this.textBoxComment.Size = new System.Drawing.Size(600, 25);
+			this.textBoxComment.Size = new System.Drawing.Size(600, 30);
 			this.textBoxComment.TabIndex = 24;
 			this.textBoxComment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxComment_KeyPress);
 			// 
@@ -249,7 +249,7 @@
 			this.labelRating.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelRating.Location = new System.Drawing.Point(6, 25);
 			this.labelRating.Name = "labelRating";
-			this.labelRating.Size = new System.Drawing.Size(36, 25);
+			this.labelRating.Size = new System.Drawing.Size(44, 32);
 			this.labelRating.TabIndex = 0;
 			this.labelRating.Text = "8.9";
 			// 
@@ -258,10 +258,11 @@
 			this.trackBarRating.Location = new System.Drawing.Point(6, 53);
 			this.trackBarRating.Minimum = 1;
 			this.trackBarRating.Name = "trackBarRating";
-			this.trackBarRating.Size = new System.Drawing.Size(357, 45);
+			this.trackBarRating.Size = new System.Drawing.Size(357, 56);
 			this.trackBarRating.TabIndex = 0;
 			this.trackBarRating.TabStop = false;
 			this.trackBarRating.Value = 1;
+			this.trackBarRating.Scroll += new System.EventHandler(this.trackBarRating_Scroll);
 			this.trackBarRating.ValueChanged += new System.EventHandler(this.trackBarRating_ValueChanged);
 			// 
 			// buttonReport
@@ -327,7 +328,7 @@
 			this.labelDescription.AutoSize = true;
 			this.labelDescription.Location = new System.Drawing.Point(614, 240);
 			this.labelDescription.Name = "labelDescription";
-			this.labelDescription.Size = new System.Drawing.Size(81, 19);
+			this.labelDescription.Size = new System.Drawing.Size(100, 23);
 			this.labelDescription.TabIndex = 0;
 			this.labelDescription.Text = "Description:";
 			// 
@@ -366,7 +367,7 @@
 			// 
 			// FormProductList
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1230, 761);
 			this.Controls.Add(this.buttonAddProduct);
