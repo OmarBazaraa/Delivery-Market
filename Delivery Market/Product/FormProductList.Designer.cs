@@ -98,6 +98,7 @@
 			this.listViewProducts.View = System.Windows.Forms.View.Details;
 			this.listViewProducts.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listViewProducts_ColumnClick);
 			this.listViewProducts.SelectedIndexChanged += new System.EventHandler(this.listViewProducts_SelectedIndexChanged);
+			this.listViewProducts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewProducts_MouseDoubleClick);
 			// 
 			// columnProductName
 			// 

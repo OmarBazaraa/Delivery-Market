@@ -81,6 +81,18 @@ namespace DeliveryMarket.Product {
 			return DBMan.ExecuteReader(query);
 		}
 
+		/* Selects the ID of the last inserted product */
+		public int SelectLastProductID() {
+			string query = "SELECT " + ProductEntry.COL_PRODUCT_ID +
+				" FROM " + ProductEntry.TABLE_NAME +
+				" ORDER BY " + ProductEntry.COL_PRODUCT_ID + " DESC" +
+				" LIMIT 1;";
+
+			object result = DBMan.ExecuteScalar(query);
+
+			return (result == null) ? 0 : Convert.ToInt32(result);
+		}
+
 		/* Selects all product categories */
 		public DataTable SelectCategories() {
 			string query = "SELECT " + CategoryEntry.COL_CATEGORY_NAME +
