@@ -25,7 +25,7 @@ namespace DeliveryMarket.Account
 				+ " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " AND " + ProductEntry.COL_DELETED + " = '0'"
 				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Active_Account
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.Banned_Account
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}

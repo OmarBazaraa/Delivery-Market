@@ -32,7 +32,7 @@
 			this.columnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnProductsCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.textBoxEmail = new System.Windows.Forms.TextBox();
+			this.textBoxUsername = new System.Windows.Forms.TextBox();
 			this.textMoneyPaid = new System.Windows.Forms.Label();
 			this.textOrdersCount = new System.Windows.Forms.Label();
 			this.textMoneyEarned = new System.Windows.Forms.Label();
@@ -56,14 +56,12 @@
 			this.labelGender = new System.Windows.Forms.Label();
 			this.labelLastName = new System.Windows.Forms.Label();
 			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-			this.groupBoxRating = new System.Windows.Forms.GroupBox();
 			this.textRating = new System.Windows.Forms.Label();
-			this.trackBarRating = new System.Windows.Forms.TrackBar();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.labelEmptyAccounts = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-			this.groupBoxRating.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.trackBarRating)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -81,7 +79,7 @@
 			this.listSellers.Location = new System.Drawing.Point(12, 177);
 			this.listSellers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.listSellers.Name = "listSellers";
-			this.listSellers.Size = new System.Drawing.Size(600, 558);
+			this.listSellers.Size = new System.Drawing.Size(600, 577);
 			this.listSellers.TabIndex = 1;
 			this.listSellers.TabStop = false;
 			this.listSellers.UseCompatibleStateImageBehavior = false;
@@ -104,14 +102,14 @@
 			this.columnProductsCount.Text = "Products Count";
 			this.columnProductsCount.Width = 155;
 			// 
-			// textBoxEmail
+			// textBoxUsername
 			// 
-			this.textBoxEmail.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.textBoxEmail.Location = new System.Drawing.Point(12, 138);
-			this.textBoxEmail.Name = "textBoxEmail";
-			this.textBoxEmail.Size = new System.Drawing.Size(600, 32);
-			this.textBoxEmail.TabIndex = 3;
-			this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
+			this.textBoxUsername.Font = new System.Drawing.Font("Tahoma", 12F);
+			this.textBoxUsername.Location = new System.Drawing.Point(12, 138);
+			this.textBoxUsername.Name = "textBoxUsername";
+			this.textBoxUsername.Size = new System.Drawing.Size(600, 32);
+			this.textBoxUsername.TabIndex = 3;
+			this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
 			// 
 			// textMoneyPaid
 			// 
@@ -199,7 +197,7 @@
 			// 
 			this.textMobileNumber.AutoSize = true;
 			this.textMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textMobileNumber.Location = new System.Drawing.Point(689, 98);
+			this.textMobileNumber.Location = new System.Drawing.Point(713, 98);
 			this.textMobileNumber.Name = "textMobileNumber";
 			this.textMobileNumber.Size = new System.Drawing.Size(130, 23);
 			this.textMobileNumber.TabIndex = 89;
@@ -209,7 +207,7 @@
 			// 
 			this.textLocation.AutoSize = true;
 			this.textLocation.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textLocation.Location = new System.Drawing.Point(623, 59);
+			this.textLocation.Location = new System.Drawing.Point(647, 59);
 			this.textLocation.Name = "textLocation";
 			this.textLocation.Size = new System.Drawing.Size(102, 23);
 			this.textLocation.TabIndex = 88;
@@ -229,7 +227,7 @@
 			// 
 			this.textUserName.AutoSize = true;
 			this.textUserName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textUserName.Location = new System.Drawing.Point(618, 9);
+			this.textUserName.Location = new System.Drawing.Point(642, 9);
 			this.textUserName.Name = "textUserName";
 			this.textUserName.Size = new System.Drawing.Size(148, 41);
 			this.textUserName.TabIndex = 86;
@@ -310,7 +308,7 @@
 			// 
 			this.labelMobileNumber.AutoSize = true;
 			this.labelMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMobileNumber.Location = new System.Drawing.Point(624, 98);
+			this.labelMobileNumber.Location = new System.Drawing.Point(648, 98);
 			this.labelMobileNumber.Name = "labelMobileNumber";
 			this.labelMobileNumber.Size = new System.Drawing.Size(59, 23);
 			this.labelMobileNumber.TabIndex = 69;
@@ -346,40 +344,19 @@
 			this.pictureBoxLogo.TabIndex = 100;
 			this.pictureBoxLogo.TabStop = false;
 			// 
-			// groupBoxRating
-			// 
-			this.groupBoxRating.Controls.Add(this.textRating);
-			this.groupBoxRating.Controls.Add(this.trackBarRating);
-			this.groupBoxRating.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBoxRating.Location = new System.Drawing.Point(849, 12);
-			this.groupBoxRating.Name = "groupBoxRating";
-			this.groupBoxRating.Size = new System.Drawing.Size(369, 104);
-			this.groupBoxRating.TabIndex = 101;
-			this.groupBoxRating.TabStop = false;
-			this.groupBoxRating.Text = "Rating";
-			// 
 			// textRating
 			// 
 			this.textRating.AutoSize = true;
-			this.textRating.Font = new System.Drawing.Font("Segoe UI Light", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textRating.Location = new System.Drawing.Point(6, 25);
+			this.textRating.Font = new System.Drawing.Font("Segoe UI Light", 26F);
+			this.textRating.Location = new System.Drawing.Point(1071, 43);
 			this.textRating.Name = "textRating";
-			this.textRating.Size = new System.Drawing.Size(44, 32);
+			this.textRating.Size = new System.Drawing.Size(81, 60);
 			this.textRating.TabIndex = 0;
 			this.textRating.Text = "8.9";
 			// 
-			// trackBarRating
-			// 
-			this.trackBarRating.Location = new System.Drawing.Point(6, 53);
-			this.trackBarRating.Minimum = 1;
-			this.trackBarRating.Name = "trackBarRating";
-			this.trackBarRating.Size = new System.Drawing.Size(357, 56);
-			this.trackBarRating.TabIndex = 0;
-			this.trackBarRating.TabStop = false;
-			this.trackBarRating.Value = 1;
-			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.labelEmptyAccounts);
 			this.groupBox1.Controls.Add(this.labelMoneyPaid);
 			this.groupBox1.Controls.Add(this.labelProductsCount);
 			this.groupBox1.Controls.Add(this.labelMoneyEarned);
@@ -396,6 +373,17 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Activity";
 			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+			// 
+			// labelEmptyAccounts
+			// 
+			this.labelEmptyAccounts.Font = new System.Drawing.Font("Segoe UI Light", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelEmptyAccounts.Location = new System.Drawing.Point(-28, -165);
+			this.labelEmptyAccounts.Name = "labelEmptyAccounts";
+			this.labelEmptyAccounts.Size = new System.Drawing.Size(600, 737);
+			this.labelEmptyAccounts.TabIndex = 105;
+			this.labelEmptyAccounts.Text = "No avalible accounts";
+			this.labelEmptyAccounts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.labelEmptyAccounts.Visible = false;
 			// 
 			// groupBox2
 			// 
@@ -418,28 +406,36 @@
 			this.groupBox2.Text = "About";
 			this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI Light", 24F);
+			this.label1.Location = new System.Drawing.Point(937, 42);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(137, 54);
+			this.label1.TabIndex = 104;
+			this.label1.Text = "Rating:";
+			// 
 			// FormAccounts
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1230, 746);
+			this.ClientSize = new System.Drawing.Size(1230, 767);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.textRating);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.groupBoxRating);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.textMobileNumber);
 			this.Controls.Add(this.textLocation);
 			this.Controls.Add(this.textUserName);
 			this.Controls.Add(this.labelMobileNumber);
-			this.Controls.Add(this.textBoxEmail);
+			this.Controls.Add(this.textBoxUsername);
 			this.Controls.Add(this.listSellers);
 			this.Name = "FormAccounts";
 			this.Text = "Sellers";
 			this.Load += new System.EventHandler(this.FormAccounts_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-			this.groupBoxRating.ResumeLayout(false);
-			this.groupBoxRating.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.trackBarRating)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
@@ -455,7 +451,7 @@
         private System.Windows.Forms.ColumnHeader columnUserName;
         private System.Windows.Forms.ColumnHeader columnRating;
         private System.Windows.Forms.ColumnHeader columnProductsCount;
-		private System.Windows.Forms.TextBox textBoxEmail;
+		private System.Windows.Forms.TextBox textBoxUsername;
 		private System.Windows.Forms.Label labelLastName;
 		private System.Windows.Forms.Label labelGender;
 		private System.Windows.Forms.Label labelMobileNumber;
@@ -479,10 +475,10 @@
 		private System.Windows.Forms.Label textOrdersCount;
 		private System.Windows.Forms.Label textMoneyPaid;
 		private System.Windows.Forms.PictureBox pictureBoxLogo;
-		private System.Windows.Forms.GroupBox groupBoxRating;
 		private System.Windows.Forms.Label textRating;
-		private System.Windows.Forms.TrackBar trackBarRating;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelEmptyAccounts;
 	}
 }
