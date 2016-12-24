@@ -79,6 +79,7 @@
 			this.buttonStatistics.TabIndex = 3;
 			this.buttonStatistics.Text = "Statisitics";
 			this.buttonStatistics.UseVisualStyleBackColor = true;
+			this.buttonStatistics.Click += new System.EventHandler(this.buttonStatistics_Click);
 			// 
 			// buttonCompanies
 			// 

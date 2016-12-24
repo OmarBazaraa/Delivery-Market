@@ -49,6 +49,11 @@ namespace DeliveryMarket.Admin {
 			this.Hide();
 		}
 
+		private void buttonStatistics_Click(object sender, EventArgs e) {
+			new FormStatistics().Show(this);
+			this.Hide();
+		}
+
 		private void buttonExtras_Click(object sender, EventArgs e) {
 			new FormExtras().Show(this);
 			this.Hide();

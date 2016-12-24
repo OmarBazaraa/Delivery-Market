@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DeliveryMarket.Data;
 using DeliveryMarket.Data.MarketContract;
 using System.Data;
+using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Admin {
 
@@ -428,6 +429,72 @@ namespace DeliveryMarket.Admin {
 				BanReasonsEntry.COL_REASON + " = '" + name + "' WHERE " +
 				BanReasonsEntry.COL_REASON + " = '" + originalName + "';";
 			return DBMan.ExecuteNonQuery(query);
+		}
+
+
+		/****************************************************** 
+							Statistics queries 
+		******************************************************/
+
+
+		/******************* Select Queries *******************/
+		public DataTable SelectAccountStat() {
+			string query = "SELECT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " AS " + Strings.ACCOUNT_TYPE +
+				", COALESCE(COUNT(DISTINCT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + "), 0) AS " + Strings.ACCOUNTS_COUNT +
+				", COALESCE(AVG(avg_rating.user_avg), 0) AS " + Strings.AVERAGE_ACCOUNTS_RATING + ", COALESCE(COUNT(DISTINCT " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_ORDER_ID +
+				"), 0) AS " + Strings.ORDERS_COUNT + ", COALESCE(total_money.total_price, 0) AS " + Strings.TOTAL_MONEY_PAID + " FROM " + AccountEntry.TABLE_NAME + " LEFT OUTER JOIN " +
+				ProductEntry.TABLE_NAME + " ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + " LEFT OUTER JOIN `" +
+				OrderEntry.TABLE_NAME + "` ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_CUSTOMER_ID + " LEFT OUTER JOIN (" +
+				"SELECT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ", AVG(product_rate.rate) AS user_avg FROM " + AccountEntry.TABLE_NAME + " LEFT OUTER JOIN (" +
+				"SELECT " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + ", " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", AVG(" + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_RATING_VALUE +
+				") AS rate FROM " + RatingEntry.TABLE_NAME + " LEFT OUTER JOIN " + ProductEntry.TABLE_NAME + " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID +
+				" GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ") AS product_rate ON product_rate." + ProductEntry.COL_SELLER_ID + " = " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " GROUP BY " +
+				AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ") AS avg_rating ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = avg_rating." + AccountEntry.COL_ACCOUNT_ID + " LEFT OUTER JOIN (" +
+				"SELECT a." + AccountEntry.COL_ACCOUNT_TYPE + " AS type2, SUM(p." + ProductEntry.COL_PRICE + " * o." + OrderEntry.COL_QUANTITY + ") AS total_price FROM `" + OrderEntry.TABLE_NAME + "` AS o LEFT OUTER JOIN " + ProductEntry.TABLE_NAME +
+				" AS p on p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrderEntry.COL_PRODUCT_ID + " RIGHT OUTER JOIN " + AccountEntry.TABLE_NAME + " AS a on o." + OrderEntry.COL_CUSTOMER_ID + " = a." + AccountEntry.COL_ACCOUNT_ID + " GROUP BY a." + AccountEntry.COL_ACCOUNT_TYPE +
+				") AS total_money ON total_money.type2 = " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " GROUP BY " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " ORDER BY " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " ASC;";
+
+			return DBMan.ExecuteReader(query); 
+		}
+
+		public DataTable SelectProductStat() {
+			string query = "SELECT " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DELETED + " AS " + Strings.PRODUCT_DELETION_STATE +
+				", COALESCE(COUNT(DISTINCT " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + Strings.PRODUCTS_COUNT +
+				", COALESCE(AVG(product_rate.rate), 0) AS " + Strings.PRODUCTS_AVERAGE_RATE + " FROM " + ProductEntry.TABLE_NAME +
+				" LEFT OUTER JOIN (SELECT " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID +
+				", AVG(" + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_RATING_VALUE + ") AS rate FROM " + RatingEntry.TABLE_NAME +
+				" LEFT OUTER JOIN " + ProductEntry.TABLE_NAME + " ON " + ProductEntry.TABLE_NAME +  "." + ProductEntry.COL_PRODUCT_ID + " = " +
+				RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID + " GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID +
+				") AS product_rate ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = product_rate." + ProductEntry.COL_PRODUCT_ID +
+				" GROUP BY " + Strings.PRODUCT_DELETION_STATE + ";";
+
+			return DBMan.ExecuteReader(query);
+		}
+
+		public DataTable SelectTransportCompanyStat() {
+			string query = "SELECT " +
+				TransportCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_NAME + " AS " + Strings.COMPANY_NAME +
+				", COALESCE(COUNT(DISTINCT " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_ORDER_ID + "), 0) AS " + Strings.COMPANY_ORDERS_COUNT +
+				" FROM `" + OrderEntry.TABLE_NAME + "` RIGHT OUTER JOIN `" + TransportCompanyEntry.TABLE_NAME + "` ON " +
+				TransportCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_ID + " = " +
+				OrderEntry.TABLE_NAME + "." + OrderEntry.COL_TRANSPORT_COMPANY_ID + " GROUP BY " + Strings.COMPANY_NAME + ";";
+			return DBMan.ExecuteReader(query);
+		}
+
+		public DataTable SelectTransactionCompanyStat() {
+			string query = "SELECT " +
+				TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_NAME + " AS " + Strings.COMPANY_NAME +
+				", COALESCE(COUNT(DISTINCT " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_ORDER_ID + "), 0) AS " + Strings.COMPANY_ORDERS_COUNT +
+				" FROM `" + OrderEntry.TABLE_NAME + "` RIGHT OUTER JOIN `" + TransactionCompanyEntry.TABLE_NAME + "` ON " +
+				TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_ID + " = " +
+				OrderEntry.TABLE_NAME + "." + OrderEntry.COL_TRANSACTION_COMPANY_ID + " GROUP BY " + Strings.COMPANY_NAME + ";";
+			return DBMan.ExecuteReader(query);
+		}
+
+		public int SelectReportsCount() {
+			string query = "SELECT COALESCE(COUNT(*), 0) FROM "
+				+ ReportEntry.TABLE_NAME + ";";
+			return Convert.ToInt32(DBMan.ExecuteScalar(query));
 		}
 	}
 }
