@@ -1,70 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DeliveryMarket.Data.MarketContract;
+using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Account {
-	public partial class FormBanUser : Form {
 
-		private const string INVALID_INPUT_TITLE = "Invalid Description";
+	public partial class FormBanUser : Form {
+		// Messages
 		private const string INVALID_INPUT_MSG = "Please make sure to write the description";
-		private const string DELETE_SUCCESS_TITLE = "Done";
-		private const string DELETE_SUCCESS_MSG = "the user was banned successfully";
-		private const string DELETE_FAILED_TITLE = "Error";
-		private const string DELETE_FAILED_MSG = "An error occured will banning this user";
-		private const string CONFIRMATION_TITLE = "Ban";
-		private const string CONFIRMATION_MSG = "Are you sure want to ban this user?";
+		private const string BAN_SUCCESS_MSG = "This account was banned successfully";
+		private const string BAN_FAILED_MSG = "An error occured while banning this account";
+		private const string CONFIRMATION_MSG = "Are you sure want to ban this account?";
+
+		// Member variables
 		int mAccountID;
 		int mUserID;
 		AccountController mController;
 
+		/* Constructor */
 		public FormBanUser(int adminID, int userID) {
 			InitializeComponent();
+
 			mAccountID = adminID;
 			mUserID = userID;
 			mController = new AccountController();
 		}
 
+		/* Form load callback function */
 		private void FormBanUser_Load(object sender, EventArgs e) {
-			// TODO: load list of reasons
 			comboBoxReasons.DataSource = mController.SelectRemovalReasons();
-			comboBoxReasons.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
+			comboBoxReasons.DisplayMember = BanReasonsEntry.COL_REASON;
 		}
 
+		/* Ban button clicked callback function */
 		private void buttonBan_Click(object sender, EventArgs e) {
 			string description = textBoxDescription.Text.Replace("'", "''").Trim();
 
 			// Check for validation
 			if (description == "") {
-				MessageBox.Show(INVALID_INPUT_MSG, INVALID_INPUT_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(INVALID_INPUT_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo) == DialogResult.No) {
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
 
-			BannedUser banned = new BannedUser();
-			banned.UserID = mUserID.ToString();
-			banned.AdminID = mAccountID.ToString();
-			banned.Description = description;
-			banned.Reason = comboBoxReasons.Text;
-
-			// Delete product
-			if (mController.BanUser(banned) > 0) {
-				MessageBox.Show(DELETE_SUCCESS_MSG, DELETE_SUCCESS_TITLE, MessageBoxButtons.OK);
+			// Ban account
+			if (mController.BanUser(mUserID, mAccountID, comboBoxReasons.Text, description) > 0) {
+				MessageBox.Show(BAN_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
 				Close();
 			}
 			else {
-				MessageBox.Show(DELETE_FAILED_MSG, DELETE_FAILED_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(BAN_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+
+		/* Cancel button clicked callback function */
+		private void buttonCancel_Click(object sender, EventArgs e) {
+			Close();
 		}
 	}
 }

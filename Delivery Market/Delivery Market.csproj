@@ -64,7 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Admin.cs" />
     <Compile Include="Account\FormBanUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,12 +133,11 @@
     <Compile Include="Admin\AdminController.cs" />
     <Compile Include="Account\Account.cs" />
     <Compile Include="Account\AccountController.cs" />
-    <Compile Include="Account\BannedUser.cs" />
-    <Compile Include="Account\FormAccounts.cs">
+    <Compile Include="Account\FormAccountList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Account\FormAccounts.Designer.cs">
-      <DependentUpon>FormAccounts.cs</DependentUpon>
+    <Compile Include="Account\FormAccountList.Designer.cs">
+      <DependentUpon>FormAccountList.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\MarketContract.cs" />
     <Compile Include="Data\Controller.cs" />
@@ -202,12 +200,25 @@
     <Compile Include="Product\Order.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\ProductController.cs" />
+    <Compile Include="Registeration\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registeration\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registeration\FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registeration\FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registeration\RegisterController.cs" />
     <Compile Include="Utils\Defs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utility.cs" />
-    <EmbeddedResource Include="Account\FormAccounts.resx">
-      <DependentUpon>FormAccounts.cs</DependentUpon>
+    <EmbeddedResource Include="Account\FormAccountList.resx">
+      <DependentUpon>FormAccountList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Account\FormBanUser.resx">
       <DependentUpon>FormBanUser.cs</DependentUpon>
@@ -279,6 +290,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registeration\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registeration\FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -304,9 +321,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Registeration\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>

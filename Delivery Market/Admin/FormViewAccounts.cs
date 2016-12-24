@@ -72,20 +72,20 @@ namespace DeliveryMarket.Admin {
 
 			string accountType = accountDetails[AccountEntry.COL_ACCOUNT_TYPE].ToString();
 			switch (accountType) {
-				case AccountType.Banned_Account:
+				case AccountType.BANNED:
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
 					richTextBoxDescription.Show();
 					break;
-				case AccountType.Admin_Account:
+				case AccountType.ADMIN:
 					labelStartDate.Show();
 					dateTimeStartDate.Show();
 					break;
 				default:
 					break;
 			}
-			if (accountType == AccountType.Banned_Account) {
+			if (accountType == AccountType.BANNED) {
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
@@ -134,14 +134,14 @@ namespace DeliveryMarket.Admin {
 			comboBoxReason.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
 
 			comboBoxType.Items.Clear();
-			comboBoxType.Items.Add(AccountType.Active_Account);
-			comboBoxType.Items.Add(AccountType.Admin_Account);
-			comboBoxType.Items.Add(AccountType.Banned_Account);
+			comboBoxType.Items.Add(AccountType.ACTIVE);
+			comboBoxType.Items.Add(AccountType.ADMIN);
+			comboBoxType.Items.Add(AccountType.BANNED);
 
 			comboBoxType.Show();
 			comboBoxType.Refresh();
 
-			if (comboBoxType.Text == AccountType.Banned_Account) {
+			if (comboBoxType.Text == AccountType.BANNED) {
 				labelDescription.Show();
 				labelReason.Show();
 				comboBoxReason.Show();
@@ -151,18 +151,18 @@ namespace DeliveryMarket.Admin {
 		}
 
 		private void buttonApply_Click(object sender, EventArgs e) {
-			if (comboBoxType.Text == AccountType.Banned_Account && richTextBoxDescription.Text == "") {
+			if (comboBoxType.Text == AccountType.BANNED && richTextBoxDescription.Text == "") {
 				MessageBox.Show(EMPTY_FIELD_DESCRIPTION);
 				return;
 			}
 			switch(comboBoxType.Text) {
-				case AccountType.Banned_Account:
+				case AccountType.BANNED:
 					if (mController.BanAccount(textBoxID.Text, mAdminID.ToString(), comboBoxReason.Text, richTextBoxDescription.Text.Replace("'", "''").Trim()) == QueryFailed) {
 						MessageBox.Show(BAN_ACCOUNT_FAILED);
 						return;
 					}
 					break;
-				case AccountType.Admin_Account:
+				case AccountType.ADMIN:
 					if (mController.MakeAdmin(textBoxID.Text) == QueryFailed) {
 						MessageBox.Show(MAKE_ADMIN_FAILED);
 						return;
@@ -191,13 +191,13 @@ namespace DeliveryMarket.Admin {
 			dateTimeStartDate.Hide();
 
 			switch (comboBoxType.Text) {
-				case AccountType.Banned_Account:
+				case AccountType.BANNED:
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
 					richTextBoxDescription.Show();
 					break;
-				case AccountType.Admin_Account:
+				case AccountType.ADMIN:
 					labelStartDate.Show();
 					dateTimeStartDate.Show();
 					break;

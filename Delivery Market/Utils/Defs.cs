@@ -14,6 +14,7 @@ namespace DeliveryMarket.Utils {
 		public enum Privilege {
 			Admin,
 			User,
+			Banned,
 			Other
 		}
 

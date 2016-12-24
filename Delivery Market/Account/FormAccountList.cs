@@ -13,7 +13,7 @@ using DeliveryMarket.Product;
 
 namespace DeliveryMarket.Account {
 
-	public partial class FormAccounts : Form {
+	public partial class FormAccountList : Form {
 
 		private int mAccountID;
 		private string mUserID;
@@ -23,7 +23,7 @@ namespace DeliveryMarket.Account {
 		private AccountController mController;
 
 		/* Constructor */
-		public FormAccounts(int accountID, Privilege privilege = Privilege.Other) {
+		public FormAccountList(int accountID, Privilege privilege = Privilege.Other) {
 			InitializeComponent();
 
 			mAccountID = accountID;

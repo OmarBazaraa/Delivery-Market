@@ -13,14 +13,18 @@ using DeliveryMarket.Product;
 using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Account {
+
 	public partial class FormProfile : Form {
+
 		private const string CONFIRMATION_TITLE = "Make Admin";
 		private const string CONFIRMATION_MSG = "Are you sure want to make this account admin?";
+
 		int mUserID;
 		int mAccountID;
 		AccountController mController;
 		DataRow mData;
 		Privilege mPrivilege;
+
 		public FormProfile(int accountID, int userID, Privilege privilege = Privilege.Other) {
 			InitializeComponent();
 			mUserID = userID;
@@ -31,19 +35,19 @@ namespace DeliveryMarket.Account {
 		}
 
 		private void Profile_Load(object sender, EventArgs e) {
-			if(mPrivilege != Privilege.Admin) {
+			if (mPrivilege != Privilege.Admin) {
 				buttonBan.Hide();
 				buttonMakeAdmin.Hide();
-				if(mAccountID != mUserID) {
+				if (mAccountID != mUserID) {
 					buttonViewOrders.Hide();
 					buttonEditAccount.Hide();
 				}
-			}			
+			}
 			populate();
 		}
 
 		private void buttonBan_Click(object sender, EventArgs e) {
-			new FormBanUser(mAccountID,mUserID).Show();
+			new FormBanUser(mAccountID, mUserID).Show();
 		}
 
 		private void buttonViewProducts_Click(object sender, EventArgs e) {
@@ -53,7 +57,6 @@ namespace DeliveryMarket.Account {
 		private void buttonViewOrders_Click(object sender, EventArgs e) {
 			new FormOrders(mUserID).Show(this);
 		}
-
 
 		private void populate() {
 			if (mData == null) return;
@@ -77,9 +80,8 @@ namespace DeliveryMarket.Account {
 			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
-			Admin admin = new Admin();
-			admin.AdminID = mUserID.ToString();
-			mController.MakeAdmin(admin);		
+
+			mController.MakeAdmin(mUserID);
 		}
 
 		private void buttonEditAccount_Click(object sender, EventArgs e) {

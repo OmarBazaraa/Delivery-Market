@@ -25,13 +25,13 @@ namespace DeliveryMarket.Account {
 				+ " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " AND " + ProductEntry.COL_DELETED + " = '0'"
 				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.Banned_Account
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.BANNED
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}
 
-		/* Select user account */
-		public DataRow SelectAccount(string account_id) {
+		/* Selects user account */
+		public DataRow SelectAccount(string accountID) {
 			string query = "SELECT a.*, " + "COALESCE(AVG(r."
 				+ RatingEntry.COL_RATING_VALUE + "), 0) AS " + UserEntry.DER_RATING
 				+ " , COALESCE(COUNT(p." + ProductEntry.COL_PRODUCT_ID + "), 0) AS " + UserEntry.DER_PRODUCTS_COUNT
@@ -45,9 +45,9 @@ namespace DeliveryMarket.Account {
 				+ OrderEntry.TABLE_NAME + " o, "
 				+ MarketEntry.DATABASE_NAME + "."
 				+ OrderEntry.TABLE_NAME + " d" +
-				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + account_id + " AND "
-				+ "d." + OrderEntry.COL_CUSTOMER_ID + " = " + account_id + " AND "
-				+ "p." + ProductEntry.COL_SELLER_ID + " = " + account_id + " AND "
+				" WHERE a." + AccountEntry.COL_ACCOUNT_ID + " = " + accountID + " AND "
+				+ "d." + OrderEntry.COL_CUSTOMER_ID + " = " + accountID + " AND "
+				+ "p." + ProductEntry.COL_SELLER_ID + " = " + accountID + " AND "
 				+ "p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrderEntry.COL_PRODUCT_ID + " AND "
 				+ "p." + ProductEntry.COL_PRODUCT_ID + " = r." + RatingEntry.COL_PRODUCT_ID + " AND "
 				+ "p." + ProductEntry.COL_DELETED + " = '0' ;";
@@ -55,57 +55,60 @@ namespace DeliveryMarket.Account {
 			return dt == null ? null : dt.Rows[0];
 		}
 
-		/* Insert  account to banned table */
-		public int BanUser(BannedUser banned) {
-
-			string query = "UPDATE " + AccountEntry.TABLE_NAME +
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account +
-				"' WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
-			DBMan.ExecuteNonQuery(query);
-
-
-			query = "DELETE FROM " + AdminEntry.TABLE_NAME + " WHERE " + AdminEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
-			DBMan.ExecuteNonQuery(query);
-
-
-			query = "INSERT INTO " + BannedUserEntry.TABLE_NAME + " (" +
-				BannedUserEntry.COL_ADMIN_ID + ", " +
-				BannedUserEntry.COL_USER_ID + ", " +
-				BannedUserEntry.COL_BAN_REASON + ", " +
-				BannedUserEntry.COL_DESCRIPTION + ", " +
-				BannedUserEntry.COL_BAN_DATE + ") VALUES(" +
-				banned.AdminID + ", " +
-				"'" + banned.UserID + "', '" +
-				banned.Reason + "', " +
-				"'" + banned.Description + "', " +
-				"'" + banned.Date + "'" +
-				");";
-			return DBMan.ExecuteNonQuery(query);
-		}
-
-		/* Insert account to admin table */
-		public int MakeAdmin(Admin admin) {
-
-			string query = "UPDATE " + AccountEntry.TABLE_NAME +
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Admin_Account +
-				"' WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + admin.AdminID + " ;";
-			DBMan.ExecuteNonQuery(query);
-
-			query = "DELETE FROM " + BannedUserEntry.TABLE_NAME + " WHERE " + BannedUserEntry.COL_USER_ID + " = " + admin.AdminID + " ;";
-			DBMan.ExecuteNonQuery(query);
-
-
-			query = "INSERT INTO " + AdminEntry.TABLE_NAME + " (" +
-				AdminEntry.COL_ACCOUNT_ID + ", " +
-				AdminEntry.COL_START_DATE + ") VALUES(" +
-				admin.AdminID + ", '" + admin.StartDate + "');";
-			return DBMan.ExecuteNonQuery(query);
-		}
-
 		/* Selects all removal reasons from the database */
 		public DataTable SelectRemovalReasons() {
 			string query = "SELECT " + BanReasonsEntry.COL_REASON + " FROM " + BanReasonsEntry.TABLE_NAME + ";";
 			return DBMan.ExecuteReader(query);
+		}
+
+		/* Inserts account to banned users table */
+		public int BanUser(int userID, int adminID, string reason, string description) {
+			string query = "UPDATE " + AccountEntry.TABLE_NAME +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.BANNED + "'" +
+				" WHERE " + AccountEntry.COL_ACCOUNT_ID + "=" + userID.ToString() + ";";
+
+			// If an error occured while updating the account type then no need to continue
+			if (DBMan.ExecuteNonQuery(query) <= 0) {
+				return -1;
+			}
+
+			query = "DELETE FROM " + AdminEntry.TABLE_NAME + " WHERE " + AdminEntry.COL_ACCOUNT_ID + "=" + userID.ToString() + ";";
+			DBMan.ExecuteNonQuery(query);
+
+			query = "INSERT INTO " + BannedUserEntry.TABLE_NAME + " (" +
+				BannedUserEntry.COL_USER_ID + ", " +
+				BannedUserEntry.COL_ADMIN_ID + ", " +
+				BannedUserEntry.COL_BAN_REASON + ", " +
+				BannedUserEntry.COL_DESCRIPTION + ") VALUES(" +
+				userID.ToString() + ", " +
+				adminID.ToString() + ", " +
+				"'" + reason + "', " +
+				"'" + description + "'" +
+				");";
+
+			return DBMan.ExecuteNonQuery(query);
+		}
+
+		/* Inserts account to admin table */
+		public int MakeAdmin(int accountID) {
+			string query = "UPDATE " + AccountEntry.TABLE_NAME +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.ADMIN + "'" +
+				" WHERE " + AccountEntry.COL_ACCOUNT_ID + "=" + accountID + ";";
+
+			// If an error occured while updating the account type then no need to continue
+			if (DBMan.ExecuteNonQuery(query) <= 0) {
+				return -1;
+			}
+
+			query = "DELETE FROM " + BannedUserEntry.TABLE_NAME + " WHERE " + BannedUserEntry.COL_USER_ID + "=" + accountID + ";";
+			DBMan.ExecuteNonQuery(query);
+
+			query = "INSERT INTO " + AdminEntry.TABLE_NAME + " (" +
+				AdminEntry.COL_ACCOUNT_ID + ") VALUES(" +
+				accountID +
+				");";
+
+			return DBMan.ExecuteNonQuery(query);
 		}
 	}
 }

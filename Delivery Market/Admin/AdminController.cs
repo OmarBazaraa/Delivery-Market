@@ -78,7 +78,7 @@ namespace DeliveryMarket.Admin {
 			string query1 = "UPDATE " +
 				AccountEntry.TABLE_NAME +
 				" SET " + AccountEntry.COL_ACCOUNT_TYPE +
-				" = '" + AccountType.Admin_Account + "' " +
+				" = '" + AccountType.ADMIN + "' " +
 				"WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " +
 				AccountId + " ;";
 
@@ -111,7 +111,7 @@ namespace DeliveryMarket.Admin {
 			string query1 = "UPDATE " +
 				AccountEntry.TABLE_NAME +
 				" SET " + AccountEntry.COL_ACCOUNT_TYPE +
-				" = '" + AccountType.Active_Account + "' " +
+				" = '" + AccountType.ACTIVE + "' " +
 				"WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " +
 				accountId + " ;";
 
@@ -144,7 +144,7 @@ namespace DeliveryMarket.Admin {
 			string query1 = "UPDATE " +
 				AccountEntry.TABLE_NAME +
 				" SET " + AccountEntry.COL_ACCOUNT_TYPE +
-				" = '" + AccountType.Banned_Account + "' " +
+				" = '" + AccountType.BANNED + "' " +
 				"WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " +
 				accountId + " ;";
 
@@ -207,7 +207,7 @@ namespace DeliveryMarket.Admin {
 							AccountEntry.TABLE_NAME + " ON " +
 							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + " = " +
 							AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " WHERE NOT " +
-							AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account + "' AND NOT " +
+							AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.BANNED + "' AND NOT " +
 							ProductEntry.COL_DELETED;
 
 			if (Like != "") {
