@@ -381,9 +381,5 @@ namespace DeliveryMarket.Product {
 		private void LoseFocus(object sender, EventArgs e) {
 			labelProductName.Focus();
 		}
-
-		private void trackBarRating_Scroll(object sender, EventArgs e) {
-
-		}
 	}
 }

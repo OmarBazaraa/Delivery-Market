@@ -140,7 +140,7 @@
 			// 
 			// FormMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(284, 467);
 			this.Controls.Add(this.buttonViewOrders);
@@ -159,6 +159,7 @@
 			this.Name = "FormMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Delivery Market";
+			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.ResumeLayout(false);

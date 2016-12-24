@@ -15,8 +15,8 @@ namespace DeliveryMarket.Account {
 		public string LastName;
 		public string Country;
 		public string City;
-		public string Email;
-		//public string Password;
+		public string Username;
+		public string Password;
 		public string Birthdate;
 		public string Gender;
 		public string MobileNumber;
@@ -26,13 +26,17 @@ namespace DeliveryMarket.Account {
 		public string OrdersCount;
 		public string EarnedMoney;
 
+		public User() {
+
+		}
+
 		public User(DataRow dr) {
 			AccountID = dr[AccountEntry.COL_ACCOUNT_ID].ToString();
 			FirstName = dr[AccountEntry.COL_FIRST_NAME].ToString();
 			LastName = dr[AccountEntry.COL_LAST_NAME].ToString();
 			Country = dr[AccountEntry.COL_COUNTRY].ToString();
 			City = dr[AccountEntry.COL_CITY].ToString();
-			Email = dr[AccountEntry.COL_USERNAME].ToString();
+			Username = dr[AccountEntry.COL_USERNAME].ToString();
 			Birthdate = dr[AccountEntry.COL_BIRTHDATE].ToString();
 			Gender = dr[AccountEntry.COL_GENDER].ToString();
 			MobileNumber = dr[AccountEntry.COL_MOBILE_NUMBER].ToString();

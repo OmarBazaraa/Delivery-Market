@@ -10,10 +10,10 @@
 		}
 		
 		public static class AccountType {
-			//Account Types
-			public const string Active_Account = "Active";
-			public const string Admin_Account = "Admin";
-			public const string Banned_Account = "Banned";
+			// Account Types
+			public const string ACTIVE = "Active";
+			public const string ADMIN = "Admin";
+			public const string BANNED = "Banned";
 		}
 
 		public static class AccountEntry {

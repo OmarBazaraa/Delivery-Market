@@ -264,7 +264,6 @@
 			this.trackBarRating.TabIndex = 0;
 			this.trackBarRating.TabStop = false;
 			this.trackBarRating.Value = 1;
-			this.trackBarRating.Scroll += new System.EventHandler(this.trackBarRating_Scroll);
 			this.trackBarRating.ValueChanged += new System.EventHandler(this.trackBarRating_ValueChanged);
 			// 
 			// buttonReport

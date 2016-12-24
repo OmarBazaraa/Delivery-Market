@@ -60,10 +60,9 @@
 			this.listOrders.FullRowSelect = true;
 			this.listOrders.GridLines = true;
 			this.listOrders.HoverSelection = true;
-			this.listOrders.Location = new System.Drawing.Point(12, 49);
-			this.listOrders.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.listOrders.Location = new System.Drawing.Point(10, 40);
 			this.listOrders.Name = "listOrders";
-			this.listOrders.Size = new System.Drawing.Size(610, 515);
+			this.listOrders.Size = new System.Drawing.Size(523, 419);
 			this.listOrders.TabIndex = 2;
 			this.listOrders.TabStop = false;
 			this.listOrders.UseCompatibleStateImageBehavior = false;
@@ -88,9 +87,10 @@
 			// pictureBoxLogo
 			// 
 			this.pictureBoxLogo.Image = global::DeliveryMarket.Properties.Resources.logo;
-			this.pictureBoxLogo.Location = new System.Drawing.Point(952, 13);
+			this.pictureBoxLogo.Location = new System.Drawing.Point(816, 11);
+			this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.pictureBoxLogo.Name = "pictureBoxLogo";
-			this.pictureBoxLogo.Size = new System.Drawing.Size(272, 115);
+			this.pictureBoxLogo.Size = new System.Drawing.Size(233, 93);
 			this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBoxLogo.TabIndex = 3;
 			this.pictureBoxLogo.TabStop = false;
@@ -99,9 +99,9 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(643, 104);
+			this.label1.Location = new System.Drawing.Point(551, 84);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(127, 24);
+			this.label1.Size = new System.Drawing.Size(104, 19);
 			this.label1.TabIndex = 4;
 			this.label1.Text = "User Name:";
 			// 
@@ -109,9 +109,9 @@
 			// 
 			this.textUserName.AutoSize = true;
 			this.textUserName.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.textUserName.Location = new System.Drawing.Point(776, 104);
+			this.textUserName.Location = new System.Drawing.Point(665, 84);
 			this.textUserName.Name = "textUserName";
-			this.textUserName.Size = new System.Drawing.Size(111, 24);
+			this.textUserName.Size = new System.Drawing.Size(89, 19);
 			this.textUserName.TabIndex = 8;
 			this.textUserName.Text = "hanisayd96";
 			// 
@@ -119,9 +119,9 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label2.Location = new System.Drawing.Point(643, 206);
+			this.label2.Location = new System.Drawing.Point(551, 167);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(137, 21);
+			this.label2.Size = new System.Drawing.Size(112, 17);
 			this.label2.TabIndex = 9;
 			this.label2.Text = "Product Name:";
 			// 
@@ -129,9 +129,9 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label3.Location = new System.Drawing.Point(1062, 206);
+			this.label3.Location = new System.Drawing.Point(910, 167);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(83, 21);
+			this.label3.Size = new System.Drawing.Size(67, 17);
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Quanity:";
 			// 
@@ -139,9 +139,9 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label4.Location = new System.Drawing.Point(925, 206);
+			this.label4.Location = new System.Drawing.Point(793, 167);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(58, 21);
+			this.label4.Size = new System.Drawing.Size(46, 17);
 			this.label4.TabIndex = 11;
 			this.label4.Text = "Price:";
 			// 
@@ -149,9 +149,9 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label6.Location = new System.Drawing.Point(643, 264);
+			this.label6.Location = new System.Drawing.Point(551, 214);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(201, 21);
+			this.label6.Size = new System.Drawing.Size(164, 17);
 			this.label6.TabIndex = 12;
 			this.label6.Text = "Transaction Company:";
 			// 
@@ -159,9 +159,9 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label7.Location = new System.Drawing.Point(643, 373);
+			this.label7.Location = new System.Drawing.Point(551, 303);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(109, 21);
+			this.label7.Size = new System.Drawing.Size(89, 17);
 			this.label7.TabIndex = 13;
 			this.label7.Text = "Order Date:";
 			// 
@@ -169,9 +169,9 @@
 			// 
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label8.Location = new System.Drawing.Point(643, 320);
+			this.label8.Location = new System.Drawing.Point(551, 260);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(184, 21);
+			this.label8.Size = new System.Drawing.Size(152, 17);
 			this.label8.TabIndex = 14;
 			this.label8.Text = "Transport Company:";
 			// 
@@ -179,9 +179,9 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label9.Location = new System.Drawing.Point(643, 425);
+			this.label9.Location = new System.Drawing.Point(551, 345);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(85, 21);
+			this.label9.Size = new System.Drawing.Size(69, 17);
 			this.label9.TabIndex = 15;
 			this.label9.Text = "Address:";
 			// 
@@ -189,9 +189,9 @@
 			// 
 			this.textProductName.AutoSize = true;
 			this.textProductName.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textProductName.Location = new System.Drawing.Point(786, 205);
+			this.textProductName.Location = new System.Drawing.Point(674, 167);
 			this.textProductName.Name = "textProductName";
-			this.textProductName.Size = new System.Drawing.Size(39, 22);
+			this.textProductName.Size = new System.Drawing.Size(31, 17);
 			this.textProductName.TabIndex = 16;
 			this.textProductName.Text = "Pen";
 			// 
@@ -199,9 +199,9 @@
 			// 
 			this.textPrice.AutoSize = true;
 			this.textPrice.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textPrice.Location = new System.Drawing.Point(989, 205);
+			this.textPrice.Location = new System.Drawing.Point(848, 167);
 			this.textPrice.Name = "textPrice";
-			this.textPrice.Size = new System.Drawing.Size(50, 22);
+			this.textPrice.Size = new System.Drawing.Size(40, 17);
 			this.textPrice.TabIndex = 17;
 			this.textPrice.Text = "115$";
 			// 
@@ -209,9 +209,9 @@
 			// 
 			this.textQuantity.AutoSize = true;
 			this.textQuantity.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textQuantity.Location = new System.Drawing.Point(1151, 206);
+			this.textQuantity.Location = new System.Drawing.Point(987, 167);
 			this.textQuantity.Name = "textQuantity";
-			this.textQuantity.Size = new System.Drawing.Size(76, 22);
+			this.textQuantity.Size = new System.Drawing.Size(59, 17);
 			this.textQuantity.TabIndex = 18;
 			this.textQuantity.Text = "12 piece";
 			// 
@@ -219,9 +219,9 @@
 			// 
 			this.textTransactionCompany.AutoSize = true;
 			this.textTransactionCompany.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textTransactionCompany.Location = new System.Drawing.Point(850, 264);
+			this.textTransactionCompany.Location = new System.Drawing.Point(729, 214);
 			this.textTransactionCompany.Name = "textTransactionCompany";
-			this.textTransactionCompany.Size = new System.Drawing.Size(65, 22);
+			this.textTransactionCompany.Size = new System.Drawing.Size(50, 17);
 			this.textTransactionCompany.TabIndex = 19;
 			this.textTransactionCompany.Text = "PayPall";
 			// 
@@ -229,9 +229,9 @@
 			// 
 			this.textTransportCompany.AutoSize = true;
 			this.textTransportCompany.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textTransportCompany.Location = new System.Drawing.Point(833, 319);
+			this.textTransportCompany.Location = new System.Drawing.Point(714, 259);
 			this.textTransportCompany.Name = "textTransportCompany";
-			this.textTransportCompany.Size = new System.Drawing.Size(95, 22);
+			this.textTransportCompany.Size = new System.Drawing.Size(76, 17);
 			this.textTransportCompany.TabIndex = 20;
 			this.textTransportCompany.Text = "Egypt Post";
 			// 
@@ -239,9 +239,9 @@
 			// 
 			this.textOrderDate.AutoSize = true;
 			this.textOrderDate.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textOrderDate.Location = new System.Drawing.Point(758, 372);
+			this.textOrderDate.Location = new System.Drawing.Point(650, 302);
 			this.textOrderDate.Name = "textOrderDate";
-			this.textOrderDate.Size = new System.Drawing.Size(104, 22);
+			this.textOrderDate.Size = new System.Drawing.Size(82, 17);
 			this.textOrderDate.TabIndex = 21;
 			this.textOrderDate.Text = "2015/11/01";
 			// 
@@ -249,9 +249,9 @@
 			// 
 			this.textAddress.AutoSize = true;
 			this.textAddress.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textAddress.Location = new System.Drawing.Point(734, 424);
+			this.textAddress.Location = new System.Drawing.Point(629, 344);
 			this.textAddress.Name = "textAddress";
-			this.textAddress.Size = new System.Drawing.Size(158, 22);
+			this.textAddress.Size = new System.Drawing.Size(123, 17);
 			this.textAddress.TabIndex = 22;
 			this.textAddress.Text = "21 - Haroon Street";
 			// 
@@ -259,9 +259,9 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-			this.label5.Location = new System.Drawing.Point(12, 13);
+			this.label5.Location = new System.Drawing.Point(10, 11);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(129, 21);
+			this.label5.Size = new System.Drawing.Size(107, 17);
 			this.label5.TabIndex = 23;
 			this.label5.Text = "Orders Count:";
 			// 
@@ -269,16 +269,16 @@
 			// 
 			this.textOrdersCount.AutoSize = true;
 			this.textOrdersCount.Font = new System.Drawing.Font("Tahoma", 10.5F);
-			this.textOrdersCount.Location = new System.Drawing.Point(147, 12);
+			this.textOrdersCount.Location = new System.Drawing.Point(126, 10);
 			this.textOrdersCount.Name = "textOrdersCount";
-			this.textOrdersCount.Size = new System.Drawing.Size(0, 22);
+			this.textOrdersCount.Size = new System.Drawing.Size(0, 17);
 			this.textOrdersCount.TabIndex = 24;
 			// 
 			// FormOrders
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1236, 574);
+			this.ClientSize = new System.Drawing.Size(1059, 466);
 			this.Controls.Add(this.textOrdersCount);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.textAddress);
@@ -299,7 +299,9 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.listOrders);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "FormOrders";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Orders";
 			this.Load += new System.EventHandler(this.FormOrders_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();

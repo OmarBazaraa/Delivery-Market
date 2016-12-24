@@ -67,9 +67,9 @@
 			// 
 			this.listViewSellers.Activation = System.Windows.Forms.ItemActivation.OneClick;
 			this.listViewSellers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-			this.columnUserName,
-			this.columnRating,
-			this.columnProductsCount});
+            this.columnUserName,
+            this.columnRating,
+            this.columnProductsCount});
 			this.listViewSellers.FullRowSelect = true;
 			this.listViewSellers.HoverSelection = true;
 			this.listViewSellers.Location = new System.Drawing.Point(12, 173);
@@ -421,7 +421,7 @@
 			this.labelRating.TabIndex = 104;
 			this.labelRating.Text = "Rating:";
 			// 
-			// FormAccounts
+			// FormAccountList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -438,8 +438,8 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
-			this.Name = "FormAccounts";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+			this.Name = "FormAccountList";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Delivery Market";
 			this.Load += new System.EventHandler(this.FormAccounts_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();

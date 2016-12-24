@@ -25,7 +25,7 @@ namespace DeliveryMarket.Account {
 				+ " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " AND " + ProductEntry.COL_DELETED + " = '0'"
 				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.Banned_Account
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.BANNED
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}
@@ -64,7 +64,7 @@ namespace DeliveryMarket.Account {
 		/* Inserts account to banned users table */
 		public int BanUser(int userID, int adminID, string reason, string description) {
 			string query = "UPDATE " + AccountEntry.TABLE_NAME +
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.Banned_Account + "'" +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.BANNED + "'" +
 				" WHERE " + AccountEntry.COL_ACCOUNT_ID + "=" + userID.ToString() + ";";
 
 			// If an error occured while updating the account type then no need to continue
@@ -92,7 +92,7 @@ namespace DeliveryMarket.Account {
 		/* Inserts account to admin table */
 		public int MakeAdmin(int accountID) {
 			string query = "UPDATE " + AccountEntry.TABLE_NAME +
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.Admin_Account + "'" +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + "='" + AccountType.ADMIN + "'" +
 				" WHERE " + AccountEntry.COL_ACCOUNT_ID + "=" + accountID + ";";
 
 			// If an error occured while updating the account type then no need to continue
