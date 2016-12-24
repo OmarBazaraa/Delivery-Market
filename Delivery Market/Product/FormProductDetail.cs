@@ -123,6 +123,7 @@ namespace DeliveryMarket.Product {
 				return;
 			}
 
+			// Delete comment
 			if (mController.DeleteComment(commentID) > 0) {
 				LoadComments();
 			}
