@@ -25,7 +25,7 @@ namespace DeliveryMarket.Account
 				+ " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID
 				+ " AND " + ProductEntry.COL_DELETED + " = '0'"
 				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
-				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Active_Account
+				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.Banned_Account
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
 			return DBMan.ExecuteReader(query);
 		}
@@ -104,7 +104,7 @@ namespace DeliveryMarket.Account
 
 		/* Selects all removal reasons from the database */
 		public DataTable SelectRemovalReasons() {
-			string query = "SELECT " + ProductRemovalReasonsEntry.COL_REASON + " FROM " + ProductRemovalReasonsEntry.TABLE_NAME + ";";
+			string query = "SELECT " + BanReasonsEntry.COL_REASON + " FROM " + BanReasonsEntry.TABLE_NAME + ";";
 			return DBMan.ExecuteReader(query);
 		}
 	}
