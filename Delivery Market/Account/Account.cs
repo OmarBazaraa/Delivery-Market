@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 using System.Data;
 using DeliveryMarket.Data.MarketContract;
 
-namespace DeliveryMarket.Account
-{
-    class User
-    {
-        public string AccountID;
-        public string FirstName;
-        public string LastName;
-        public string Country;
-        public string City;
-        public string Email;
-        //public string Password;
-        public string Birthdate;
-        public string Gender;
-        public string MobileNumber;
-        public string CreationDate;
+namespace DeliveryMarket.Account {
+
+	class User {
+
+		public string AccountID;
+		public string FirstName;
+		public string LastName;
+		public string Country;
+		public string City;
+		public string Email;
+		//public string Password;
+		public string Birthdate;
+		public string Gender;
+		public string MobileNumber;
+		public string CreationDate;
 		public string Rating;
 		public string ProductsCount;
 		public string OrdersCount;
@@ -42,11 +42,10 @@ namespace DeliveryMarket.Account
 			OrdersCount = dr[UserEntry.DER_ORDERS_COUNT].ToString();
 			EarnedMoney = dr[UserEntry.DER_EARNED_MONEY].ToString();
 		}
-
 	}
 
 	class UserList {
-		
+
 		public string[] UserName;
 		public string[] Rating;
 		public string[] AccountID;
@@ -61,7 +60,7 @@ namespace DeliveryMarket.Account
 			ProductsCount = new string[dt.Rows.Count];
 
 			foreach (DataRow row in dt.Rows) {
-				UserName[ListItemsCount] = row[AccountEntry.COL_USERNAME].ToString() ;
+				UserName[ListItemsCount] = row[AccountEntry.COL_USERNAME].ToString();
 				Rating[ListItemsCount] = row[UserEntry.DER_RATING].ToString();
 				ProductsCount[ListItemsCount] = row[UserEntry.DER_PRODUCTS_COUNT].ToString();
 				AccountID[ListItemsCount] = row[AccountEntry.COL_ACCOUNT_ID].ToString();

@@ -1,34 +1,29 @@
-﻿namespace DeliveryMarket.Account
-{
-    partial class FormAccounts
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿namespace DeliveryMarket.Account {
+	partial class FormAccountList {
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing) {
+			if (disposing && (components != null)) {
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccounts));
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccountList));
 			this.listViewSellers = new System.Windows.Forms.ListView();
 			this.columnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,9 +67,9 @@
 			// 
 			this.listViewSellers.Activation = System.Windows.Forms.ItemActivation.OneClick;
 			this.listViewSellers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnUserName,
-            this.columnRating,
-            this.columnProductsCount});
+			this.columnUserName,
+			this.columnRating,
+			this.columnProductsCount});
 			this.listViewSellers.FullRowSelect = true;
 			this.listViewSellers.HoverSelection = true;
 			this.listViewSellers.Location = new System.Drawing.Point(12, 173);
@@ -455,14 +450,14 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.ListView listViewSellers;
-        private System.Windows.Forms.ColumnHeader columnUserName;
-        private System.Windows.Forms.ColumnHeader columnRating;
-        private System.Windows.Forms.ColumnHeader columnProductsCount;
+		private System.Windows.Forms.ListView listViewSellers;
+		private System.Windows.Forms.ColumnHeader columnUserName;
+		private System.Windows.Forms.ColumnHeader columnRating;
+		private System.Windows.Forms.ColumnHeader columnProductsCount;
 		private System.Windows.Forms.TextBox textBoxSearch;
 		private System.Windows.Forms.Label labelLastName;
 		private System.Windows.Forms.Label labelGender;
