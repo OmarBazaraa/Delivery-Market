@@ -74,7 +74,7 @@ namespace DeliveryMarket.Product {
 			}
 		}
 
-		/* Product list item double clicked callback function */
+		/* Product list selected item changed callback function */
 		private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
 			if (listViewProducts.SelectedItems.Count == 0) {
 				return;
@@ -137,8 +137,8 @@ namespace DeliveryMarket.Product {
 
 		/* Seller button clicked callback function */
 		private void linkSeller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-			//TODO: Show seller's profile page
-			MessageBox.Show("TODO");
+			int sellerID = Convert.ToInt32(mProductDetails[ProductEntry.COL_SELLER_ID]);
+			new Account.FormProfile(mAccountID, sellerID, mPrivilege).ShowDialog();
 		}
 
 		/* Buy product button clicked callback function */

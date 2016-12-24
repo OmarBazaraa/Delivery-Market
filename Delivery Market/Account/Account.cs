@@ -52,12 +52,14 @@ namespace DeliveryMarket.Account
 		public string[] AccountID;
 		public string[] ProductsCount;
 		public int ListItemsCount;
+
 		public UserList(DataTable dt) {
 			ListItemsCount = 0;
 			UserName = new string[dt.Rows.Count];
 			Rating = new string[dt.Rows.Count];
 			AccountID = new string[dt.Rows.Count];
 			ProductsCount = new string[dt.Rows.Count];
+
 			foreach (DataRow row in dt.Rows) {
 				UserName[ListItemsCount] = row[AccountEntry.COL_USERNAME].ToString() ;
 				Rating[ListItemsCount] = row[UserEntry.DER_RATING].ToString();

@@ -8,13 +8,13 @@ using System.Windows.Forms;
 using System.Data;
 using DeliveryMarket.Data;
 
-namespace DeliveryMarket.Account
-{
+namespace DeliveryMarket.Account {
+
 	/*
-     * A class that controls account interaction with database
-     */
-	class AccountController : Controller
-	{
+	 * A class that controls account interaction with database
+	 */
+	class AccountController : Controller {
+
 		/* Selects all accounts */
 		public DataTable SelectAllAccounts(string name) {
 			string query = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", " + AccountEntry.COL_USERNAME + ", " + "COALESCE(AVG(" + RatingEntry.TABLE_NAME + "."
@@ -41,7 +41,7 @@ namespace DeliveryMarket.Account
 				+ " FROM " + AccountEntry.TABLE_NAME + " a, "
 				+ RatingEntry.TABLE_NAME + " r, "
 				+ ProductEntry.TABLE_NAME + " p, "
-				+ MarketEntry.DATABASE_NAME + "." 
+				+ MarketEntry.DATABASE_NAME + "."
 				+ OrderEntry.TABLE_NAME + " o, "
 				+ MarketEntry.DATABASE_NAME + "."
 				+ OrderEntry.TABLE_NAME + " d" +
@@ -56,10 +56,10 @@ namespace DeliveryMarket.Account
 		}
 
 		/* Insert  account to banned table */
-		public int BanUser (BannedUser banned) {
+		public int BanUser(BannedUser banned) {
 
-			string query = "UPDATE " + AccountEntry.TABLE_NAME + 
-				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account + 
+			string query = "UPDATE " + AccountEntry.TABLE_NAME +
+				" SET " + AccountEntry.COL_ACCOUNT_TYPE + " = '" + AccountType.Banned_Account +
 				"' WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " + banned.UserID + " ;";
 			DBMan.ExecuteNonQuery(query);
 

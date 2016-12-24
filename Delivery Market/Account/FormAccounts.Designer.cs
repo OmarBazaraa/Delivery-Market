@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.listSellers = new System.Windows.Forms.ListView();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccounts));
+			this.listViewSellers = new System.Windows.Forms.ListView();
 			this.columnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnRating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnProductsCount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.textBoxUsername = new System.Windows.Forms.TextBox();
+			this.textBoxSearch = new System.Windows.Forms.TextBox();
 			this.textMoneyPaid = new System.Windows.Forms.Label();
 			this.textOrdersCount = new System.Windows.Forms.Label();
 			this.textMoneyEarned = new System.Windows.Forms.Label();
@@ -60,94 +61,93 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.labelEmptyAccounts = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.label1 = new System.Windows.Forms.Label();
+			this.labelLocation = new System.Windows.Forms.Label();
+			this.labelRating = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// listSellers
+			// listViewSellers
 			// 
-			this.listSellers.Activation = System.Windows.Forms.ItemActivation.OneClick;
-			this.listSellers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+			this.listViewSellers.Activation = System.Windows.Forms.ItemActivation.OneClick;
+			this.listViewSellers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnUserName,
             this.columnRating,
             this.columnProductsCount});
-			this.listSellers.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.listSellers.FullRowSelect = true;
-			this.listSellers.HoverSelection = true;
-			this.listSellers.Location = new System.Drawing.Point(12, 177);
-			this.listSellers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.listSellers.Name = "listSellers";
-			this.listSellers.Size = new System.Drawing.Size(600, 577);
-			this.listSellers.TabIndex = 1;
-			this.listSellers.TabStop = false;
-			this.listSellers.UseCompatibleStateImageBehavior = false;
-			this.listSellers.View = System.Windows.Forms.View.Details;
-			this.listSellers.SelectedIndexChanged += new System.EventHandler(this.listSellers_SelectedIndexChanged);
-			this.listSellers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listSellers_MouseDoubleClick);
+			this.listViewSellers.FullRowSelect = true;
+			this.listViewSellers.HoverSelection = true;
+			this.listViewSellers.Location = new System.Drawing.Point(12, 173);
+			this.listViewSellers.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+			this.listViewSellers.Name = "listViewSellers";
+			this.listViewSellers.Size = new System.Drawing.Size(600, 574);
+			this.listViewSellers.TabIndex = 1;
+			this.listViewSellers.TabStop = false;
+			this.listViewSellers.UseCompatibleStateImageBehavior = false;
+			this.listViewSellers.View = System.Windows.Forms.View.Details;
+			this.listViewSellers.SelectedIndexChanged += new System.EventHandler(this.listSellers_SelectedIndexChanged);
+			this.listViewSellers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listSellers_MouseDoubleClick);
 			// 
 			// columnUserName
 			// 
 			this.columnUserName.Text = "User Name";
-			this.columnUserName.Width = 235;
+			this.columnUserName.Width = 327;
 			// 
 			// columnRating
 			// 
 			this.columnRating.Text = "Rating";
-			this.columnRating.Width = 167;
+			this.columnRating.Width = 153;
 			// 
 			// columnProductsCount
 			// 
 			this.columnProductsCount.Text = "Products Count";
-			this.columnProductsCount.Width = 155;
+			this.columnProductsCount.Width = 115;
 			// 
-			// textBoxUsername
+			// textBoxSearch
 			// 
-			this.textBoxUsername.Font = new System.Drawing.Font("Tahoma", 12F);
-			this.textBoxUsername.Location = new System.Drawing.Point(12, 138);
-			this.textBoxUsername.Name = "textBoxUsername";
-			this.textBoxUsername.Size = new System.Drawing.Size(600, 32);
-			this.textBoxUsername.TabIndex = 3;
-			this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
+			this.textBoxSearch.Location = new System.Drawing.Point(12, 138);
+			this.textBoxSearch.Name = "textBoxSearch";
+			this.textBoxSearch.Size = new System.Drawing.Size(600, 25);
+			this.textBoxSearch.TabIndex = 3;
+			this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
 			// 
 			// textMoneyPaid
 			// 
 			this.textMoneyPaid.AutoSize = true;
-			this.textMoneyPaid.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-			this.textMoneyPaid.Location = new System.Drawing.Point(494, 86);
+			this.textMoneyPaid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textMoneyPaid.Location = new System.Drawing.Point(452, 90);
 			this.textMoneyPaid.Name = "textMoneyPaid";
-			this.textMoneyPaid.Size = new System.Drawing.Size(62, 24);
+			this.textMoneyPaid.Size = new System.Drawing.Size(41, 19);
 			this.textMoneyPaid.TabIndex = 99;
 			this.textMoneyPaid.Text = "115$";
 			// 
 			// textOrdersCount
 			// 
 			this.textOrdersCount.AutoSize = true;
-			this.textOrdersCount.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-			this.textOrdersCount.Location = new System.Drawing.Point(494, 45);
+			this.textOrdersCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textOrdersCount.Location = new System.Drawing.Point(452, 40);
 			this.textOrdersCount.Name = "textOrdersCount";
-			this.textOrdersCount.Size = new System.Drawing.Size(36, 24);
+			this.textOrdersCount.Size = new System.Drawing.Size(25, 19);
 			this.textOrdersCount.TabIndex = 98;
 			this.textOrdersCount.Text = "23";
 			// 
 			// textMoneyEarned
 			// 
 			this.textMoneyEarned.AutoSize = true;
-			this.textMoneyEarned.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-			this.textMoneyEarned.Location = new System.Drawing.Point(184, 86);
+			this.textMoneyEarned.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textMoneyEarned.Location = new System.Drawing.Point(162, 90);
 			this.textMoneyEarned.Name = "textMoneyEarned";
-			this.textMoneyEarned.Size = new System.Drawing.Size(62, 24);
+			this.textMoneyEarned.Size = new System.Drawing.Size(41, 19);
 			this.textMoneyEarned.TabIndex = 97;
 			this.textMoneyEarned.Text = "128$";
 			// 
 			// textProductsCount
 			// 
 			this.textProductsCount.AutoSize = true;
-			this.textProductsCount.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textProductsCount.Location = new System.Drawing.Point(184, 41);
+			this.textProductsCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textProductsCount.Location = new System.Drawing.Point(162, 40);
 			this.textProductsCount.Name = "textProductsCount";
-			this.textProductsCount.Size = new System.Drawing.Size(36, 24);
+			this.textProductsCount.Size = new System.Drawing.Size(25, 19);
 			this.textProductsCount.TabIndex = 96;
 			this.textProductsCount.Text = "15";
 			this.textProductsCount.Click += new System.EventHandler(this.textProductsCount_Click);
@@ -156,9 +156,9 @@
 			// 
 			this.textBirthDate.AutoSize = true;
 			this.textBirthDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textBirthDate.Location = new System.Drawing.Point(120, 92);
+			this.textBirthDate.Location = new System.Drawing.Point(162, 91);
 			this.textBirthDate.Name = "textBirthDate";
-			this.textBirthDate.Size = new System.Drawing.Size(96, 23);
+			this.textBirthDate.Size = new System.Drawing.Size(83, 19);
 			this.textBirthDate.TabIndex = 94;
 			this.textBirthDate.Text = "1996/11/15";
 			// 
@@ -166,9 +166,9 @@
 			// 
 			this.textCreationDate.AutoSize = true;
 			this.textCreationDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textCreationDate.Location = new System.Drawing.Point(120, 140);
+			this.textCreationDate.Location = new System.Drawing.Point(162, 141);
 			this.textCreationDate.Name = "textCreationDate";
-			this.textCreationDate.Size = new System.Drawing.Size(96, 23);
+			this.textCreationDate.Size = new System.Drawing.Size(83, 19);
 			this.textCreationDate.TabIndex = 93;
 			this.textCreationDate.Text = "2011/05/05";
 			// 
@@ -176,9 +176,9 @@
 			// 
 			this.textLastName.AutoSize = true;
 			this.textLastName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textLastName.Location = new System.Drawing.Point(306, 42);
+			this.textLastName.Location = new System.Drawing.Point(453, 41);
 			this.textLastName.Name = "textLastName";
-			this.textLastName.Size = new System.Drawing.Size(62, 23);
+			this.textLastName.Size = new System.Drawing.Size(50, 19);
 			this.textLastName.TabIndex = 91;
 			this.textLastName.Text = "Sobeih";
 			// 
@@ -186,30 +186,29 @@
 			// 
 			this.textGender.AutoSize = true;
 			this.textGender.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textGender.Location = new System.Drawing.Point(498, 43);
+			this.textGender.Location = new System.Drawing.Point(453, 91);
 			this.textGender.Name = "textGender";
-			this.textGender.Size = new System.Drawing.Size(47, 23);
+			this.textGender.Size = new System.Drawing.Size(39, 19);
 			this.textGender.TabIndex = 90;
 			this.textGender.Text = "Male";
-			this.textGender.Click += new System.EventHandler(this.textGender_Click);
 			// 
 			// textMobileNumber
 			// 
 			this.textMobileNumber.AutoSize = true;
 			this.textMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.textMobileNumber.Location = new System.Drawing.Point(713, 98);
+			this.textMobileNumber.Location = new System.Drawing.Point(162, 191);
 			this.textMobileNumber.Name = "textMobileNumber";
-			this.textMobileNumber.Size = new System.Drawing.Size(130, 23);
+			this.textMobileNumber.Size = new System.Drawing.Size(97, 19);
 			this.textMobileNumber.TabIndex = 89;
-			this.textMobileNumber.Text = "+201148084758";
+			this.textMobileNumber.Text = "01148084758";
 			// 
 			// textLocation
 			// 
 			this.textLocation.AutoSize = true;
 			this.textLocation.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textLocation.Location = new System.Drawing.Point(647, 59);
+			this.textLocation.Location = new System.Drawing.Point(452, 141);
 			this.textLocation.Name = "textLocation";
-			this.textLocation.Size = new System.Drawing.Size(102, 23);
+			this.textLocation.Size = new System.Drawing.Size(83, 19);
 			this.textLocation.TabIndex = 88;
 			this.textLocation.Text = "Egypt, Cairo";
 			// 
@@ -217,122 +216,122 @@
 			// 
 			this.textFirstName.AutoSize = true;
 			this.textFirstName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textFirstName.Location = new System.Drawing.Point(101, 43);
+			this.textFirstName.Location = new System.Drawing.Point(162, 41);
 			this.textFirstName.Name = "textFirstName";
-			this.textFirstName.Size = new System.Drawing.Size(53, 23);
+			this.textFirstName.Size = new System.Drawing.Size(44, 19);
 			this.textFirstName.TabIndex = 87;
 			this.textFirstName.Text = "Omar";
 			// 
 			// textUserName
 			// 
 			this.textUserName.AutoSize = true;
-			this.textUserName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textUserName.Location = new System.Drawing.Point(642, 9);
+			this.textUserName.Font = new System.Drawing.Font("Segoe UI Light", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textUserName.Location = new System.Drawing.Point(618, 12);
 			this.textUserName.Name = "textUserName";
-			this.textUserName.Size = new System.Drawing.Size(148, 41);
+			this.textUserName.Size = new System.Drawing.Size(268, 74);
 			this.textUserName.TabIndex = 86;
-			this.textUserName.Text = "username";
+			this.textUserName.Text = "Username";
 			this.textUserName.Click += new System.EventHandler(this.textUserName_Click);
 			// 
 			// labelMoneyPaid
 			// 
-			this.labelMoneyPaid.AutoSize = true;
-			this.labelMoneyPaid.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.labelMoneyPaid.Location = new System.Drawing.Point(317, 88);
+			this.labelMoneyPaid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMoneyPaid.Location = new System.Drawing.Point(296, 75);
 			this.labelMoneyPaid.Name = "labelMoneyPaid";
-			this.labelMoneyPaid.Size = new System.Drawing.Size(99, 23);
+			this.labelMoneyPaid.Size = new System.Drawing.Size(150, 50);
 			this.labelMoneyPaid.TabIndex = 84;
 			this.labelMoneyPaid.Text = "Money Paid";
+			this.labelMoneyPaid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelOrdersCount
 			// 
-			this.labelOrdersCount.AutoSize = true;
-			this.labelOrdersCount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.labelOrdersCount.Location = new System.Drawing.Point(317, 45);
+			this.labelOrdersCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelOrdersCount.Location = new System.Drawing.Point(296, 25);
 			this.labelOrdersCount.Name = "labelOrdersCount";
-			this.labelOrdersCount.Size = new System.Drawing.Size(149, 23);
+			this.labelOrdersCount.Size = new System.Drawing.Size(150, 50);
 			this.labelOrdersCount.TabIndex = 77;
 			this.labelOrdersCount.Text = "Number of Orders";
+			this.labelOrdersCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelMoneyEarned
 			// 
-			this.labelMoneyEarned.AutoSize = true;
-			this.labelMoneyEarned.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.labelMoneyEarned.Location = new System.Drawing.Point(9, 88);
+			this.labelMoneyEarned.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMoneyEarned.Location = new System.Drawing.Point(6, 75);
 			this.labelMoneyEarned.Name = "labelMoneyEarned";
-			this.labelMoneyEarned.Size = new System.Drawing.Size(120, 23);
+			this.labelMoneyEarned.Size = new System.Drawing.Size(150, 50);
 			this.labelMoneyEarned.TabIndex = 76;
 			this.labelMoneyEarned.Text = "Money Earned";
+			this.labelMoneyEarned.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelProductsCount
 			// 
-			this.labelProductsCount.AutoSize = true;
-			this.labelProductsCount.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-			this.labelProductsCount.Location = new System.Drawing.Point(9, 43);
+			this.labelProductsCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelProductsCount.Location = new System.Drawing.Point(6, 25);
 			this.labelProductsCount.Name = "labelProductsCount";
-			this.labelProductsCount.Size = new System.Drawing.Size(165, 23);
+			this.labelProductsCount.Size = new System.Drawing.Size(150, 50);
 			this.labelProductsCount.TabIndex = 75;
 			this.labelProductsCount.Text = "Number of Products";
+			this.labelProductsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelBirthDate
 			// 
-			this.labelBirthDate.AutoSize = true;
-			this.labelBirthDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.labelBirthDate.Location = new System.Drawing.Point(9, 94);
+			this.labelBirthDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelBirthDate.Location = new System.Drawing.Point(6, 75);
 			this.labelBirthDate.Name = "labelBirthDate";
-			this.labelBirthDate.Size = new System.Drawing.Size(81, 20);
+			this.labelBirthDate.Size = new System.Drawing.Size(150, 50);
 			this.labelBirthDate.TabIndex = 73;
-			this.labelBirthDate.Text = "Birth Date";
+			this.labelBirthDate.Text = "Birthdate";
+			this.labelBirthDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelCreationDate
 			// 
-			this.labelCreationDate.AutoSize = true;
-			this.labelCreationDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.labelCreationDate.Location = new System.Drawing.Point(9, 142);
+			this.labelCreationDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelCreationDate.Location = new System.Drawing.Point(6, 125);
 			this.labelCreationDate.Name = "labelCreationDate";
-			this.labelCreationDate.Size = new System.Drawing.Size(105, 20);
+			this.labelCreationDate.Size = new System.Drawing.Size(150, 50);
 			this.labelCreationDate.TabIndex = 72;
 			this.labelCreationDate.Text = "Creation Date";
+			this.labelCreationDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelFirstName
 			// 
-			this.labelFirstName.AutoSize = true;
-			this.labelFirstName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelFirstName.Location = new System.Drawing.Point(9, 45);
+			this.labelFirstName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelFirstName.Location = new System.Drawing.Point(6, 25);
 			this.labelFirstName.Name = "labelFirstName";
-			this.labelFirstName.Size = new System.Drawing.Size(86, 20);
+			this.labelFirstName.Size = new System.Drawing.Size(150, 50);
 			this.labelFirstName.TabIndex = 70;
 			this.labelFirstName.Text = "First Name";
+			this.labelFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelMobileNumber
 			// 
-			this.labelMobileNumber.AutoSize = true;
-			this.labelMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelMobileNumber.Location = new System.Drawing.Point(648, 98);
+			this.labelMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelMobileNumber.Location = new System.Drawing.Point(6, 175);
 			this.labelMobileNumber.Name = "labelMobileNumber";
-			this.labelMobileNumber.Size = new System.Drawing.Size(59, 23);
+			this.labelMobileNumber.Size = new System.Drawing.Size(150, 50);
 			this.labelMobileNumber.TabIndex = 69;
 			this.labelMobileNumber.Text = "Phone";
+			this.labelMobileNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelGender
 			// 
-			this.labelGender.AutoSize = true;
-			this.labelGender.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.labelGender.Location = new System.Drawing.Point(432, 46);
+			this.labelGender.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelGender.Location = new System.Drawing.Point(297, 75);
 			this.labelGender.Name = "labelGender";
-			this.labelGender.Size = new System.Drawing.Size(60, 20);
+			this.labelGender.Size = new System.Drawing.Size(150, 50);
 			this.labelGender.TabIndex = 68;
 			this.labelGender.Text = "Gender";
+			this.labelGender.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// labelLastName
 			// 
-			this.labelLastName.AutoSize = true;
-			this.labelLastName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.labelLastName.Location = new System.Drawing.Point(216, 45);
+			this.labelLastName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLastName.Location = new System.Drawing.Point(297, 25);
 			this.labelLastName.Name = "labelLastName";
-			this.labelLastName.Size = new System.Drawing.Size(84, 20);
+			this.labelLastName.Size = new System.Drawing.Size(150, 50);
 			this.labelLastName.TabIndex = 66;
 			this.labelLastName.Text = "Last Name";
+			this.labelLastName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pictureBoxLogo
 			// 
@@ -347,16 +346,15 @@
 			// textRating
 			// 
 			this.textRating.AutoSize = true;
-			this.textRating.Font = new System.Drawing.Font("Segoe UI Light", 26F);
-			this.textRating.Location = new System.Drawing.Point(1071, 43);
+			this.textRating.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.textRating.Location = new System.Drawing.Point(735, 98);
 			this.textRating.Name = "textRating";
-			this.textRating.Size = new System.Drawing.Size(81, 60);
+			this.textRating.Size = new System.Drawing.Size(55, 41);
 			this.textRating.TabIndex = 0;
 			this.textRating.Text = "8.9";
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.labelEmptyAccounts);
 			this.groupBox1.Controls.Add(this.labelMoneyPaid);
 			this.groupBox1.Controls.Add(this.labelProductsCount);
 			this.groupBox1.Controls.Add(this.labelMoneyEarned);
@@ -366,74 +364,88 @@
 			this.groupBox1.Controls.Add(this.textProductsCount);
 			this.groupBox1.Controls.Add(this.textMoneyEarned);
 			this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox1.Location = new System.Drawing.Point(646, 177);
+			this.groupBox1.Location = new System.Drawing.Point(624, 162);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(566, 132);
+			this.groupBox1.Size = new System.Drawing.Size(594, 128);
 			this.groupBox1.TabIndex = 102;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Activity";
-			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
 			// 
 			// labelEmptyAccounts
 			// 
 			this.labelEmptyAccounts.Font = new System.Drawing.Font("Segoe UI Light", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEmptyAccounts.Location = new System.Drawing.Point(-28, -165);
+			this.labelEmptyAccounts.Location = new System.Drawing.Point(618, 9);
 			this.labelEmptyAccounts.Name = "labelEmptyAccounts";
-			this.labelEmptyAccounts.Size = new System.Drawing.Size(600, 737);
+			this.labelEmptyAccounts.Size = new System.Drawing.Size(600, 743);
 			this.labelEmptyAccounts.TabIndex = 105;
-			this.labelEmptyAccounts.Text = "No avalible accounts";
+			this.labelEmptyAccounts.Text = "No avalible Accounts";
 			this.labelEmptyAccounts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.labelEmptyAccounts.Visible = false;
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.labelLocation);
 			this.groupBox2.Controls.Add(this.labelFirstName);
 			this.groupBox2.Controls.Add(this.textFirstName);
 			this.groupBox2.Controls.Add(this.labelLastName);
 			this.groupBox2.Controls.Add(this.textLastName);
 			this.groupBox2.Controls.Add(this.textCreationDate);
+			this.groupBox2.Controls.Add(this.textLocation);
 			this.groupBox2.Controls.Add(this.textBirthDate);
+			this.groupBox2.Controls.Add(this.textMobileNumber);
 			this.groupBox2.Controls.Add(this.labelGender);
 			this.groupBox2.Controls.Add(this.textGender);
 			this.groupBox2.Controls.Add(this.labelBirthDate);
+			this.groupBox2.Controls.Add(this.labelMobileNumber);
 			this.groupBox2.Controls.Add(this.labelCreationDate);
 			this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.groupBox2.Location = new System.Drawing.Point(646, 364);
+			this.groupBox2.Location = new System.Drawing.Point(624, 296);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(566, 186);
+			this.groupBox2.Size = new System.Drawing.Size(594, 451);
 			this.groupBox2.TabIndex = 103;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "About";
-			this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
 			// 
-			// label1
+			// labelLocation
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Light", 24F);
-			this.label1.Location = new System.Drawing.Point(937, 42);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(137, 54);
-			this.label1.TabIndex = 104;
-			this.label1.Text = "Rating:";
+			this.labelLocation.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLocation.Location = new System.Drawing.Point(296, 125);
+			this.labelLocation.Name = "labelLocation";
+			this.labelLocation.Size = new System.Drawing.Size(150, 50);
+			this.labelLocation.TabIndex = 95;
+			this.labelLocation.Text = "Country";
+			this.labelLocation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// labelRating
+			// 
+			this.labelRating.AutoSize = true;
+			this.labelRating.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelRating.Location = new System.Drawing.Point(624, 98);
+			this.labelRating.Name = "labelRating";
+			this.labelRating.Size = new System.Drawing.Size(105, 41);
+			this.labelRating.TabIndex = 104;
+			this.labelRating.Text = "Rating:";
 			// 
 			// FormAccounts
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1230, 767);
-			this.Controls.Add(this.label1);
+			this.ClientSize = new System.Drawing.Size(1230, 761);
+			this.Controls.Add(this.labelRating);
 			this.Controls.Add(this.textRating);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.pictureBoxLogo);
-			this.Controls.Add(this.textMobileNumber);
-			this.Controls.Add(this.textLocation);
 			this.Controls.Add(this.textUserName);
-			this.Controls.Add(this.labelMobileNumber);
-			this.Controls.Add(this.textBoxUsername);
-			this.Controls.Add(this.listSellers);
+			this.Controls.Add(this.textBoxSearch);
+			this.Controls.Add(this.listViewSellers);
+			this.Controls.Add(this.labelEmptyAccounts);
+			this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "FormAccounts";
-			this.Text = "Sellers";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+			this.Text = "Delivery Market";
 			this.Load += new System.EventHandler(this.FormAccounts_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.groupBox1.ResumeLayout(false);
@@ -447,11 +459,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listSellers;
+        private System.Windows.Forms.ListView listViewSellers;
         private System.Windows.Forms.ColumnHeader columnUserName;
         private System.Windows.Forms.ColumnHeader columnRating;
         private System.Windows.Forms.ColumnHeader columnProductsCount;
-		private System.Windows.Forms.TextBox textBoxUsername;
+		private System.Windows.Forms.TextBox textBoxSearch;
 		private System.Windows.Forms.Label labelLastName;
 		private System.Windows.Forms.Label labelGender;
 		private System.Windows.Forms.Label labelMobileNumber;
@@ -478,7 +490,8 @@
 		private System.Windows.Forms.Label textRating;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelRating;
 		private System.Windows.Forms.Label labelEmptyAccounts;
+		private System.Windows.Forms.Label labelLocation;
 	}
 }
