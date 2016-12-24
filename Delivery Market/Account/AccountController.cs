@@ -27,6 +27,20 @@ namespace DeliveryMarket.Account {
 				+ " ON " + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID
 				+ " WHERE " + AccountEntry.COL_ACCOUNT_TYPE + " != '" + AccountType.BANNED
 				+ "' AND " + AccountEntry.COL_USERNAME + " LIKE '" + name + "%' ;";
+
+			/*
+				SELECT				account.account_id, account.username, COALESCE(AVG(rating.rating_value), 0) AS seller_rating, COALESCE(temp.cnt, 0) AS products_count
+				FROM				account LEFT OUTER JOIN (product LEFT OUTER JOIN rating ON product.product_id=rating.product_id) ON account.account_id=product.seller_id
+									LEFT OUTER JOIN
+									(SELECT		account.account_id, COUNT(*) AS cnt
+									FROM		account, product
+									WHERE		account.account_id=product.seller_id AND product.deleted=0
+									GROUP BY	account.account_id) AS temp
+				                    ON account.account_id = temp.account_id
+				WHERE				account.account_type!='Banned' AND (product.deleted IS NULL OR product.deleted=0)
+				GROUP BY			account.account_id
+			 */
+
 			return DBMan.ExecuteReader(query);
 		}
 

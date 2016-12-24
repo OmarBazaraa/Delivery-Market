@@ -52,7 +52,7 @@
 			this.labelWelcome.Name = "labelWelcome";
 			this.labelWelcome.Size = new System.Drawing.Size(260, 40);
 			this.labelWelcome.TabIndex = 0;
-			this.labelWelcome.Text = "Welcome Omar...";
+			this.labelWelcome.Text = "Welcome guest...";
 			this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// buttonAddProduct
