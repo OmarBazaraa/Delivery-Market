@@ -11,12 +11,6 @@ using System.Timers;
 using DeliveryMarket.Utils.Defs;
 using DeliveryMarket.Data.MarketContract;
 
-enum UserType {
-	ACTIVE,
-	BANNED,
-	ADMIN
-}
-
 enum ProductType {
 	ACTIVE,
 	DELETED
@@ -58,18 +52,18 @@ namespace DeliveryMarket.Admin {
 
 			foreach(DataRow row in mAccountsData.Rows) {
 				string accountType = row[Strings.ACCOUNT_TYPE].ToString();
-				if (accountType == AccountType.Active_Account) {
+				if (accountType == AccountType.ACTIVE) {
 					//User
 					textBoxUsersCount.Text = row[Strings.ACCOUNTS_COUNT].ToString();
 					textBoxUsersAverageRate.Text = row[Strings.AVERAGE_ACCOUNTS_RATING].ToString();
 					textBoxUsersMoneyPaid.Text =row[Strings.TOTAL_MONEY_PAID].ToString();
 					textBoxUsersOrderCount.Text = row[Strings.ORDERS_COUNT].ToString();
 				}
-				else if (accountType == AccountType.Banned_Account) {
+				else if (accountType == AccountType.BANNED) {
 					textBoxBannedUsersCount.Text = row[Strings.ACCOUNTS_COUNT].ToString();
 				}
 
-				else if (accountType == AccountType.Admin_Account) {
+				else if (accountType == AccountType.ADMIN) {
 					//Admin
 					textBoxAdminsCount.Text = row[Strings.ACCOUNTS_COUNT].ToString();
 					textBoxAdminsAverageRate.Text = row[Strings.AVERAGE_ACCOUNTS_RATING].ToString();
