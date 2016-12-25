@@ -218,8 +218,9 @@ namespace DeliveryMarket.Product {
 
 			int idx = listViewComments.SelectedItems[0].Index;
 			int commentID = Convert.ToInt32(mProductComments.Rows[idx][CommentEntry.COL_COMMENT_ID]);
+            int userID = Convert.ToInt32(mProductComments.Rows[idx][CommentEntry.COL_USER_ID]);
 
-			if (mPrivilege != Privilege.Admin && commentID != mAccountID) {
+            if (mPrivilege != Privilege.Admin && userID != mAccountID) {
 				return;
 			}
 
@@ -253,6 +254,7 @@ namespace DeliveryMarket.Product {
 
 			if (mController.InsertComment(mAccountID, mProductID, comment) > 0) {
 				LoadComments();
+				textBoxComment.Text = "";
 			}
 			else {
 				MessageBox.Show(COMMENT_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -366,6 +368,10 @@ namespace DeliveryMarket.Product {
 				buttonEdit.Visible = false;
 				buttonDelete.Visible = false;
 			}
+            else {
+                buttonEdit.Visible = true;
+                buttonDelete.Visible = true;
+            }
 
 			if (mPrivilege == Privilege.Admin) {
 				buttonDelete.Visible = true;

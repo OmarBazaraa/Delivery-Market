@@ -80,8 +80,8 @@ namespace DeliveryMarket.Admin {
 
 			DataTable BanReasons = mController.SelectBanReasons();
 
-			//populate product-report tab
-			textBoxReportReason.Text = reportDetails[ReportEntry.COL_REPORT_REASON].ToString();
+            //populate product-report tab
+            textBoxReportReason.Text = reportDetails[ReportEntry.COL_REPORT_REASON].ToString();
 			textBoxReportDescription.Text = reportDetails[ReportEntry.TABLE_NAME + "." + ReportEntry.COL_DESCRIPTION].ToString();
 			textBoxProductId.Text = reportDetails[ProductEntry.COL_PRODUCT_ID].ToString();
 			textBoxProductName.Text = reportDetails[ProductEntry.COL_PRODUCT_NAME].ToString();
@@ -90,6 +90,7 @@ namespace DeliveryMarket.Admin {
 			comboBoxProductCategory.Text = reportDetails[ProductEntry.COL_CATEGORY].ToString();
 			dateTimeProductSellingDate.Text = reportDetails[ProductEntry.COL_SELLING_DATE].ToString();
 			textBoxProductDescription.Text = reportDetails[ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION].ToString();
+            pictureBoxProductImage.ImageLocation = reportDetails[ProductEntry.COL_IMAGE].ToString();
 
 			//populate account tab
 			textBoxSellerId.Text = reportDetails[AccountEntry.COL_ACCOUNT_ID].ToString();
@@ -101,7 +102,7 @@ namespace DeliveryMarket.Admin {
 			dateTimeSellerCreationDate.Text = reportDetails[AccountEntry.COL_CREATION_DATE].ToString();
 			textBoxSellerAddress.Text = reportDetails[AccountEntry.COL_CITY].ToString() + ", " + reportDetails[AccountEntry.COL_COUNTRY].ToString();
 			comboBoxBanSellerReason.DataSource = BanReasons;
-			comboBoxBanSellerReason.DisplayMember = ProductRemovalReasonsEntry.COL_REASON;
+			comboBoxBanSellerReason.DisplayMember = BanReasonsEntry.COL_REASON;
 		}
 
 		private void listViewReports_SelectedIndexChanged(object sender, EventArgs e) {
@@ -125,7 +126,7 @@ namespace DeliveryMarket.Admin {
 		}
 
 		private void buttonRemoveProduct_Click(object sender, EventArgs e) {
-			new Product.FormRemoveProduct(mAdminID, Convert.ToInt32(textBoxProductId.Text)).Show();
+			new Product.FormRemoveProduct(mAdminID, Convert.ToInt32(textBoxProductId.Text)).ShowDialog(this);
 		}
 
 

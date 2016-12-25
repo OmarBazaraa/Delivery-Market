@@ -47,8 +47,13 @@ namespace DeliveryMarket.Product {
 			comboBoxTransport.ValueMember = TransportCompanyEntry.COL_COMPANY_ID;
 		}
 
-		/* Buy button clicked callback function */
-		private void buttonBuy_Click(object sender, EventArgs e) {
+        /* Numeric quantity value change callback function */
+        private void numericQuantity_ValueChanged(object sender, EventArgs e) {
+            labelPrice.Text = "Price: " + (mProductPrice * numericQuantity.Value).ToString() + "$";
+        }
+
+        /* Buy button clicked callback function */
+        private void buttonBuy_Click(object sender, EventArgs e) {
 			string address = textBoxAddress.Text.Replace("'", "''").Trim();
 
 			// Check for validation
@@ -58,9 +63,9 @@ namespace DeliveryMarket.Product {
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
-				return;
-			}
+			//if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+			//	return;
+			//}
 
 			Order order = new Order();
 			order.CustomerID = mAccountID;
@@ -94,5 +99,5 @@ namespace DeliveryMarket.Product {
 		private void buttonCancel_Click(object sender, EventArgs e) {
 			Close();
 		}
-	}
+    }
 }

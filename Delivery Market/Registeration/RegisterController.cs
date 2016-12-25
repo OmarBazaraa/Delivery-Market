@@ -76,8 +76,7 @@ namespace DeliveryMarket.Registeration {
 				AccountEntry.COL_GENDER + ", " +
 				AccountEntry.COL_MOBILE_NUMBER + ", " +
 				AccountEntry.COL_COUNTRY + ", " +
-				AccountEntry.COL_CITY + ", " +
-				AccountEntry.COL_ACCOUNT_TYPE +
+				AccountEntry.COL_CITY +
 				") VALUES (" +
 				"'" + account.Username + "', " +
 				"'" + account.Password + "', " +
@@ -87,8 +86,7 @@ namespace DeliveryMarket.Registeration {
 				"'" + account.Gender + "', " +
 				"'" + account.MobileNumber + "', " +
 				"'" + account.Country + "', " +
-				"'" + account.City + "', " +
-				"'Active'" +
+				"'" + account.City + "' " +
 				");";
 
 			return DBMan.ExecuteNonQuery(query);

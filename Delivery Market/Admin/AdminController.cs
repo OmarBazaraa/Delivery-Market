@@ -82,12 +82,12 @@ namespace DeliveryMarket.Admin {
 				"WHERE " + AccountEntry.COL_ACCOUNT_ID + " = " +
 				AccountId + " ;";
 
-			DateTime now = DateTime.Now;
-			string startDate = now.Year.ToString() + '-' + now.Month.ToString() + '-' + now.Day.ToString();
-
+			
 			string query2 = "INSERT INTO " +
-							AdminEntry.TABLE_NAME + " VALUES (" +
-							AccountId + ", '" + startDate + "');";
+							AdminEntry.TABLE_NAME + "(" +
+                            AdminEntry.COL_ACCOUNT_ID +
+                            ") VALUES (" +
+							AccountId + ");";
 
 			string query3 = "DELETE FROM " +
 							BannedUserEntry.TABLE_NAME +
@@ -184,13 +184,6 @@ namespace DeliveryMarket.Admin {
 
 
 		/******************* Select Queries *******************/
-		public DataTable SelectBanReasons() {
-			string query = "SELECT * FROM " +
-							ProductRemovalReasonsEntry.TABLE_NAME + ";";
-			DataTable rows = DBMan.ExecuteReader(query);
-			return rows;
-		}
-
 		public DataTable SelectReports(string Like = "") {
 			string query = "SELECT " +
 							ReportEntry.COL_REPORT_ID + ", " +
@@ -233,6 +226,7 @@ namespace DeliveryMarket.Admin {
 							ProductEntry.COL_QUANTITY + ", " +
 							ProductEntry.COL_CATEGORY + ", " +
 							ProductEntry.COL_SELLING_DATE + ", " +
+                            ProductEntry.COL_IMAGE + ", " +
 							ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + " as '" + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DESCRIPTION + "', " +
 							ProductEntry.COL_IMAGE + ", " +
 							AccountEntry.COL_ACCOUNT_ID + ", " +

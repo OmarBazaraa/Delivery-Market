@@ -27,9 +27,9 @@ namespace DeliveryMarket.Orders {
 		public DataRow SelectOrder (string order_id) {
 			string query = "SELECT " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + ".*, "
 				+ AccountEntry.COL_USERNAME + ", "
-				+ TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_NAME + ", " 
-				+ TransactionCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_NAME
-				+ " FROM " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + ", " + AccountEntry.TABLE_NAME
+				+ TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_NAME + " AS `" + TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_NAME + "`, " 
+				+ TransportCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_NAME + " AS `" + TransportCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_NAME + "`"
+                + " FROM " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + ", " + AccountEntry.TABLE_NAME
 				+ ", " + TransportCompanyEntry.TABLE_NAME + ", " + TransactionCompanyEntry.TABLE_NAME
 				+ " WHERE " + OrderEntry.COL_ORDER_ID + " = " + order_id
 				+ " AND " + AccountEntry.COL_ACCOUNT_ID + " = " + OrderEntry.COL_CUSTOMER_ID

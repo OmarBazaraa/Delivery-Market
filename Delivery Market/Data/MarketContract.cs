@@ -34,7 +34,14 @@
 			public const string COL_CITY = "city";
 			public const string COL_CREATION_DATE = "creation_date";
 			public const string COL_ACCOUNT_TYPE = "account_type";
-		}
+
+            // Derived attributes names
+            public const string DER_RATING = "rating";
+            public const string DER_PRODUCTS_COUNT = "products_count";
+            public const string DER_ORDERS_COUNT = "orders_count";
+            public const string DER_EARNED_MONEY = "earned_money";
+            public const string DER_PAID_MONEY = "paid_money";
+        }
 
 		public static class AdminEntry {
 			// Table name
@@ -44,22 +51,7 @@
 			public const string COL_ACCOUNT_ID = "admin_id";
 			public const string COL_START_DATE = "start_date";
 		}
-
-		public static class UserEntry {
-			// Table name
-			public const string TABLE_NAME = "user";
-
-			// Columns names
-			public const string COL_ACCOUNT_ID = "user_id";
-
-			// Derived attributes names
-			public const string DER_RATING = "rating";
-			public const string DER_PRODUCTS_COUNT = "products_count";
-			public const string DER_ORDERS_COUNT = "orders_count";
-			public const string DER_EARNED_MONEY = "earned_money";
-			public const string DER_PAID_MONEY = "paid_money";
-		}
-
+        
 		public static class BannedUserEntry {
 			// Table name
 			public const string TABLE_NAME = "banned_users";

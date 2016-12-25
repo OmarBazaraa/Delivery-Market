@@ -68,9 +68,9 @@ namespace DeliveryMarket.Product {
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
-				return;
-			}
+			//if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+			//	return;
+			//}
 
 			Product product = new Product();
 			product.ID = mProductID;
@@ -80,6 +80,7 @@ namespace DeliveryMarket.Product {
 			product.Category = comboBoxCategory.Text;
 			product.Description = textBoxDescription.Text.Replace("'", "''").Trim();
 			product.Quantity = Convert.ToInt32(numericQuantity.Value);
+            product.ImagePath = mImagePath.Replace("\\", "\\\\");
 
 			// Upload new image to our local system
 			if (mImagePath != mNewImagePath) {

@@ -69,6 +69,7 @@ namespace DeliveryMarket.Registeration {
 					return;
 				}
 
+				textBoxUsername.ReadOnly = true;
 				labelPassword.Text = OLD_PASSWORD_LABEL;
 				labelRepeatPassword.Text = NEW_PASSWORD_LABEL;
 				buttonRegister.Text = SAVE_LABEL;
@@ -101,9 +102,9 @@ namespace DeliveryMarket.Registeration {
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
-				return;
-			}
+			//if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+			//	return;
+			//}
 			
 			User user = new User();
 			user.AccountID = mAccountID.ToString();
@@ -176,7 +177,7 @@ namespace DeliveryMarket.Registeration {
 				MessageBox.Show(EMPTY_USERNAME_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}
-			if (mController.IsUsedUsername(textBoxUsername.Text)) {
+			if (mAccountID == -1 && mController.IsUsedUsername(textBoxUsername.Text)) {
 				MessageBox.Show(USED_USERNAME_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return false;
 			}

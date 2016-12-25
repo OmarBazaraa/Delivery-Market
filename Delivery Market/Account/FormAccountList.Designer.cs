@@ -71,7 +71,6 @@
             this.columnRating,
             this.columnProductsCount});
 			this.listViewSellers.FullRowSelect = true;
-			this.listViewSellers.HoverSelection = true;
 			this.listViewSellers.Location = new System.Drawing.Point(12, 173);
 			this.listViewSellers.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.listViewSellers.Name = "listViewSellers";
@@ -86,23 +85,23 @@
 			// columnUserName
 			// 
 			this.columnUserName.Text = "User Name";
-			this.columnUserName.Width = 327;
+			this.columnUserName.Width = 281;
 			// 
 			// columnRating
 			// 
 			this.columnRating.Text = "Rating";
-			this.columnRating.Width = 153;
+			this.columnRating.Width = 131;
 			// 
 			// columnProductsCount
 			// 
 			this.columnProductsCount.Text = "Products Count";
-			this.columnProductsCount.Width = 115;
+			this.columnProductsCount.Width = 242;
 			// 
 			// textBoxSearch
 			// 
 			this.textBoxSearch.Location = new System.Drawing.Point(12, 138);
 			this.textBoxSearch.Name = "textBoxSearch";
-			this.textBoxSearch.Size = new System.Drawing.Size(600, 25);
+			this.textBoxSearch.Size = new System.Drawing.Size(600, 30);
 			this.textBoxSearch.TabIndex = 3;
 			this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
 			// 
@@ -112,7 +111,7 @@
 			this.textMoneyPaid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textMoneyPaid.Location = new System.Drawing.Point(452, 90);
 			this.textMoneyPaid.Name = "textMoneyPaid";
-			this.textMoneyPaid.Size = new System.Drawing.Size(41, 19);
+			this.textMoneyPaid.Size = new System.Drawing.Size(46, 23);
 			this.textMoneyPaid.TabIndex = 99;
 			this.textMoneyPaid.Text = "115$";
 			// 
@@ -122,7 +121,7 @@
 			this.textOrdersCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textOrdersCount.Location = new System.Drawing.Point(452, 40);
 			this.textOrdersCount.Name = "textOrdersCount";
-			this.textOrdersCount.Size = new System.Drawing.Size(25, 19);
+			this.textOrdersCount.Size = new System.Drawing.Size(28, 23);
 			this.textOrdersCount.TabIndex = 98;
 			this.textOrdersCount.Text = "23";
 			// 
@@ -132,7 +131,7 @@
 			this.textMoneyEarned.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textMoneyEarned.Location = new System.Drawing.Point(162, 90);
 			this.textMoneyEarned.Name = "textMoneyEarned";
-			this.textMoneyEarned.Size = new System.Drawing.Size(41, 19);
+			this.textMoneyEarned.Size = new System.Drawing.Size(46, 23);
 			this.textMoneyEarned.TabIndex = 97;
 			this.textMoneyEarned.Text = "128$";
 			// 
@@ -142,7 +141,7 @@
 			this.textProductsCount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textProductsCount.Location = new System.Drawing.Point(162, 40);
 			this.textProductsCount.Name = "textProductsCount";
-			this.textProductsCount.Size = new System.Drawing.Size(25, 19);
+			this.textProductsCount.Size = new System.Drawing.Size(28, 23);
 			this.textProductsCount.TabIndex = 96;
 			this.textProductsCount.Text = "15";
 			this.textProductsCount.Click += new System.EventHandler(this.textProductsCount_Click);
@@ -153,7 +152,7 @@
 			this.textBirthDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
 			this.textBirthDate.Location = new System.Drawing.Point(162, 91);
 			this.textBirthDate.Name = "textBirthDate";
-			this.textBirthDate.Size = new System.Drawing.Size(83, 19);
+			this.textBirthDate.Size = new System.Drawing.Size(96, 23);
 			this.textBirthDate.TabIndex = 94;
 			this.textBirthDate.Text = "1996/11/15";
 			// 
@@ -163,7 +162,7 @@
 			this.textCreationDate.Font = new System.Drawing.Font("Segoe UI", 10.2F);
 			this.textCreationDate.Location = new System.Drawing.Point(162, 141);
 			this.textCreationDate.Name = "textCreationDate";
-			this.textCreationDate.Size = new System.Drawing.Size(83, 19);
+			this.textCreationDate.Size = new System.Drawing.Size(96, 23);
 			this.textCreationDate.TabIndex = 93;
 			this.textCreationDate.Text = "2011/05/05";
 			// 
@@ -173,7 +172,7 @@
 			this.textLastName.Font = new System.Drawing.Font("Segoe UI", 10.2F);
 			this.textLastName.Location = new System.Drawing.Point(453, 41);
 			this.textLastName.Name = "textLastName";
-			this.textLastName.Size = new System.Drawing.Size(50, 19);
+			this.textLastName.Size = new System.Drawing.Size(62, 23);
 			this.textLastName.TabIndex = 91;
 			this.textLastName.Text = "Sobeih";
 			// 
@@ -183,7 +182,7 @@
 			this.textGender.Font = new System.Drawing.Font("Segoe UI", 10.2F);
 			this.textGender.Location = new System.Drawing.Point(453, 91);
 			this.textGender.Name = "textGender";
-			this.textGender.Size = new System.Drawing.Size(39, 19);
+			this.textGender.Size = new System.Drawing.Size(47, 23);
 			this.textGender.TabIndex = 90;
 			this.textGender.Text = "Male";
 			// 
@@ -193,7 +192,7 @@
 			this.textMobileNumber.Font = new System.Drawing.Font("Segoe UI", 10.2F);
 			this.textMobileNumber.Location = new System.Drawing.Point(162, 191);
 			this.textMobileNumber.Name = "textMobileNumber";
-			this.textMobileNumber.Size = new System.Drawing.Size(97, 19);
+			this.textMobileNumber.Size = new System.Drawing.Size(109, 23);
 			this.textMobileNumber.TabIndex = 89;
 			this.textMobileNumber.Text = "01148084758";
 			// 
@@ -203,7 +202,7 @@
 			this.textLocation.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textLocation.Location = new System.Drawing.Point(452, 141);
 			this.textLocation.Name = "textLocation";
-			this.textLocation.Size = new System.Drawing.Size(83, 19);
+			this.textLocation.Size = new System.Drawing.Size(102, 23);
 			this.textLocation.TabIndex = 88;
 			this.textLocation.Text = "Egypt, Cairo";
 			// 
@@ -213,7 +212,7 @@
 			this.textFirstName.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textFirstName.Location = new System.Drawing.Point(162, 41);
 			this.textFirstName.Name = "textFirstName";
-			this.textFirstName.Size = new System.Drawing.Size(44, 19);
+			this.textFirstName.Size = new System.Drawing.Size(53, 23);
 			this.textFirstName.TabIndex = 87;
 			this.textFirstName.Text = "Omar";
 			// 
@@ -223,7 +222,7 @@
 			this.textUserName.Font = new System.Drawing.Font("Segoe UI Light", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textUserName.Location = new System.Drawing.Point(618, 12);
 			this.textUserName.Name = "textUserName";
-			this.textUserName.Size = new System.Drawing.Size(268, 74);
+			this.textUserName.Size = new System.Drawing.Size(335, 93);
 			this.textUserName.TabIndex = 86;
 			this.textUserName.Text = "Username";
 			this.textUserName.Click += new System.EventHandler(this.textUserName_Click);
@@ -342,9 +341,9 @@
 			// 
 			this.textRating.AutoSize = true;
 			this.textRating.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textRating.Location = new System.Drawing.Point(735, 98);
+			this.textRating.Location = new System.Drawing.Point(746, 98);
 			this.textRating.Name = "textRating";
-			this.textRating.Size = new System.Drawing.Size(55, 41);
+			this.textRating.Size = new System.Drawing.Size(68, 50);
 			this.textRating.TabIndex = 0;
 			this.textRating.Text = "8.9";
 			// 
@@ -369,7 +368,7 @@
 			// labelEmptyAccounts
 			// 
 			this.labelEmptyAccounts.Font = new System.Drawing.Font("Segoe UI Light", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelEmptyAccounts.Location = new System.Drawing.Point(618, 9);
+			this.labelEmptyAccounts.Location = new System.Drawing.Point(618, 12);
 			this.labelEmptyAccounts.Name = "labelEmptyAccounts";
 			this.labelEmptyAccounts.Size = new System.Drawing.Size(600, 743);
 			this.labelEmptyAccounts.TabIndex = 105;
@@ -417,13 +416,13 @@
 			this.labelRating.Font = new System.Drawing.Font("Segoe UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.labelRating.Location = new System.Drawing.Point(624, 98);
 			this.labelRating.Name = "labelRating";
-			this.labelRating.Size = new System.Drawing.Size(105, 41);
+			this.labelRating.Size = new System.Drawing.Size(129, 50);
 			this.labelRating.TabIndex = 104;
 			this.labelRating.Text = "Rating:";
 			// 
 			// FormAccountList
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1230, 761);
 			this.Controls.Add(this.labelRating);

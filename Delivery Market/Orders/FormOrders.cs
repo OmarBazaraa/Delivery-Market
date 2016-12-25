@@ -39,23 +39,26 @@ namespace DeliveryMarket.Orders {
 		}
 
 		private void populateDetails() {
-			if (mSelectedOrder == null) return;
-			textUserName.Text = mSelectedOrder[AccountEntry.COL_USERNAME].ToString();
+            if (mSelectedOrder == null) { labelEmptyOrders.Visible = true; return; }
+            labelEmptyOrders.Visible = false;
+            textUserName.Text = mSelectedOrder[AccountEntry.COL_USERNAME].ToString();
 			textProductName.Text = mSelectedOrder[OrderEntry.COL_PRODUCT_NAME].ToString();
-			textPrice.Text = mSelectedOrder[OrderEntry.COL_PRODUCT_PRICE].ToString() + "$";
+			textPrice.Text = (Convert.ToInt32(mSelectedOrder[OrderEntry.COL_PRODUCT_PRICE]) * Convert.ToInt32(mSelectedOrder[OrderEntry.COL_QUANTITY])).ToString() + "$";
 			textQuantity.Text = mSelectedOrder[OrderEntry.COL_QUANTITY].ToString() + " pieces";
-			textTransactionCompany.Text = mSelectedOrder[TransactionCompanyEntry.COL_COMPANY_NAME].ToString();
-			textTransportCompany.Text = mSelectedOrder[TransportCompanyEntry.COL_COMPANY_NAME].ToString();
+			textTransactionCompany.Text = mSelectedOrder[TransactionCompanyEntry.TABLE_NAME + "." + TransactionCompanyEntry.COL_COMPANY_NAME].ToString();
+			textTransportCompany.Text = mSelectedOrder[TransportCompanyEntry.TABLE_NAME + "." + TransportCompanyEntry.COL_COMPANY_NAME].ToString();
 			textOrderDate.Text = mSelectedOrder[OrderEntry.COL_ORDER_DATE].ToString();
 			textAddress.Text = mSelectedOrder[OrderEntry.COL_ADDRESS].ToString();
 		}
+
+
 
 		private void FormOrders_Load(object sender, EventArgs e) {
 			mOrdersData = mController.SelectAllOrders(mAccountID.ToString());
 			populateList();
 			textOrdersCount.Text = listOrders.Items.Count.ToString();
-			if (listOrders.Items.Count == 0) return;			
-			mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[0][OrderEntry.COL_ORDER_ID].ToString());
+            if (listOrders.Items.Count > 0)
+                mSelectedOrder = mController.SelectOrder(mOrdersData.Rows[0][OrderEntry.COL_ORDER_ID].ToString());
 			populateDetails();
 		}
 

@@ -76,7 +76,7 @@ namespace DeliveryMarket {
 				return;
 			}
 
-			new FormOrders(mAccountID).Show(this);
+			new FormProfile(mAccountID,mAccountID,mPrivilege).Show(this);
 		}
 
 		/* Admin panel button clicked callback function */

@@ -41,10 +41,10 @@ namespace DeliveryMarket.Account {
 			Gender = dr[AccountEntry.COL_GENDER].ToString();
 			MobileNumber = dr[AccountEntry.COL_MOBILE_NUMBER].ToString();
 			CreationDate = dr[AccountEntry.COL_CREATION_DATE].ToString();
-			Rating = dr[UserEntry.DER_RATING].ToString();
-			ProductsCount = dr[UserEntry.DER_PRODUCTS_COUNT].ToString();
-			OrdersCount = dr[UserEntry.DER_ORDERS_COUNT].ToString();
-			EarnedMoney = dr[UserEntry.DER_EARNED_MONEY].ToString();
+			Rating = dr[AccountEntry.DER_RATING].ToString();
+			ProductsCount = dr[AccountEntry.DER_PRODUCTS_COUNT].ToString();
+			OrdersCount = dr[AccountEntry.DER_ORDERS_COUNT].ToString();
+			EarnedMoney = dr[AccountEntry.DER_EARNED_MONEY].ToString();
 		}
 	}
 
@@ -64,9 +64,10 @@ namespace DeliveryMarket.Account {
 			ProductsCount = new string[dt.Rows.Count];
 
 			foreach (DataRow row in dt.Rows) {
+				decimal rating = Convert.ToDecimal(row[AccountEntry.DER_RATING]);
 				UserName[ListItemsCount] = row[AccountEntry.COL_USERNAME].ToString();
-				Rating[ListItemsCount] = row[UserEntry.DER_RATING].ToString();
-				ProductsCount[ListItemsCount] = row[UserEntry.DER_PRODUCTS_COUNT].ToString();
+				Rating[ListItemsCount] = Math.Round(rating, 2).ToString();
+				ProductsCount[ListItemsCount] = Convert.ToInt32(row[AccountEntry.DER_PRODUCTS_COUNT]).ToString();
 				AccountID[ListItemsCount] = row[AccountEntry.COL_ACCOUNT_ID].ToString();
 				ListItemsCount++;
 			}

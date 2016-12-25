@@ -112,7 +112,10 @@ namespace DeliveryMarket.Product {
 		/* Selects all comments on a given product */
 		public DataTable SelectComments(int productID) {
 			string query = "SELECT " +
-				CommentEntry.COL_COMMENT_ID + ", " + CommentEntry.COL_COMMENT_BODY + ", " + CommentEntry.COL_COMMENT_DATE + "," +
+				CommentEntry.COL_COMMENT_ID + ", " +
+                CommentEntry.COL_USER_ID + ", " +
+                CommentEntry.COL_COMMENT_BODY + ", " +
+                CommentEntry.COL_COMMENT_DATE + "," +
 				AccountEntry.COL_USERNAME + " AS " + CommentEntry.COL_USER_NAME +
 				" FROM " + CommentEntry.TABLE_NAME + ", " + AccountEntry.TABLE_NAME + 
 				" WHERE " + CommentEntry.COL_USER_ID + "=" + AccountEntry.COL_ACCOUNT_ID + 

@@ -38,10 +38,10 @@ namespace DeliveryMarket.Account {
 			if (mPrivilege != Privilege.Admin) {
 				buttonBan.Hide();
 				buttonMakeAdmin.Hide();
-				if (mAccountID != mUserID) {
-					buttonViewOrders.Hide();
-					buttonEditAccount.Hide();
-				}
+			}
+			if (mAccountID != mUserID) {
+				buttonViewOrders.Hide();
+				buttonEditAccount.Hide();
 			}
 			populate();
 		}
@@ -69,11 +69,13 @@ namespace DeliveryMarket.Account {
 			textCreationDate.Text = mData[AccountEntry.COL_CREATION_DATE].ToString();
 			textGender.Text = mData[AccountEntry.COL_GENDER].ToString();
 			textBirthDate.Text = mData[AccountEntry.COL_BIRTHDATE].ToString();
-			textRating.Text = mData[UserEntry.DER_RATING].ToString();
-			textProductsCount.Text = mData[UserEntry.DER_PRODUCTS_COUNT].ToString();
-			textOrdersCount.Text = mData[UserEntry.DER_ORDERS_COUNT].ToString();
-			textMoneyEarned.Text = mData[UserEntry.DER_EARNED_MONEY].ToString() + "$";
-			textMoneyPaid.Text = mData[UserEntry.DER_PAID_MONEY].ToString() + "$";
+			textRating.Text = mData[AccountEntry.DER_RATING].ToString();
+			textProductsCount.Text = mData[AccountEntry.DER_PRODUCTS_COUNT].ToString();
+			textOrdersCount.Text = mData[AccountEntry.DER_ORDERS_COUNT].ToString();
+			textMoneyEarned.Text = mData[AccountEntry.DER_EARNED_MONEY].ToString() + "$";
+			textMoneyPaid.Text = mData[AccountEntry.DER_PAID_MONEY].ToString() + "$";
+			if (textGender.Text == "M") textGender.Text += "ale";
+			if (textGender.Text == "F") textGender.Text += "emale";
 		}
 
 		private void buttonMakeAdmin_Click(object sender, EventArgs e) {
@@ -85,7 +87,7 @@ namespace DeliveryMarket.Account {
 		}
 
 		private void buttonEditAccount_Click(object sender, EventArgs e) {
-
+			new Registeration.FormRegister(mUserID).ShowDialog(this);
 		}
 	}
 }
