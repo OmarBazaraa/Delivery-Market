@@ -54,13 +54,14 @@ namespace DeliveryMarket.Admin {
 			buttonApply.Enabled = false;
 			buttonCancel.Enabled = false;
 			comboBoxType.Enabled = false;
+			comboBoxType.DropDownStyle = ComboBoxStyle.DropDown;
 			comboBoxReason.Enabled = false;
-			richTextBoxDescription.Enabled = false;
+			textBoxDescription.Enabled = false;
 			labelReason.Hide();
 			labelDescription.Hide();
 			labelStartDate.Hide();
 			comboBoxReason.Hide();
-			richTextBoxDescription.Hide();
+			textBoxDescription.Hide();
 			dateTimeStartDate.Hide();
 
 			if (AccountID == "") return;
@@ -76,7 +77,7 @@ namespace DeliveryMarket.Admin {
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
-					richTextBoxDescription.Show();
+					textBoxDescription.Show();
 					break;
 				case AccountType.ADMIN:
 					labelStartDate.Show();
@@ -89,7 +90,7 @@ namespace DeliveryMarket.Admin {
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
-					richTextBoxDescription.Show();
+				textBoxDescription.Show();
 			}
 			textBoxID.Text = accountDetails[AccountEntry.COL_ACCOUNT_ID].ToString();
 			textBoxName.Text = accountDetails[AccountEntry.COL_FIRST_NAME].ToString() + ", " + accountDetails[AccountEntry.COL_LAST_NAME];
@@ -101,7 +102,7 @@ namespace DeliveryMarket.Admin {
 			textBoxAddress.Text = accountDetails[AccountEntry.COL_CITY].ToString() + ", " + accountDetails[AccountEntry.COL_COUNTRY].ToString();
 			comboBoxType.Text = accountDetails[AccountEntry.COL_ACCOUNT_TYPE].ToString();
 			comboBoxReason.Text = accountDetails[BannedUserEntry.COL_BAN_REASON].ToString();
-			richTextBoxDescription.Text = accountDetails[BannedUserEntry.COL_DESCRIPTION].ToString();
+			textBoxDescription.Text = accountDetails[BannedUserEntry.COL_DESCRIPTION].ToString();
 			dateTimeStartDate.Text = accountDetails[AdminEntry.COL_START_DATE].ToString();
 		}
 
@@ -126,8 +127,9 @@ namespace DeliveryMarket.Admin {
 			buttonApply.Enabled = true;
 			buttonCancel.Enabled = true;
 			comboBoxType.Enabled = true;
+			comboBoxType.DropDownStyle = ComboBoxStyle.DropDownList;
 			comboBoxReason.Enabled = true;
-			richTextBoxDescription.Enabled = true;
+			textBoxDescription.Enabled = true;
 
 			DataTable BanReasons = mController.SelectBanReasons();
 			comboBoxReason.DataSource = BanReasons;
@@ -146,18 +148,18 @@ namespace DeliveryMarket.Admin {
 				labelReason.Show();
 				comboBoxReason.Show();
 				comboBoxReason.Refresh();
-				richTextBoxDescription.Show();
+				textBoxDescription.Show();
 			}
 		}
 
 		private void buttonApply_Click(object sender, EventArgs e) {
-			if (comboBoxType.Text == AccountType.BANNED && richTextBoxDescription.Text == "") {
+			if (comboBoxType.Text == AccountType.BANNED && textBoxDescription.Text == "") {
 				MessageBox.Show(EMPTY_FIELD_DESCRIPTION);
 				return;
 			}
 			switch(comboBoxType.Text) {
 				case AccountType.BANNED:
-					if (mController.BanAccount(textBoxID.Text, mAdminID.ToString(), comboBoxReason.Text, richTextBoxDescription.Text.Replace("'", "''").Trim()) == QueryFailed) {
+					if (mController.BanAccount(textBoxID.Text, mAdminID.ToString(), comboBoxReason.Text, textBoxDescription.Text.Replace("'", "''").Trim()) == QueryFailed) {
 						MessageBox.Show(BAN_ACCOUNT_FAILED);
 						return;
 					}
@@ -187,7 +189,7 @@ namespace DeliveryMarket.Admin {
 			labelDescription.Hide();
 			labelStartDate.Hide();
 			comboBoxReason.Hide();
-			richTextBoxDescription.Hide();
+			textBoxDescription.Hide();
 			dateTimeStartDate.Hide();
 
 			switch (comboBoxType.Text) {
@@ -195,7 +197,7 @@ namespace DeliveryMarket.Admin {
 					labelReason.Show();
 					labelDescription.Show();
 					comboBoxReason.Show();
-					richTextBoxDescription.Show();
+					textBoxDescription.Show();
 					break;
 				case AccountType.ADMIN:
 					labelStartDate.Show();

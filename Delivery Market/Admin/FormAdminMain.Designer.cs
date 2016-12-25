@@ -40,9 +40,10 @@
 			// buttonViewAccounts
 			// 
 			this.buttonViewAccounts.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonViewAccounts.Location = new System.Drawing.Point(47, 12);
+			this.buttonViewAccounts.Location = new System.Drawing.Point(12, 13);
+			this.buttonViewAccounts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonViewAccounts.Name = "buttonViewAccounts";
-			this.buttonViewAccounts.Size = new System.Drawing.Size(251, 47);
+			this.buttonViewAccounts.Size = new System.Drawing.Size(260, 40);
 			this.buttonViewAccounts.TabIndex = 0;
 			this.buttonViewAccounts.Text = "View Accounts";
 			this.buttonViewAccounts.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
 			// buttonReports
 			// 
 			this.buttonReports.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonReports.Location = new System.Drawing.Point(47, 65);
+			this.buttonReports.Location = new System.Drawing.Point(12, 61);
+			this.buttonReports.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonReports.Name = "buttonReports";
-			this.buttonReports.Size = new System.Drawing.Size(251, 47);
+			this.buttonReports.Size = new System.Drawing.Size(260, 40);
 			this.buttonReports.TabIndex = 1;
 			this.buttonReports.Text = "Reports";
 			this.buttonReports.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
 			// buttonBack
 			// 
 			this.buttonBack.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonBack.Location = new System.Drawing.Point(47, 505);
+			this.buttonBack.Location = new System.Drawing.Point(12, 414);
+			this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonBack.Name = "buttonBack";
-			this.buttonBack.Size = new System.Drawing.Size(251, 47);
+			this.buttonBack.Size = new System.Drawing.Size(260, 40);
 			this.buttonBack.TabIndex = 4;
 			this.buttonBack.Text = "Back";
 			this.buttonBack.UseVisualStyleBackColor = true;
@@ -73,9 +76,10 @@
 			// buttonStatistics
 			// 
 			this.buttonStatistics.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonStatistics.Location = new System.Drawing.Point(47, 171);
+			this.buttonStatistics.Location = new System.Drawing.Point(12, 157);
+			this.buttonStatistics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonStatistics.Name = "buttonStatistics";
-			this.buttonStatistics.Size = new System.Drawing.Size(251, 47);
+			this.buttonStatistics.Size = new System.Drawing.Size(260, 40);
 			this.buttonStatistics.TabIndex = 3;
 			this.buttonStatistics.Text = "Statisitics";
 			this.buttonStatistics.UseVisualStyleBackColor = true;
@@ -84,9 +88,10 @@
 			// buttonCompanies
 			// 
 			this.buttonCompanies.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonCompanies.Location = new System.Drawing.Point(47, 118);
+			this.buttonCompanies.Location = new System.Drawing.Point(12, 109);
+			this.buttonCompanies.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonCompanies.Name = "buttonCompanies";
-			this.buttonCompanies.Size = new System.Drawing.Size(251, 47);
+			this.buttonCompanies.Size = new System.Drawing.Size(260, 40);
 			this.buttonCompanies.TabIndex = 2;
 			this.buttonCompanies.Text = "View Companies";
 			this.buttonCompanies.UseVisualStyleBackColor = true;
@@ -95,9 +100,10 @@
 			// buttonExtras
 			// 
 			this.buttonExtras.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.buttonExtras.Location = new System.Drawing.Point(47, 224);
+			this.buttonExtras.Location = new System.Drawing.Point(12, 205);
+			this.buttonExtras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.buttonExtras.Name = "buttonExtras";
-			this.buttonExtras.Size = new System.Drawing.Size(251, 47);
+			this.buttonExtras.Size = new System.Drawing.Size(260, 40);
 			this.buttonExtras.TabIndex = 5;
 			this.buttonExtras.Text = "Extras";
 			this.buttonExtras.UseVisualStyleBackColor = true;
@@ -105,17 +111,19 @@
 			// 
 			// FormAdminMain
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(351, 564);
+			this.ClientSize = new System.Drawing.Size(284, 467);
 			this.Controls.Add(this.buttonExtras);
 			this.Controls.Add(this.buttonCompanies);
 			this.Controls.Add(this.buttonStatistics);
 			this.Controls.Add(this.buttonViewAccounts);
 			this.Controls.Add(this.buttonReports);
 			this.Controls.Add(this.buttonBack);
+			this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximizeBox = false;
 			this.Name = "FormAdminMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

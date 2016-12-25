@@ -61,9 +61,9 @@
 			// 
 			// buttonRemove
 			// 
-			this.buttonRemove.Location = new System.Drawing.Point(308, 774);
+			this.buttonRemove.Location = new System.Drawing.Point(286, 772);
 			this.buttonRemove.Name = "buttonRemove";
-			this.buttonRemove.Size = new System.Drawing.Size(111, 23);
+			this.buttonRemove.Size = new System.Drawing.Size(122, 25);
 			this.buttonRemove.TabIndex = 19;
 			this.buttonRemove.Text = "Remove";
 			this.buttonRemove.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
 			// 
 			// buttonAdd
 			// 
-			this.buttonAdd.Location = new System.Drawing.Point(425, 68);
+			this.buttonAdd.Location = new System.Drawing.Point(414, 68);
 			this.buttonAdd.Name = "buttonAdd";
-			this.buttonAdd.Size = new System.Drawing.Size(111, 23);
+			this.buttonAdd.Size = new System.Drawing.Size(122, 25);
 			this.buttonAdd.TabIndex = 18;
 			this.buttonAdd.Text = "Add";
 			this.buttonAdd.UseVisualStyleBackColor = true;
@@ -83,7 +83,7 @@
 			// 
 			this.buttonSearch.Location = new System.Drawing.Point(198, 67);
 			this.buttonSearch.Name = "buttonSearch";
-			this.buttonSearch.Size = new System.Drawing.Size(122, 23);
+			this.buttonSearch.Size = new System.Drawing.Size(122, 25);
 			this.buttonSearch.TabIndex = 17;
 			this.buttonSearch.Text = "Search";
 			this.buttonSearch.UseVisualStyleBackColor = true;
@@ -91,6 +91,7 @@
 			// 
 			// comboBoxType
 			// 
+			this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxType.FormattingEnabled = true;
 			this.comboBoxType.Location = new System.Drawing.Point(12, 12);
 			this.comboBoxType.Name = "comboBoxType";
@@ -100,9 +101,9 @@
 			// 
 			// buttonEdit
 			// 
-			this.buttonEdit.Location = new System.Drawing.Point(425, 774);
+			this.buttonEdit.Location = new System.Drawing.Point(414, 772);
 			this.buttonEdit.Name = "buttonEdit";
-			this.buttonEdit.Size = new System.Drawing.Size(111, 23);
+			this.buttonEdit.Size = new System.Drawing.Size(122, 25);
 			this.buttonEdit.TabIndex = 22;
 			this.buttonEdit.Text = "Edit";
 			this.buttonEdit.UseVisualStyleBackColor = true;

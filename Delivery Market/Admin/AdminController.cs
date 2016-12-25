@@ -433,17 +433,22 @@ namespace DeliveryMarket.Admin {
 
 		/******************* Select Queries *******************/
 		public DataTable SelectAccountStat() {
+			string user_rating = "SELECT " + AccountEntry.COL_ACCOUNT_ID + ", COALESCE(AVG(" + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_RATING_VALUE + "), 0) AS " +
+				"user_avg FROM " + AccountEntry.TABLE_NAME +
+				" LEFT OUTER JOIN (" + ProductEntry.TABLE_NAME + " LEFT OUTER JOIN " + RatingEntry.TABLE_NAME +
+				" ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID +
+				") ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID +
+				" WHERE  " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DELETED + " IS NULL OR " +
+				ProductEntry.TABLE_NAME + "." + ProductEntry.COL_DELETED + " = 0" +
+				" GROUP BY " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID;
+
 			string query = "SELECT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " AS " + Strings.ACCOUNT_TYPE +
 				", COALESCE(COUNT(DISTINCT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + "), 0) AS " + Strings.ACCOUNTS_COUNT +
 				", COALESCE(AVG(avg_rating.user_avg), 0) AS " + Strings.AVERAGE_ACCOUNTS_RATING + ", COALESCE(COUNT(DISTINCT " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_ORDER_ID +
 				"), 0) AS " + Strings.ORDERS_COUNT + ", COALESCE(total_money.total_price, 0) AS " + Strings.TOTAL_MONEY_PAID + " FROM " + AccountEntry.TABLE_NAME + " LEFT OUTER JOIN " +
 				ProductEntry.TABLE_NAME + " ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + " LEFT OUTER JOIN `" +
-				OrderEntry.TABLE_NAME + "` ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_CUSTOMER_ID + " LEFT OUTER JOIN (" +
-				"SELECT " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ", AVG(product_rate.rate) AS user_avg FROM " + AccountEntry.TABLE_NAME + " LEFT OUTER JOIN (" +
-				"SELECT " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_SELLER_ID + ", " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ", AVG(" + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_RATING_VALUE +
-				") AS rate FROM " + RatingEntry.TABLE_NAME + " LEFT OUTER JOIN " + ProductEntry.TABLE_NAME + " ON " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + " = " + RatingEntry.TABLE_NAME + "." + RatingEntry.COL_PRODUCT_ID +
-				" GROUP BY " + ProductEntry.TABLE_NAME + "." + ProductEntry.COL_PRODUCT_ID + ") AS product_rate ON product_rate." + ProductEntry.COL_SELLER_ID + " = " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " GROUP BY " +
-				AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + ") AS avg_rating ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = avg_rating." + AccountEntry.COL_ACCOUNT_ID + " LEFT OUTER JOIN (" +
+				OrderEntry.TABLE_NAME + "` ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = " + MarketEntry.DATABASE_NAME + "." + OrderEntry.TABLE_NAME + "." + OrderEntry.COL_CUSTOMER_ID + 
+				" LEFT OUTER JOIN (" + user_rating + ") AS avg_rating ON " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_ID + " = avg_rating." + AccountEntry.COL_ACCOUNT_ID + " LEFT OUTER JOIN (" +
 				"SELECT a." + AccountEntry.COL_ACCOUNT_TYPE + " AS type2, SUM(p." + ProductEntry.COL_PRICE + " * o." + OrderEntry.COL_QUANTITY + ") AS total_price FROM `" + OrderEntry.TABLE_NAME + "` AS o LEFT OUTER JOIN " + ProductEntry.TABLE_NAME +
 				" AS p on p." + ProductEntry.COL_PRODUCT_ID + " = o." + OrderEntry.COL_PRODUCT_ID + " RIGHT OUTER JOIN " + AccountEntry.TABLE_NAME + " AS a on o." + OrderEntry.COL_CUSTOMER_ID + " = a." + AccountEntry.COL_ACCOUNT_ID + " GROUP BY a." + AccountEntry.COL_ACCOUNT_TYPE +
 				") AS total_money ON total_money.type2 = " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " GROUP BY " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " ORDER BY " + AccountEntry.TABLE_NAME + "." + AccountEntry.COL_ACCOUNT_TYPE + " ASC;";

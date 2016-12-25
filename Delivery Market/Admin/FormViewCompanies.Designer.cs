@@ -73,9 +73,9 @@
 			// 
 			// buttonTransportCompanyRemove
 			// 
-			this.buttonTransportCompanyRemove.Location = new System.Drawing.Point(410, 12);
+			this.buttonTransportCompanyRemove.Location = new System.Drawing.Point(412, 12);
 			this.buttonTransportCompanyRemove.Name = "buttonTransportCompanyRemove";
-			this.buttonTransportCompanyRemove.Size = new System.Drawing.Size(92, 23);
+			this.buttonTransportCompanyRemove.Size = new System.Drawing.Size(90, 25);
 			this.buttonTransportCompanyRemove.TabIndex = 4;
 			this.buttonTransportCompanyRemove.Text = "Remove";
 			this.buttonTransportCompanyRemove.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
 			// 
 			// buttonTransportCompanyAdd
 			// 
-			this.buttonTransportCompanyAdd.Location = new System.Drawing.Point(333, 12);
+			this.buttonTransportCompanyAdd.Location = new System.Drawing.Point(345, 12);
 			this.buttonTransportCompanyAdd.Name = "buttonTransportCompanyAdd";
-			this.buttonTransportCompanyAdd.Size = new System.Drawing.Size(71, 23);
+			this.buttonTransportCompanyAdd.Size = new System.Drawing.Size(61, 25);
 			this.buttonTransportCompanyAdd.TabIndex = 3;
 			this.buttonTransportCompanyAdd.Text = "Add";
 			this.buttonTransportCompanyAdd.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
 			// 
 			this.buttonTransportCompanySearch.Location = new System.Drawing.Point(194, 12);
 			this.buttonTransportCompanySearch.Name = "buttonTransportCompanySearch";
-			this.buttonTransportCompanySearch.Size = new System.Drawing.Size(122, 23);
+			this.buttonTransportCompanySearch.Size = new System.Drawing.Size(122, 25);
 			this.buttonTransportCompanySearch.TabIndex = 2;
 			this.buttonTransportCompanySearch.Text = "Search";
 			this.buttonTransportCompanySearch.UseVisualStyleBackColor = true;
@@ -148,9 +148,9 @@
 			// 
 			// buttonTransactionCompanyRemove
 			// 
-			this.buttonTransactionCompanyRemove.Location = new System.Drawing.Point(410, 12);
+			this.buttonTransactionCompanyRemove.Location = new System.Drawing.Point(412, 12);
 			this.buttonTransactionCompanyRemove.Name = "buttonTransactionCompanyRemove";
-			this.buttonTransactionCompanyRemove.Size = new System.Drawing.Size(92, 23);
+			this.buttonTransactionCompanyRemove.Size = new System.Drawing.Size(90, 25);
 			this.buttonTransactionCompanyRemove.TabIndex = 9;
 			this.buttonTransactionCompanyRemove.Text = "Remove";
 			this.buttonTransactionCompanyRemove.UseVisualStyleBackColor = true;
@@ -158,9 +158,9 @@
 			// 
 			// buttonTransactionCompanyAdd
 			// 
-			this.buttonTransactionCompanyAdd.Location = new System.Drawing.Point(333, 12);
+			this.buttonTransactionCompanyAdd.Location = new System.Drawing.Point(345, 12);
 			this.buttonTransactionCompanyAdd.Name = "buttonTransactionCompanyAdd";
-			this.buttonTransactionCompanyAdd.Size = new System.Drawing.Size(71, 23);
+			this.buttonTransactionCompanyAdd.Size = new System.Drawing.Size(61, 25);
 			this.buttonTransactionCompanyAdd.TabIndex = 8;
 			this.buttonTransactionCompanyAdd.Text = "Add";
 			this.buttonTransactionCompanyAdd.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
 			// 
 			this.buttonTransactionCompanySearch.Location = new System.Drawing.Point(194, 12);
 			this.buttonTransactionCompanySearch.Name = "buttonTransactionCompanySearch";
-			this.buttonTransactionCompanySearch.Size = new System.Drawing.Size(122, 23);
+			this.buttonTransactionCompanySearch.Size = new System.Drawing.Size(122, 25);
 			this.buttonTransactionCompanySearch.TabIndex = 7;
 			this.buttonTransactionCompanySearch.Text = "Search";
 			this.buttonTransactionCompanySearch.UseVisualStyleBackColor = true;

@@ -36,7 +36,6 @@
 			this.textBoxName = new System.Windows.Forms.TextBox();
 			this.labelName = new System.Windows.Forms.Label();
 			this.labelGender = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.textBoxUserName = new System.Windows.Forms.TextBox();
 			this.labelUserName = new System.Windows.Forms.Label();
 			this.labelCreationDate = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
 			this.textBoxID = new System.Windows.Forms.TextBox();
 			this.comboBoxGender = new System.Windows.Forms.ComboBox();
 			this.labelDescription = new System.Windows.Forms.Label();
-			this.richTextBoxDescription = new System.Windows.Forms.RichTextBox();
 			this.labelReason = new System.Windows.Forms.Label();
 			this.comboBoxReason = new System.Windows.Forms.ComboBox();
 			this.buttonEdit = new System.Windows.Forms.Button();
@@ -61,7 +59,7 @@
 			this.labelStartDate = new System.Windows.Forms.Label();
 			this.dateTimeStartDate = new System.Windows.Forms.DateTimePicker();
 			this.buttonCancel = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.textBoxDescription = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// textBoxSearch
@@ -75,7 +73,7 @@
 			// 
 			this.buttonSearch.Location = new System.Drawing.Point(242, 11);
 			this.buttonSearch.Name = "buttonSearch";
-			this.buttonSearch.Size = new System.Drawing.Size(114, 30);
+			this.buttonSearch.Size = new System.Drawing.Size(122, 25);
 			this.buttonSearch.TabIndex = 1;
 			this.buttonSearch.Text = "Search";
 			this.buttonSearch.UseVisualStyleBackColor = true;
@@ -156,20 +154,11 @@
 			// labelGender
 			// 
 			this.labelGender.AutoSize = true;
-			this.labelGender.Location = new System.Drawing.Point(896, 221);
+			this.labelGender.Location = new System.Drawing.Point(1274, 63);
 			this.labelGender.Name = "labelGender";
 			this.labelGender.Size = new System.Drawing.Size(60, 17);
 			this.labelGender.TabIndex = 21;
 			this.labelGender.Text = "Gender:";
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.pictureBox1.Location = new System.Drawing.Point(1277, 60);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(223, 223);
-			this.pictureBox1.TabIndex = 8;
-			this.pictureBox1.TabStop = false;
 			// 
 			// textBoxUserName
 			// 
@@ -191,7 +180,7 @@
 			// labelCreationDate
 			// 
 			this.labelCreationDate.AutoSize = true;
-			this.labelCreationDate.Location = new System.Drawing.Point(896, 309);
+			this.labelCreationDate.Location = new System.Drawing.Point(896, 263);
 			this.labelCreationDate.Name = "labelCreationDate";
 			this.labelCreationDate.Size = new System.Drawing.Size(100, 17);
 			this.labelCreationDate.TabIndex = 23;
@@ -200,7 +189,7 @@
 			// labelBirthDate
 			// 
 			this.labelBirthDate.AutoSize = true;
-			this.labelBirthDate.Location = new System.Drawing.Point(896, 262);
+			this.labelBirthDate.Location = new System.Drawing.Point(896, 216);
 			this.labelBirthDate.Name = "labelBirthDate";
 			this.labelBirthDate.Size = new System.Drawing.Size(76, 17);
 			this.labelBirthDate.TabIndex = 22;
@@ -209,7 +198,7 @@
 			// dateTimeBirthDate
 			// 
 			this.dateTimeBirthDate.Enabled = false;
-			this.dateTimeBirthDate.Location = new System.Drawing.Point(1005, 265);
+			this.dateTimeBirthDate.Location = new System.Drawing.Point(1005, 219);
 			this.dateTimeBirthDate.Name = "dateTimeBirthDate";
 			this.dateTimeBirthDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeBirthDate.TabIndex = 9;
@@ -217,7 +206,7 @@
 			// dateTimeCreationDate
 			// 
 			this.dateTimeCreationDate.Enabled = false;
-			this.dateTimeCreationDate.Location = new System.Drawing.Point(1005, 312);
+			this.dateTimeCreationDate.Location = new System.Drawing.Point(1005, 266);
 			this.dateTimeCreationDate.Name = "dateTimeCreationDate";
 			this.dateTimeCreationDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeCreationDate.TabIndex = 10;
@@ -225,7 +214,7 @@
 			// labelType
 			// 
 			this.labelType.AutoSize = true;
-			this.labelType.Location = new System.Drawing.Point(896, 390);
+			this.labelType.Location = new System.Drawing.Point(896, 343);
 			this.labelType.Name = "labelType";
 			this.labelType.Size = new System.Drawing.Size(44, 17);
 			this.labelType.TabIndex = 25;
@@ -233,9 +222,9 @@
 			// 
 			// comboBoxType
 			// 
-			this.comboBoxType.Enabled = false;
+			this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxType.FormattingEnabled = true;
-			this.comboBoxType.Location = new System.Drawing.Point(1005, 393);
+			this.comboBoxType.Location = new System.Drawing.Point(1005, 346);
 			this.comboBoxType.Name = "comboBoxType";
 			this.comboBoxType.Size = new System.Drawing.Size(255, 24);
 			this.comboBoxType.TabIndex = 12;
@@ -261,7 +250,7 @@
 			// labelAddress
 			// 
 			this.labelAddress.AutoSize = true;
-			this.labelAddress.Location = new System.Drawing.Point(896, 351);
+			this.labelAddress.Location = new System.Drawing.Point(896, 305);
 			this.labelAddress.Name = "labelAddress";
 			this.labelAddress.Size = new System.Drawing.Size(64, 17);
 			this.labelAddress.TabIndex = 24;
@@ -269,7 +258,7 @@
 			// 
 			// textBoxAddress
 			// 
-			this.textBoxAddress.Location = new System.Drawing.Point(1005, 354);
+			this.textBoxAddress.Location = new System.Drawing.Point(1005, 308);
 			this.textBoxAddress.Name = "textBoxAddress";
 			this.textBoxAddress.ReadOnly = true;
 			this.textBoxAddress.Size = new System.Drawing.Size(255, 22);
@@ -296,7 +285,7 @@
 			// 
 			this.comboBoxGender.Enabled = false;
 			this.comboBoxGender.FormattingEnabled = true;
-			this.comboBoxGender.Location = new System.Drawing.Point(1005, 221);
+			this.comboBoxGender.Location = new System.Drawing.Point(1383, 63);
 			this.comboBoxGender.Name = "comboBoxGender";
 			this.comboBoxGender.Size = new System.Drawing.Size(43, 24);
 			this.comboBoxGender.TabIndex = 8;
@@ -304,44 +293,36 @@
 			// labelDescription
 			// 
 			this.labelDescription.AutoSize = true;
-			this.labelDescription.Location = new System.Drawing.Point(899, 448);
+			this.labelDescription.Location = new System.Drawing.Point(899, 426);
 			this.labelDescription.Name = "labelDescription";
 			this.labelDescription.Size = new System.Drawing.Size(83, 17);
 			this.labelDescription.TabIndex = 27;
 			this.labelDescription.Text = "Description:";
 			// 
-			// richTextBoxDescription
-			// 
-			this.richTextBoxDescription.Enabled = false;
-			this.richTextBoxDescription.Location = new System.Drawing.Point(899, 471);
-			this.richTextBoxDescription.Name = "richTextBoxDescription";
-			this.richTextBoxDescription.Size = new System.Drawing.Size(601, 259);
-			this.richTextBoxDescription.TabIndex = 14;
-			this.richTextBoxDescription.Text = "";
-			// 
 			// labelReason
 			// 
 			this.labelReason.AutoSize = true;
-			this.labelReason.Location = new System.Drawing.Point(1274, 390);
+			this.labelReason.Location = new System.Drawing.Point(899, 376);
 			this.labelReason.Name = "labelReason";
-			this.labelReason.Size = new System.Drawing.Size(57, 17);
+			this.labelReason.Size = new System.Drawing.Size(61, 17);
 			this.labelReason.TabIndex = 26;
-			this.labelReason.Text = "Reason";
+			this.labelReason.Text = "Reason:";
 			// 
 			// comboBoxReason
 			// 
+			this.comboBoxReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxReason.Enabled = false;
 			this.comboBoxReason.FormattingEnabled = true;
-			this.comboBoxReason.Location = new System.Drawing.Point(1337, 393);
+			this.comboBoxReason.Location = new System.Drawing.Point(1005, 376);
 			this.comboBoxReason.Name = "comboBoxReason";
 			this.comboBoxReason.Size = new System.Drawing.Size(163, 24);
 			this.comboBoxReason.TabIndex = 13;
 			// 
 			// buttonEdit
 			// 
-			this.buttonEdit.Location = new System.Drawing.Point(1173, 18);
+			this.buttonEdit.Location = new System.Drawing.Point(1153, 19);
 			this.buttonEdit.Name = "buttonEdit";
-			this.buttonEdit.Size = new System.Drawing.Size(111, 26);
+			this.buttonEdit.Size = new System.Drawing.Size(122, 25);
 			this.buttonEdit.TabIndex = 15;
 			this.buttonEdit.Text = "Edit";
 			this.buttonEdit.UseVisualStyleBackColor = true;
@@ -350,9 +331,9 @@
 			// buttonApply
 			// 
 			this.buttonApply.Enabled = false;
-			this.buttonApply.Location = new System.Drawing.Point(1290, 18);
+			this.buttonApply.Location = new System.Drawing.Point(1281, 19);
 			this.buttonApply.Name = "buttonApply";
-			this.buttonApply.Size = new System.Drawing.Size(111, 26);
+			this.buttonApply.Size = new System.Drawing.Size(122, 25);
 			this.buttonApply.TabIndex = 16;
 			this.buttonApply.Text = "Apply";
 			this.buttonApply.UseVisualStyleBackColor = true;
@@ -361,7 +342,7 @@
 			// labelStartDate
 			// 
 			this.labelStartDate.AutoSize = true;
-			this.labelStartDate.Location = new System.Drawing.Point(899, 432);
+			this.labelStartDate.Location = new System.Drawing.Point(900, 379);
 			this.labelStartDate.Name = "labelStartDate";
 			this.labelStartDate.Size = new System.Drawing.Size(72, 17);
 			this.labelStartDate.TabIndex = 27;
@@ -370,7 +351,7 @@
 			// dateTimeStartDate
 			// 
 			this.dateTimeStartDate.Enabled = false;
-			this.dateTimeStartDate.Location = new System.Drawing.Point(1005, 432);
+			this.dateTimeStartDate.Location = new System.Drawing.Point(1005, 376);
 			this.dateTimeStartDate.Name = "dateTimeStartDate";
 			this.dateTimeStartDate.Size = new System.Drawing.Size(255, 22);
 			this.dateTimeStartDate.TabIndex = 14;
@@ -378,19 +359,28 @@
 			// buttonCancel
 			// 
 			this.buttonCancel.Enabled = false;
-			this.buttonCancel.Location = new System.Drawing.Point(1407, 18);
+			this.buttonCancel.Location = new System.Drawing.Point(1409, 19);
 			this.buttonCancel.Name = "buttonCancel";
-			this.buttonCancel.Size = new System.Drawing.Size(111, 26);
+			this.buttonCancel.Size = new System.Drawing.Size(122, 25);
 			this.buttonCancel.TabIndex = 28;
 			this.buttonCancel.Text = "Cancel";
 			this.buttonCancel.UseVisualStyleBackColor = true;
 			this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+			// 
+			// textBoxDescription
+			// 
+			this.textBoxDescription.Location = new System.Drawing.Point(902, 446);
+			this.textBoxDescription.Multiline = true;
+			this.textBoxDescription.Name = "textBoxDescription";
+			this.textBoxDescription.Size = new System.Drawing.Size(556, 232);
+			this.textBoxDescription.TabIndex = 29;
 			// 
 			// FormViewAccounts
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1543, 742);
+			this.Controls.Add(this.textBoxDescription);
 			this.Controls.Add(this.buttonCancel);
 			this.Controls.Add(this.dateTimeStartDate);
 			this.Controls.Add(this.labelStartDate);
@@ -399,7 +389,6 @@
 			this.Controls.Add(this.comboBoxReason);
 			this.Controls.Add(this.labelReason);
 			this.Controls.Add(this.labelDescription);
-			this.Controls.Add(this.richTextBoxDescription);
 			this.Controls.Add(this.comboBoxGender);
 			this.Controls.Add(this.labelID);
 			this.Controls.Add(this.textBoxID);
@@ -415,7 +404,6 @@
 			this.Controls.Add(this.labelBirthDate);
 			this.Controls.Add(this.labelUserName);
 			this.Controls.Add(this.textBoxUserName);
-			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.labelGender);
 			this.Controls.Add(this.labelName);
 			this.Controls.Add(this.textBoxName);
@@ -430,7 +418,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "View Accounts";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormViewAccounts_FormClosed);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -450,7 +437,6 @@
 		private System.Windows.Forms.TextBox textBoxName;
 		private System.Windows.Forms.Label labelName;
 		private System.Windows.Forms.Label labelGender;
-		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.TextBox textBoxUserName;
 		private System.Windows.Forms.Label labelUserName;
 		private System.Windows.Forms.Label labelCreationDate;
@@ -467,7 +453,6 @@
 		private System.Windows.Forms.TextBox textBoxID;
 		private System.Windows.Forms.ComboBox comboBoxGender;
 		private System.Windows.Forms.Label labelDescription;
-		private System.Windows.Forms.RichTextBox richTextBoxDescription;
 		private System.Windows.Forms.Label labelReason;
 		private System.Windows.Forms.ComboBox comboBoxReason;
 		private System.Windows.Forms.Button buttonEdit;
@@ -475,5 +460,6 @@
 		private System.Windows.Forms.Label labelStartDate;
 		private System.Windows.Forms.DateTimePicker dateTimeStartDate;
 		private System.Windows.Forms.Button buttonCancel;
+		private System.Windows.Forms.TextBox textBoxDescription;
 	}
 }
