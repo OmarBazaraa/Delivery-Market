@@ -35,6 +35,7 @@ namespace DeliveryMarket.Registeration {
 
 			DataRow row = mController.SelectAccountPrivilege(username, password);
 
+			// Login failed
 			if (row == null) {
 				MessageBox.Show(LOGIN_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -73,8 +74,10 @@ namespace DeliveryMarket.Registeration {
 				return;
 			}
 
+			// Clear password for the upcoming login
 			textBoxPassword.Text = "";
 
+			// Open the main form
 			new FormMain(privilege, accountID, username).Show(this);
 			Hide();
 		}

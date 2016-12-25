@@ -1,4 +1,5 @@
 ﻿namespace DeliveryMarket.Data {
+
 	/* 
 	 * A contract namespace containing information about our Delivery Market database 
 	 */
