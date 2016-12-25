@@ -1,25 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DeliveryMarket.Data.MarketContract;
+using DeliveryMarket.Utils.Defs;
 
 namespace DeliveryMarket.Product {
 
 	public partial class FormBuyProduct : Form {
 		// Messages
-		private const string INVALID_INPUT_TITLE = "Invalid Description";
 		private const string INVALID_INPUT_MSG = "Please make sure to write your address correctly";
-		private const string BUY_SUCCESS_TITLE = "Done";
 		private const string BUY_SUCCESS_MSG = "The product was bought successfully";
-		private const string BUY_FAILED_TITLE = "Error";
 		private const string BUY_FAILED_MSG = "An error occured will buying this product";
-		private const string CONFIRMATION_TITLE = "Buy";
 		private const string CONFIRMATION_MSG = "Are you sure want to buy this product?";
 
 		// Member variables
@@ -62,12 +53,12 @@ namespace DeliveryMarket.Product {
 
 			// Check for validation
 			if (address == "") {
-				MessageBox.Show(INVALID_INPUT_MSG, INVALID_INPUT_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(INVALID_INPUT_MSG, Strings.APP_TITLE, MessageBoxButtons.OK);
 				return;
 			}
 
 			// Ask for confirmation
-			if (MessageBox.Show(CONFIRMATION_MSG, CONFIRMATION_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
+			if (MessageBox.Show(CONFIRMATION_MSG, Strings.APP_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No) {
 				return;
 			}
 
@@ -81,9 +72,9 @@ namespace DeliveryMarket.Product {
 			order.TransactionCompanyID = Convert.ToInt32(comboBoxTransaction.SelectedValue);
 			order.TransportCompanyID = Convert.ToInt32(comboBoxTransport.SelectedValue);
 
-			// Delete product
+			// Buy product
 			if (mController.BuyProduct(order) > 0) {
-				MessageBox.Show(BUY_SUCCESS_MSG, BUY_SUCCESS_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(BUY_SUCCESS_MSG, Strings.APP_TITLE, MessageBoxButtons.OK);
 
 				if (Owner.GetType() == typeof(FormProductList)) {
 					((FormProductList)Owner).LoadProduct();
@@ -95,7 +86,7 @@ namespace DeliveryMarket.Product {
 				Close();
 			}
 			else {
-				MessageBox.Show(BUY_FAILED_MSG, BUY_FAILED_TITLE, MessageBoxButtons.OK);
+				MessageBox.Show(BUY_FAILED_MSG, Strings.APP_TITLE, MessageBoxButtons.OK);
 			}
 		}
 

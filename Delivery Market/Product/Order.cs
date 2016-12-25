@@ -16,6 +16,5 @@ namespace DeliveryMarket.Product {
 		public string Address;
 		public int TransactionCompanyID;
 		public int TransportCompanyID;
-		public DateTime OrderDate;
 	}
 }

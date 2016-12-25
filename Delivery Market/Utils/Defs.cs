@@ -30,7 +30,6 @@ namespace DeliveryMarket.Utils {
 			// Applications messages
 			
 
-
 			// Column Return names for AdminController
 			public const string ACCOUNT_TYPE = "account_type";
 			public const string ACCOUNTS_COUNT = "accounts_count";
